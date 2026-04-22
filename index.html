@@ -199,7 +199,6 @@ body{font-family:'Inter',system-ui,-apple-system,sans-serif;margin:0;color:var(-
   .det{padding:18px 14px}
 }
 </style>
-<base target="_blank">
 </head>
 <body>
 <div class="app">
@@ -813,8 +812,7 @@ function bindStatic(){
     if(e.target.id==='histCatSel'){ST.histCategory=e.target.value;render();}
     if(e.target.classList.contains('hid-file')){
       const file=e.target.files[0];if(!file)return;const key=e.target.dataset.target;
-      readFileAsText(file).then(t=>{parseAndStore(key,t);setUploadStatus(`Caricato ${DATASETS.find(d=>d
-      .key===key)?.label||key}: ${ST[key]?.length||0} righe`,'ok');}).catch(err=>setUploadStatus('Errore: '+err.message,'err'));
+      readFileAsText(file).then(t=>{parseAndStore(key,t);setUploadStatus(`Caricato ${DATASETS.find(d=>d.key===key)?.label||key}: ${ST[key]?.length||0} righe`,'ok');}).catch(err=>setUploadStatus('Errore: '+err.message,'err'));
 }
 });
 document.body.addEventListener('input',e=>{
@@ -858,4 +856,4 @@ render();
 }
 initApp();
 </body>
-</html>                                                                                             
+</html>
