@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="it">
 <head>
 <meta charset="UTF-8">
@@ -42,271 +43,271 @@ button{border:none;background:none;cursor:pointer}
 .app{max-width:920px;margin:0 auto;padding:14px 14px 120px;min-height:100vh;min-height:100dvh}
 .hdr{padding:14px 0 10px;margin-bottom:10px;display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .hdr-l h1{font-size:1.4rem;font-weight:700;color:#fff;letter-spacing:-.5px;line-height:1.2}
-.hdr-l h1 span{color:var(--ok)}
-.hdr-l .sub{font:500 .78rem var(--S);color:var(--fg3);margin-top:2px}
+.hdr-l h1 span{color:var(–ok)}
+.hdr-l .sub{font:500 .78rem var(–S);color:var(–fg3);margin-top:2px}
 .hdr-r{display:flex;flex-direction:column;align-items:flex-end;gap:4px}
-.bk-mini{padding:8px 12px;background:var(--bg1);border:1px solid var(--brd1);border-radius:10px;font:600 .85rem var(--M);color:var(--fg1)}
-.bk-mini .lbl{font:500 .65rem var(--S);color:var(--fg3);text-transform:uppercase;letter-spacing:.5px;display:block}
-.bk-mini.pos{color:var(--ok)}
-.bk-mini.neg{color:var(--err)}
+.bk-mini{padding:8px 12px;background:var(–bg1);border:1px solid var(–brd1);border-radius:10px;font:600 .85rem var(–M);color:var(–fg1)}
+.bk-mini .lbl{font:500 .65rem var(–S);color:var(–fg3);text-transform:uppercase;letter-spacing:.5px;display:block}
+.bk-mini.pos{color:var(–ok)}
+.bk-mini.neg{color:var(–err)}
 
 /* ==================== TAB NAV ==================== */
-.nav{display:flex;gap:4px;margin-bottom:14px;overflow-x:auto;padding-bottom:4px;-webkit-overflow-scrolling:touch;scrollbar-width:none;background:var(--bg1);border-radius:12px;padding:4px;border:1px solid var(--brd1)}
+.nav{display:flex;gap:4px;margin-bottom:14px;overflow-x:auto;padding-bottom:4px;-webkit-overflow-scrolling:touch;scrollbar-width:none;background:var(–bg1);border-radius:12px;padding:4px;border:1px solid var(–brd1)}
 .nav::-webkit-scrollbar{display:none}
-.nav-btn{padding:10px 16px;border-radius:9px;font:600 .85rem var(--S);color:var(--fg2);white-space:nowrap;transition:all .15s;flex-shrink:0;display:flex;align-items:center;gap:6px}
-.nav-btn:hover{color:var(--fg1);background:var(--bg2)}
-.nav-btn.active{background:var(--bg3);color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}
+.nav-btn{padding:10px 16px;border-radius:9px;font:600 .85rem var(–S);color:var(–fg2);white-space:nowrap;transition:all .15s;flex-shrink:0;display:flex;align-items:center;gap:6px}
+.nav-btn:hover{color:var(–fg1);background:var(–bg2)}
+.nav-btn.active{background:var(–bg3);color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}
 .nav-btn .ico{font-size:1rem}
 
 /* ==================== PANEL UPLOAD ==================== */
-.panel{background:var(--bg1);border:1px solid var(--brd1);border-radius:var(--rm);padding:14px;margin-bottom:14px}
+.panel{background:var(–bg1);border:1px solid var(–brd1);border-radius:var(–rm);padding:14px;margin-bottom:14px}
 .panel-tg{display:flex;align-items:center;justify-content:space-between;padding:4px 0;cursor:pointer;user-select:none}
-.panel-tg h3{font-size:1rem;font-weight:600;color:var(--fg1);display:flex;align-items:center;gap:8px}
-.panel-tg h3 .n{font:500 .75rem var(--M);color:var(--fg3);padding:2px 8px;background:var(--bg2);border-radius:6px}
-.panel-tg .arrow{color:var(--fg3);font-size:1.1rem;transition:transform .2s}
+.panel-tg h3{font-size:1rem;font-weight:600;color:var(–fg1);display:flex;align-items:center;gap:8px}
+.panel-tg h3 .n{font:500 .75rem var(–M);color:var(–fg3);padding:2px 8px;background:var(–bg2);border-radius:6px}
+.panel-tg .arrow{color:var(–fg3);font-size:1.1rem;transition:transform .2s}
 .panel-tg.open .arrow{transform:rotate(180deg)}
 .panel-body{max-height:0;overflow:hidden;transition:max-height .3s ease}
 .panel-body.open{max-height:2000px;padding-top:12px}
 .up-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
-.up-card{position:relative;padding:12px;border:1.5px dashed var(--brd2);border-radius:var(--rs);background:rgba(255,255,255,.01);display:flex;flex-direction:column;gap:6px;min-height:110px;transition:all .15s}
-.up-card:hover{border-color:var(--ok2);background:rgba(74,222,128,.03)}
-.up-card.loaded{border-style:solid;border-color:var(--ok2);background:rgba(74,222,128,.04)}
-.up-lbl{font:700 .8rem var(--M);color:#fff;display:flex;align-items:center;gap:6px}
-.up-lbl .tag-num{font:600 .68rem var(--M);color:var(--fg3);padding:1px 6px;background:var(--bg2);border-radius:4px}
-.up-meta{font:500 .78rem var(--S);color:var(--fg2);line-height:1.45;flex:1}
-.up-meta small{display:block;color:var(--fg3);font-size:.72rem;margin-top:2px}
-.up-count{color:var(--ok);font-weight:700}
+.up-card{position:relative;padding:12px;border:1.5px dashed var(–brd2);border-radius:var(–rs);background:rgba(255,255,255,.01);display:flex;flex-direction:column;gap:6px;min-height:110px;transition:all .15s}
+.up-card:hover{border-color:var(–ok2);background:rgba(74,222,128,.03)}
+.up-card.loaded{border-style:solid;border-color:var(–ok2);background:rgba(74,222,128,.04)}
+.up-lbl{font:700 .8rem var(–M);color:#fff;display:flex;align-items:center;gap:6px}
+.up-lbl .tag-num{font:600 .68rem var(–M);color:var(–fg3);padding:1px 6px;background:var(–bg2);border-radius:4px}
+.up-meta{font:500 .78rem var(–S);color:var(–fg2);line-height:1.45;flex:1}
+.up-meta small{display:block;color:var(–fg3);font-size:.72rem;margin-top:2px}
+.up-count{color:var(–ok);font-weight:700}
 .up-actions{display:flex;gap:6px;align-items:center}
-.up-btn{padding:6px 10px;background:var(--bg2);border:1px solid var(--brd1);border-radius:6px;color:var(--fg1);font:600 .72rem var(--M);cursor:pointer;transition:all .15s}
-.up-btn:hover{border-color:var(--ok2);color:var(--ok)}
-.up-btn.clear{color:var(--err);border-color:rgba(248,113,113,.3)}
-.up-btn.clear:hover{background:var(--err-bg)}
+.up-btn{padding:6px 10px;background:var(–bg2);border:1px solid var(–brd1);border-radius:6px;color:var(–fg1);font:600 .72rem var(–M);cursor:pointer;transition:all .15s}
+.up-btn:hover{border-color:var(–ok2);color:var(–ok)}
+.up-btn.clear{color:var(–err);border-color:rgba(248,113,113,.3)}
+.up-btn.clear:hover{background:var(–err-bg)}
 .up-card input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;z-index:1}
 .up-card .up-actions{position:relative;z-index:2}
-.up-note{margin-top:10px;padding:8px 10px;background:var(--bg0);border-radius:6px;color:var(--fg3);font:500 .75rem var(--S);line-height:1.5}
-.up-status{margin-top:8px;padding:8px 10px;border-radius:6px;font:500 .8rem var(--S)}
-.up-status.ok{background:var(--ok-bg);color:var(--ok)}
-.up-status.err{background:var(--err-bg);color:var(--err)}
+.up-note{margin-top:10px;padding:8px 10px;background:var(–bg0);border-radius:6px;color:var(–fg3);font:500 .75rem var(–S);line-height:1.5}
+.up-status{margin-top:8px;padding:8px 10px;border-radius:6px;font:500 .8rem var(–S)}
+.up-status.ok{background:var(–ok-bg);color:var(–ok)}
+.up-status.err{background:var(–err-bg);color:var(–err)}
 
 /* ==================== HERO BET OF THE DAY ==================== */
-.hero{background:linear-gradient(145deg,var(--bg1) 0%,var(--bg2) 100%);border:1px solid var(--brd1);border-left:4px solid var(--ok);border-radius:var(--rxl);padding:22px 20px;margin-bottom:16px;position:relative;overflow:hidden;box-shadow:var(--sh2)}
-.hero::before{content:"";position:absolute;top:-80px;right:-60px;width:200px;height:200px;background:radial-gradient(circle,rgba(74,222,128,.12) 0%,transparent 70%);pointer-events:none}
+.hero{background:linear-gradient(145deg,var(–bg1) 0%,var(–bg2) 100%);border:1px solid var(–brd1);border-left:4px solid var(–ok);border-radius:var(–rxl);padding:22px 20px;margin-bottom:16px;position:relative;overflow:hidden;box-shadow:var(–sh2)}
+.hero::before{content:””;position:absolute;top:-80px;right:-60px;width:200px;height:200px;background:radial-gradient(circle,rgba(74,222,128,.12) 0%,transparent 70%);pointer-events:none}
 .hero-hdr{display:flex;align-items:center;gap:10px;margin-bottom:12px}
-.hero-tag{padding:4px 10px;background:var(--gold-bg);color:var(--gold);border:1px solid rgba(255,215,0,.3);border-radius:6px;font:800 .72rem var(--M);letter-spacing:1px;text-transform:uppercase;display:inline-flex;align-items:center;gap:6px}
-.hero-league{font:500 .78rem var(--S);color:var(--fg3);margin-left:auto}
-.hero-title{font:700 1.25rem var(--S);color:#fff;line-height:1.3;margin-bottom:4px}
-.hero-sub{font:500 .85rem var(--S);color:var(--fg2);margin-bottom:14px}
+.hero-tag{padding:4px 10px;background:var(–gold-bg);color:var(–gold);border:1px solid rgba(255,215,0,.3);border-radius:6px;font:800 .72rem var(–M);letter-spacing:1px;text-transform:uppercase;display:inline-flex;align-items:center;gap:6px}
+.hero-league{font:500 .78rem var(–S);color:var(–fg3);margin-left:auto}
+.hero-title{font:700 1.25rem var(–S);color:#fff;line-height:1.3;margin-bottom:4px}
+.hero-sub{font:500 .85rem var(–S);color:var(–fg2);margin-bottom:14px}
 .hero-grid{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;margin-bottom:16px}
 .hero-gauge{flex-shrink:0}
 .hero-pick{display:flex;flex-direction:column;gap:8px}
-.hero-market{font:800 1.1rem var(--S);color:#fff}
+.hero-market{font:800 1.1rem var(–S);color:#fff}
 .hero-odds{display:flex;flex-wrap:wrap;gap:14px;align-items:baseline}
 .hero-odds .it{display:flex;flex-direction:column}
-.hero-odds .lb{font:500 .68rem var(--S);color:var(--fg3);text-transform:uppercase;letter-spacing:.5px}
-.hero-odds .vl{font:700 1.05rem var(--M);color:#fff}
-.hero-odds .vl.ok{color:var(--ok)}
-.hero-odds .vl.info{color:var(--info)}
-.hero-narr{padding:12px 14px;background:rgba(0,0,0,.2);border-radius:var(--rm);color:var(--fg1);font:400 .88rem var(--S);line-height:1.55;margin-bottom:14px;border-left:2px solid var(--ok)}
+.hero-odds .lb{font:500 .68rem var(–S);color:var(–fg3);text-transform:uppercase;letter-spacing:.5px}
+.hero-odds .vl{font:700 1.05rem var(–M);color:#fff}
+.hero-odds .vl.ok{color:var(–ok)}
+.hero-odds .vl.info{color:var(–info)}
+.hero-narr{padding:12px 14px;background:rgba(0,0,0,.2);border-radius:var(–rm);color:var(–fg1);font:400 .88rem var(–S);line-height:1.55;margin-bottom:14px;border-left:2px solid var(–ok)}
 .hero-cta{display:flex;gap:8px;flex-wrap:wrap}
-.btn{padding:10px 16px;border-radius:10px;font:600 .88rem var(--S);transition:all .15s;display:inline-flex;align-items:center;gap:6px;cursor:pointer;border:1px solid transparent}
-.btn-primary{background:var(--cta);color:#fff;border-color:var(--cta)}
-.btn-primary:hover{background:var(--cta-h)}
-.btn-ghost{background:transparent;color:var(--fg1);border-color:var(--brd1)}
-.btn-ghost:hover{border-color:var(--brd2);background:var(--bg2)}
-.btn-ok{background:var(--ok-bg);color:var(--ok);border-color:rgba(74,222,128,.25)}
+.btn{padding:10px 16px;border-radius:10px;font:600 .88rem var(–S);transition:all .15s;display:inline-flex;align-items:center;gap:6px;cursor:pointer;border:1px solid transparent}
+.btn-primary{background:var(–cta);color:#fff;border-color:var(–cta)}
+.btn-primary:hover{background:var(–cta-h)}
+.btn-ghost{background:transparent;color:var(–fg1);border-color:var(–brd1)}
+.btn-ghost:hover{border-color:var(–brd2);background:var(–bg2)}
+.btn-ok{background:var(–ok-bg);color:var(–ok);border-color:rgba(74,222,128,.25)}
 .btn-ok:hover{background:rgba(74,222,128,.18)}
 
 /* ==================== GAUGE SVG ==================== */
 .gauge{position:relative;width:120px;height:120px}
 .gauge.sm{width:72px;height:72px}
 .gauge svg{transform:rotate(-90deg)}
-.gauge .bg-ring{fill:none;stroke:var(--bg3);stroke-width:10}
-.gauge .fg-ring{fill:none;stroke:var(--ok);stroke-width:10;stroke-linecap:round;transition:stroke-dashoffset .6s ease,stroke .3s}
+.gauge .bg-ring{fill:none;stroke:var(–bg3);stroke-width:10}
+.gauge .fg-ring{fill:none;stroke:var(–ok);stroke-width:10;stroke-linecap:round;transition:stroke-dashoffset .6s ease,stroke .3s}
 .gauge.sm .bg-ring,.gauge.sm .fg-ring{stroke-width:7}
 .gauge .lbl{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
-.gauge .lbl .v{font:800 1.4rem var(--M);color:#fff;line-height:1}
+.gauge .lbl .v{font:800 1.4rem var(–M);color:#fff;line-height:1}
 .gauge.sm .lbl .v{font-size:1rem}
-.gauge .lbl .t{font:500 .6rem var(--S);color:var(--fg3);text-transform:uppercase;letter-spacing:.6px;margin-top:2px}
+.gauge .lbl .t{font:500 .6rem var(–S);color:var(–fg3);text-transform:uppercase;letter-spacing:.6px;margin-top:2px}
 .gauge.sm .lbl .t{font-size:.5rem}
-.gauge.g-ok .fg-ring{stroke:var(--ok)}
-.gauge.g-wa .fg-ring{stroke:var(--warn)}
-.gauge.g-er .fg-ring{stroke:var(--err)}
+.gauge.g-ok .fg-ring{stroke:var(–ok)}
+.gauge.g-wa .fg-ring{stroke:var(–warn)}
+.gauge.g-er .fg-ring{stroke:var(–err)}
 
 /* ==================== CARD STANDARD ==================== */
-.sec{display:flex;align-items:center;gap:10px;margin:20px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--brd1)}
-.sec h2{font:700 1rem var(--S);color:#fff;display:flex;align-items:center;gap:8px}
-.sec .ct{font:500 .78rem var(--S);color:var(--fg3);margin-left:auto}
+.sec{display:flex;align-items:center;gap:10px;margin:20px 0 10px;padding-bottom:8px;border-bottom:1px solid var(–brd1)}
+.sec h2{font:700 1rem var(–S);color:#fff;display:flex;align-items:center;gap:8px}
+.sec .ct{font:500 .78rem var(–S);color:var(–fg3);margin-left:auto}
 .sec .ico{font-size:1.05rem}
 
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:10px}
-.card{background:var(--bg1);border:1px solid var(--brd1);border-radius:var(--rm);padding:13px;transition:all .15s;position:relative;cursor:pointer}
-.card:hover{border-color:var(--brd2);background:var(--bg2);transform:translateY(-1px);box-shadow:var(--sh1)}
+.card{background:var(–bg1);border:1px solid var(–brd1);border-radius:var(–rm);padding:13px;transition:all .15s;position:relative;cursor:pointer}
+.card:hover{border-color:var(–brd2);background:var(–bg2);transform:translateY(-1px);box-shadow:var(–sh1)}
 .card-top{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px}
 .card-info{flex:1;min-width:0}
-.card-league{font:500 .7rem var(--S);color:var(--fg3);margin-bottom:2px;text-transform:uppercase;letter-spacing:.4px}
-.card-match{font:600 .95rem var(--S);color:#fff;line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-bottom:2px}
-.card-time{font:500 .75rem var(--M);color:var(--fg3)}
+.card-league{font:500 .7rem var(–S);color:var(–fg3);margin-bottom:2px;text-transform:uppercase;letter-spacing:.4px}
+.card-match{font:600 .95rem var(–S);color:#fff;line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-bottom:2px}
+.card-time{font:500 .75rem var(–M);color:var(–fg3)}
 .card-body{padding:8px 0}
-.card-market{font:700 .95rem var(--S);color:#fff;margin-bottom:6px}
+.card-market{font:700 .95rem var(–S);color:#fff;margin-bottom:6px}
 .card-stats{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:6px}
 .card-stats .s{display:flex;flex-direction:column}
-.card-stats .lb{font:500 .62rem var(--S);color:var(--fg3);text-transform:uppercase;letter-spacing:.4px}
-.card-stats .vl{font:700 .88rem var(--M);color:var(--fg1)}
-.card-stats .vl.ok{color:var(--ok)}
-.card-stats .vl.warn{color:var(--warn)}
-.card-stats .vl.err{color:var(--err)}
+.card-stats .lb{font:500 .62rem var(–S);color:var(–fg3);text-transform:uppercase;letter-spacing:.4px}
+.card-stats .vl{font:700 .88rem var(–M);color:var(–fg1)}
+.card-stats .vl.ok{color:var(–ok)}
+.card-stats .vl.warn{color:var(–warn)}
+.card-stats .vl.err{color:var(–err)}
 .card-badges{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
-.card-foot{display:flex;align-items:center;justify-content:space-between;gap:8px;padding-top:8px;border-top:1px solid var(--brd1);margin-top:8px}
+.card-foot{display:flex;align-items:center;justify-content:space-between;gap:8px;padding-top:8px;border-top:1px solid var(–brd1);margin-top:8px}
 .card-foot-l{display:flex;align-items:center;gap:8px}
 
 /* Badge */
-.bdg{padding:3px 8px;border-radius:5px;font:700 .7rem var(--M);display:inline-flex;align-items:center;gap:4px;white-space:nowrap}
-.bdg-m1{background:var(--gold-bg);color:var(--gold);border:1px solid rgba(255,215,0,.3)}
-.bdg-dm-ok{background:var(--ok-bg);color:var(--ok);border:1px solid rgba(74,222,128,.3)}
-.bdg-dm-wa{background:var(--warn-bg);color:var(--warn);border:1px solid rgba(251,191,36,.3)}
-.bdg-dm-er{background:var(--err-bg);color:var(--err);border:1px solid rgba(248,113,113,.3)}
-.bdg-val{background:var(--mag-bg);color:var(--mag);border:1px solid rgba(192,132,252,.3)}
-.bdg-gz{background:var(--info-bg);color:var(--info);border:1px solid rgba(96,165,250,.3)}
-.bdg-neu{background:rgba(255,255,255,.04);color:var(--fg2);border:1px solid var(--brd1)}
-.bdg-ok{background:var(--ok-bg);color:var(--ok);border:1px solid rgba(74,222,128,.3)}
-.bdg-skip{background:var(--err-bg);color:var(--err);border:1px solid rgba(248,113,113,.3)}
+.bdg{padding:3px 8px;border-radius:5px;font:700 .7rem var(–M);display:inline-flex;align-items:center;gap:4px;white-space:nowrap}
+.bdg-m1{background:var(–gold-bg);color:var(–gold);border:1px solid rgba(255,215,0,.3)}
+.bdg-dm-ok{background:var(–ok-bg);color:var(–ok);border:1px solid rgba(74,222,128,.3)}
+.bdg-dm-wa{background:var(–warn-bg);color:var(–warn);border:1px solid rgba(251,191,36,.3)}
+.bdg-dm-er{background:var(–err-bg);color:var(–err);border:1px solid rgba(248,113,113,.3)}
+.bdg-val{background:var(–mag-bg);color:var(–mag);border:1px solid rgba(192,132,252,.3)}
+.bdg-gz{background:var(–info-bg);color:var(–info);border:1px solid rgba(96,165,250,.3)}
+.bdg-neu{background:rgba(255,255,255,.04);color:var(–fg2);border:1px solid var(–brd1)}
+.bdg-ok{background:var(–ok-bg);color:var(–ok);border:1px solid rgba(74,222,128,.3)}
+.bdg-skip{background:var(–err-bg);color:var(–err);border:1px solid rgba(248,113,113,.3)}
 
-.mini-btn{padding:5px 9px;background:var(--bg2);border:1px solid var(--brd1);border-radius:6px;color:var(--fg2);font:600 .7rem var(--M);cursor:pointer;display:inline-flex;align-items:center;gap:4px}
-.mini-btn:hover{border-color:var(--ok2);color:var(--ok)}
-.mini-btn.primary{background:var(--cta);border-color:var(--cta);color:#fff}
-.mini-btn.primary:hover{background:var(--cta-h)}
-.mini-btn.ok{background:var(--ok-bg);color:var(--ok);border-color:rgba(74,222,128,.25)}
+.mini-btn{padding:5px 9px;background:var(–bg2);border:1px solid var(–brd1);border-radius:6px;color:var(–fg2);font:600 .7rem var(–M);cursor:pointer;display:inline-flex;align-items:center;gap:4px}
+.mini-btn:hover{border-color:var(–ok2);color:var(–ok)}
+.mini-btn.primary{background:var(–cta);border-color:var(–cta);color:#fff}
+.mini-btn.primary:hover{background:var(–cta-h)}
+.mini-btn.ok{background:var(–ok-bg);color:var(–ok);border-color:rgba(74,222,128,.25)}
 
 /* Gauge compatto nella card */
 .card-conf{display:flex;align-items:center;gap:10px}
 
 /* Narrative expandable */
-details.narr{background:var(--bg0);border:1px solid var(--brd1);border-radius:var(--rs);padding:0;margin-top:8px}
-details.narr summary{padding:8px 12px;cursor:pointer;font:600 .78rem var(--S);color:var(--fg2);list-style:none;display:flex;align-items:center;gap:6px;user-select:none}
+details.narr{background:var(–bg0);border:1px solid var(–brd1);border-radius:var(–rs);padding:0;margin-top:8px}
+details.narr summary{padding:8px 12px;cursor:pointer;font:600 .78rem var(–S);color:var(–fg2);list-style:none;display:flex;align-items:center;gap:6px;user-select:none}
 details.narr summary::-webkit-details-marker{display:none}
-details.narr summary:hover{color:var(--fg1)}
-details.narr summary::before{content:"▸";transition:transform .15s;color:var(--fg3)}
+details.narr summary:hover{color:var(–fg1)}
+details.narr summary::before{content:“▸”;transition:transform .15s;color:var(–fg3)}
 details.narr[open] summary::before{transform:rotate(90deg)}
-details.narr[open] summary{color:var(--fg1);border-bottom:1px solid var(--brd1)}
-details.narr .narr-body{padding:10px 12px;font:400 .84rem var(--S);color:var(--fg1);line-height:1.6}
-details.narr .breakdown{margin-top:8px;border-top:1px dashed var(--brd1);padding-top:8px}
-details.narr .bk-row{display:flex;justify-content:space-between;gap:10px;padding:4px 0;font:500 .78rem var(--S)}
-details.narr .bk-row .n{color:var(--fg2)}
-details.narr .bk-row .p{font:700 .78rem var(--M)}
-details.narr .bk-row .p.pos{color:var(--ok)}
-details.narr .bk-row .p.neg{color:var(--err)}
-details.narr .bk-row .p.zero{color:var(--fg3)}
+details.narr[open] summary{color:var(–fg1);border-bottom:1px solid var(–brd1)}
+details.narr .narr-body{padding:10px 12px;font:400 .84rem var(–S);color:var(–fg1);line-height:1.6}
+details.narr .breakdown{margin-top:8px;border-top:1px dashed var(–brd1);padding-top:8px}
+details.narr .bk-row{display:flex;justify-content:space-between;gap:10px;padding:4px 0;font:500 .78rem var(–S)}
+details.narr .bk-row .n{color:var(–fg2)}
+details.narr .bk-row .p{font:700 .78rem var(–M)}
+details.narr .bk-row .p.pos{color:var(–ok)}
+details.narr .bk-row .p.neg{color:var(–err)}
+details.narr .bk-row .p.zero{color:var(–fg3)}
 
 /* ==================== EMPTY / STATUS ==================== */
-.empty{text-align:center;padding:40px 20px;color:var(--fg3);background:var(--bg1);border:1px dashed var(--brd1);border-radius:var(--rm)}
+.empty{text-align:center;padding:40px 20px;color:var(–fg3);background:var(–bg1);border:1px dashed var(–brd1);border-radius:var(–rm)}
 .empty .ico{font-size:2.4rem;margin-bottom:10px;opacity:.45}
-.empty p{font:500 .92rem var(--S);line-height:1.6;margin:0 auto;max-width:46ch}
-.empty p.title{font-weight:700;color:var(--fg1);margin-bottom:6px}
+.empty p{font:500 .92rem var(–S);line-height:1.6;margin:0 auto;max-width:46ch}
+.empty p.title{font-weight:700;color:var(–fg1);margin-bottom:6px}
 
-.info-box{padding:12px 14px;background:var(--info-bg);color:var(--info);border:1px solid rgba(96,165,250,.25);border-radius:var(--rm);font:500 .85rem var(--S);line-height:1.5;margin-bottom:10px}
-.warn-box{padding:12px 14px;background:var(--warn-bg);color:var(--warn);border:1px solid rgba(251,191,36,.3);border-radius:var(--rm);font:500 .85rem var(--S);line-height:1.5;margin-bottom:10px}
-.err-box{padding:12px 14px;background:var(--err-bg);color:var(--err);border:1px solid rgba(248,113,113,.3);border-radius:var(--rm);font:500 .85rem var(--S);line-height:1.5;margin-bottom:10px}
+.info-box{padding:12px 14px;background:var(–info-bg);color:var(–info);border:1px solid rgba(96,165,250,.25);border-radius:var(–rm);font:500 .85rem var(–S);line-height:1.5;margin-bottom:10px}
+.warn-box{padding:12px 14px;background:var(–warn-bg);color:var(–warn);border:1px solid rgba(251,191,36,.3);border-radius:var(–rm);font:500 .85rem var(–S);line-height:1.5;margin-bottom:10px}
+.err-box{padding:12px 14px;background:var(–err-bg);color:var(–err);border:1px solid rgba(248,113,113,.3);border-radius:var(–rm);font:500 .85rem var(–S);line-height:1.5;margin-bottom:10px}
 
 /* ==================== SCHEDINA ==================== */
-.ticket{background:var(--bg1);border:1px solid var(--brd1);border-radius:var(--rm);padding:14px;margin-bottom:10px}
-.ticket-hdr{display:flex;align-items:center;justify-content:space-between;padding-bottom:10px;border-bottom:1px solid var(--brd1);margin-bottom:10px;gap:10px;flex-wrap:wrap}
-.ticket-hdr h3{font:700 1rem var(--S);color:#fff}
-.ticket-hdr .meta{font:500 .75rem var(--S);color:var(--fg3)}
-.ticket-leg{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px dashed var(--brd1)}
+.ticket{background:var(–bg1);border:1px solid var(–brd1);border-radius:var(–rm);padding:14px;margin-bottom:10px}
+.ticket-hdr{display:flex;align-items:center;justify-content:space-between;padding-bottom:10px;border-bottom:1px solid var(–brd1);margin-bottom:10px;gap:10px;flex-wrap:wrap}
+.ticket-hdr h3{font:700 1rem var(–S);color:#fff}
+.ticket-hdr .meta{font:500 .75rem var(–S);color:var(–fg3)}
+.ticket-leg{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px dashed var(–brd1)}
 .ticket-leg:last-child{border-bottom:none}
 .ticket-leg .info{flex:1;min-width:0}
-.ticket-leg .info .m{font:600 .88rem var(--S);color:#fff}
-.ticket-leg .info .s{font:500 .78rem var(--S);color:var(--fg2);margin-top:2px}
-.ticket-leg .odds{font:700 .9rem var(--M);color:var(--ok);min-width:50px;text-align:right}
-.ticket-leg .del{width:30px;height:30px;border-radius:6px;background:var(--bg2);color:var(--err);display:flex;align-items:center;justify-content:center;cursor:pointer;border:1px solid var(--brd1)}
-.ticket-leg .del:hover{border-color:var(--err);background:var(--err-bg)}
-.ticket-total{display:flex;justify-content:space-between;align-items:center;padding-top:10px;border-top:1px solid var(--brd1);margin-top:10px;gap:10px;flex-wrap:wrap}
-.ticket-total .t{font:500 .82rem var(--S);color:var(--fg2)}
-.ticket-total .v{font:800 1.15rem var(--M);color:var(--ok)}
+.ticket-leg .info .m{font:600 .88rem var(–S);color:#fff}
+.ticket-leg .info .s{font:500 .78rem var(–S);color:var(–fg2);margin-top:2px}
+.ticket-leg .odds{font:700 .9rem var(–M);color:var(–ok);min-width:50px;text-align:right}
+.ticket-leg .del{width:30px;height:30px;border-radius:6px;background:var(–bg2);color:var(–err);display:flex;align-items:center;justify-content:center;cursor:pointer;border:1px solid var(–brd1)}
+.ticket-leg .del:hover{border-color:var(–err);background:var(–err-bg)}
+.ticket-total{display:flex;justify-content:space-between;align-items:center;padding-top:10px;border-top:1px solid var(–brd1);margin-top:10px;gap:10px;flex-wrap:wrap}
+.ticket-total .t{font:500 .82rem var(–S);color:var(–fg2)}
+.ticket-total .v{font:800 1.15rem var(–M);color:var(–ok)}
 .stake-ctrl{display:flex;gap:6px;align-items:center;flex-wrap:wrap;padding:10px 0}
-.stake-ctrl input[type=number]{width:90px;padding:8px 10px;background:var(--bg0);border:1px solid var(--brd1);border-radius:6px;color:#fff;font:600 .88rem var(--M);outline:none}
-.stake-ctrl input:focus{border-color:var(--ok)}
-.stake-ctrl .lb{font:500 .8rem var(--S);color:var(--fg2)}
+.stake-ctrl input[type=number]{width:90px;padding:8px 10px;background:var(–bg0);border:1px solid var(–brd1);border-radius:6px;color:#fff;font:600 .88rem var(–M);outline:none}
+.stake-ctrl input:focus{border-color:var(–ok)}
+.stake-ctrl .lb{font:500 .8rem var(–S);color:var(–fg2)}
 
 /* ==================== BANKROLL ==================== */
 .bk-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:14px}
-.bk-card{background:var(--bg1);border:1px solid var(--brd1);border-radius:var(--rm);padding:12px}
-.bk-card .lbl{font:500 .7rem var(--S);color:var(--fg3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
-.bk-card .vl{font:800 1.35rem var(--M);color:#fff}
-.bk-card .vl.pos{color:var(--ok)}
-.bk-card .vl.neg{color:var(--err)}
-.bk-card .sub{font:500 .72rem var(--S);color:var(--fg3);margin-top:4px}
-.bk-ctrl{background:var(--bg1);border:1px solid var(--brd1);border-radius:var(--rm);padding:14px;margin-bottom:14px}
-.bk-ctrl h3{font:700 .95rem var(--S);color:#fff;margin-bottom:10px}
+.bk-card{background:var(–bg1);border:1px solid var(–brd1);border-radius:var(–rm);padding:12px}
+.bk-card .lbl{font:500 .7rem var(–S);color:var(–fg3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
+.bk-card .vl{font:800 1.35rem var(–M);color:#fff}
+.bk-card .vl.pos{color:var(–ok)}
+.bk-card .vl.neg{color:var(–err)}
+.bk-card .sub{font:500 .72rem var(–S);color:var(–fg3);margin-top:4px}
+.bk-ctrl{background:var(–bg1);border:1px solid var(–brd1);border-radius:var(–rm);padding:14px;margin-bottom:14px}
+.bk-ctrl h3{font:700 .95rem var(–S);color:#fff;margin-bottom:10px}
 .bk-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:10px}
-.bk-row label{font:500 .82rem var(--S);color:var(--fg2);min-width:120px}
-.bk-row input,.bk-row select{padding:8px 10px;background:var(--bg0);border:1px solid var(--brd1);border-radius:6px;color:#fff;font:600 .85rem var(--M);outline:none}
-.bk-row input:focus,.bk-row select:focus{border-color:var(--ok)}
+.bk-row label{font:500 .82rem var(–S);color:var(–fg2);min-width:120px}
+.bk-row input,.bk-row select{padding:8px 10px;background:var(–bg0);border:1px solid var(–brd1);border-radius:6px;color:#fff;font:600 .85rem var(–M);outline:none}
+.bk-row input:focus,.bk-row select:focus{border-color:var(–ok)}
 .bk-row input[type=range]{flex:1;min-width:140px}
-.bk-row .out{font:700 .88rem var(--M);color:var(--ok);min-width:50px;text-align:right}
+.bk-row .out{font:700 .88rem var(–M);color:var(–ok);min-width:50px;text-align:right}
 .lookup{width:100%;border-collapse:collapse;margin-top:10px;font-size:.8rem}
-.lookup th,.lookup td{padding:8px 6px;text-align:center;border:1px solid var(--brd1)}
-.lookup th{background:var(--bg2);color:var(--fg2);font-weight:700;font-family:var(--M);font-size:.75rem}
-.lookup td{color:var(--fg1);font-family:var(--M);font-weight:600}
-.lookup td.hl{background:var(--ok-bg);color:var(--ok)}
+.lookup th,.lookup td{padding:8px 6px;text-align:center;border:1px solid var(–brd1)}
+.lookup th{background:var(–bg2);color:var(–fg2);font-weight:700;font-family:var(–M);font-size:.75rem}
+.lookup td{color:var(–fg1);font-family:var(–M);font-weight:600}
+.lookup td.hl{background:var(–ok-bg);color:var(–ok)}
 
 /* ==================== STORICO ==================== */
-.hist-row{background:var(--bg1);border:1px solid var(--brd1);border-radius:var(--rm);padding:12px;margin-bottom:8px}
+.hist-row{background:var(–bg1);border:1px solid var(–brd1);border-radius:var(–rm);padding:12px;margin-bottom:8px}
 .hist-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;flex-wrap:wrap}
-.hist-info .n{font:600 .9rem var(--S);color:#fff}
-.hist-info .s{font:500 .76rem var(--S);color:var(--fg2);margin-top:2px}
+.hist-info .n{font:600 .9rem var(–S);color:#fff}
+.hist-info .s{font:500 .76rem var(–S);color:var(–fg2);margin-top:2px}
 .hist-actions{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
 
 /* ==================== STRUMENTI ==================== */
-.str-sec{background:var(--bg1);border:1px solid var(--brd1);border-radius:var(--rm);padding:14px;margin-bottom:14px}
-.str-sec h3{font:700 .95rem var(--S);color:#fff;margin-bottom:8px;display:flex;align-items:center;gap:8px}
-.str-sec p{font:500 .85rem var(--S);color:var(--fg2);line-height:1.55;margin-bottom:8px}
-.str-sec ul{padding-left:20px;color:var(--fg2);font:500 .85rem var(--S);line-height:1.7}
-.str-sec ul li strong{color:var(--fg1)}
+.str-sec{background:var(–bg1);border:1px solid var(–brd1);border-radius:var(–rm);padding:14px;margin-bottom:14px}
+.str-sec h3{font:700 .95rem var(–S);color:#fff;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.str-sec p{font:500 .85rem var(–S);color:var(–fg2);line-height:1.55;margin-bottom:8px}
+.str-sec ul{padding-left:20px;color:var(–fg2);font:500 .85rem var(–S);line-height:1.7}
+.str-sec ul li strong{color:var(–fg1)}
 .filters-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:8px;margin-top:8px}
-.filter-item{padding:10px;background:var(--bg0);border:1px solid var(--brd1);border-radius:var(--rs);font:500 .82rem var(--S);color:var(--fg1);line-height:1.5}
-.filter-item .n{color:var(--ok);font-weight:700;display:block;margin-bottom:3px}
+.filter-item{padding:10px;background:var(–bg0);border:1px solid var(–brd1);border-radius:var(–rs);font:500 .82rem var(–S);color:var(–fg1);line-height:1.5}
+.filter-item .n{color:var(–ok);font-weight:700;display:block;margin-bottom:3px}
 
 /* ==================== SEARCH / TOOLBAR ==================== */
 .toolbar{display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap;align-items:center}
-.search{flex:1;min-width:180px;padding:10px 12px;background:var(--bg1);border:1px solid var(--brd1);border-radius:8px;color:#fff;outline:none;font-size:.88rem}
-.search:focus{border-color:var(--ok)}
-.search::placeholder{color:var(--fg3)}
-.select{appearance:none;background:var(--bg1) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239AA4B8' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E") no-repeat right 10px center;padding:10px 34px 10px 12px;border:1px solid var(--brd1);border-radius:8px;color:var(--fg1);outline:none;font-size:.88rem;cursor:pointer}
-.select:focus{border-color:var(--ok)}
+.search{flex:1;min-width:180px;padding:10px 12px;background:var(–bg1);border:1px solid var(–brd1);border-radius:8px;color:#fff;outline:none;font-size:.88rem}
+.search:focus{border-color:var(–ok)}
+.search::placeholder{color:var(–fg3)}
+.select{appearance:none;background:var(–bg1) url(“data:image/svg+xml,%3Csvg xmlns=‘http://www.w3.org/2000/svg’ width=‘12’ height=‘12’ viewBox=‘0 0 24 24’ fill=‘none’ stroke=’%239AA4B8’ stroke-width=‘2’%3E%3Cpolyline points=‘6 9 12 15 18 9’/%3E%3C/svg%3E”) no-repeat right 10px center;padding:10px 34px 10px 12px;border:1px solid var(–brd1);border-radius:8px;color:var(–fg1);outline:none;font-size:.88rem;cursor:pointer}
+.select:focus{border-color:var(–ok)}
 
 /* Double / Triple card */
-.combo{background:var(--bg1);border:1px solid var(--brd1);border-radius:var(--rm);padding:13px;margin-bottom:10px}
+.combo{background:var(–bg1);border:1px solid var(–brd1);border-radius:var(–rm);padding:13px;margin-bottom:10px}
 .combo-hdr{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px;flex-wrap:wrap}
-.combo-hdr .t{font:700 .9rem var(--S);color:#fff;display:flex;align-items:center;gap:6px}
-.combo-hdr .q{font:800 1.1rem var(--M);color:var(--ok)}
+.combo-hdr .t{font:700 .9rem var(–S);color:#fff;display:flex;align-items:center;gap:6px}
+.combo-hdr .q{font:800 1.1rem var(–M);color:var(–ok)}
 .combo-legs{display:flex;flex-direction:column;gap:8px;margin-bottom:10px}
-.combo-leg{display:flex;gap:8px;align-items:center;padding:8px;background:var(--bg0);border-radius:var(--rs)}
-.combo-leg .n{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:600 .82rem var(--S);color:#fff}
-.combo-leg .m{font:500 .75rem var(--S);color:var(--fg2)}
-.combo-leg .o{font:700 .82rem var(--M);color:var(--ok);min-width:46px;text-align:right}
-.combo-info{display:flex;gap:10px;flex-wrap:wrap;padding-top:8px;border-top:1px solid var(--brd1)}
+.combo-leg{display:flex;gap:8px;align-items:center;padding:8px;background:var(–bg0);border-radius:var(–rs)}
+.combo-leg .n{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:600 .82rem var(–S);color:#fff}
+.combo-leg .m{font:500 .75rem var(–S);color:var(–fg2)}
+.combo-leg .o{font:700 .82rem var(–M);color:var(–ok);min-width:46px;text-align:right}
+.combo-info{display:flex;gap:10px;flex-wrap:wrap;padding-top:8px;border-top:1px solid var(–brd1)}
 .combo-info .k{display:flex;flex-direction:column}
-.combo-info .k .lb{font:500 .66rem var(--S);color:var(--fg3);text-transform:uppercase;letter-spacing:.5px}
-.combo-info .k .vl{font:700 .84rem var(--M);color:var(--fg1)}
+.combo-info .k .lb{font:500 .66rem var(–S);color:var(–fg3);text-transform:uppercase;letter-spacing:.5px}
+.combo-info .k .vl{font:700 .84rem var(–M);color:var(–fg1)}
 
 /* ==================== RESPONSIVE ==================== */
 @media(max-width:640px){
- .app{padding:10px 10px 100px}
- .hero{padding:18px 16px}
- .hero-grid{grid-template-columns:1fr;text-align:center;gap:12px}
- .hero-gauge{margin:0 auto}
- .hero-odds{justify-content:center}
- .card-match{font-size:.9rem}
- .hdr{flex-direction:column;align-items:stretch}
- .hdr-r{align-items:stretch;flex-direction:row;justify-content:space-between}
- .bk-mini{flex:1}
+.app{padding:10px 10px 100px}
+.hero{padding:18px 16px}
+.hero-grid{grid-template-columns:1fr;text-align:center;gap:12px}
+.hero-gauge{margin:0 auto}
+.hero-odds{justify-content:center}
+.card-match{font-size:.9rem}
+.hdr{flex-direction:column;align-items:stretch}
+.hdr-r{align-items:stretch;flex-direction:row;justify-content:space-between}
+.bk-mini{flex:1}
 }
 
 /* ==================== TOAST / SNACKBAR ==================== */
-.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);padding:10px 16px;background:var(--bg3);color:#fff;border-radius:10px;font:500 .85rem var(--S);box-shadow:var(--sh2);z-index:999;animation:toastIn .2s ease-out;border:1px solid var(--brd2)}
-.toast.ok{border-color:var(--ok2);color:var(--ok)}
-.toast.err{border-color:var(--err2);color:var(--err)}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);padding:10px 16px;background:var(–bg3);color:#fff;border-radius:10px;font:500 .85rem var(–S);box-shadow:var(–sh2);z-index:999;animation:toastIn .2s ease-out;border:1px solid var(–brd2)}
+.toast.ok{border-color:var(–ok2);color:var(–ok)}
+.toast.err{border-color:var(–err2);color:var(–err)}
 @keyframes toastIn{from{opacity:0;transform:translate(-50%,10px)}to{opacity:1;transform:translate(-50%,0)}}
 
 /* ==================== HIDDEN HELPER ==================== */
@@ -314,6 +315,7 @@ details.narr .bk-row .p.zero{color:var(--fg3)}
 .spacer-10{height:10px}
 .spacer-20{height:20px}
 </style>
+
 </head>
 <body>
 <div class="app">
@@ -1038,1079 +1040,2050 @@ function parseAndStore(key, text){
  bus.emit('csv:loaded', {key, count: rows.length});
 }
 
-/* ==================== UNIFICAZIONE MATCH (FEATURE LAYER) ==================== */
-function unifyMatches(){
-const map = new Map();
-const ensure = (key, evento, ora, lega) => {
-if(!key) return null;
-if(!map.has(key)){
-map.set(key, {
-key, evento: evento||’’, ora: ora||’’, lega: lega||’’,
-ov05pt:null, ggov25:null, mg13:null, ia:null, qVal:null,
-gz:null, dm:null, diffg:null, plCard:[], plShot:[]
-});
+/* === FINE PARTE 1/3 · prosegue con: Signal Layer, Confidence, Portfolio, Templates === */
+/* === INIZIO PARTE 2/3 · continua da: fine parser CSV === */
+
+/* ==================================================================
+   SIGNAL LAYER - 10 SEGNALI NORMALIZZATI
+   Ogni segnale ritorna: { active, direction, strength, coverage, details }
+   - direction: 'over', 'under', 'gg', 'ng', 'casaSegna', 'ospiteSegna',
+                'ov05pt', 'mg13', '1', 'X', '2', 'mg24', 'casaWin', 'ospiteWin'
+   - strength: [0,1] forza del segnale a favore della direction
+   - coverage: 0/1 dato disponibile
+   ================================================================== */
+
+// ----- Lookup helpers per accesso veloce ai dataset -----
+function buildLookups(){
+ const L = {
+  ov05pt: new Map(), ggov25: new Map(), mg13: new Map(), ia: new Map(),
+  qVal: new Map(), gz: new Map(), dm: new Map(), diffg: new Map(),
+  plCardByMatch: new Map(), plShotByMatch: new Map()
+ };
+ (S.datasets.ov05pt||[]).forEach(r => L.ov05pt.set(r._key, r));
+ (S.datasets.ggov25||[]).forEach(r => L.ggov25.set(r._key, r));
+ (S.datasets.mg13||[]).forEach(r => L.mg13.set(r._key, r));
+ (S.datasets.ia||[]).forEach(r => L.ia.set(r._key, r));
+ (S.datasets.qVal||[]).forEach(r => L.qVal.set(r._key, r));
+ (S.datasets.gz||[]).forEach(r => L.gz.set(r._key, r));
+ (S.datasets.dm||[]).forEach(r => L.dm.set(r._key, r));
+ (S.datasets.diffg||[]).forEach(r => L.diffg.set(r._key, r));
+ (S.datasets.plCard||[]).forEach(r => {
+  if(!L.plCardByMatch.has(r._key)) L.plCardByMatch.set(r._key, []);
+  L.plCardByMatch.get(r._key).push(r);
+ });
+ (S.datasets.plShot||[]).forEach(r => {
+  if(!L.plShotByMatch.has(r._key)) L.plShotByMatch.set(r._key, []);
+  L.plShotByMatch.get(r._key).push(r);
+ });
+ return L;
 }
-const m = map.get(key);
-if(!m.lega && lega) m.lega = lega;
-if(!m.ora && ora) m.ora = ora;
-if(!m.evento && evento) m.evento = evento;
-return m;
-};
-const ds = S.datasets;
-(ds.ov05pt||[]).forEach(r => { const m=ensure(r._key,r.evento,r.ora,’’); if(m && !m.ov05pt) m.ov05pt=r; });
-(ds.ggov25||[]).forEach(r => { const m=ensure(r._key,r.evento,r.ora,r.lega); if(m && !m.ggov25) m.ggov25=r; });
-(ds.mg13||[]).forEach(r =>   { const m=ensure(r._key,r.evento,r.ora,’’); if(m && !m.mg13) m.mg13=r; });
-(ds.ia||[]).forEach(r =>     { const m=ensure(r._key,r.evento,r.ora,r.lega); if(m && !m.ia) m.ia=r; });
-(ds.qVal||[]).forEach(r =>   { const m=ensure(r._key,r.match,r.ora,’’); if(m && !m.qVal) m.qVal=r; });
-(ds.gz||[]).forEach(r =>     { const m=ensure(r._key,r.evento,r.ora,r.lega); if(m && !m.gz) m.gz=r; });
-(ds.dm||[]).forEach(r =>     { const m=ensure(r._key,r.match,r.ora,’’); if(m && !m.dm) m.dm=r; });
-(ds.diffg||[]).forEach(r =>  { const m=ensure(r._key,r.evento,r.ora,’’); if(m && !m.diffg) m.diffg=r; });
-(ds.plCard||[]).forEach(r => { const m=ensure(r._key,r.partita,r.ora,r.lega); if(m) m.plCard.push(r); });
-(ds.plShot||[]).forEach(r => { const m=ensure(r._key,r.partita,r.ora,r.lega); if(m) m.plShot.push(r); });
-return Array.from(map.values());
+
+// ----- Universe di match: union di tutte le chiavi -----
+function buildUniverse(L){
+ const map = new Map();
+ const upsert = (key, info) => {
+  if(!key) return;
+  if(!map.has(key)){
+   map.set(key, { _key:key, evento:info.evento||'', ora:info.ora||'', lega:info.lega||'' });
+  } else {
+   const cur = map.get(key);
+   if(!cur.lega && info.lega) cur.lega = info.lega;
+   if(!cur.ora && info.ora) cur.ora = info.ora;
+   if(!cur.evento && info.evento) cur.evento = info.evento;
+  }
+ };
+ L.ggov25.forEach((r,k) => upsert(k,{evento:r.evento, ora:r.ora, lega:r.lega}));
+ L.dm.forEach((r,k) => upsert(k,{evento:r.match, ora:r.ora}));
+ L.gz.forEach((r,k) => upsert(k,{evento:r.evento, ora:r.ora, lega:r.lega}));
+ L.diffg.forEach((r,k) => upsert(k,{evento:r.evento, ora:r.ora}));
+ L.ov05pt.forEach((r,k) => upsert(k,{evento:r.evento, ora:r.ora}));
+ L.mg13.forEach((r,k) => upsert(k,{evento:r.evento, ora:r.ora}));
+ L.ia.forEach((r,k) => upsert(k,{evento:r.evento, ora:r.ora, lega:r.lega}));
+ L.qVal.forEach((r,k) => upsert(k,{evento:r.match, ora:r.ora}));
+ return Array.from(map.values());
 }
 
 /* ==================== REGOLE M1 SIGILLATE ==================== */
-function rule_ov05pt_M1(r){
-if(!r) return false;
-return r.ind < M1_THR.ov05pt.ind && r.delta < M1_THR.ov05pt.delta && r.diff < M1_THR.ov05pt.diff;
-}
-function rule_gg_M1(r){
-if(!r) return false;
-return r.igbc >= M1_THR.gg.igbc && r.igbo >= M1_THR.gg.igbo &&
-r.s12 < M1_THR.gg.s12 && r.pgg >= M1_THR.gg.pgg;
-}
-function rule_o25_M1(r){
-if(!r) return false;
-return r.igbt >= M1_THR.o25.igbt && r.mge >= M1_THR.o25.mge && r.diff <= M1_THR.o25.diff;
-}
-function rule_u25_M1(r){
-if(!r) return false;
-return r.diff > M1_THR.u25.diffMin && r.mge > M1_THR.u25.mgeLow && r.mge < M1_THR.u25.mgeHi;
-}
-function rule_mg13c_M1(r){
-if(!r) return false;
-return r.ich >= M1_THR.mg13c.ichLo && r.ich <= M1_THR.mg13c.ichHi && r.varc >= M1_THR.mg13c.varc;
-}
-function rule_mg13o_M1(r){
-if(!r) return false;
-return r.ica >= M1_THR.mg13o.icaLo && r.ica <= M1_THR.mg13o.icaHi && r.varo >= M1_THR.mg13o.varo;
+function isM1_ov05pt(r){ return r && r.ind < M1_THR.ov05pt.ind && r.delta < M1_THR.ov05pt.delta && r.diff < M1_THR.ov05pt.diff; }
+function isM1_gg(r){ return r && r.igbc>=M1_THR.gg.igbc && r.igbo>=M1_THR.gg.igbo && r.s12<M1_THR.gg.s12 && r.pgg>=M1_THR.gg.pgg; }
+function isM1_o25(r){ return r && r.igbt>=M1_THR.o25.igbt && r.mge>=M1_THR.o25.mge && r.diff<=M1_THR.o25.diff; }
+function isM1_u25(r){ return r && r.diff>M1_THR.u25.diffMin && r.mge>M1_THR.u25.mgeLow && r.mge<M1_THR.u25.mgeHi; }
+function isM1_mg13c(r){ return r && r.ich>=M1_THR.mg13c.ichLo && r.ich<=M1_THR.mg13c.ichHi && r.varc>=M1_THR.mg13c.varc; }
+function isM1_mg13o(r){ return r && r.ica>=M1_THR.mg13o.icaLo && r.ica<=M1_THR.mg13o.icaHi && r.varo>=M1_THR.mg13o.varo; }
+
+/* ==================== GZ PROBABILITY MAPPING ==================== */
+function gzMap(gz){
+ if(gz===null||gz===undefined) return null;
+ if(gz < -1800) return {dir:'under', mkt:'U2.5', p:0.64, lbl:'U2.5 64%'};
+ if(gz < -1200) return {dir:'under', mkt:'U3.5', p:0.81, lbl:'U3.5 81%'};
+ if(gz > 5000)  return {dir:'over',  mkt:'O2.5', p:0.64, lbl:'Ov2.5 64%'};
+ if(gz > 1000)  return {dir:'over',  mkt:'O1.5', p:0.80, lbl:'Ov1.5 80%'};
+ if(gz > -200 && gz < 200) return {dir:'over', mkt:'O0.5', p:0.95, lbl:'Ov0.5 95%'};
+ return {dir:'neutral', mkt:'-', p:0.5, lbl:'Neutrale'};
 }
 
-// GZ probability mapping (regola sigillata da Fase 4)
-function gzProbMap(gz){
-if(gz===null||gz===undefined) return {label:‘N/D’, desc:‘Dato GZ mancante’, type:‘nd’, strength:0, market:null};
-if(gz < -1800) return {label:‘U2.5 64%’,  desc:‘Under 2.5 al 64%’,  type:‘under’, strength:0.64, market:‘U25’};
-if(gz < -1200) return {label:‘U3.5 81%’,  desc:‘Under 3.5 all 81%’, type:‘under’, strength:0.81, market:‘U35’};
-if(gz > 5000)  return {label:‘Ov2.5 64%’, desc:‘Over 2.5 al 64%’,   type:‘over’,  strength:0.64, market:‘O25’};
-if(gz > 1000)  return {label:‘Ov1.5 80%’, desc:‘Over 1.5 all 80%’,  type:‘over’,  strength:0.80, market:‘O15’};
-if(gz > -200 && gz < 200) return {label:‘Ov0.5 95%’, desc:‘Over 0.5 al 95%’, type:‘over’, strength:0.95, market:‘OV05’};
-return {label:‘Neutro’, desc:‘Nessuna indicazione forte da GZ’, type:‘neutral’, strength:0, market:null};
+/* ==================== SIGNAL FUNCTIONS ==================== */
+
+// S1 Ov 0.5 PT
+function signalS1(L, key){
+ const r = L.ov05pt.get(key);
+ if(!r) return {active:false, coverage:0};
+ const m1 = isM1_ov05pt(r);
+ let strength = 0;
+ if(m1) strength = 0.9;
+ else {
+  let s = 0;
+  if(r.ind < 320) s += 0.35;
+  else if(r.ind < 340) s += 0.2;
+  if(r.delta <= -20) s += 0.35;
+  else if(r.delta <= -5) s += 0.2;
+  if(r.diff < 0) s += 0.2;
+  strength = s;
+ }
+ return {
+  active:true, coverage:1,
+  direction:'ov05pt',
+  strength: clamp(strength, 0, 1),
+  m1,
+  details: {ind:r.ind, delta:r.delta, diff:r.diff, mge:r.mge}
+ };
 }
 
-/* ==================== SIGNAL LAYER (10 segnali) ==================== */
-/* Output: { active, value, direction, strength, coverage, details, market }
-value ∈ [0,1] - intensità del segnale per la direzione indicata
-direction ∈ {‘over’,‘under’,‘gg’,‘ng’,‘homeS’,‘awayS’,‘homeW’,‘awayW’,‘neutral’}
-strength ∈ [0,1] - forza del segnale (per UI)
-coverage ∈ {0,1} - se il dato esiste
-*/
-
-// S1 - M1 Ov 0.5 PT (regola sigillata)
-function signal_S1_ov05pt(m){
-const r = m.ov05pt;
-if(!r) return {active:false, coverage:0};
-const m1 = rule_ov05pt_M1(r);
-// distance-from-threshold per softening
-let val = m1 ? 1.0 : 0;
-if(!m1){
-let p = 0;
-if(r.ind < 320) p += 0.3;
-if(r.delta < -10) p += 0.25;
-if(r.diff < 0) p += 0.2;
-val = p;
+// S2 GG
+function signalS2(L, key){
+ const r = L.ggov25.get(key);
+ if(!r) return {active:false, coverage:0};
+ const m1 = isM1_gg(r);
+ let strength = 0;
+ if(m1) strength = 0.9;
+ else {
+  let s = 0;
+  if(r.igbc >= 150) s += 0.25; else if(r.igbc >= 100) s += 0.12;
+  if(r.igbo >= 150) s += 0.25; else if(r.igbo >= 100) s += 0.12;
+  if(r.s12 < 150) s += 0.2; else if(r.s12 < 250) s += 0.1;
+  if(r.pgg >= 55) s += 0.2; else if(r.pgg >= 45) s += 0.1;
+  strength = s;
+ }
+ return {
+  active:true, coverage:1,
+  direction:'gg',
+  strength: clamp(strength, 0, 1),
+  m1,
+  details: {igbc:r.igbc, igbo:r.igbo, s12:r.s12, pgg:r.pgg}
+ };
 }
-return {
-active:true, coverage:1, value:val, strength:val,
-direction:‘over’, market:‘OV05’,
-m1, details:`IND ${r.ind}, Δ ${fmtN(r.delta,1)}%, Diff ${fmtN(r.diff,2)}, MGE ${fmtN(r.mge,2)}`
+
+// S3 Ov 2.5 / U 2.5
+function signalS3(L, key){
+ const r = L.ggov25.get(key);
+ if(!r) return {active:false, coverage:0};
+ const m1o = isM1_o25(r), m1u = isM1_u25(r);
+ let sO = 0, sU = 0;
+ if(m1o) sO = 0.9;
+ else {
+  if(r.igbt >= 300) sO += 0.35; else if(r.igbt >= 250) sO += 0.18;
+  if(r.mge >= 3) sO += 0.3; else if(r.mge >= 2.5) sO += 0.15;
+  if(r.diff <= 0) sO += 0.2;
+ }
+ if(m1u) sU = 0.9;
+ else {
+  if(r.diff > 1.5) sU += 0.35; else if(r.diff > 1) sU += 0.2;
+  if(r.mge > 0 && r.mge < 2.5) sU += 0.3;
+  else if(r.mge < 3 && r.mge > 0) sU += 0.15;
+  if(r.igbt < 250) sU += 0.15;
+ }
+ sO = clamp(sO,0,1); sU = clamp(sU,0,1);
+ const dir = sO >= sU ? 'over' : 'under';
+ const strength = Math.max(sO, sU);
+ return {
+  active: true, coverage: 1,
+  direction: dir,
+  strength,
+  sO, sU,
+  m1: dir==='over' ? m1o : m1u,
+  m1o, m1u,
+  details: {igbt:r.igbt, mge:r.mge, diff:r.diff, pgg:r.pgg, qov25:r.qov25}
+ };
+}
+
+// S4 MG 1-3
+function signalS4(L, key){
+ const r = L.mg13.get(key);
+ if(!r) return {active:false, coverage:0};
+ const m1c = isM1_mg13c(r), m1o = isM1_mg13o(r);
+ let sC = 0, sO = 0;
+ if(m1c) sC = 0.9;
+ else {
+  if(r.ich >= 300 && r.ich <= 400) sC += 0.4;
+  if(r.varc >= 30) sC += 0.3; else if(r.varc >= 20) sC += 0.15;
+ }
+ if(m1o) sO = 0.9;
+ else {
+  if(r.ica >= 300 && r.ica <= 400) sO += 0.4;
+  if(r.varo >= 30) sO += 0.3; else if(r.varo >= 20) sO += 0.15;
+ }
+ const side = sC >= sO ? 'casa' : 'ospite';
+ const strength = Math.max(sC, sO);
+ return {
+  active: true, coverage: 1,
+  direction: 'mg13',
+  side, strength,
+  sC, sO,
+  m1: side==='casa' ? m1c : m1o,
+  m1c, m1o,
+  details: {ich:r.ich, ica:r.ica, varc:r.varc, varo:r.varo}
+ };
+}
+
+// S5 Stats IA convergenza
+function signalS5(L, key){
+ const r = L.ia.get(key);
+ if(!r || !r.stats || !r.stats.length) return {active:false, coverage:0};
+ const counts = {'1':0, 'X':0, '2':0};
+ r.stats.forEach(s => {
+  const dir = String(s.pred).trim().toUpperCase();
+  if(counts[dir]!==undefined) counts[dir] += s.aff;
+ });
+ const winner = Object.keys(counts).sort((a,b)=>counts[b]-counts[a])[0];
+ const total = counts['1']+counts['X']+counts['2'];
+ const concentration = total > 0 ? counts[winner]/total : 0;
+ const strength = clamp((r.avgAff/5) * concentration * 1.4, 0, 1);
+ const dirMap = {'1':'casaWin', 'X':'pareggio', '2':'ospiteWin'};
+ return {
+  active: true, coverage: 1,
+  direction: dirMap[winner] || 'neutral',
+  strength,
+  details: {avgAff:r.avgAff, maxAff:r.maxAff, winner, concentration, statsCount:r.stats.length}
+ };
+}
+
+// S6 GZ probability
+function signalS6(L, key){
+ const r = L.gz.get(key);
+ if(!r || r.gz===null) return {active:false, coverage:0};
+ const map = gzMap(r.gz);
+ if(!map || map.dir==='neutral') return {active:true, coverage:1, direction:'neutral', strength:0, details:{gz:r.gz, lbl:'Neutrale'}};
+ const strength = map.p;
+ return {
+  active: true, coverage: 1,
+  direction: map.dir,
+  strength,
+  mkt: map.mkt,
+  lbl: map.lbl,
+  details: {gz:r.gz, lbl:map.lbl, mkt:map.mkt, p:map.p}
+ };
+}
+
+// S7 DataMining esteso
+function signalS7(L, key){
+ const r = L.dm.get(key);
+ if(!r) return {active:false, coverage:0};
+ const np = r.np || 0;
+ const npWeight = clamp(np/30, 0, 1);
+ const buckets = {
+  'over': r.pOV25,
+  'under': r.pUN35,
+  'gg': r.pGG,
+  'ov15': r.pOV15,
+  'ov05pt': r.pOV05pt,
+  'casaSegna': r.pSC,
+  'ospiteSegna': r.pSO,
+  '1': r.p1, 'X': r.pX, '2': r.p2
+ };
+ let bestDir = 'over', bestVal = 0;
+ for(const [d,p] of Object.entries(buckets)){
+  if(p > bestVal){ bestVal = p; bestDir = d; }
+ }
+ const strength = clamp((bestVal/100) * (0.4 + 0.6*npWeight), 0, 1);
+ return {
+  active: true, coverage: 1,
+  direction: bestDir,
+  strength,
+  np, npWeight,
+  buckets,
+  re: parseREField(r.re),
+  ic: r.ic, rc: r.rc, ro: r.ro,
+  raw: r,
+  details: {np, mge:r.mge, diff:r.diff, ic:r.ic, rc:r.rc, ro:r.ro}
+ };
+}
+
+// S8 Value 1X2
+function signalS8(L, key){
+ const r = L.qVal.get(key);
+ if(!r) return {active:false, coverage:0};
+ const isValue = (qReale, qDM, spread) => spread > 0.15 && qReale > 1.01 && qReale < 3 && qDM > 0;
+ const v1 = isValue(r.r1, r.dm1, r.spread1);
+ const vX = isValue(r.rx, r.dmx, r.spreadX);
+ const v2 = isValue(r.r2, r.dm2, r.spread2);
+ let dir = 'neutral', strength = 0;
+ if(v1 && r.spread1 >= Math.max(v2?r.spread2:0, vX?r.spreadX:0)){ dir='1'; strength = clamp(r.spread1, 0, 1); }
+ else if(v2 && r.spread2 >= (vX?r.spreadX:0)){ dir='2'; strength = clamp(r.spread2, 0, 1); }
+ else if(vX){ dir='X'; strength = clamp(r.spreadX, 0, 1); }
+ let golSide = null;
+ if(v1 && v2) golSide = 'entrambe';
+ else if(v1) golSide = 'casa';
+ else if(v2) golSide = 'ospite';
+ else if(vX) golSide = 'pareggio';
+ return {
+  active: true, coverage: 1,
+  direction: dir,
+  strength,
+  v1, vX, v2, golSide,
+  np: r.np,
+  details: {r1:r.r1, rx:r.rx, r2:r.r2, dm1:r.dm1, dmx:r.dmx, dm2:r.dm2, spread1:r.spread1, spreadX:r.spreadX, spread2:r.spread2}
+ };
+}
+
+// S9 Profilo giocatori
+function signalS9(L, key){
+ const cardArr = L.plCardByMatch.get(key) || [];
+ const shotArr = L.plShotByMatch.get(key) || [];
+ if(!cardArr.length && !shotArr.length) return {active:false, coverage:0};
+ let bestCard = null, bestShot = null;
+ cardArr.forEach(p => {
+  const score = (p.amm * 0.5) + (p.falli * 0.2) + (p.rit * 0.3);
+  if(!bestCard || score > bestCard.score) bestCard = {p, score, type:'card'};
+ });
+ shotArr.forEach(p => {
+  const score = (p.gol * 0.6) + (p.tiriPorta * 0.25) + (p.rit * 0.15);
+  if(!bestShot || score > bestShot.score) bestShot = {p, score, type:'shot'};
+ });
+ let strength = 0, direction = 'neutral';
+ if(bestCard && bestCard.score > 1.5){ strength = Math.max(strength, clamp(bestCard.score/3, 0, 1)); direction = 'cartellini'; }
+ if(bestShot && bestShot.score > 1.5){
+  const s = clamp(bestShot.score/3, 0, 1);
+  if(s > strength){ strength = s; direction = 'tiri'; }
+ }
+ return {
+  active: bestCard !== null || bestShot !== null,
+  coverage: 1,
+  direction,
+  strength,
+  bestCard, bestShot,
+  details: {nCard: cardArr.length, nShot: shotArr.length}
+ };
+}
+
+// S10 Differenziali Gol (mean-reversion)
+function signalS10(L, key){
+ const r = L.diffg.get(key);
+ if(!r) return {active:false, coverage:0};
+ const dgt = r.dgt;
+ const diffC = r.diffC;
+ const diffO = r.diffO;
+ const significant = dgt !== null && Math.abs(dgt) > DIFF_THR.dgt;
+ let direction = 'neutral', strength = 0;
+ if(significant){
+  if(dgt > 0){ direction = 'under'; strength = clamp(Math.abs(dgt)/3, 0.3, 1); }
+  else { direction = 'over'; strength = clamp(Math.abs(dgt)/3, 0.3, 1); }
+ }
+ const csSig = diffC !== null && Math.abs(diffC) > DIFF_THR.team;
+ const osSig = diffO !== null && Math.abs(diffO) > DIFF_THR.team;
+ const teamSignals = {
+  casaSegna: csSig && diffC < 0,
+  noCasaSegna: csSig && diffC > 0,
+  ospiteSegna: osSig && diffO < 0,
+  noOspiteSegna: osSig && diffO > 0
+ };
+ let drop = null, dropDir = null;
+ if(r.qr && r.qrL && r.qr > 0){
+  drop = (r.qr - r.qrL) / r.qr;
+  if(drop > DIFF_THR.dropOk) dropDir = 'pro';
+  else if(drop < -DIFF_THR.dropOk) dropDir = 'contra';
+ }
+ return {
+  active: true, coverage: 1,
+  direction,
+  strength,
+  significant,
+  dgt, diffC, diffO,
+  teamSignals,
+  drop, dropDir,
+  details: {dgt, dg:r.dg, diffC, diffO, mge:r.mge, mgu5:r.mgu5, qr:r.qr, qrL:r.qrL, qt:r.qt}
+ };
+}
+
+/* ==================== ESTRAZIONE SEGNALI PER UN MATCH ==================== */
+function extractSignals(L, key){
+ return {
+  s1:  signalS1(L, key),
+  s2:  signalS2(L, key),
+  s3:  signalS3(L, key),
+  s4:  signalS4(L, key),
+  s5:  signalS5(L, key),
+  s6:  signalS6(L, key),
+  s7:  signalS7(L, key),
+  s8:  signalS8(L, key),
+  s9:  signalS9(L, key),
+  s10: signalS10(L, key)
+ };
+}
+
+/* ==================== MERCATI CANDIDATI ==================== */
+function enumerateMarkets(sig, L, key){
+ const list = [];
+ if(sig.s1.active && sig.s1.strength > 0.3){
+  list.push({mkt:'Ov 0.5 PT', dir:'ov05pt'});
+ } else if(sig.s7.active && sig.s7.buckets.ov05pt > 50 && sig.s7.np >= 15){
+  list.push({mkt:'Ov 0.5 PT', dir:'ov05pt'});
+ }
+ if(sig.s2.active && sig.s2.strength > 0.3){
+  list.push({mkt:'GG', dir:'gg'});
+ } else if(sig.s7.active && sig.s7.buckets.gg > 55){
+  list.push({mkt:'GG', dir:'gg'});
+ }
+ if(sig.s3.active){
+  if(sig.s3.sO > 0.4) list.push({mkt:'Ov 2.5', dir:'over'});
+  if(sig.s3.sU > 0.4) list.push({mkt:'U 2.5', dir:'under'});
+ } else if(sig.s7.active){
+  if(sig.s7.buckets.over > 55) list.push({mkt:'Ov 2.5', dir:'over'});
+  if(sig.s7.buckets.under > 60) list.push({mkt:'U 2.5', dir:'under'});
+ }
+ if(sig.s10.active && sig.s10.significant){
+  if(sig.s10.direction === 'over' && !list.find(x=>x.mkt==='Ov 2.5')) list.push({mkt:'Ov 2.5', dir:'over'});
+  if(sig.s10.direction === 'under' && !list.find(x=>x.mkt==='U 2.5')) list.push({mkt:'U 2.5', dir:'under'});
+ }
+ if(sig.s4.active && sig.s4.strength > 0.4){
+  if(sig.s4.side === 'casa') list.push({mkt:'MG 1-3 Casa', dir:'mg13', side:'casa'});
+  else list.push({mkt:'MG 1-3 Ospite', dir:'mg13', side:'ospite'});
+ }
+ const dm = L.dm.get(key);
+ if(dm && dm.pSC >= 60 && dm.igbc >= 150){
+  const teamConfirm = sig.s10.active && sig.s10.teamSignals.casaSegna;
+  if(teamConfirm || dm.pSC >= 70){
+   list.push({mkt:'Casa Segna', dir:'casaSegna'});
+  }
+ }
+ if(dm && dm.pSO >= 60 && dm.igbo >= 150){
+  const teamConfirm = sig.s10.active && sig.s10.teamSignals.ospiteSegna;
+  if(teamConfirm || dm.pSO >= 70){
+   list.push({mkt:'Ospite Segna', dir:'ospiteSegna'});
+  }
+ }
+ if(dm && dm.pOV15 > 60 && dm.pUN35 > 60){
+  list.push({mkt:'MG 2-4', dir:'mg24'});
+ }
+ if(sig.s8.active && sig.s8.strength > 0.15){
+  if(sig.s8.v1) list.push({mkt:'1', dir:'1'});
+  if(sig.s8.vX) list.push({mkt:'X', dir:'X'});
+  if(sig.s8.v2) list.push({mkt:'2', dir:'2'});
+ }
+ if(sig.s7.active && sig.s7.re && sig.s7.re.length >= 2){
+  const top = sig.s7.re.filter(x => x.perc >= 12);
+  if(top.length >= 2){
+   list.push({mkt:'CS Cluster', dir:'cs', cluster: top.slice(0,3)});
+  }
+ }
+ return list;
+}
+
+/* ==================== QUOTA OPERATIVA PER MERCATO ==================== */
+function operationalOdds(market, sig, L, key){
+ const dm = L.dm.get(key);
+ const dg = L.diffg.get(key);
+ const ggov = L.ggov25.get(key);
+ const mg = L.mg13.get(key);
+ const ov = L.ov05pt.get(key);
+ const qv = L.qVal.get(key);
+ if(market === 'Ov 0.5 PT') return ov ? (ov.qrOv05 || null) : (dm ? dm.qOV05pt : null);
+ if(market === 'GG') return dm ? dm.qGG : null;
+ if(market === 'Ov 2.5') return (dg && dg.qrL) || (ggov ? ggov.qov25 : null) || (dm ? dm.qOV25 : null);
+ if(market === 'U 2.5') return dm ? dm.qUN35 : null;
+ if(market === 'MG 1-3 Casa') return mg ? mg.q1 : null;
+ if(market === 'MG 1-3 Ospite') return mg ? mg.q2 : null;
+ if(market === 'Casa Segna') return dm ? dm.qSC : null;
+ if(market === 'Ospite Segna') return dm ? dm.qSO : null;
+ if(market === 'MG 2-4') return 1.50;
+ if(market === '1') return qv ? qv.r1 : (dm ? dm.q1 : null);
+ if(market === 'X') return qv ? qv.rx : (dm ? dm.qX : null);
+ if(market === '2') return qv ? qv.r2 : (dm ? dm.q2 : null);
+ if(market === 'CS Cluster') return null;
+ return null;
+}
+
+/* ==================== CONFIDENCE SCORE 0-100 ==================== */
+const DIR_COMPAT = {
+ 'ov05pt':      new Set(['ov05pt','over']),
+ 'gg':          new Set(['gg','over','casaSegna','ospiteSegna']),
+ 'over':        new Set(['over','gg','ov05pt','ov15']),
+ 'under':       new Set(['under','noCasaSegna','noOspiteSegna']),
+ 'casaSegna':   new Set(['casaSegna','gg','over','1']),
+ 'ospiteSegna': new Set(['ospiteSegna','gg','over','2']),
+ 'mg13':        new Set(['mg13','under']),
+ '1':           new Set(['1','casaWin','casaSegna']),
+ 'X':           new Set(['X','pareggio']),
+ '2':           new Set(['2','ospiteWin','ospiteSegna']),
+ 'mg24':        new Set(['mg24','over','gg']),
+ 'cs':          new Set(['cs'])
 };
+
+function dirAgreesWith(targetDir, sigDir){
+ if(!sigDir || sigDir === 'neutral') return null;
+ const set = DIR_COMPAT[targetDir];
+ if(!set) return null;
+ if(set.has(sigDir)) return +1;
+ const opposite = {
+  'over':'under', 'under':'over',
+  'gg':'ng', 'ng':'gg',
+  'casaSegna':'noCasaSegna', 'noCasaSegna':'casaSegna',
+  'ospiteSegna':'noOspiteSegna', 'noOspiteSegna':'ospiteSegna'
+ };
+ if(opposite[targetDir] === sigDir) return -1;
+ return null;
 }
 
-// S2 - M1 GG
-function signal_S2_gg(m){
-const r = m.ggov25;
-if(!r) return {active:false, coverage:0};
-const m1 = rule_gg_M1(r);
-let val = m1 ? 1.0 : 0;
-if(!m1){
-let p = 0;
-if(r.igbc >= 100) p += 0.2;
-if(r.igbo >= 100) p += 0.2;
-if(r.s12 < 200) p += 0.15;
-if(r.pgg >= 50) p += 0.15;
-val = p;
-}
-return {
-active:true, coverage:1, value:val, strength:val,
-direction:‘gg’, market:‘GG’,
-m1, details:`IGBc ${r.igbc}, IGBo ${r.igbo}, S1-S2 ${r.s12}, PGG ${fmtN(r.pgg,1)}%`
-};
-}
+function computeConfidence(target, sig, L, key){
+ const targetDir = target.dir;
+ const comp = [];
 
-// S3 - M1 Ov/Un 2.5 - bidirezionale, sceglie il lato dominante
-function signal_S3_o25(m){
-const r = m.ggov25;
-if(!r) return {active:false, coverage:0};
-const m1 = rule_o25_M1(r);
-let val = m1 ? 1.0 : 0;
-if(!m1){
-let p = 0;
-if(r.igbt >= 250) p += 0.3;
-if(r.mge >= 2.5) p += 0.25;
-if(r.diff <= 0.3) p += 0.15;
-val = p;
-}
-return {
-active:true, coverage:1, value:val, strength:val,
-direction:‘over’, market:‘O25’,
-m1, details:`IGBt ${r.igbt}, MGE ${fmtN(r.mge,2)}, Diff ${fmtN(r.diff,2)}`
-};
-}
-function signal_S3_u25(m){
-const r = m.ggov25;
-if(!r) return {active:false, coverage:0};
-const m1 = rule_u25_M1(r);
-let val = m1 ? 1.0 : 0;
-if(!m1){
-let p = 0;
-if(r.diff > 1) p += 0.3;
-if(r.mge < 3) p += 0.2;
-if(r.igbt < 250) p += 0.2;
-val = p;
-}
-return {
-active:true, coverage:1, value:val, strength:val,
-direction:‘under’, market:‘U25’,
-m1, details:`Diff ${fmtN(r.diff,2)} (sovrastima), MGE ${fmtN(r.mge,2)}, IGBt ${r.igbt}`
-};
-}
+ // M1
+ let m1Active = false, m1Score = 0;
+ if(targetDir === 'ov05pt' && sig.s1.active){ if(sig.s1.m1) m1Active = true; m1Score = sig.s1.strength; }
+ else if(targetDir === 'gg' && sig.s2.active){ if(sig.s2.m1) m1Active = true; m1Score = sig.s2.strength; }
+ else if(targetDir === 'over' && sig.s3.active){ if(sig.s3.m1o) m1Active = true; m1Score = sig.s3.sO; }
+ else if(targetDir === 'under' && sig.s3.active){ if(sig.s3.m1u) m1Active = true; m1Score = sig.s3.sU; }
+ else if(targetDir === 'mg13' && sig.s4.active){
+  if(target.side === 'casa' && sig.s4.m1c){ m1Active = true; m1Score = sig.s4.sC; }
+  else if(target.side === 'ospite' && sig.s4.m1o){ m1Active = true; m1Score = sig.s4.sO; }
+  else m1Score = target.side==='casa' ? sig.s4.sC : sig.s4.sO;
+ }
+ if(m1Score > 0){
+  comp.push({key:'M1', weight:W.M1, contrib: m1Score*2-1, coverage:1, label: m1Active?'M1 attiva':'M1 borderline'});
+ } else {
+  comp.push({key:'M1', weight:W.M1, contrib: 0, coverage:0});
+ }
 
-// S4 - M1 MG 1-3 (entrambi i lati)
-function signal_S4_mg13(m){
-const r = m.mg13;
-if(!r) return {active:false, coverage:0};
-const m1c = rule_mg13c_M1(r);
-const m1o = rule_mg13o_M1(r);
-const valC = m1c ? 1 : (r.ich>0 && r.ich<=400 && r.varc>=20 ? 0.5 : 0);
-const valO = m1o ? 1 : (r.ica>0 && r.ica<=400 && r.varo>=20 ? 0.5 : 0);
-const valBest = Math.max(valC, valO);
-const sideBest = valC >= valO ? ‘casa’ : ‘ospite’;
-return {
-active:true, coverage:1, value:valBest, strength:valBest,
-direction: sideBest===‘casa’ ? ‘mg13c’ : ‘mg13o’,
-market: sideBest===‘casa’ ? ‘MG13C’ : ‘MG13O’,
-m1c, m1o, side:sideBest,
-details:`ICH ${r.ich} (VarC ${fmtN(r.varc,0)}%) · ICA ${r.ica} (VarO ${fmtN(r.varo,0)}%)`
-};
-}
+ // DataMining
+ if(sig.s7.active){
+  let perc = 0;
+  if(targetDir === 'over') perc = sig.s7.buckets.over;
+  else if(targetDir === 'under') perc = sig.s7.buckets.under;
+  else if(targetDir === 'gg') perc = sig.s7.buckets.gg;
+  else if(targetDir === 'ov05pt') perc = sig.s7.buckets.ov05pt;
+  else if(targetDir === 'casaSegna') perc = sig.s7.buckets.casaSegna;
+  else if(targetDir === 'ospiteSegna') perc = sig.s7.buckets.ospiteSegna;
+  else if(targetDir === '1') perc = sig.s7.buckets['1'];
+  else if(targetDir === 'X') perc = sig.s7.buckets['X'];
+  else if(targetDir === '2') perc = sig.s7.buckets['2'];
+  else if(targetDir === 'mg24') perc = (sig.s7.buckets.ov15 + sig.s7.buckets.under) / 2;
+  if(perc > 0){
+   const c = clamp((perc - 50) / 50, -1, 1) * sig.s7.npWeight;
+   comp.push({key:'DM', weight:W.DM, contrib:c, coverage:1, label:`DM ${perc.toFixed(0)}% NP=${sig.s7.np}`});
+  } else {
+   comp.push({key:'DM', weight:W.DM, contrib:0, coverage:0});
+  }
+ } else comp.push({key:'DM', weight:W.DM, contrib:0, coverage:0});
 
-// S5 - Stats IA convergenza
-function signal_S5_ia(m){
-const r = m.ia;
-if(!r || !r.stats || !r.stats.length) return {active:false, coverage:0};
-const affs = r.stats.map(s=>s.aff);
-const avg = r.avgAff;
-const max = r.maxAff;
-const sd = std(affs);
-// Convergenza: aff alta + bassa dev std → segnale solido
-const val = clamp((avg/5) * (1 - sd/3), 0, 1);
-const strongest = r.stats.slice().sort((a,b)=>b.aff-a.aff)[0];
-return {
-active:true, coverage:1, value:val, strength:val,
-direction:‘support’, market:null,
-details:`Max aff ${fmtN(max,1)} su ${strongest?strongest.label:'-'}, avg ${fmtN(avg,2)}`
-};
-}
+ // GZ
+ if(sig.s6.active && sig.s6.direction !== 'neutral'){
+  const ag = dirAgreesWith(targetDir, sig.s6.direction);
+  if(ag !== null){
+   comp.push({key:'GZ', weight:W.GZ, contrib: ag * sig.s6.strength, coverage:1, label: sig.s6.lbl});
+  } else {
+   comp.push({key:'GZ', weight:W.GZ, contrib: 0, coverage:0.5});
+  }
+ } else comp.push({key:'GZ', weight:W.GZ, contrib:0, coverage:0});
 
-// S6 - GZ Probability
-function signal_S6_gz(m){
-const r = m.gz;
-if(!r || r.gz===null) return {active:false, coverage:0};
-const p = gzProbMap(r.gz);
-if(p.type === ‘nd’ || p.type === ‘neutral’) return {active:false, coverage:0, raw:r.gz};
-return {
-active:true, coverage:1, value:p.strength, strength:p.strength,
-direction:p.type, market:p.market,
-details:`GZ ${r.gz>0?'+':''}${r.gz} → ${p.label}`,
-prob:p
-};
-}
+ // S10 Differenziali Gol
+ let dgPenalty = 0;
+ if(sig.s10.active){
+  if(sig.s10.significant){
+   const ag = dirAgreesWith(targetDir, sig.s10.direction);
+   if(ag !== null){
+    comp.push({key:'DGT', weight:W.DIFFG, contrib: ag * sig.s10.strength, coverage:1, label:`DGT ${sig.s10.dgt.toFixed(2)}`});
+    if(ag < 0) dgPenalty = 0.15;
+   } else comp.push({key:'DGT', weight:W.DIFFG, contrib:0, coverage:0.5});
+  } else {
+   if(targetDir === 'casaSegna' && sig.s10.teamSignals.casaSegna){
+    comp.push({key:'DiffC', weight:W.DIFFG, contrib: 0.7, coverage:1, label:`DiffC ${sig.s10.diffC?.toFixed(2)}`});
+   } else if(targetDir === 'ospiteSegna' && sig.s10.teamSignals.ospiteSegna){
+    comp.push({key:'DiffO', weight:W.DIFFG, contrib: 0.7, coverage:1, label:`DiffO ${sig.s10.diffO?.toFixed(2)}`});
+   } else comp.push({key:'DGT', weight:W.DIFFG, contrib:0, coverage:0});
+  }
+ } else comp.push({key:'DGT', weight:W.DIFFG, contrib:0, coverage:0});
 
-// S7 - DataMining esteso (% mercato + NP + bonus RE + IC/RC/RO)
-function signal_S7_dm(m){
-const r = m.dm;
-if(!r) return {active:false, coverage:0};
-const npF = clamp(r.np / 30, 0, 1);     // NP=30 → peso pieno
-// Direzione dominante per Over/Under/GG: prendiamo il valore medio
-const ov25 = (r.pOV25||0)/100;
-const un35 = (r.pUN35||0)/100;
-const gg = (r.pGG||0)/100;
-const ov15 = (r.pOV15||0)/100;
-const ov05pt = (r.pOV05pt||0)/100;
-// Per il signal “S7 generico” usiamo la massima tra le percentuali alte
-const candidates = [
-{dir:‘over’, val:ov25, mkt:‘O25’},
-{dir:‘under’, val:un35, mkt:‘U25’},
-{dir:‘gg’, val:gg, mkt:‘GG’},
-{dir:‘over’, val:ov15, mkt:‘O15’},
-{dir:‘over’, val:ov05pt, mkt:‘OV05’}
-];
-candidates.sort((a,b)=>b.val-a.val);
-const top = candidates[0];
-// Bonus RE: se almeno un risultato esatto > 12%
-const reItems = parseREField(r.re);
-const reBonus = reItems.length && reItems[0].perc > 12 ? 0.05 : 0;
-const val = clamp(top.val * npF + reBonus, 0, 1);
-return {
-active:true, coverage:1, value:val, strength:top.val,
-direction:top.dir, market:top.mkt,
-details:`NP ${r.np} · ${top.mkt} ${fmtN(top.val*100,0)}% · MGE ${fmtN(r.mge,2)} · DIFF ${fmtN(r.diff,2)}`,
-raw:r, npFactor:npF, reItems
-};
-}
+ // S8 Value
+ if(sig.s8.active){
+  const ag = dirAgreesWith(targetDir, sig.s8.direction);
+  if(ag !== null){
+   comp.push({key:'VAL', weight:W.VAL, contrib: ag * sig.s8.strength, coverage:1, label:`Spread ${sig.s8.strength.toFixed(2)}`});
+  } else comp.push({key:'VAL', weight:W.VAL, contrib:0, coverage:0.3});
+ } else comp.push({key:'VAL', weight:W.VAL, contrib:0, coverage:0});
 
-// S8 - Value 1X2 con drop quota
-function signal_S8_val(m){
-const q = m.qVal;
-if(!q) return {active:false, coverage:0};
-// Valuta i 3 esiti, ritorna quello con spread max
-const candidates = [];
-const checkSign = (lbl, real, dm, spread, market) => {
-if(spread > 0.15 && real > 1.01 && real < 3 && dm > 0){
-const edge = (1/dm) - (1/real); // edge stimato
-candidates.push({lbl, real, dm, spread, edge, market});
-}
-};
-checkSign(‘1’, q.r1, q.dm1, q.spread1, ‘1’);
-checkSign(‘X’, q.rx, q.dmx, q.spreadX, ‘X’);
-checkSign(‘2’, q.r2, q.dm2, q.spread2, ‘2’);
-if(!candidates.length) return {active:false, coverage:0, raw:q};
-candidates.sort((a,b)=>b.spread-a.spread);
-const top = candidates[0];
-const val = clamp(top.spread / 0.6, 0, 1); // spread 0.6 = max
-const dirMap = {‘1’:‘homeW’,‘X’:‘draw’,‘2’:‘awayW’};
-return {
-active:true, coverage:1, value:val, strength:val,
-direction:dirMap[top.lbl], market:top.market,
-details:`${top.lbl} value: real ${fmtN(top.real,2)} vs DM ${fmtN(top.dm,2)} (spread ${fmtN(top.spread,2)})`,
-edge:top.edge, raw:q, candidate:top
-};
-}
+ // S5 Stats IA
+ if(sig.s5.active && sig.s5.strength > 0){
+  const ag = dirAgreesWith(targetDir, sig.s5.direction);
+  if(ag !== null){
+   comp.push({key:'IA', weight:W.IA, contrib: ag * sig.s5.strength, coverage:1, label:`IA ${sig.s5.details.winner}`});
+  } else comp.push({key:'IA', weight:W.IA, contrib:0, coverage:0.3});
+ } else comp.push({key:'IA', weight:W.IA, contrib:0, coverage:0});
 
-// S9 - Profilo giocatori (ritardi alti pro-mercato)
-function signal_S9_pl(m){
-const cards = m.plCard||[], shots = m.plShot||[];
-if(!cards.length && !shots.length) return {active:false, coverage:0};
-// Ritardo medio + max
-const allRit = […cards.map(p=>p.rit||0), …shots.map(p=>p.rit||0)];
-const maxRit = allRit.length ? Math.max(…allRit) : 0;
-const val = clamp(maxRit / 8, 0, 1); // rit=8 → val 1
-const det = [];
-if(cards.length){
-const top = cards.slice().sort((a,b)=>b.rit-a.rit)[0];
-if(top && top.rit>=3) det.push(`${top.nome} amm: rit ${top.rit}`);
-}
-if(shots.length){
-const top = shots.slice().sort((a,b)=>b.rit-a.rit)[0];
-if(top && top.rit>=3) det.push(`${top.nome} gol: rit ${top.rit}`);
-}
-return {
-active: maxRit>=3, coverage:1, value:val, strength:val,
-direction:‘players’, market:null,
-details: det.join(’ · ’) || `${cards.length} card / ${shots.length} shot`
-};
-}
+ // S9
+ if(sig.s9.active){
+  comp.push({key:'PL', weight:W.PL, contrib: 0, coverage:0.5});
+ } else comp.push({key:'PL', weight:W.PL, contrib:0, coverage:0});
 
-// S10 - DIFFERENZIALI GOL (mean-reversion CORRETTA)
-function signal_S10_diffg(m){
-const r = m.diffg;
-if(!r || r.dgt===null) return {active:false, coverage:0};
-const dgt = r.dgt;
-// LOGICA MEAN-REVERSION:
-// DGT positivo grande = sovrafrequenza (squadre stanno segnando SOPRA media) → pro-UNDER
-// DGT negativo grande = sottofrequenza (squadre stanno segnando SOTTO media) → pro-OVER
-let dir = ‘neutral’;
-let val = 0;
-if(Math.abs(dgt) >= DIFF_THR.dgt){
-dir = dgt > 0 ? ‘under’ : ‘over’;
-val = clamp(Math.abs(dgt) / 2.5, 0, 1); // |DGT|=2.5 → val pieno
-}
-// Drop quota market movement
-let drop = null, dropDir = null;
-if(r.qr && r.qrL && r.qr > 0){
-drop = (r.qr - r.qrL) / r.qr;
-if(drop > DIFF_THR.dropOk) dropDir = ‘down’;      // quota scesa = mercato conferma
-else if(drop < -DIFF_THR.dropOk) dropDir = ‘up’;  // quota salita = mercato sfiducia
-}
-return {
-active: val > 0 || dropDir !== null, coverage:1,
-value:val, strength:val,
-direction:dir,
-market: dir===‘over’ ? ‘O25’ : (dir===‘under’ ? ‘U25’ : null),
-details: `DGT ${fmtN(dgt,2)} (${dgt>0?'sovrafrequenza→Under':'sottofrequenza→Over'})` +
-(drop!==null ? ` · Drop ${fmtN(drop*100,1)}%` : ‘’),
-dgt, dg:r.dg, mge:r.mge, mgu5:r.mgu5,
-diffC:r.diffC, diffO:r.diffO,
-qt:r.qt, qr:r.qr, qrL:r.qrL,
-drop, dropDir
-};
-}
-
-// Differenziali team-specific (sub-segnali)
-function team_diffC_pro(m){
-// CASA SEGNA: DiffC < -0.3 (sotto media → pro-Casa-Segna mean-reversion)
-const r = m.diffg;
-if(!r || r.diffC===null) return null;
-if(r.diffC < -DIFF_THR.team) return {active:true, dir:‘homeS’, val:clamp(-r.diffC/1, 0, 1), val2:r.diffC};
-if(r.diffC > DIFF_THR.team)  return {active:true, dir:‘noHomeS’, val:clamp(r.diffC/1, 0, 1), val2:r.diffC};
-return null;
-}
-function team_diffO_pro(m){
-// OSPITE SEGNA
-const r = m.diffg;
-if(!r || r.diffO===null) return null;
-if(r.diffO < -DIFF_THR.team) return {active:true, dir:‘awayS’, val:clamp(-r.diffO/1, 0, 1), val2:r.diffO};
-if(r.diffO > DIFF_THR.team)  return {active:true, dir:‘noAwayS’, val:clamp(r.diffO/1, 0, 1), val2:r.diffO};
-return null;
-}
-
-/* ==================== ENUMERAZIONE MERCATI CANDIDATI ==================== */
-function enumerateCandidates(m){
-const cs = [];
-// Mercati gol
-if(m.ov05pt || (m.dm && m.dm.pOV05pt > 50)) cs.push({mkt:‘OV05’, label:‘Ov 0.5 PT’, dir:‘over’});
-if(m.ggov25){
-cs.push({mkt:‘O25’, label:‘Ov 2.5’, dir:‘over’});
-cs.push({mkt:‘U25’, label:‘U 2.5’, dir:‘under’});
-cs.push({mkt:‘GG’, label:‘GG (Goal-Goal)’, dir:‘gg’});
-}
-if(m.dm){
-if(!cs.find(x=>x.mkt===‘OV05’)) cs.push({mkt:‘OV05’, label:‘Ov 0.5 PT’, dir:‘over’});
-if(!cs.find(x=>x.mkt===‘O25’)) cs.push({mkt:‘O25’, label:‘Ov 2.5’, dir:‘over’});
-if(!cs.find(x=>x.mkt===‘U25’)) cs.push({mkt:‘U25’, label:‘U 2.5’, dir:‘under’});
-if(!cs.find(x=>x.mkt===‘GG’))  cs.push({mkt:‘GG’, label:‘GG’, dir:‘gg’});
-// OV 1.5
-if(m.dm.pOV15 > 60) cs.push({mkt:‘OV15’, label:‘Ov 1.5’, dir:‘over’});
-// MG 2-4 (OV15>60 AND UN35>60)
-if(m.dm.pOV15 > 60 && m.dm.pUN35 > 60) cs.push({mkt:‘MG24’, label:‘MG 2-4’, dir:‘mg24’});
-// Casa Segna / Ospite Segna (SC%>=60 AND IGBC>=150 AND DiffC<-0.3)
-if(m.dm.pSC >= 60 && m.dm.igbc >= 150){
-const dC = team_diffC_pro(m);
-if(dC && dC.dir===‘homeS’) cs.push({mkt:‘CASASEGNA’, label:‘Casa Segna’, dir:‘homeS’});
-}
-if(m.dm.pSO >= 60 && m.dm.igbo >= 150){
-const dO = team_diffO_pro(m);
-if(dO && dO.dir===‘awayS’) cs.push({mkt:‘OSPITESEGNA’, label:‘Ospite Segna’, dir:‘awayS’});
-}
-}
-// MG 1-3
-if(m.mg13){
-cs.push({mkt:‘MG13C’, label:‘MG 1-3 Casa’, dir:‘mg13c’});
-cs.push({mkt:‘MG13O’, label:‘MG 1-3 Ospite’, dir:‘mg13o’});
-}
-// 1X2 value
-if(m.qVal){
-const s8 = signal_S8_val(m);
-if(s8.active && s8.candidate){
-cs.push({mkt:s8.candidate.market, label:`Esito ${s8.candidate.lbl}`, dir:s8.direction});
-}
-}
-return cs;
-}
-
-/* ==================== SELECT RELEVANT SIGNALS PER MERCATO ==================== */
-function selectRelevantSignals(m, candidate){
-const sigs = {};
-const dir = candidate.dir;
-const mkt = candidate.mkt;
-// S1 - Ov 0.5 PT (rilevante solo per OV05)
-const s1 = signal_S1_ov05pt(m);
-if(s1.active && (mkt === ‘OV05’ || mkt === ‘O25’ || mkt === ‘GG’)){
-// boost OV05 pieno; altri mercati gol leggero
-sigs.S1 = {…s1, weight: mkt===‘OV05’ ? W.M1 : W.M1*0.4};
-}
-// S2 - GG
-const s2 = signal_S2_gg(m);
-if(s2.active && (mkt === ‘GG’ || mkt === ‘O25’)){
-sigs.S2 = {…s2, weight: mkt===‘GG’ ? W.M1 : W.M1*0.5};
-}
-// S3 - Ov/Un 2.5
-if(mkt === ‘O25’){
-const s3 = signal_S3_o25(m);
-if(s3.active) sigs.S3 = {…s3, weight: W.M1};
-} else if(mkt === ‘U25’ || mkt === ‘MG24’){
-const s3u = signal_S3_u25(m);
-if(s3u.active) sigs.S3 = {…s3u, weight: W.M1};
-}
-// S4 - MG 1-3
-if(mkt === ‘MG13C’ || mkt === ‘MG13O’){
-const s4 = signal_S4_mg13(m);
-if(s4.active){
-const ok = (mkt===‘MG13C’ && s4.m1c) || (mkt===‘MG13O’ && s4.m1o) || s4.value>0;
-if(ok) sigs.S4 = {…s4, weight: W.M1};
-}
-}
-// S5 - Stats IA (sempre se attivo, ma metà peso se direzione non match)
-const s5 = signal_S5_ia(m);
-if(s5.active){
-sigs.S5 = {…s5, weight: W.IA};
-}
-// S6 - GZ
-const s6 = signal_S6_gz(m);
-if(s6.active){
-// peso pieno se direzione GZ concorda col mercato; metà altrimenti
-let dirMatch = false;
-if(s6.direction === ‘over’ && (dir === ‘over’ || mkt === ‘OV05’ || mkt === ‘O25’ || mkt === ‘GG’ || mkt === ‘OV15’)) dirMatch = true;
-if(s6.direction === ‘under’ && (dir === ‘under’ || mkt === ‘U25’ || mkt === ‘MG24’)) dirMatch = true;
-sigs.S6 = {…s6, weight: dirMatch ? W.GZ : W.GZ*0.4, dirMatch};
-}
-// S7 - DataMining: peso pieno + adattamento al mercato specifico
-const s7 = signal_S7_dm(m);
-if(s7.active){
-// Calcola % specifica del mercato
-const dm = m.dm;
-let pSpec = 0, lblSpec = mkt;
-switch(mkt){
-case ‘OV05’: pSpec = (dm.pOV05pt||0)/100; break;
-case ‘OV15’: pSpec = (dm.pOV15||0)/100; break;
-case ‘O25’:  pSpec = (dm.pOV25||0)/100; break;
-case ‘U25’:  pSpec = (dm.pUN35||0)/100; break;
-case ‘GG’:   pSpec = (dm.pGG||0)/100; break;
-case ‘CASASEGNA’: pSpec = (dm.pSC||0)/100; break;
-case ‘OSPITESEGNA’: pSpec = (dm.pSO||0)/100; break;
-case ‘1’:    pSpec = (dm.p1||0)/100; break;
-case ‘X’:    pSpec = (dm.pX||0)/100; break;
-case ‘2’:    pSpec = (dm.p2||0)/100; break;
-case ‘MG24’: pSpec = ((dm.pOV15||0)/100) * ((dm.pUN35||0)/100); break;
-default: pSpec = s7.value;
-}
-const npF = s7.npFactor;
-const valSpec = clamp(pSpec * npF, 0, 1);
-sigs.S7 = {
-active:true, coverage:1, value:valSpec, strength:pSpec,
-direction: dir, market: mkt, weight: W.DM, npFactor:npF,
-details:`NP ${dm.np} · ${lblSpec} ${fmtN(pSpec*100,0)}%`,
-raw: dm, pSpec
-};
-}
-// S8 - Value 1X2 (solo per mercati 1X2)
-const s8 = signal_S8_val(m);
-if(s8.active){
-if(mkt === ‘1’ || mkt === ‘X’ || mkt === ‘2’){
-const matchSign = s8.candidate && s8.candidate.market === mkt;
-if(matchSign) sigs.S8 = {…s8, weight: W.VAL};
-} else {
-// Per mercati gol, value secondario (peso ridotto)
-sigs.S8 = {…s8, weight: W.VAL*0.3};
-}
-}
-// S9 - Players (solo se rilevante)
-const s9 = signal_S9_pl(m);
-if(s9.active && (mkt === ‘OV05’ || mkt === ‘O25’ || mkt === ‘GG’)){
-sigs.S9 = {…s9, weight: W.PL*0.5};
-} else if(s9.active){
-sigs.S9 = {…s9, weight: W.PL*0.2};
-}
-// S10 - Differenziali Gol (mean-reversion, peso pieno se direzione concorda)
-const s10 = signal_S10_diffg(m);
-if(s10.active){
-let dirMatch = false;
-if(s10.direction === ‘over’ && (dir === ‘over’ || mkt === ‘OV05’ || mkt === ‘O25’ || mkt === ‘GG’ || mkt === ‘OV15’)) dirMatch = true;
-if(s10.direction === ‘under’ && (dir === ‘under’ || mkt === ‘U25’ || mkt === ‘MG24’)) dirMatch = true;
-sigs.S10 = {…s10, weight: dirMatch ? W.DIFFG : W.DIFFG*0.3, dirMatch};
-}
-// Sub-segnali team specific per Casa/Ospite Segna
-if(mkt === ‘CASASEGNA’){
-const dC = team_diffC_pro(m);
-if(dC && dC.dir===‘homeS’){
-sigs.S10t = {active:true, coverage:1, value:dC.val, strength:dC.val,
-direction:‘homeS’, market:‘CASASEGNA’, weight:W.DIFFG*0.5,
-details:`DiffC ${fmtN(dC.val2,2)} (sottofreq → Casa Segna)`};
-}
-}
-if(mkt === ‘OSPITESEGNA’){
-const dO = team_diffO_pro(m);
-if(dO && dO.dir===‘awayS’){
-sigs.S10t = {active:true, coverage:1, value:dO.val, strength:dO.val,
-direction:‘awayS’, market:‘OSPITESEGNA’, weight:W.DIFFG*0.5,
-details:`DiffO ${fmtN(dO.val2,2)} (sottofreq → Ospite Segna)`};
-}
-}
-return sigs;
-}
-
-/* ==================== CONFIDENCE SCORE ==================== */
-/* Formula:
-
-1. weighted average direzionato (segnali pro=+1, contro=-1, neutri=0)
-1. conflict penalty = LAMBDA * std_pesata dei segnali
-1. coverage factor = COV_FLOOR + (1-COV_FLOOR) * coverage_ratio
-1. hard caps condizionali
-   */
-   function computeConfidence(m, candidate, sigs){
-   const dir = candidate.dir;
-   const mkt = candidate.mkt;
-   // Direzioni “pro” del mercato target
-   const proDirsByMkt = {
-   ‘OV05’: [‘over’],
-   ‘OV15’: [‘over’],
-   ‘O25’:  [‘over’],
-   ‘GG’:   [‘gg’,‘over’],
-   ‘U25’:  [‘under’],
-   ‘MG24’: [‘under’,‘mg24’],
-   ‘MG13C’:[‘mg13c’],
-   ‘MG13O’:[‘mg13o’],
-   ‘CASASEGNA’:[‘homeS’],
-   ‘OSPITESEGNA’:[‘awayS’],
-   ‘1’:    [‘homeW’],
-   ‘X’:    [‘draw’],
-   ‘2’:    [‘awayW’]
-   };
-   const proDirs = proDirsByMkt[mkt] || [dir];
-
-const items = [];
-Object.entries(sigs).forEach(([k,s]) => {
-if(!s || !s.active || !s.coverage) return;
-// direzione: +1 se s.direction è in proDirs, -1 se opposta, 0 altrimenti
-let d = 0;
-if(proDirs.includes(s.direction)) d = +1;
-else {
-// direzioni opposte note
-const opposites = {
-‘over’:[‘under’], ‘under’:[‘over’],
-‘gg’:[‘ng’], ‘ng’:[‘gg’],
-‘homeS’:[‘noHomeS’], ‘awayS’:[‘noAwayS’],
-‘mg13c’:[‘mg13o’], ‘mg13o’:[‘mg13c’]
-};
-if((opposites[proDirs[0]]||[]).includes(s.direction)) d = -1;
-else d = 0; // neutro / supporto
-}
-// Per “support” (S5) e “players” (S9), valore = +0.5 se attivo (non polarizzato)
-if(s.direction === ‘support’ || s.direction === ‘players’) d = 0.5;
-items.push({key:k, weight:s.weight, value:s.value, dir:d, signal:s});
-});
-
-if(!items.length) return {confidence:0, score:0, sigCount:0, items:[], penalty:0, covRatio:0};
-
-// Weighted score in [-1, +1]
-const totW = items.reduce((s,x)=>s+x.weight, 0);
-const wScore = items.reduce((s,x)=>s + x.weight * x.value * x.dir, 0) / totW;
-
-// Conflict penalty
-const dirs = items.map(x => x.value * x.dir);
-const sd = stdW(dirs, items.map(x => x.weight));
-
-// Coverage ratio
-const W_TOT = W.M1 + W.DM + W.GZ + W.DIFFG + W.VAL + W.IA + W.PL;
-const covRatio = clamp(totW / W_TOT, 0, 1);
-const covFactor = COV_FLOOR + (1 - COV_FLOOR) * covRatio;
-
-// Score base 0..100
-let scoreBase = 50 + 50 * wScore;          // -1→0, +1→100
-const penalty = CONFLICT_LAMBDA * sd;       // tipicamente 0..5
-let score = scoreBase * covFactor - penalty;
-
-// Hard caps
-// (a) Drop quota contrario: cap 60
-const s10 = sigs.S10;
-if(s10 && s10.dropDir === ‘up’){ score = Math.min(score, 60); }
-// (b) Coverage < 0.5: cap 70
-if(covRatio < 0.5){ score = Math.min(score, 70); }
-// (c) DGT contraria significativa: cap 70
-if(s10 && s10.active && Math.abs(s10.dgt||0) >= DIFF_THR.dgt){
-const dgtPro = s10.direction;
-const opp = (dgtPro === ‘over’ && (dir === ‘under’ || mkt === ‘U25’ || mkt === ‘MG24’))
-|| (dgtPro === ‘under’ && (dir === ‘over’ || mkt === ‘OV05’ || mkt === ‘O25’ || mkt === ‘GG’ || mkt === ‘OV15’));
-if(opp){ score = Math.min(score, 60); }
-}
-// (d) Pochi segnali (< 3 attivi) e score > 80: cap 75
-if(items.length < 3 && score > 75) score = 75;
-
-score = clamp(score, 0, 100);
-return {
-confidence: Math.round(score),
-score, sigCount: items.length, items, penalty: round(penalty,2),
-covRatio: round(covRatio,2), wScore: round(wScore,2), sd: round(sd,2)
-};
-}
-
-/* ==================== QUOTA OPERATIVA + EDGE + KELLY ==================== */
-function getOperativeOdds(m, candidate){
-const mkt = candidate.mkt;
-// Priorità: QrL (last) → Qr → quota DM specifica → null
-const dg = m.diffg;
-const dm = m.dm;
-// Per O25/U25: usiamo la quota più appropriata
-const lookup = {
-‘O25’:  () => (dg && dg.qrL) || (dm && dm.qOV25) || (m.ggov25 && m.ggov25.qov25),
-‘U25’:  () => (dm && dm.qUN35) || null,
-‘OV05’: () => (dm && dm.qOV05pt) || (m.ov05pt && m.ov05pt.qrOv05),
-‘OV15’: () => (dm && dm.qOV15) || null,
-‘GG’:   () => (dm && dm.qGG) || (m.ov05pt && m.ov05pt.qrGG) || null,
-‘1’:    () => (m.qVal && m.qVal.r1) || (dm && dm.q1),
-‘X’:    () => (m.qVal && m.qVal.rx) || (dm && dm.qX),
-‘2’:    () => (m.qVal && m.qVal.r2) || (dm && dm.q2),
-‘CASASEGNA’: () => (dm && dm.qSC) || null,
-‘OSPITESEGNA’:() => (dm && dm.qSO) || null,
-‘MG24’: () => 1.50,   // quota target per MG 2-4
-‘MG13C’:() => (m.mg13 && m.mg13.qo25) || null,  // proxy
-‘MG13O’:() => (m.mg13 && m.mg13.qo25) || null
-};
-const fn = lookup[mkt];
-const q = fn ? fn() : null;
-return (q && q > 1.01) ? q : null;
-}
-
-function probFromConfidence(confidence, oddsImplied){
-// Shrinkage: p = α * p_model + (1-α) * p_implied
-// p_model derivata dal Confidence (50→imp.implied, 100→max boost)
-const conf = confidence / 100;
-// probabilità “modello” interpolata: a 50 confidenza coincide con quota implicita
-// a 100 confidenza si discosta di +30% relativo
-const pImp = oddsImplied;
-const pModel = pImp + (conf - 0.5) * 0.4 * pImp;
-const alpha = 0.4 + 0.6 * conf;  // confidence alta = più peso al modello
-const p = alpha * pModel + (1 - alpha) * pImp;
-return clamp(p, 0.01, 0.99);
-}
-
-function computeEdge(p, odds){
-if(!odds || odds <= 1) return 0;
-const pImp = 1 / odds;
-return p - pImp;
-}
-
-function kellyStake(p, odds, bankroll, fraction, capPct){
-const b = odds - 1;
-if(b <= 0) return {stake:0, frac:0, fStar:0};
-const fStar = (b * p - (1 - p)) / b;
-if(fStar <= 0) return {stake:0, frac:0, fStar};
-const frac = clamp(fraction * fStar, 0, capPct);
-return {stake: round(frac * bankroll, 2), frac: round(frac,4), fStar: round(fStar,4)};
-}
-
-/* ==================== ANTI-SCOMMESSA: 10 FILTRI ==================== */
-function applyTenFilters(rec, ctx){
-const reasons = [];
-const c = rec.confidence;
-const cov = rec.covRatio;
-const dm = ctx.match.dm;
-const odds = rec.odds;
-// 1. Confidence < 60
-if(c < 60) reasons.push(‘confidence < 60’);
-// 2. NP DataMining < 15
-if(dm && dm.np < 15 && rec.sigKeys.includes(‘S7’)) reasons.push(‘NP DataMining < 15’);
-// 3. Coverage < 50%
-if(cov < 0.5) reasons.push(‘coverage < 50%’);
-// 4. Conflitto maggiore (sd > 0.4)
-if(rec.sd > 0.4) reasons.push(‘segnali divergenti (σ > 0.4)’);
-// 5. Drop quota contrario
-if(rec.dropDir === ‘up’) reasons.push(‘drop quota contrario’);
-// 6. Quota fuori range
-if(odds && (odds < 1.20 || odds > 15)) reasons.push(‘quota fuori range operativo’);
-// 7. DGT contraria sopra cap
-if(rec.dgtContrary) reasons.push(‘DGT contraria sopra soglia’);
-// 8. Stop-loss giornaliero
-if(S.bankroll.pl_day <= -S.bankroll.total * 0.10) reasons.push(‘stop-loss giornaliero raggiunto (-10%)’);
-// 9. Stop-loss settimanale
-if(S.bankroll.pl_week <= -S.bankroll.total * 0.20) reasons.push(‘stop-loss settimanale raggiunto (-20%)’);
-// 10. Edge ≤ 0
-if(rec.edge !== undefined && rec.edge <= 0) reasons.push(‘edge ≤ 0’);
-return {pass: reasons.length === 0, reasons};
+ // Calcolo
+ const W_eff = comp.reduce((s,c) => s + c.weight*c.coverage, 0);
+ if(W_eff <= 0){
+  return {confidence:0, components:comp, coverage:0, conflictPenalty:0, capped:false, capReason:''};
+ }
+ const score_raw = comp.reduce((s,c) => s + c.weight*c.coverage*c.contrib, 0) / W_eff;
+ const score_base = 50 + 50 * score_raw;
+ const activeContribs = comp.filter(c => c.coverage > 0).map(c => c.contrib);
+ const activeWeights = comp.filter(c => c.coverage > 0).map(c => c.weight*c.coverage);
+ const sigma = stdW(activeContribs, activeWeights);
+ const penalty = CONFLICT_LAMBDA * sigma;
+ const W_total = Object.values(W).reduce((s,x) => s+x, 0);
+ const cov_ratio = W_eff / W_total;
+ const cov_factor = COV_FLOOR + (1 - COV_FLOOR) * cov_ratio;
+ let score = score_base * cov_factor - penalty;
+ if(dgPenalty > 0) score -= dgPenalty * 100 * 0.4;
+ let capped = false, capReason = '';
+ if(sig.s10.active && sig.s10.significant){
+  const ag = dirAgreesWith(targetDir, sig.s10.direction);
+  if(ag === -1 && score > 70){ score = 70; capped = true; capReason = 'DGT contraria'; }
+ }
+ if(sig.s10.active && sig.s10.dropDir === 'contra' && score > 60){
+  score = 60; capped = true; capReason = 'Drop quota contrario';
+ }
+ if(cov_ratio < 0.5 && score > 70){
+  score = 70; capped = true; capReason = 'Coverage <50%';
+ }
+ if(sig.s10.active && sig.s10.dropDir === 'pro') score += 4;
+ score = clamp(score, 0, 100);
+ return {
+  confidence: Math.round(score),
+  components: comp,
+  coverage: cov_ratio,
+  conflictPenalty: penalty,
+  capped, capReason,
+  score_raw, score_base, cov_factor
+ };
 }
 
 /* ==================== TEMPLATE NARRATIVI A-G ==================== */
-function topContributions(items, n=3){
-// Ordina per |weight * value * dir| desc
-const sorted = items.slice().sort((a,b) => {
-const ax = Math.abs(a.weight * a.value * (a.dir||0));
-const bx = Math.abs(b.weight * b.value * (b.dir||0));
-return bx - ax;
-});
-return sorted.slice(0, n);
+function topContributors(components, n=3){
+ return components
+  .filter(c => c.coverage > 0 && c.contrib > 0.05)
+  .sort((a,b) => (Math.abs(b.contrib)*b.weight) - (Math.abs(a.contrib)*a.weight))
+  .slice(0, n);
+}
+function topConflicts(components, n=1){
+ return components
+  .filter(c => c.coverage > 0 && c.contrib < -0.05)
+  .sort((a,b) => (Math.abs(b.contrib)*b.weight) - (Math.abs(a.contrib)*a.weight))
+  .slice(0, n);
 }
 
-function topConflict(items){
-// Trova il segnale con dir negativo più impattante
-const negs = items.filter(x => x.dir < 0 && x.value > 0.3);
-if(!negs.length) return null;
-negs.sort((a,b) => (b.weight*b.value) - (a.weight*a.value));
-return negs[0];
+function buildNarrative(rec){
+ const c = rec.confidence;
+ const m = rec.market;
+ const match = rec.match;
+ const odds = rec.odds;
+ const stake = rec.stake;
+ const stakePct = rec.stakePct;
+ const tops = topContributors(rec.components, 3);
+ const conflicts = topConflicts(rec.components, 1);
+ const sig = rec.sig;
+ const dgt = sig.s10 && sig.s10.dgt;
+ const drop = sig.s10 && sig.s10.drop;
+
+ let template = 'D';
+ if(c >= 82 && rec.hasM1) template = 'A';
+ else if(rec.dir === 'under' && sig.s10.active && sig.s10.significant && sig.s10.dgt > 0.8) template = 'B';
+ else if(rec.dir === 'casaSegna' || rec.dir === 'ospiteSegna') template = 'C';
+ else if(rec.cluster) template = 'E';
+ else if(c < 60) template = 'F';
+ else if(rec.dir === 'over' && sig.s10.active && sig.s10.significant && sig.s10.dgt < -0.8) template = 'B2';
+
+ const reasonStr = tops.map(t => t.label || t.key).join('; ');
+ const conflictStr = conflicts.length ? `Attenzione: ${conflicts[0].label || conflicts[0].key} contro` : '';
+
+ if(template === 'A'){
+  return `🏆 BET OF THE DAY · ${match} · ${m} a quota ${odds?.toFixed(2)}. ${reasonStr}. ${conflictStr || 'Nessun segnale contrario significativo.'} Confidence ${c}/100, stake consigliato ${stakePct?.toFixed(1)}% (${fmtEur(stake)}).`;
+ }
+ if(template === 'B'){
+  return `${match}. ${m} a quota ${odds?.toFixed(2)}. Le squadre stanno segnando sopra la media consolidata (DGT ${dgt?.toFixed(2)}, sovrafrequenza): la regressione alla media suggerisce meno gol del trend recente. ${reasonStr}. Confidence ${c}/100, stake ${stakePct?.toFixed(1)}% (${fmtEur(stake)}).`;
+ }
+ if(template === 'B2'){
+  return `${match}. ${m} a quota ${odds?.toFixed(2)}. Le squadre stanno segnando sotto la media consolidata (DGT ${dgt?.toFixed(2)}, sottofrequenza): la regressione alla media suggerisce più gol del trend recente. ${reasonStr}. Confidence ${c}/100, stake ${stakePct?.toFixed(1)}% (${fmtEur(stake)}).`;
+ }
+ if(template === 'C'){
+  const team = rec.dir === 'casaSegna' ? 'casa' : 'ospite';
+  const diffVal = rec.dir === 'casaSegna' ? sig.s10?.diffC : sig.s10?.diffO;
+  const diffPart = diffVal !== null && diffVal !== undefined ? ` (Diff ${diffVal.toFixed(2)})` : '';
+  return `${match}. ${m} a quota ${odds?.toFixed(2)}. La squadra ${team} sta segnando sotto la media${diffPart}: profilo offensivo da rimbalzo. ${reasonStr}. Confidence ${c}/100, stake ${stakePct?.toFixed(1)}% (${fmtEur(stake)}).`;
+ }
+ if(template === 'D'){
+  const dropPart = drop !== null && drop !== undefined && Math.abs(drop) > 0.03 ? ` Quota scesa ${(drop*100).toFixed(1)}% da Qr a QrL (money flow ${drop>0?'pro':'contra'}).` : '';
+  return `${match}. ${m} a quota ${odds?.toFixed(2)}. ${reasonStr}.${dropPart} Confidence ${c}/100, stake ${stakePct?.toFixed(1)}% (${fmtEur(stake)}).`;
+ }
+ if(template === 'E'){
+  const cl = rec.cluster.map(x => `${x.score} (${x.perc.toFixed(0)}%)`).join(' + ');
+  const pCum = rec.cluster.reduce((s,x)=>s+x.perc, 0);
+  return `${match}. Cluster Correct Score: ${cl}. Probabilità cumulata ${pCum.toFixed(0)}%. Stake ${stakePct?.toFixed(1)}% diviso fra i risultati. Confidence ${c}/100.`;
+ }
+ if(template === 'F'){
+  return `${match}. ${m}: segnali deboli (Confidence ${c}/100, copertura ${(rec.coverage*100).toFixed(0)}%). Skip consigliato.`;
+ }
+ return `${match}. ${m} a quota ${odds?.toFixed(2)}. Confidence ${c}/100.`;
 }
 
-function signalDescription(item){
-const s = item.signal;
-if(!s) return ‘’;
-const det = s.details || ‘’;
-const tag = ({
-‘S1’:‘M1 Ov 0.5 PT’, ‘S2’:‘M1 GG’, ‘S3’:‘M1 Ov/U 2.5’, ‘S4’:‘M1 MG 1-3’,
-‘S5’:‘Stats IA’, ‘S6’:‘GZ Index’, ‘S7’:‘DataMining’, ‘S8’:‘Value 1X2’,
-‘S9’:‘Giocatori’, ‘S10’:‘Differenziali Gol’, ‘S10t’:‘Differenziali team’
-})[item.key] || item.key;
-return `${tag}: ${det}`;
+/* ==================== KELLY FRAZIONARIO + SHRINKAGE ==================== */
+function kellyStake(p, odds, opts={}){
+ const fraction = opts.fraction !== undefined ? opts.fraction : S.bankroll.kellyFraction;
+ const cap = opts.cap !== undefined ? opts.cap : S.bankroll.capPct;
+ const bankroll = opts.bankroll !== undefined ? opts.bankroll : S.bankroll.segregated;
+ if(!odds || odds <= 1.01) return {pct:0, eur:0, edge:0, fStar:0};
+ const b = odds - 1;
+ const pImpl = 1 / odds;
+ const alpha = clamp(0.4 + 0.6 * (opts.confidence||50)/100, 0.4, 1.0);
+ const pShrunk = alpha * p + (1 - alpha) * pImpl;
+ const fStar = (b * pShrunk - (1 - pShrunk)) / b;
+ if(fStar <= 0) return {pct:0, eur:0, edge: pShrunk - pImpl, fStar:0, pShrunk};
+ let pct = fraction * fStar;
+ if(S.bankroll.afterLossActive) pct *= 0.75;
+ pct = clamp(pct, 0, cap);
+ const eur = round(pct * bankroll, 2);
+ const edge = pShrunk - pImpl;
+ return {pct, eur, edge, fStar, pShrunk};
 }
 
-function buildExplanation(m, candidate, conf, kelly, edge){
-// Sceglie template in base a contesto
-const ctx = {
-match: m.evento, market: candidate.label, odds: kelly.odds,
-confidence: conf.confidence, edge,
-topSigs: topContributions(conf.items, 3),
-conflict: topConflict(conf.items),
-signals: conf.items
-};
-// Selezione template
-// After-loss → G (gestito in render layer)
-// Skip Day → F (gestito in advisor layer)
-// BET OF THE DAY → A (conf>=85)
-// Under con DGT → B
-// Casa/Ospite Segna → C
-// Value puro → D
-// Correct Score cluster → E
-if(conf.confidence >= 85){
-return tplA(ctx);
-}
-const s10 = conf.items.find(x => x.key === ‘S10’);
-if((candidate.mkt === ‘U25’ || candidate.dir === ‘under’) && s10 && s10.signal.dgt > 0.8){
-return tplB(ctx);
-}
-if(candidate.mkt === ‘CASASEGNA’ || candidate.mkt === ‘OSPITESEGNA’){
-return tplC(ctx);
-}
-const s8 = conf.items.find(x => x.key === ‘S8’);
-if(s8 && (candidate.mkt === ‘1’ || candidate.mkt === ‘X’ || candidate.mkt === ‘2’)){
-return tplD(ctx);
-}
-// Default: narrativa generica
-return tplDefault(ctx);
+/* ==================== 10 CRITERI ANTI-SCOMMESSA ==================== */
+function applyTenFilters(rec){
+ const reasons = [];
+ if(rec.coverage < 0.5) reasons.push('coverage <50%');
+ if(rec.confidence < 60) reasons.push('confidence <60');
+ if(!rec.odds || rec.odds < 1.20 || rec.odds > 15) reasons.push('quota fuori range');
+ if(rec.kelly.fStar <= 0) reasons.push('edge negativo');
+ if(rec.kelly.pct === 0) reasons.push('stake zero');
+ if(rec.sig.s10.active && rec.sig.s10.dropDir === 'contra') reasons.push('drop quota contrario');
+ if(rec.dir === 'over' && rec.sig.s7 && rec.sig.s7.np < 8) reasons.push('NP DataMining <8');
+ const today = new Date().toDateString();
+ if(S.bankroll.startDay !== today){ S.bankroll.startDay = today; S.bankroll.pl_day = 0; }
+ if(S.bankroll.startWeek !== startOfWeekISO()){ S.bankroll.startWeek = startOfWeekISO(); S.bankroll.pl_week = 0; }
+ const stopDay = -0.10 * S.bankroll.total;
+ const stopWeek = -0.20 * S.bankroll.total;
+ if(S.bankroll.pl_day < stopDay) reasons.push('stop-loss giornaliero attivo');
+ if(S.bankroll.pl_week < stopWeek) reasons.push('stop-loss settimanale attivo');
+ const conflicts = topConflicts(rec.components, 3);
+ if(conflicts.length >= 2) reasons.push('2+ segnali contrari');
+ return { skip: reasons.length > 0, reasons };
 }
 
-function tplA(ctx){
-const sigs = ctx.topSigs.map(signalDescription).filter(Boolean).slice(0,3).join(’ · ‘);
-const conflictTxt = ctx.conflict ? ` Attenzione: ${signalDescription(ctx.conflict)}.` : ’ Nessun conflitto rilevante.’;
-return `★ BET OF THE DAY ★ ${ctx.match}: ${ctx.topSigs.length} segnali concordi sul mercato ${ctx.market}. ${sigs}.${conflictTxt} Confidence ${ctx.confidence}/100, edge ${fmtN((ctx.edge||0)*100,1)}%.`;
+/* ==================== CORRELATION SCORE ==================== */
+const CONFLICT_PAIRS = new Set([
+ 'Ov 2.5|U 2.5', 'U 2.5|Ov 2.5',
+ 'GG|U 2.5', 'U 2.5|GG',
+ 'MG 2-4|Ov 2.5', 'Ov 2.5|MG 2-4'
+]);
+const COMPAT_PAIRS = new Set([
+ 'GG|Ov 2.5', 'Ov 2.5|GG',
+ 'Ov 0.5 PT|Ov 2.5', 'Ov 2.5|Ov 0.5 PT',
+ 'Casa Segna|GG', 'GG|Casa Segna',
+ 'Ospite Segna|GG', 'GG|Ospite Segna'
+]);
+function pairKey(a,b){ return a + '|' + b; }
+function sharesTeam(matchA, matchB){
+ const sa = (matchA._key || '').split(' - ');
+ const sb = (matchB._key || '').split(' - ');
+ if(sa.length<2 || sb.length<2) return false;
+ return sa[0]===sb[0] || sa[0]===sb[1] || sa[1]===sb[0] || sa[1]===sb[1];
 }
-function tplB(ctx){
-const s10 = ctx.signals.find(x=>x.key===‘S10’);
-const dgt = s10 && s10.signal ? s10.signal.dgt : 0;
-const sigs = ctx.topSigs.map(signalDescription).filter(Boolean).slice(0,2).join(’ · ‘);
-return `${ctx.match}: ${ctx.market} a quota ${fmtN(ctx.odds,2)}. Le squadre stanno segnando sopra la media consolidata (DGT ${fmtN(dgt,2)}): la regressione alla media suggerisce meno gol del trend recente. ${sigs}. Confidence ${ctx.confidence}/100.`;
-}
-function tplC(ctx){
-const sigs = ctx.topSigs.map(signalDescription).filter(Boolean).slice(0,2).join(’ · ‘);
-return `${ctx.match}: ${ctx.market} a quota ${fmtN(ctx.odds,2)}. Differenziale offensivo squadra in sottofrequenza, atteso ritorno alla media. ${sigs}. Confidence ${ctx.confidence}/100.`;
-}
-function tplD(ctx){
-const sigs = ctx.topSigs.map(signalDescription).filter(Boolean).slice(0,2).join(’ · ‘);
-return `${ctx.match}: ${ctx.market} a quota ${fmtN(ctx.odds,2)}. Edge stimato ${fmtN((ctx.edge||0)*100,1)}% rispetto al mercato. ${sigs}. Confidence ${ctx.confidence}/100.`;
-}
-function tplDefault(ctx){
-const sigs = ctx.topSigs.map(signalDescription).filter(Boolean).slice(0,3).join(’ · ’);
-const conflictTxt = ctx.conflict ? ` Caveat: ${signalDescription(ctx.conflict)}.` : ‘’;
-return `${ctx.match}: ${ctx.market} a quota ${fmtN(ctx.odds,2)}. ${sigs}.${conflictTxt} Confidence ${ctx.confidence}/100.`;
-}
-
-/* ==================== DECISION ENGINE ORCHESTRATOR ==================== */
-function buildRecommendations(matches){
-const all = [];
-matches.forEach(m => {
-const candidates = enumerateCandidates(m);
-candidates.forEach(cand => {
-const sigs = selectRelevantSignals(m, cand);
-const conf = computeConfidence(m, cand, sigs);
-const odds = getOperativeOdds(m, cand);
-if(!odds || conf.confidence < 30) return;
-const pImp = 1 / odds;
-const p = probFromConfidence(conf.confidence, pImp);
-const edge = computeEdge(p, odds);
-const kelly = kellyStake(p, odds, S.bankroll.segregated, S.bankroll.kellyFraction, S.bankroll.capPct);
-// Verifica DGT contrary
-const s10 = sigs.S10;
-let dgtContrary = false;
-if(s10 && s10.active && Math.abs(s10.dgt||0) >= DIFF_THR.dgt){
-const dgtPro = s10.direction;
-if((dgtPro === ‘over’ && (cand.dir === ‘under’ || cand.mkt === ‘U25’ || cand.mkt === ‘MG24’))
-|| (dgtPro === ‘under’ && (cand.dir === ‘over’ || cand.mkt === ‘OV05’ || cand.mkt === ‘O25’ || cand.mkt === ‘GG’ || cand.mkt === ‘OV15’))){
-dgtContrary = true;
-}
-}
-const rec = {
-matchKey: m.key,
-match: m.evento,
-ora: m.ora,
-lega: m.lega,
-candidate: cand,
-market: cand.mkt,
-marketLabel: cand.label,
-confidence: conf.confidence,
-score: conf.score,
-odds, pImp, p, edge,
-kelly,
-sigKeys: Object.keys(sigs),
-sigCount: conf.sigCount,
-items: conf.items,
-sigs,
-covRatio: conf.covRatio,
-sd: conf.sd,
-penalty: conf.penalty,
-dropDir: s10 ? s10.dropDir : null,
-dgtContrary,
-explanation: buildExplanation(m, cand, conf, {odds}, edge),
-matchObj: m
-};
-const filt = applyTenFilters(rec, {match:m});
-rec.filterPass = filt.pass;
-rec.filterReasons = filt.reasons;
-all.push(rec);
-});
-});
-return all;
-}
-
-function pickBestRecommendation(recs, matchKey){
-const matchRecs = recs.filter(r => r.matchKey === matchKey);
-if(!matchRecs.length) return null;
-const filtered = matchRecs.filter(r => r.filterPass);
-const pool = filtered.length ? filtered : matchRecs;
-pool.sort((a,b) => b.confidence - a.confidence);
-return pool[0];
+function correlationScore(recA, recB){
+ if(recA._key === recB._key){
+  if(CONFLICT_PAIRS.has(pairKey(recA.market, recB.market))) return 1.0;
+  if(COMPAT_PAIRS.has(pairKey(recA.market, recB.market))) return 0.6;
+  return 0.5;
+ }
+ let s = 0;
+ if(recA.lega && recB.lega && recA.lega === recB.lega) s += 0.30;
+ const tA = timeVal(recA.ora), tB = timeVal(recB.ora);
+ if(Math.abs(tA - tB) <= 30) s += 0.20;
+ if(recA.market === recB.market) s += 0.15;
+ if(sharesTeam(recA, recB)) s += 0.50;
+ return Math.min(s, 0.99);
 }
 
 /* ==================== PORTFOLIO ENGINE ==================== */
-
-// Singole 1.70-1.99
-function buildTopSingles(recs, n=5){
-const pool = recs.filter(r =>
-r.filterPass &&
-r.odds >= 1.70 && r.odds <= 1.99 &&
-r.confidence >= 65
-);
-// Filtro favorite trap: se quota implicata >> p_model e DGT contraria
-const filtered = pool.filter(r => {
-if(r.dgtContrary && r.dropDir === ‘up’) return false;
-return true;
-});
-// Una pick per match
-const seenMatch = new Set();
-const out = [];
-filtered.sort((a,b) => b.confidence - a.confidence);
-for(const r of filtered){
-if(seenMatch.has(r.matchKey)) continue;
-seenMatch.add(r.matchKey);
-out.push(r);
-if(out.length >= n) break;
-}
-return out;
-}
-
-// Value Bets: edge > 5%, NP >= 15
-function buildValueBets(recs, n=5){
-const pool = recs.filter(r =>
-r.filterPass &&
-r.edge > 0.05 &&
-r.confidence >= 60 &&
-r.matchObj.dm && r.matchObj.dm.np >= 15
-);
-const seenMatch = new Set();
-const out = [];
-pool.sort((a,b) => b.edge - a.edge);
-for(const r of pool){
-if(seenMatch.has(r.matchKey)) continue;
-seenMatch.add(r.matchKey);
-out.push(r);
-if(out.length >= n) break;
-}
-return out;
-}
-
-// Correlation Score
-function correlationScore(a, b){
-if(a.matchKey === b.matchKey){
-// Stesso match: mercati conflittuali = 1.00 (escluso)
-const conflictPairs = [
-[‘O25’,‘U25’], [‘OV15’,‘U25’], [‘GG’,‘MG13C’], [‘GG’,‘MG13O’]
-];
-for(const [x,y] of conflictPairs){
-if((a.market===x && b.market===y) || (a.market===y && b.market===x)) return 1.00;
-}
-return 0.60;  // stesso match compatibile
-}
-let s = 0;
-if(a.lega && b.lega && a.lega === b.lega) s += 0.30;
-const ta = timeVal(a.ora), tb = timeVal(b.ora);
-if(Math.abs(ta - tb) <= 30) s += 0.20;
-if(a.market === b.market) s += 0.15;
-// Stessa squadra (verifica grezza tramite sotto-stringhe)
-const partsA = String(a.match).split(/[-–]/).map(x=>x.trim().toLowerCase());
-const partsB = String(b.match).split(/[-–]/).map(x=>x.trim().toLowerCase());
-const shared = partsA.some(x => x && partsB.includes(x));
-if(shared) s += 0.50;
-return Math.min(s, 0.99);
+function buildAllRecs(){
+ const L = buildLookups();
+ const universe = buildUniverse(L);
+ const matches = [];
+ for(const m of universe){
+  const sig = extractSignals(L, m._key);
+  const minCov = (sig.s7.active?1:0) + (sig.s2.active?1:0) + (sig.s10.active?1:0);
+  if(minCov === 0) continue;
+  const candidates = enumerateMarkets(sig, L, m._key);
+  if(!candidates.length) continue;
+  const recs = [];
+  for(const cand of candidates){
+   const odds = operationalOdds(cand.mkt, sig, L, m._key);
+   if(cand.mkt !== 'CS Cluster' && (!odds || odds < 1.20)) continue;
+   const conf = computeConfidence(cand, sig, L, m._key);
+   let oddsUsed = odds;
+   if(cand.mkt === 'CS Cluster' && cand.cluster){
+    const pAvg = cand.cluster.reduce((s,x)=>s+x.perc,0)/cand.cluster.length/100;
+    oddsUsed = pAvg > 0 ? 1/pAvg : null;
+   }
+   const pModel = clamp(conf.confidence/100 * 0.85 + 0.05, 0.05, 0.95);
+   const kelly = oddsUsed ? kellyStake(pModel, oddsUsed, {confidence: conf.confidence}) : {pct:0, eur:0, edge:0, fStar:0};
+   const rec = {
+    _key: m._key,
+    match: m.evento,
+    ora: m.ora || (L.ggov25.get(m._key)?.ora || ''),
+    lega: m.lega || (L.ggov25.get(m._key)?.lega || L.ia.get(m._key)?.lega || ''),
+    market: cand.mkt,
+    dir: cand.dir,
+    side: cand.side,
+    cluster: cand.cluster,
+    odds: oddsUsed,
+    confidence: conf.confidence,
+    coverage: conf.coverage,
+    components: conf.components,
+    capped: conf.capped, capReason: conf.capReason,
+    pModel,
+    kelly,
+    stake: kelly.eur,
+    stakePct: kelly.pct * 100,
+    edge: kelly.edge * 100,
+    sig,
+    hasM1: !!(sig.s1.m1 || sig.s2.m1 || (sig.s3.m1o && cand.dir==='over') || (sig.s3.m1u && cand.dir==='under') || (sig.s4.m1c && cand.side==='casa') || (sig.s4.m1o && cand.side==='ospite'))
+   };
+   const filt = applyTenFilters(rec);
+   rec.skip = filt.skip;
+   rec.skipReasons = filt.reasons;
+   rec.narrative = buildNarrative(rec);
+   recs.push(rec);
+  }
+  if(recs.length){
+   recs.sort((a,b) => b.confidence - a.confidence);
+   matches.push({ match: m, sig, recs, top: recs[0] });
+  }
+ }
+ matches.sort((a,b) => b.top.confidence - a.top.confidence);
+ return matches;
 }
 
-// Smart Double: 2.00-2.50, anti-correlazione
-function buildSmartDouble(recs){
-const pool = recs.filter(r =>
-r.filterPass &&
-r.odds >= 1.45 && r.odds <= 1.85 &&
-r.confidence >= 65
-);
-if(pool.length < 2) return null;
-pool.sort((a,b) => b.confidence - a.confidence);
-// Top 12 candidati per coppie
-const top = pool.slice(0, 12);
-let best = null;
-for(let i=0;i<top.length;i++){
-for(let j=i+1;j<top.length;j++){
-const a = top[i], b = top[j];
-const corr = correlationScore(a,b);
-if(corr > 0.35) continue;
-const totOdds = a.odds * b.odds;
-if(totOdds < 2.00 || totOdds > 2.50) continue;
-const pJoint = a.p * b.p;
-const evJoint = pJoint * totOdds - 1;
-const score = evJoint * (a.confidence + b.confidence) / 2;
-if(!best || score > best.score){
-best = {legs:[a,b], totOdds, pJoint, evJoint, score, corr};
-}
-}
-}
-return best;
+function buildTopSingles(allMatches){
+ const pool = [];
+ for(const m of allMatches){
+  for(const r of m.recs){
+   if(r.skip) continue;
+   if(r.confidence < 65) continue;
+   if(!r.odds || r.odds < 1.70 || r.odds > 1.99) continue;
+   if(r.odds < 1.75 && r.edge < 2) continue;
+   pool.push(r);
+  }
+ }
+ pool.sort((a,b) => (b.confidence + b.edge*1.5) - (a.confidence + a.edge*1.5));
+ const seen = new Set();
+ const out = [];
+ for(const r of pool){
+  if(seen.has(r._key)) continue;
+  seen.add(r._key);
+  out.push(r);
+  if(out.length >= 8) break;
+ }
+ return out;
 }
 
-// Smart Triple: 3.00-5.00, anti-correlation
-function buildSmartTriple(recs){
-const pool = recs.filter(r =>
-r.filterPass &&
-r.odds >= 1.40 && r.odds <= 1.85 &&
-r.confidence >= 65
-);
-if(pool.length < 3) return null;
-pool.sort((a,b) => b.confidence - a.confidence);
-const top = pool.slice(0, 14);
-let best = null;
-for(let i=0;i<top.length;i++){
-for(let j=i+1;j<top.length;j++){
-for(let k=j+1;k<top.length;k++){
-const a = top[i], b = top[j], c = top[k];
-if(correlationScore(a,b) > 0.35) continue;
-if(correlationScore(a,c) > 0.35) continue;
-if(correlationScore(b,c) > 0.35) continue;
-const totOdds = a.odds * b.odds * c.odds;
-if(totOdds < 3.00 || totOdds > 5.00) continue;
-const pJoint = a.p * b.p * c.p;
-if(pJoint < 0.25 || pJoint > 0.40) continue;
-const evJoint = pJoint * totOdds - 1;
-const score = evJoint * (a.confidence + b.confidence + c.confidence) / 3;
-if(!best || score > best.score){
-best = {legs:[a,b,c], totOdds, pJoint, evJoint, score};
-}
-}
-}
-}
-return best;
-}
-
-// Pick BET OF THE DAY: Confidence più alta in fascia 1.70-1.99
-function buildHero(recs){
-const pool = recs.filter(r =>
-r.filterPass &&
-r.odds >= 1.70 && r.odds <= 1.99 &&
-r.confidence >= 65
-);
-if(!pool.length){
-// Fallback: la pick con confidence più alta in qualsiasi fascia
-const fallback = recs.filter(r => r.filterPass);
-if(!fallback.length) return null;
-fallback.sort((a,b) => b.confidence - a.confidence);
-return fallback[0];
-}
-pool.sort((a,b) => b.confidence - a.confidence);
-return pool[0];
+function buildSmartDouble(allMatches){
+ const pool = [];
+ for(const m of allMatches){
+  for(const r of m.recs){
+   if(r.skip) continue;
+   if(r.confidence < 60) continue;
+   if(!r.odds || r.odds < 1.30 || r.odds > 1.85) continue;
+   pool.push(r);
+  }
+ }
+ const dedup = {};
+ pool.forEach(r => { if(!dedup[r._key] || dedup[r._key].confidence < r.confidence) dedup[r._key] = r; });
+ const cands = Object.values(dedup);
+ const out = [];
+ for(let i=0; i<cands.length; i++){
+  for(let j=i+1; j<cands.length; j++){
+   const a = cands[i], b = cands[j];
+   const corr = correlationScore(a, b);
+   if(corr > 0.35) continue;
+   const total = a.odds * b.odds;
+   if(total < 2.00 || total > 2.50) continue;
+   const pJoint = a.pModel * b.pModel;
+   const ev = pJoint * total - 1;
+   if(ev <= 0) continue;
+   const score = ev * Math.min(a.confidence, b.confidence) / 100;
+   out.push({legs:[a,b], totalOdds:total, pJoint, ev, corr, score, ev_pct: ev*100});
+  }
+ }
+ out.sort((x,y) => y.score - x.score);
+ return out.slice(0, 3);
 }
 
-// Mercati secondari (Casa/Ospite Segna, MG 2-4, Correct Score) - estrazione dedicata
-function buildSecondaryMarkets(recs){
-const cs = recs.filter(r => r.filterPass &&
-[‘CASASEGNA’,‘OSPITESEGNA’,‘MG24’].includes(r.market) &&
-r.confidence >= 60
-);
-cs.sort((a,b) => b.confidence - a.confidence);
-// Una per match
-const seen = new Set();
-return cs.filter(r => {
-const k = r.matchKey + ‘|’ + r.market;
-if(seen.has(k)) return false;
-seen.add(k); return true;
-}).slice(0, 6);
+function buildSmartTriple(allMatches){
+ const pool = [];
+ for(const m of allMatches){
+  for(const r of m.recs){
+   if(r.skip) continue;
+   if(r.confidence < 60) continue;
+   if(!r.odds || r.odds < 1.30 || r.odds > 1.90) continue;
+   pool.push(r);
+  }
+ }
+ const dedup = {};
+ pool.forEach(r => { if(!dedup[r._key] || dedup[r._key].confidence < r.confidence) dedup[r._key] = r; });
+ const cands = Object.values(dedup).sort((a,b) => b.confidence - a.confidence).slice(0, 14);
+ const out = [];
+ outer:
+ for(let i=0; i<cands.length; i++){
+  for(let j=i+1; j<cands.length; j++){
+   for(let k=j+1; k<cands.length; k++){
+    const a = cands[i], b = cands[j], c = cands[k];
+    const corrAB = correlationScore(a,b);
+    const corrAC = correlationScore(a,c);
+    const corrBC = correlationScore(b,c);
+    if(Math.max(corrAB, corrAC, corrBC) > 0.35) continue;
+    const total = a.odds * b.odds * c.odds;
+    if(total < 3.00 || total > 5.00) continue;
+    const pJoint = a.pModel * b.pModel * c.pModel;
+    const ev = pJoint * total - 1;
+    if(ev <= 0) continue;
+    if(pJoint < 0.20 || pJoint > 0.40) continue;
+    const score = ev * Math.min(a.confidence, b.confidence, c.confidence) / 100;
+    out.push({legs:[a,b,c], totalOdds:total, pJoint, ev, score, ev_pct: ev*100});
+    if(out.length > 50) break outer;
+   }
+  }
+ }
+ out.sort((x,y) => y.score - x.score);
+ return out.slice(0, 1);
 }
 
-// Correct Score cluster da campo RE
-function buildCorrectScoreClusters(matches){
-const out = [];
-matches.forEach(m => {
-const dm = m.dm;
-if(!dm || !dm.re) return;
-const items = parseREField(dm.re);
-if(items.length < 2) return;
-// Almeno 2 risultati con prob > 12% = candidate cluster
-const top = items.filter(x => x.perc > 10).slice(0, 4);
-if(top.length < 2) return;
-const cumP = top.reduce((s,x)=>s+x.perc, 0) / 100;
-if(cumP < 0.25) return;  // soglia minima cluster
-out.push({
-matchKey: m.key,
-match: m.evento,
-ora: m.ora,
-lega: m.lega,
-scores: top,
-cumP: round(cumP, 3),
-// quota media stimata = 1 / (cumP * margine)
-estQ: round(1 / (cumP * 0.92), 2),
-np: dm.np
-});
-});
-out.sort((a,b) => b.cumP - a.cumP);
-return out.slice(0, 4);
+function buildValueBets(allMatches){
+ const out = [];
+ for(const m of allMatches){
+  for(const r of m.recs){
+   if(r.skip && !r.skipReasons.includes('confidence <60')) continue;
+   if(r.confidence < 55) continue;
+   if(!r.odds || r.odds < 1.40 || r.odds > 8) continue;
+   if(r.edge < 5) continue;
+   const np = r.sig?.s7?.np || 0;
+   if(np < 15) continue;
+   out.push(r);
+  }
+ }
+ out.sort((a,b) => b.edge - a.edge);
+ const seen = new Set();
+ const fin = [];
+ for(const r of out){
+  if(seen.has(r._key)) continue;
+  seen.add(r._key);
+  fin.push(r);
+  if(fin.length >= 6) break;
+ }
+ return fin;
 }
 
-/* ==================== RUN DECISION ENGINE ==================== */
+/* ==================== ORCHESTRATORE DECISION ENGINE ==================== */
 function runDecisionEngine(){
-const matches = unifyMatches();
-if(!matches.length){
-S.output = null;
-return;
-}
-const recs = buildRecommendations(matches);
-const hero = buildHero(recs);
-// Top singole esclude la hero
-const topSingles = buildTopSingles(recs, 4).filter(r => !hero || r !== hero).slice(0, 3);
-const valueBets = buildValueBets(recs, 5);
-const smartDouble = buildSmartDouble(recs);
-const smartTriple = buildSmartTriple(recs);
-const secondary = buildSecondaryMarkets(recs);
-const csClusters = buildCorrectScoreClusters(matches);
-// Skip-day check: pochi pick di qualità
-const qualityPicks = recs.filter(r => r.filterPass && r.confidence >= 70).length;
-const skipDay = qualityPicks < 2;
-S.output = {
-matches, recs, hero, topSingles, valueBets,
-smartDouble, smartTriple, secondary, csClusters,
-skipDay, qualityPicks,
-computedAt: new Date().toISOString()
-};
-bus.emit(‘data:recomputed’, S.output);
+ try {
+  const allMatches = buildAllRecs();
+  const topSingles = buildTopSingles(allMatches);
+  const smartDoubles = buildSmartDouble(allMatches);
+  const smartTriples = buildSmartTriple(allMatches);
+  const valueBets = buildValueBets(allMatches);
+  const hero = topSingles[0] || null;
+  const shortlist = topSingles.slice(1, 4);
+  S.output = {
+   computedAt: new Date().toISOString(),
+   matchesCount: allMatches.length,
+   allMatches,
+   topSingles,
+   smartDoubles,
+   smartTriples,
+   valueBets,
+   hero,
+   shortlist
+  };
+  bus.emit('data:recomputed');
+ } catch(e){
+  console.error('Decision engine error', e);
+  showToast('Errore nel calcolo: '+e.message, 'err');
+ }
 }
 
-/* === FINE PARTE 2/3 · prosegue con: render UI, bind eventi, init === */
+/* === FINE PARTE 2/3 · prosegue con: Render UI, Schedina, Bankroll, PDF, Init === */
+/* === INIZIO PARTE 3/3 · continua da: fine Decision Engine === */
+
+/* ==================== UI HELPERS - GAUGE SVG ==================== */
+function gaugeHTML(value, size='lg', label='SCORE'){
+ const v = clamp(value || 0, 0, 100);
+ const r = size === 'sm' ? 28 : 50;
+ const c = 2 * Math.PI * r;
+ const off = c * (1 - v/100);
+ const cx = size === 'sm' ? 36 : 60;
+ const cls = v >= 75 ? 'g-ok' : v >= 60 ? 'g-wa' : 'g-er';
+ const W = size === 'sm' ? 72 : 120;
+ return `<div class="gauge ${size==='sm'?'sm':''} ${cls}">
+  <svg width="${W}" height="${W}" viewBox="0 0 ${W} ${W}">
+   <circle class="bg-ring" cx="${cx}" cy="${cx}" r="${r}"/>
+   <circle class="fg-ring" cx="${cx}" cy="${cx}" r="${r}" stroke-dasharray="${c.toFixed(2)}" stroke-dashoffset="${off.toFixed(2)}"/>
+  </svg>
+  <div class="lbl"><span class="v">${Math.round(v)}</span><span class="t">${escHtml(label)}</span></div>
+ </div>`;
+}
+
+function dmBadgeFor(rec){
+ const np = rec.sig?.s7?.np || 0;
+ if(np >= 30) return `<span class="bdg bdg-dm-ok" title="DataMining solido">DM ${np}</span>`;
+ if(np >= 15) return `<span class="bdg bdg-dm-wa" title="DataMining medio">DM ${np}</span>`;
+ if(np > 0) return `<span class="bdg bdg-dm-er" title="DataMining scarso">DM ${np}</span>`;
+ return '';
+}
+
+function badgesFor(rec){
+ const out = [];
+ if(rec.hasM1) out.push(`<span class="bdg bdg-m1" title="Regola M1 sigillata attiva">🏅 M1</span>`);
+ const dm = dmBadgeFor(rec);
+ if(dm) out.push(dm);
+ if(rec.edge >= 5) out.push(`<span class="bdg bdg-val" title="Edge significativo">VALUE ${rec.edge.toFixed(1)}%</span>`);
+ if(rec.sig?.s10?.dropDir === 'pro') out.push(`<span class="bdg bdg-gz" title="Drop quota a favore">📉 Drop pro</span>`);
+ if(rec.capped) out.push(`<span class="bdg bdg-skip" title="${escHtml(rec.capReason)}">CAP</span>`);
+ return out.slice(0,3).join('');
+}
+
+function breakdownHTML(rec){
+ const tops = topContributors(rec.components, 5);
+ const conflicts = topConflicts(rec.components, 2);
+ const all = [...tops, ...conflicts];
+ if(!all.length) return '<div class="bk-row"><span class="n">Nessun contributo significativo</span></div>';
+ const rows = all.map(c => {
+  const sign = c.contrib > 0 ? '+' : '';
+  const cls = c.contrib > 0 ? 'pos' : (c.contrib < 0 ? 'neg' : 'zero');
+  return `<div class="bk-row"><span class="n">${escHtml(c.label || c.key)} <small style="color:var(--fg3)">(peso ${(c.weight*100).toFixed(0)}%)</small></span><span class="p ${cls}">${sign}${(c.contrib*100).toFixed(0)}</span></div>`;
+ }).join('');
+ return `<div class="breakdown">${rows}</div>`;
+}
+
+/* ==================== RENDER: TAB OGGI ==================== */
+function renderOggi(){
+ const main = document.getElementById('mainTab');
+ const datasetCount = DATASETS.filter(d => (S.datasets[d.key]||[]).length > 0).length;
+ if(datasetCount === 0){
+  main.innerHTML = `<div class="empty">
+   <div class="ico">📥</div>
+   <p class="title">Carica i CSV per iniziare</p>
+   <p>Apri il pannello "Gestione Dataset" sopra e carica almeno DataMining Plus + GG/Ov-Un 2.5 per iniziare l'analisi.<br>I dati restano sul tuo dispositivo.</p>
+  </div>`;
+  return;
+ }
+ if(!S.output || !S.output.allMatches){
+  main.innerHTML = `<div class="info-box">⏳ Calcolo in corso…</div>`;
+  return;
+ }
+ const o = S.output;
+ const heroHTML = o.hero ? renderHero(o.hero) : `<div class="empty">
+  <div class="ico">🎯</div>
+  <p class="title">Nessun BET OF THE DAY oggi</p>
+  <p>Il sistema non trova singole con Confidence ≥ 65 e quota nel range 1.70–1.99. Disciplina prima di tutto: meglio passare un giorno che giocare male.</p>
+ </div>`;
+
+ let shortlistHTML = '';
+ if(o.shortlist && o.shortlist.length){
+  const cards = o.shortlist.map(r => renderCardSmall(r)).join('');
+  shortlistHTML = `<div class="sec"><h2><span class="ico">⭐</span>Le altre singole</h2><span class="ct">${o.shortlist.length} match</span></div><div class="cards">${cards}</div>`;
+ }
+
+ let valueHTML = '';
+ if(o.valueBets && o.valueBets.length){
+  const cards = o.valueBets.map(r => renderCardSmall(r, true)).join('');
+  valueHTML = `<div class="sec"><h2><span class="ico">💎</span>Value Bets</h2><span class="ct">edge ≥ 5%</span></div><div class="cards">${cards}</div>`;
+ }
+
+ let doubleHTML = '';
+ if(o.smartDoubles && o.smartDoubles.length){
+  doubleHTML = `<div class="sec"><h2><span class="ico">🎯</span>Doppia del giorno</h2><span class="ct">quota 2.00–2.50</span></div>` +
+   o.smartDoubles.map((d,i) => renderCombo(d, 'doppia', i)).join('');
+ }
+
+ let tripleHTML = '';
+ if(o.smartTriples && o.smartTriples.length){
+  tripleHTML = `<div class="sec"><h2><span class="ico">🎲</span>Tris smart</h2><span class="ct">quota 3.00–5.00 · max 1 / giorno</span></div>` +
+   o.smartTriples.map((d,i) => renderCombo(d, 'tris', i)).join('');
+ }
+
+ let allHTML = '';
+ if(o.allMatches && o.allMatches.length){
+  const sample = o.allMatches.slice(0, 12);
+  allHTML = `<div class="sec"><h2><span class="ico">📋</span>Tutti i match analizzati</h2><span class="ct">${o.allMatches.length} totali</span></div>
+   <div class="cards">${sample.map(m => renderCardSmall(m.top)).join('')}</div>`;
+  if(o.allMatches.length > 12){
+   allHTML += `<div style="text-align:center;margin-top:10px;color:var(--fg3);font-size:.8rem">… altri ${o.allMatches.length - 12} match con Confidence inferiore disponibili tramite ricerca</div>`;
+  }
+ }
+
+ main.innerHTML = heroHTML + shortlistHTML + valueHTML + doubleHTML + tripleHTML + allHTML;
+}
+
+function renderHero(rec){
+ const stake = rec.stake;
+ const m = rec;
+ return `<div class="hero">
+  <div class="hero-hdr">
+   <div class="hero-tag">🏆 BET OF THE DAY</div>
+   <div class="hero-league">${escHtml(m.lega || 'Lega N/D')} · ${escHtml(cleanTime(m.ora) || '--:--')}</div>
+  </div>
+  <div class="hero-title">${escHtml(m.match)}</div>
+  <div class="hero-sub">${badgesFor(m) || 'Pronostico calibrato dalla convergenza dei segnali principali'}</div>
+  <div class="hero-grid">
+   ${gaugeHTML(m.confidence, 'lg', 'SCORE')}
+   <div class="hero-pick">
+    <div class="hero-market">${escHtml(m.market)}</div>
+    <div class="hero-odds">
+     <div class="it"><span class="lb">Quota</span><span class="vl ok">${m.odds?.toFixed(2) || '-'}</span></div>
+     <div class="it"><span class="lb">Edge</span><span class="vl info">${m.edge.toFixed(1)}%</span></div>
+     <div class="it"><span class="lb">Stake</span><span class="vl">${fmtEur(stake)}</span></div>
+     <div class="it"><span class="lb">Kelly%</span><span class="vl">${m.stakePct.toFixed(1)}%</span></div>
+    </div>
+   </div>
+  </div>
+  <div class="hero-narr">${escHtml(m.narrative)}</div>
+  <div class="hero-cta">
+   <button class="btn btn-primary" data-add="${escHtml(m._key)}|${escHtml(m.market)}">➕ Aggiungi alla schedina</button>
+   <button class="btn btn-ghost" data-detail="${escHtml(m._key)}|${escHtml(m.market)}">🔍 Vedi perché</button>
+  </div>
+  <details class="narr" id="hero-detail" style="margin-top:10px">
+   <summary>Breakdown contribuzioni e segnali</summary>
+   <div class="narr-body">${breakdownHTML(m)}</div>
+  </details>
+ </div>`;
+}
+
+function renderCardSmall(rec, isValue=false){
+ const cls = isValue ? 'card' : 'card';
+ return `<div class="${cls}" data-detail-card="${escHtml(rec._key)}|${escHtml(rec.market)}">
+  <div class="card-top">
+   <div class="card-info">
+    <div class="card-league">${escHtml(rec.lega || '')} · ${escHtml(cleanTime(rec.ora) || '--:--')}</div>
+    <div class="card-match" title="${escHtml(rec.match)}">${escHtml(rec.match)}</div>
+   </div>
+   <div class="card-conf">${gaugeHTML(rec.confidence, 'sm', '')}</div>
+  </div>
+  <div class="card-body">
+   <div class="card-market">${escHtml(rec.market)}</div>
+   <div class="card-stats">
+    <div class="s"><span class="lb">Quota</span><span class="vl ok">${rec.odds?.toFixed(2) || '-'}</span></div>
+    <div class="s"><span class="lb">Edge</span><span class="vl ${rec.edge>=3?'ok':'warn'}">${rec.edge.toFixed(1)}%</span></div>
+    <div class="s"><span class="lb">Stake</span><span class="vl">${fmtEur(rec.stake)}</span></div>
+   </div>
+   <div class="card-badges">${badgesFor(rec)}</div>
+  </div>
+  <details class="narr">
+   <summary>Vedi perché</summary>
+   <div class="narr-body">
+    ${escHtml(rec.narrative)}
+    ${breakdownHTML(rec)}
+   </div>
+  </details>
+  <div class="card-foot">
+   <div class="card-foot-l">
+    <span style="font:500 .72rem var(--S);color:var(--fg3)">Cov: ${(rec.coverage*100).toFixed(0)}%</span>
+   </div>
+   <button class="mini-btn primary" data-add="${escHtml(rec._key)}|${escHtml(rec.market)}">➕ Schedina</button>
+  </div>
+ </div>`;
+}
+
+function renderCombo(combo, type, idx){
+ const legs = combo.legs.map(l => `<div class="combo-leg">
+  <div class="n">${escHtml(l.match)}<div class="m">${escHtml(l.market)} · ${escHtml(cleanTime(l.ora))}</div></div>
+  <div class="o">${l.odds?.toFixed(2) || '-'}</div>
+ </div>`).join('');
+ const stakeJoint = round(S.bankroll.segregated * 0.02 * (combo.score+1), 2);
+ const winJoint = round(stakeJoint * combo.totalOdds, 2);
+ return `<div class="combo">
+  <div class="combo-hdr">
+   <div class="t">${type==='tris'?'🎲':'🎯'} ${type === 'tris' ? 'Tris' : 'Doppia'} #${idx+1}</div>
+   <div class="q">${combo.totalOdds.toFixed(2)}</div>
+  </div>
+  <div class="combo-legs">${legs}</div>
+  <div class="combo-info">
+   <div class="k"><span class="lb">P. Joint</span><span class="vl">${(combo.pJoint*100).toFixed(1)}%</span></div>
+   <div class="k"><span class="lb">EV</span><span class="vl ok">+${combo.ev_pct.toFixed(1)}%</span></div>
+   <div class="k"><span class="lb">Stake</span><span class="vl">${fmtEur(stakeJoint)}</span></div>
+   <div class="k"><span class="lb">Vincita</span><span class="vl ok">${fmtEur(winJoint)}</span></div>
+  </div>
+  <div style="margin-top:10px"><button class="mini-btn primary" data-add-combo="${type}|${idx}">➕ Aggiungi alla schedina</button></div>
+ </div>`;
+}
+
+/* ==================== RENDER: TAB SCHEDINA ==================== */
+function renderSchedina(){
+ const main = document.getElementById('mainTab');
+ const t = S.ticket;
+ if(!t.legs.length){
+  main.innerHTML = `<div class="empty">
+   <div class="ico">📝</div>
+   <p class="title">Schedina vuota</p>
+   <p>Vai nel tab "Oggi" e aggiungi le partite dalle card BET OF THE DAY o dalle altre singole. Puoi aggiungere fino a 5 leg per costruire singole, doppie o tris.</p>
+  </div>`;
+  return;
+ }
+ const totalOdds = t.legs.reduce((s,l) => s * (l.odds||1), 1);
+ const winning = t.stake * totalOdds;
+ const profit = winning - t.stake;
+ const legHTML = t.legs.map((l,i) => `<div class="ticket-leg">
+  <div class="info">
+   <div class="m">${escHtml(l.match)}</div>
+   <div class="s">${escHtml(l.market)} · ${escHtml(cleanTime(l.ora) || '--')} · ${escHtml(l.lega || '')}</div>
+  </div>
+  <div class="odds">${l.odds?.toFixed(2) || '-'}</div>
+  <div class="del" data-rm-leg="${i}" title="Rimuovi">✕</div>
+ </div>`).join('');
+ const tipo = t.legs.length === 1 ? 'Singola' : t.legs.length === 2 ? 'Doppia' : t.legs.length === 3 ? 'Tris' : `Multipla x${t.legs.length}`;
+ main.innerHTML = `<div class="ticket">
+  <div class="ticket-hdr">
+   <h3>📝 Schedina · ${tipo}</h3>
+   <div class="meta">${t.legs.length} leg · quota totale ${totalOdds.toFixed(2)}</div>
+  </div>
+  ${legHTML}
+  <div class="stake-ctrl">
+   <span class="lb">Stake €:</span>
+   <input type="number" id="stakeInp" value="${t.stake}" min="1" max="500" step="0.5">
+   <button class="mini-btn" id="kellyApply">📊 Usa Kelly suggerito</button>
+  </div>
+  <div class="ticket-total">
+   <span class="t">Possibile vincita</span>
+   <span class="v">${fmtEur(winning)}</span>
+  </div>
+  <div class="ticket-total">
+   <span class="t">Possibile profitto</span>
+   <span class="v">${fmtEur(profit)}</span>
+  </div>
+  <div style="display:flex;gap:8px;margin-top:14px;flex-wrap:wrap">
+   <button class="btn btn-primary" id="confirmTicket">✅ Conferma e salva nello storico</button>
+   <button class="btn btn-ghost" id="exportTicketPDF">📄 Esporta PDF</button>
+   <button class="btn btn-ghost" id="clearTicket" style="margin-left:auto;color:var(--err);border-color:rgba(248,113,113,.3)">🗑️ Svuota</button>
+  </div>
+ </div>`;
+}
+
+/* ==================== RENDER: TAB BANKROLL ==================== */
+function renderBankroll(){
+ const main = document.getElementById('mainTab');
+ const b = S.bankroll;
+ const today = new Date().toDateString();
+ if(b.startDay !== today){ b.startDay = today; b.pl_day = 0; }
+ if(b.startWeek !== startOfWeekISO()){ b.startWeek = startOfWeekISO(); b.pl_week = 0; }
+ const dayPctWarn = b.pl_day < -0.05 * b.total;
+ const dayPctErr  = b.pl_day < -0.10 * b.total;
+ const weekPctErr = b.pl_week < -0.20 * b.total;
+ const cards = `<div class="bk-cards">
+  <div class="bk-card"><div class="lbl">Bankroll totale</div><div class="vl">${fmtEur(b.total)}</div></div>
+  <div class="bk-card"><div class="lbl">Bankroll segregato</div><div class="vl">${fmtEur(b.segregated)}</div><div class="sub">Disponibile per il betting</div></div>
+  <div class="bk-card"><div class="lbl">P/L oggi</div><div class="vl ${b.pl_day>0?'pos':b.pl_day<0?'neg':''}">${b.pl_day>=0?'+':''}${fmtEur(b.pl_day)}</div></div>
+  <div class="bk-card"><div class="lbl">P/L settimana</div><div class="vl ${b.pl_week>0?'pos':b.pl_week<0?'neg':''}">${b.pl_week>=0?'+':''}${fmtEur(b.pl_week)}</div></div>
+ </div>`;
+ const warning = (dayPctErr || weekPctErr) ? `<div class="err-box">🛑 ${dayPctErr?'Stop-loss giornaliero −10% raggiunto. Scommesse bloccate fino a domani.':''}${weekPctErr?'Stop-loss settimanale −20% raggiunto. Rivedi il modello prima di riprendere.':''}</div>` :
+  dayPctWarn ? `<div class="warn-box">⚠️ Sei sopra il −5% giornaliero. Resta attento al cap del −10%.</div>` : '';
+ const afterLossBox = b.afterLossActive ? `<div class="warn-box">📉 Modalità after-loss attiva: gli stake suggeriti dal Kelly sono ridotti del 25%.</div>` : '';
+ const ctrl = `<div class="bk-ctrl">
+  <h3>⚙️ Configurazione bankroll</h3>
+  <div class="bk-row"><label>Bankroll totale (€)</label><input type="number" id="bkTotal" value="${b.total}" min="10" max="100000" step="10"></div>
+  <div class="bk-row"><label>Segregato (€)</label><input type="number" id="bkSeg" value="${b.segregated}" min="10" max="100000" step="10"></div>
+  <div class="bk-row">
+   <label>Frazione Kelly</label>
+   <input type="range" id="kellyFrac" min="0.10" max="0.50" step="0.05" value="${b.kellyFraction}">
+   <span class="out" id="kellyFracOut">${b.kellyFraction.toFixed(2)}</span>
+  </div>
+  <div class="bk-row">
+   <label>Cap stake max %</label>
+   <input type="range" id="capPct" min="0.01" max="0.10" step="0.005" value="${b.capPct}">
+   <span class="out" id="capPctOut">${(b.capPct*100).toFixed(1)}%</span>
+  </div>
+  <div class="bk-row">
+   <label>After-loss (riduce 25%)</label>
+   <select id="afterLossSel">
+    <option value="false" ${!b.afterLossActive?'selected':''}>Disattivo</option>
+    <option value="true" ${b.afterLossActive?'selected':''}>Attivo</option>
+   </select>
+  </div>
+  <div class="bk-row" style="border-top:1px solid var(--brd1);padding-top:10px;margin-top:10px">
+   <button class="btn btn-primary" id="bkSave">💾 Salva configurazione</button>
+   <button class="btn btn-ghost" id="bkResetWeek">🔄 Reset P/L settimana</button>
+   <button class="btn btn-ghost" style="color:var(--err);border-color:rgba(248,113,113,.3)" id="bkResetAll">⚠️ Reset bankroll</button>
+  </div>
+ </div>`;
+ // Lookup table edge × confidence
+ const edges = [3, 5, 8, 12, 18];
+ const confs = [60, 70, 80, 90];
+ let table = `<table class="lookup"><thead><tr><th>Edge ↓ / Conf →</th>${confs.map(c=>`<th>${c}-${c+9}</th>`).join('')}</tr></thead><tbody>`;
+ edges.forEach((e,ei) => {
+  const max = ei < edges.length-1 ? edges[ei+1] : 25;
+  table += `<tr><td>${e}-${max}%</td>`;
+  confs.forEach(c => {
+   const odds = 1.90;
+   const pImpl = 1/odds;
+   const p = pImpl + (e/100);
+   const r = kellyStake(p, odds, {confidence:c, fraction:b.kellyFraction, cap:b.capPct, bankroll:100});
+   const pct = r.pct * 100;
+   const cls = pct >= 3 ? 'hl' : '';
+   table += `<td class="${cls}">${pct.toFixed(1)}%</td>`;
+  });
+  table += '</tr>';
+ });
+ table += '</tbody></table>';
+ main.innerHTML = warning + afterLossBox + cards + ctrl + `<div class="str-sec"><h3>📊 Tabella stake suggerito (% bankroll)</h3><p>Per ogni combinazione edge × confidence viene calcolato lo stake con la frazione Kelly attuale (${b.kellyFraction.toFixed(2)}, cap ${(b.capPct*100).toFixed(1)}%).</p>${table}</div>`;
+}
+
+/* ==================== RENDER: TAB STRUMENTI ==================== */
+function renderStrumenti(){
+ const main = document.getElementById('mainTab');
+ const cnt = DATASETS.map(d => `<li><strong>${d.label}</strong>: ${(S.datasets[d.key]||[]).length} righe</li>`).join('');
+ const filters = [
+  ['coverage', 'Coverage < 50% di segnali disponibili'],
+  ['confidence', 'Confidence < 60'],
+  ['quotaRange', 'Quota fuori range mercato (1.20-15)'],
+  ['edge', 'Edge negativo dopo shrinkage'],
+  ['stakeZero', 'Kelly stake = 0'],
+  ['dropContra', 'Drop quota contrario alla direzione'],
+  ['npLow', 'NP DataMining troppo basso (<8 per Over)'],
+  ['stopDay', 'Stop-loss giornaliero −10% attivo'],
+  ['stopWeek', 'Stop-loss settimanale −20% attivo'],
+  ['conflicts', '2+ segnali contrari rilevati']
+ ];
+ const filtersHTML = filters.map(([n,d]) => `<div class="filter-item"><span class="n">${n}</span>${escHtml(d)}</div>`).join('');
+ const m1Rules = [
+  ['Ov 0.5 PT M1', 'IND&lt;320 AND Delta&lt;-20 AND Diff&lt;0'],
+  ['GG M1', 'IGBc≥150 AND IGBo≥150 AND S12&lt;150 AND PGG≥55'],
+  ['Ov 2.5 M1', 'IGBt≥300 AND MGE≥3 AND Diff≤0'],
+  ['U 2.5 M1', 'Diff&gt;1.5 AND 0&lt;MGE&lt;3'],
+  ['MG 1-3 Casa M1', 'ICH∈[300,350] AND VarC≥30'],
+  ['MG 1-3 Ospite M1', 'ICA∈[300,350] AND VarO≥30']
+ ];
+ const m1HTML = m1Rules.map(([n,d]) => `<div class="filter-item"><span class="n">${n}</span><code style="font-family:var(--M);font-size:.8rem">${d}</code></div>`).join('');
+ const gzRules = [
+  ['GZ &lt; -1800', 'U 2.5 al 64%'],
+  ['GZ &lt; -1200', 'U 3.5 all\'81%'],
+  ['GZ ∈ [-200, +200]', 'Ov 0.5 al 95%'],
+  ['GZ &gt; +1000', 'Ov 1.5 all\'80%'],
+  ['GZ &gt; +5000', 'Ov 2.5 al 64%']
+ ];
+ const gzHTML = gzRules.map(([n,d]) => `<div class="filter-item"><span class="n">${n}</span>${d}</div>`).join('');
+ const diffRules = [
+  ['DGT &gt; +0.8', 'Sovrafrequenza gol → pro UNDER (regressione alla media)'],
+  ['DGT &lt; -0.8', 'Sottofrequenza gol → pro OVER (regressione alla media)'],
+  ['DiffC &gt; +0.3', 'Casa sopra media → pro NO Casa Segna'],
+  ['DiffC &lt; -0.3', 'Casa sotto media → pro Casa Segna'],
+  ['DiffO &gt; +0.3', 'Ospite sopra media → pro NO Ospite Segna'],
+  ['DiffO &lt; -0.3', 'Ospite sotto media → pro Ospite Segna'],
+  ['Drop QrL &gt; 5%', 'Bonus confidence (money flow conferma)'],
+  ['Drop QrL &lt; -5%', 'Penalità confidence + cap 60 (money flow contraria)']
+ ];
+ const diffHTML = diffRules.map(([n,d]) => `<div class="filter-item"><span class="n">${n}</span>${d}</div>`).join('');
+ main.innerHTML = `
+  <div class="str-sec">
+   <h3>📊 Dataset caricati</h3>
+   <ul>${cnt}</ul>
+   <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
+    <button class="btn btn-ghost" id="recomputeBtn">🔄 Ricalcola Decision Engine</button>
+    <button class="btn btn-ghost" id="exportFullPDF">📄 Esporta report completo PDF</button>
+    <button class="btn btn-ghost" id="exportJSON">💾 Esporta storico JSON</button>
+   </div>
+  </div>
+  <div class="str-sec">
+   <h3>🛡️ 10 criteri anti-scommessa</h3>
+   <p>Lo Skip Engine valuta ogni pronostico con questi criteri. Se almeno uno è violato, la pick viene esclusa dalle Top Singole / Doppie / Tris (resta visibile nei Value Bets in alcuni casi).</p>
+   <div class="filters-list">${filtersHTML}</div>
+  </div>
+  <div class="str-sec">
+   <h3>🏅 Regole M1 sigillate (identiche alla Fase 4)</h3>
+   <p>Queste regole sono il <strong>nucleo deterministico</strong> del sistema BioFootballBet/FAPro. Il Confidence Score le pesa al 28% e mai le sovrascrive.</p>
+   <div class="filters-list">${m1HTML}</div>
+  </div>
+  <div class="str-sec">
+   <h3>📡 Soglie GZ Index</h3>
+   <p>Mappatura del segnale GZ (Indice Bio FAPro) sulle probabilità Over/Under storicamente validate.</p>
+   <div class="filters-list">${gzHTML}</div>
+  </div>
+  <div class="str-sec">
+   <h3>📉 Logica Differenziali Gol (mean-reversion)</h3>
+   <p>Il pacchetto DGT/DiffC/DiffO segue la <strong>regressione alla media</strong>: trend sopra la media consolidata → pronostica contro il trend recente.</p>
+   <div class="filters-list">${diffHTML}</div>
+  </div>
+  <div class="str-sec">
+   <h3>⚖️ Pesi del Confidence Score</h3>
+   <p>La formula è una <strong>weighted average coverage-aware</strong> con conflict penalty λσ e coverage factor 0.70 + 0.30·coverage.</p>
+   <div class="filters-list">
+    <div class="filter-item"><span class="n">Regole M1 sigillate (S1-S4)</span>Peso 28%</div>
+    <div class="filter-item"><span class="n">DataMining (S7)</span>Peso 22%</div>
+    <div class="filter-item"><span class="n">GZ Index (S6)</span>Peso 13%</div>
+    <div class="filter-item"><span class="n">Differenziali Gol (S10)</span>Peso 12%</div>
+    <div class="filter-item"><span class="n">Value 1X2 (S8)</span>Peso 9%</div>
+    <div class="filter-item"><span class="n">Stats IA (S5)</span>Peso 8%</div>
+    <div class="filter-item"><span class="n">Profilo giocatori (S9)</span>Peso 8%</div>
+    <div class="filter-item"><span class="n">Penalità conflitti</span>λ = 8 · σ direzionale</div>
+   </div>
+  </div>`;
+}
+
+/* ==================== RENDER: TAB STORICO ==================== */
+function renderStorico(){
+ const main = document.getElementById('mainTab');
+ const h = S.history || [];
+ if(!h.length){
+  main.innerHTML = `<div class="empty">
+   <div class="ico">📚</div>
+   <p class="title">Nessun pronostico in storico</p>
+   <p>Aggiungi una pick dalla schedina per iniziare a tracciare il tuo ROI. Lo storico include hit rate, P/L progressivo e CLV (closing line value).</p>
+  </div>`;
+  return;
+ }
+ const won = h.filter(x => x.status==='won').length;
+ const lost = h.filter(x => x.status==='lost').length;
+ const open = h.filter(x => x.status==='open').length;
+ const closed = won + lost;
+ const hitRate = closed ? (won/closed)*100 : 0;
+ const totalProfit = h.reduce((s,x) => s + (x.profit||0), 0);
+ const totalStake = h.reduce((s,x) => s + (x.stake||0), 0);
+ const yieldPct = totalStake > 0 ? (totalProfit/totalStake)*100 : 0;
+ const stats = `<div class="bk-cards">
+  <div class="bk-card"><div class="lbl">Pick totali</div><div class="vl">${h.length}</div></div>
+  <div class="bk-card"><div class="lbl">Vinte</div><div class="vl pos">${won}</div></div>
+  <div class="bk-card"><div class="lbl">Perse</div><div class="vl neg">${lost}</div></div>
+  <div class="bk-card"><div class="lbl">Aperte</div><div class="vl">${open}</div></div>
+  <div class="bk-card"><div class="lbl">Hit rate</div><div class="vl">${hitRate.toFixed(1)}%</div></div>
+  <div class="bk-card"><div class="lbl">P/L totale</div><div class="vl ${totalProfit>0?'pos':totalProfit<0?'neg':''}">${totalProfit>=0?'+':''}${fmtEur(totalProfit)}</div></div>
+  <div class="bk-card"><div class="lbl">Yield</div><div class="vl ${yieldPct>0?'pos':yieldPct<0?'neg':''}">${yieldPct>=0?'+':''}${yieldPct.toFixed(2)}%</div></div>
+ </div>`;
+ const filters = `<div class="toolbar">
+  <input class="search" id="histSearch" placeholder="Cerca match…" value="${escHtml(S.ui.q||'')}">
+  <select class="select" id="histStat">
+   <option value="all" ${S.ui.histFilter==='all'?'selected':''}>Tutti gli stati</option>
+   <option value="open" ${S.ui.histFilter==='open'?'selected':''}>Aperte</option>
+   <option value="won" ${S.ui.histFilter==='won'?'selected':''}>Vinte</option>
+   <option value="lost" ${S.ui.histFilter==='lost'?'selected':''}>Perse</option>
+  </select>
+ </div>`;
+ let rows = h.slice().reverse();
+ if(S.ui.histFilter !== 'all') rows = rows.filter(x => x.status === S.ui.histFilter);
+ if(S.ui.q) rows = rows.filter(x => normMatchKey(x.match || '').includes(normMatchKey(S.ui.q)) || normMatchKey(x.market || '').includes(normMatchKey(S.ui.q)));
+ const items = rows.map(r => {
+  const dateStr = new Date(r.savedAt || Date.now()).toLocaleDateString('it-IT', {day:'2-digit', month:'2-digit', year:'2-digit', hour:'2-digit', minute:'2-digit'});
+  const statBdg = r.status === 'won' ? '<span class="bdg bdg-ok">VINTA</span>' : r.status === 'lost' ? '<span class="bdg bdg-skip">PERSA</span>' : '<span class="bdg bdg-neu">APERTA</span>';
+  const profitStr = r.status !== 'open' ? `${r.profit>=0?'+':''}${fmtEur(r.profit||0)}` : '—';
+  const profitCls = r.status === 'won' ? 'pos' : r.status === 'lost' ? 'neg' : '';
+  const legsStr = (r.legs||[]).map(l => `${escHtml(l.match)} (${escHtml(l.market)} @ ${l.odds?.toFixed(2)})`).join(' · ');
+  return `<div class="hist-row">
+   <div class="hist-top">
+    <div class="hist-info">
+     <div class="n">${escHtml(r.tipo || 'Pick')} · quota ${(r.totalOdds||0).toFixed(2)} · ${statBdg}</div>
+     <div class="s">${escHtml(legsStr)}</div>
+     <div class="s" style="margin-top:4px;color:var(--fg3)">${dateStr} · stake ${fmtEur(r.stake)} · profitto <span style="color:var(--${profitCls==='pos'?'ok':profitCls==='neg'?'err':'fg3'})">${profitStr}</span></div>
+    </div>
+   </div>
+   <div class="hist-actions">
+    ${r.status==='open' ? `
+    <button class="mini-btn ok" data-set-status="${r.id}|won">✅ Segna vinta</button>
+    <button class="mini-btn" data-set-status="${r.id}|lost" style="color:var(--err);border-color:rgba(248,113,113,.3)">❌ Segna persa</button>
+    ` : `
+    <button class="mini-btn" data-set-status="${r.id}|open">↩️ Riapri</button>
+    `}
+    <button class="mini-btn" data-rm-hist="${r.id}" style="color:var(--err);margin-left:auto">🗑️ Elimina</button>
+   </div>
+  </div>`;
+ }).join('');
+ main.innerHTML = stats + filters + (items || `<div class="empty"><p>Nessun pronostico corrisponde ai filtri.</p></div>`);
+}
+
+/* ==================== RENDER ROUTER + UPLOAD GRID ==================== */
+function renderUploadGrid(){
+ const grid = document.getElementById('uploadGrid');
+ grid.innerHTML = DATASETS.map(d => {
+  const n = (S.datasets[d.key]||[]).length;
+  const cls = n > 0 ? 'up-card loaded' : 'up-card';
+  return `<div class="${cls}">
+   <input type="file" accept=".csv,text/csv" data-target="${d.key}">
+   <div class="up-lbl">${escHtml(d.label)} <span class="tag-num">${DATASETS.indexOf(d)+1}</span></div>
+   <div class="up-meta">${n>0?`<span class="up-count">${n} righe</span>`:'<span style="color:var(--fg3)">Nessun file</span>'}<small>${escHtml(d.hint)}</small></div>
+   <div class="up-actions">
+    <button type="button" class="up-btn" data-pick="${d.key}">Seleziona</button>
+    ${n>0?`<button type="button" class="up-btn clear" data-clear="${d.key}">Reset</button>`:''}
+   </div>
+  </div>`;
+ }).join('');
+ const loaded = DATASETS.filter(d => (S.datasets[d.key]||[]).length > 0).length;
+ const c = document.getElementById('dsCount');
+ if(c) c.textContent = `${loaded} / ${DATASETS.length}`;
+}
+
+function renderHeader(){
+ const el = document.getElementById('bkHdr');
+ if(!el) return;
+ const b = S.bankroll;
+ const pl = b.pl_day;
+ const cls = pl > 0 ? 'pos' : pl < 0 ? 'neg' : '';
+ el.innerHTML = `<div class="bk-mini">
+  <span class="lbl">Bankroll</span>${fmtEur(b.segregated)}
+ </div>
+ <div class="bk-mini ${cls}">
+  <span class="lbl">P/L oggi</span>${pl>=0?'+':''}${fmtEur(pl)}
+ </div>`;
+}
+
+function render(){
+ renderHeader();
+ renderUploadGrid();
+ document.querySelectorAll('.nav-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === S.ui.tab));
+ const tab = S.ui.tab;
+ if(tab === 'oggi') renderOggi();
+ else if(tab === 'schedina') renderSchedina();
+ else if(tab === 'bankroll') renderBankroll();
+ else if(tab === 'strumenti') renderStrumenti();
+ else if(tab === 'storico') renderStorico();
+}
+
+/* ==================== TICKET ACTIONS ==================== */
+function findRecBy(key, market){
+ if(!S.output) return null;
+ for(const m of S.output.allMatches){
+  if(m.match._key === key){
+   for(const r of m.recs){
+    if(r.market === market) return r;
+   }
+  }
+ }
+ return null;
+}
+
+function addToTicket(key, market){
+ const rec = findRecBy(key, market);
+ if(!rec){ showToast('Pick non trovata', 'err'); return; }
+ if(S.ticket.legs.length >= 5){ showToast('Max 5 leg per schedina', 'err'); return; }
+ if(S.ticket.legs.find(l => l._key === key)){ showToast('Match già in schedina', 'err'); return; }
+ // Check correlation con leg esistenti
+ for(const ex of S.ticket.legs){
+  const corr = correlationScore(ex, rec);
+  if(corr > 0.35){
+   if(!confirm(`Attenzione: questa pick ha correlazione ${(corr*100).toFixed(0)}% con "${ex.match}". Vuoi aggiungerla comunque?`)) return;
+  }
+ }
+ S.ticket.legs.push({
+  _key: rec._key, match: rec.match, market: rec.market, odds: rec.odds,
+  ora: rec.ora, lega: rec.lega, dir: rec.dir, side: rec.side,
+  pModel: rec.pModel, confidence: rec.confidence
+ });
+ if(S.ticket.legs.length === 1){
+  // Imposta stake suggerito Kelly per la prima leg
+  S.ticket.stake = Math.max(1, Math.round(rec.stake));
+ }
+ schedulePersist();
+ showToast('Aggiunto alla schedina', 'ok');
+ render();
+}
+
+function addComboToTicket(type, idx){
+ const o = S.output;
+ if(!o) return;
+ const combo = type === 'tris' ? o.smartTriples[idx] : o.smartDoubles[idx];
+ if(!combo) return;
+ S.ticket.legs = combo.legs.map(l => ({
+  _key: l._key, match: l.match, market: l.market, odds: l.odds,
+  ora: l.ora, lega: l.lega, dir: l.dir, side: l.side,
+  pModel: l.pModel, confidence: l.confidence
+ }));
+ const stakeJoint = round(S.bankroll.segregated * 0.02 * (combo.score+1), 2);
+ S.ticket.stake = Math.max(1, Math.round(stakeJoint));
+ S.ui.tab = 'schedina';
+ schedulePersist();
+ showToast(`${type==='tris'?'Tris':'Doppia'} caricata in schedina`, 'ok');
+ render();
+}
+
+function removeLeg(idx){
+ S.ticket.legs.splice(idx,1);
+ schedulePersist();
+ render();
+}
+
+function clearTicket(){
+ if(!S.ticket.legs.length) return;
+ if(!confirm('Svuotare la schedina corrente?')) return;
+ S.ticket.legs = [];
+ S.ticket.stake = 10;
+ schedulePersist();
+ render();
+}
+
+function confirmTicket(){
+ if(!S.ticket.legs.length) return;
+ const totalOdds = S.ticket.legs.reduce((s,l) => s * (l.odds||1), 1);
+ const tipo = S.ticket.legs.length === 1 ? 'Singola' : S.ticket.legs.length === 2 ? 'Doppia' : S.ticket.legs.length === 3 ? 'Tris' : `Multipla x${S.ticket.legs.length}`;
+ const entry = {
+  id: 'h_' + Date.now() + '_' + Math.random().toString(36).slice(2,7),
+  savedAt: new Date().toISOString(),
+  tipo,
+  legs: S.ticket.legs.slice(),
+  totalOdds,
+  stake: S.ticket.stake,
+  status: 'open',
+  profit: 0
+ };
+ S.history.unshift(entry);
+ S.ticket.legs = [];
+ S.ticket.stake = 10;
+ schedulePersist();
+ showToast('Pick salvata nello storico', 'ok');
+ S.ui.tab = 'storico';
+ render();
+}
+
+function setHistStatus(id, status){
+ const item = S.history.find(x => x.id === id);
+ if(!item) return;
+ item.status = status;
+ if(status === 'won') item.profit = item.stake * item.totalOdds - item.stake;
+ else if(status === 'lost') item.profit = -item.stake;
+ else item.profit = 0;
+ // Aggiorna bankroll
+ recomputeBankrollPL();
+ schedulePersist();
+ render();
+}
+
+function removeHist(id){
+ if(!confirm('Eliminare definitivamente questa pick dallo storico?')) return;
+ S.history = S.history.filter(x => x.id !== id);
+ recomputeBankrollPL();
+ schedulePersist();
+ render();
+}
+
+function recomputeBankrollPL(){
+ const today = new Date().toDateString();
+ const startWeek = startOfWeekISO();
+ let pld = 0, plw = 0;
+ S.history.forEach(h => {
+  if(h.status === 'open') return;
+  const d = new Date(h.savedAt);
+  if(d.toDateString() === today) pld += h.profit || 0;
+  if(d.toISOString() >= startWeek) plw += h.profit || 0;
+ });
+ S.bankroll.pl_day = pld;
+ S.bankroll.pl_week = plw;
+}
+
+/* ==================== PERSISTENZA LOCALSTORAGE ==================== */
+let saveTimer = null;
+function schedulePersist(){
+ clearTimeout(saveTimer);
+ saveTimer = setTimeout(persistState, 400);
+}
+
+function persistState(){
+ try {
+  const toSave = {
+   version: VERSION,
+   savedAt: new Date().toISOString(),
+   bankroll: S.bankroll,
+   ticket: S.ticket,
+   history: S.history,
+   ui: { tab: S.ui.tab, uploadOpen: S.ui.uploadOpen }
+  };
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(toSave));
+ } catch(e){
+  console.warn('Persist failed', e);
+ }
+}
+
+function loadState(){
+ try {
+  const raw = localStorage.getItem(STORAGE_KEY);
+  if(!raw) return;
+  const obj = JSON.parse(raw);
+  if(!obj || obj.version !== VERSION) return;
+  if(obj.bankroll) Object.assign(S.bankroll, obj.bankroll);
+  if(obj.ticket) Object.assign(S.ticket, obj.ticket);
+  if(Array.isArray(obj.history)) S.history = obj.history;
+  if(obj.ui) Object.assign(S.ui, obj.ui);
+  recomputeBankrollPL();
+ } catch(e){
+  console.warn('Load state failed', e);
+ }
+}
+
+/* ==================== EXPORT PDF ==================== */
+function exportFullPDF(){
+ if(!window.jspdf || !window.jspdf.jsPDF){ showToast('PDF library non pronta','err'); return; }
+ if(!S.output){ showToast('Nessun calcolo disponibile','err'); return; }
+ const { jsPDF } = window.jspdf;
+ const doc = new jsPDF({unit:'mm', format:'a4'});
+ const o = S.output;
+ // Header
+ doc.setFillColor(11,15,23); doc.rect(0,0,210,28,'F');
+ doc.setTextColor(255,255,255); doc.setFont('helvetica','bold'); doc.setFontSize(16);
+ doc.text('Match Analyzer Pro · Fase 5 Smart Advisor', 14, 14);
+ doc.setFontSize(9); doc.setTextColor(160,168,190);
+ const dt = new Date().toLocaleDateString('it-IT', {day:'2-digit', month:'long', year:'numeric'});
+ doc.text(`Report del ${dt} · ${o.matchesCount} match analizzati`, 14, 22);
+ let y = 36;
+ // Hero
+ if(o.hero){
+  doc.setTextColor(22,163,74); doc.setFontSize(11); doc.setFont('helvetica','bold');
+  doc.text(`BET OF THE DAY: ${o.hero.match}`, 14, y); y += 6;
+  doc.setTextColor(30,30,30); doc.setFont('helvetica','normal'); doc.setFontSize(9);
+  doc.text(`${o.hero.market} @ ${o.hero.odds?.toFixed(2)} · Confidence ${o.hero.confidence}/100 · Stake ${o.hero.stakePct.toFixed(1)}% (${fmtEur(o.hero.stake)})`, 14, y); y += 8;
+ }
+ // Top Singles
+ if(o.topSingles && o.topSingles.length){
+  doc.autoTable({
+   startY: y,
+   head: [['#','Match','Mercato','Quota','Conf','Edge%','Stake€']],
+   body: o.topSingles.map((r,i) => [i+1, r.match, r.market, r.odds?.toFixed(2), r.confidence, r.edge.toFixed(1), r.stake.toFixed(2)]),
+   theme:'grid', styles:{fontSize:8, cellPadding:3}, headStyles:{fillColor:[37,99,235], textColor:[255,255,255]},
+   alternateRowStyles:{fillColor:[245,247,250]}, margin:{left:14,right:14}
+  });
+  y = doc.lastAutoTable.finalY + 8;
+ }
+ // Doubles
+ if(o.smartDoubles && o.smartDoubles.length){
+  if(y > 230){ doc.addPage(); y = 14; }
+  doc.setTextColor(30,30,30); doc.setFontSize(11); doc.setFont('helvetica','bold');
+  doc.text('Doppie suggerite', 14, y); y += 5;
+  o.smartDoubles.forEach((d,i) => {
+   doc.autoTable({
+    startY: y,
+    head: [['Doppia #'+(i+1), 'Match', 'Mercato', 'Quota']],
+    body: [
+     ...d.legs.map(l => ['Leg', l.match, l.market, l.odds?.toFixed(2)]),
+     ['TOTALE', '', `EV +${d.ev_pct.toFixed(1)}% · p ${(d.pJoint*100).toFixed(1)}%`, d.totalOdds.toFixed(2)]
+    ],
+    theme:'grid', styles:{fontSize:8, cellPadding:3}, headStyles:{fillColor:[192,132,252], textColor:[255,255,255]},
+    margin:{left:14,right:14}
+   });
+   y = doc.lastAutoTable.finalY + 6;
+  });
+ }
+ // Triples
+ if(o.smartTriples && o.smartTriples.length){
+  if(y > 220){ doc.addPage(); y = 14; }
+  doc.setTextColor(30,30,30); doc.setFontSize(11); doc.setFont('helvetica','bold');
+  doc.text('Tris smart', 14, y); y += 5;
+  o.smartTriples.forEach((d,i) => {
+   doc.autoTable({
+    startY: y,
+    head: [['Tris #'+(i+1), 'Match', 'Mercato', 'Quota']],
+    body: [
+     ...d.legs.map(l => ['Leg', l.match, l.market, l.odds?.toFixed(2)]),
+     ['TOTALE', '', `EV +${d.ev_pct.toFixed(1)}% · p ${(d.pJoint*100).toFixed(1)}%`, d.totalOdds.toFixed(2)]
+    ],
+    theme:'grid', styles:{fontSize:8, cellPadding:3}, headStyles:{fillColor:[251,146,60], textColor:[255,255,255]},
+    margin:{left:14,right:14}
+   });
+   y = doc.lastAutoTable.finalY + 6;
+  });
+ }
+ // Value
+ if(o.valueBets && o.valueBets.length){
+  if(y > 230){ doc.addPage(); y = 14; }
+  doc.setTextColor(30,30,30); doc.setFontSize(11); doc.setFont('helvetica','bold');
+  doc.text('Value Bets', 14, y); y += 5;
+  doc.autoTable({
+   startY: y,
+   head: [['#','Match','Mercato','Quota','Conf','Edge%','Stake€','NP']],
+   body: o.valueBets.map((r,i) => [i+1, r.match, r.market, r.odds?.toFixed(2), r.confidence, r.edge.toFixed(1), r.stake.toFixed(2), r.sig?.s7?.np||'-']),
+   theme:'grid', styles:{fontSize:8, cellPadding:3}, headStyles:{fillColor:[192,132,252], textColor:[255,255,255]},
+   alternateRowStyles:{fillColor:[252,247,255]}, margin:{left:14,right:14}
+  });
+ }
+ // Footer pagine
+ const pageCount = doc.internal.getNumberOfPages();
+ for(let p = 1; p <= pageCount; p++){
+  doc.setPage(p);
+  doc.setFontSize(8); doc.setTextColor(120,120,120);
+  doc.text(`Pagina ${p}/${pageCount} · Match Analyzer Pro F5`, 14, 290);
+ }
+ doc.save(`MAP_F5_${new Date().toISOString().slice(0,10)}.pdf`);
+ showToast('PDF generato', 'ok');
+}
+
+function exportTicketPDF(){
+ if(!window.jspdf || !window.jspdf.jsPDF){ showToast('PDF library non pronta','err'); return; }
+ if(!S.ticket.legs.length){ showToast('Schedina vuota','err'); return; }
+ const { jsPDF } = window.jspdf;
+ const doc = new jsPDF({unit:'mm', format:'a5'});
+ const t = S.ticket;
+ const totalOdds = t.legs.reduce((s,l) => s * (l.odds||1), 1);
+ const win = t.stake * totalOdds;
+ doc.setFillColor(22,163,74); doc.rect(0,0,148,18,'F');
+ doc.setTextColor(255,255,255); doc.setFont('helvetica','bold'); doc.setFontSize(14);
+ doc.text('🎫 SCHEDINA · Match Analyzer Pro F5', 10, 11);
+ let y = 26;
+ doc.setTextColor(30,30,30); doc.setFontSize(9);
+ doc.autoTable({
+  startY: y,
+  head: [['#','Match','Mercato','Quota']],
+  body: t.legs.map((l,i) => [i+1, l.match, l.market, l.odds?.toFixed(2)]),
+  theme:'grid', styles:{fontSize:8,cellPadding:3}, headStyles:{fillColor:[37,99,235], textColor:[255,255,255]},
+  margin:{left:10,right:10}
+ });
+ y = doc.lastAutoTable.finalY + 8;
+ doc.setFontSize(10); doc.setFont('helvetica','bold');
+ doc.text(`Quota totale: ${totalOdds.toFixed(2)}`, 10, y); y += 6;
+ doc.text(`Stake: ${fmtEur(t.stake)}`, 10, y); y += 6;
+ doc.text(`Possibile vincita: ${fmtEur(win)}`, 10, y); y += 6;
+ doc.setFont('helvetica','normal'); doc.setFontSize(8); doc.setTextColor(120,120,120);
+ doc.text(`Generato il ${new Date().toLocaleString('it-IT')}`, 10, y+4);
+ doc.save(`ticket_${Date.now()}.pdf`);
+ showToast('Ticket PDF generato', 'ok');
+}
+
+function exportJSON(){
+ try {
+  const data = {version:VERSION, bankroll:S.bankroll, history:S.history, savedAt:new Date().toISOString()};
+  const blob = new Blob([JSON.stringify(data, null, 2)], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `MAP_F5_storico_${new Date().toISOString().slice(0,10)}.json`;
+  document.body.appendChild(a); a.click();
+  setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 300);
+  showToast('Export JSON completato', 'ok');
+ } catch(e){
+  showToast('Export fallito: ' + e.message, 'err');
+ }
+}
+
+/* ==================== UPLOAD HANDLERS ==================== */
+async function handleFileUpload(input){
+ const key = input.dataset.target;
+ const file = input.files && input.files[0];
+ if(!key || !file){ setUploadStatus('File o target mancante', 'err'); return; }
+ setUploadStatus(`Lettura ${file.name}…`);
+ try {
+  const text = typeof file.text === 'function' ? await file.text() : await new Promise((res,rej) => {
+   const fr = new FileReader();
+   fr.onload = () => res(String(fr.result || ''));
+   fr.onerror = () => rej(fr.error);
+   fr.readAsText(file);
+  });
+  if(!text.trim()) throw new Error('File vuoto');
+  parseAndStore(key, text);
+  const n = (S.datasets[key]||[]).length;
+  setUploadStatus(`✅ ${file.name} caricato in ${key}: ${n} righe`, 'ok');
+  runDecisionEngine();
+  render();
+ } catch(e){
+  console.error(e);
+  setUploadStatus(`❌ Errore su ${file.name}: ${e.message}`, 'err');
+ } finally {
+  input.value = '';
+ }
+}
+
+function clearDataset(key){
+ if(!confirm(`Reset del dataset ${key}?`)) return;
+ S.datasets[key] = [];
+ setUploadStatus(`Dataset ${key} resettato`);
+ runDecisionEngine();
+ render();
+}
+
+/* ==================== EVENT WIRING ==================== */
+function bindEvents(){
+ // Tab nav
+ document.getElementById('navTabs').addEventListener('click', e => {
+  const btn = e.target.closest('.nav-btn');
+  if(!btn) return;
+  S.ui.tab = btn.dataset.tab;
+  schedulePersist();
+  render();
+ });
+
+ // Upload toggle
+ document.getElementById('uploadTg').addEventListener('click', () => {
+  S.ui.uploadOpen = !S.ui.uploadOpen;
+  const body = document.getElementById('uploadBody');
+  const tg = document.getElementById('uploadTg');
+  if(S.ui.uploadOpen){ body.classList.add('open'); tg.classList.add('open'); }
+  else { body.classList.remove('open'); tg.classList.remove('open'); }
+  schedulePersist();
+ });
+
+ // File input change (delegato)
+ document.body.addEventListener('change', e => {
+  const t = e.target;
+  if(t.tagName === 'INPUT' && t.type === 'file' && t.dataset.target){
+   handleFileUpload(t);
+  }
+  if(t.id === 'afterLossSel'){
+   S.bankroll.afterLossActive = t.value === 'true';
+   schedulePersist();
+   runDecisionEngine();
+   render();
+  }
+ });
+
+ // Click delegato globale
+ document.body.addEventListener('click', e => {
+  const tgt = e.target;
+  // Pick file
+  const pick = tgt.closest('[data-pick]');
+  if(pick){
+   const inp = document.querySelector(`input[type=file][data-target="${pick.dataset.pick}"]`);
+   if(inp) inp.click();
+   return;
+  }
+  // Clear dataset
+  const clr = tgt.closest('[data-clear]');
+  if(clr){ clearDataset(clr.dataset.clear); return; }
+  // Add to ticket
+  const add = tgt.closest('[data-add]');
+  if(add){
+   const [k,m] = add.dataset.add.split('|');
+   addToTicket(k, m);
+   return;
+  }
+  // Add combo
+  const addCombo = tgt.closest('[data-add-combo]');
+  if(addCombo){
+   const [type,idx] = addCombo.dataset.addCombo.split('|');
+   addComboToTicket(type, parseInt(idx));
+   return;
+  }
+  // Remove leg
+  const rml = tgt.closest('[data-rm-leg]');
+  if(rml){ removeLeg(parseInt(rml.dataset.rmLeg)); return; }
+  // History status
+  const hs = tgt.closest('[data-set-status]');
+  if(hs){ const [id,st] = hs.dataset.setStatus.split('|'); setHistStatus(id, st); return; }
+  const hd = tgt.closest('[data-rm-hist]');
+  if(hd){ removeHist(hd.dataset.rmHist); return; }
+  // Bottoni specifici
+  if(tgt.id === 'kellyApply'){
+   if(S.ticket.legs.length === 1){
+    const rec = findRecBy(S.ticket.legs[0]._key, S.ticket.legs[0].market);
+    if(rec){ S.ticket.stake = Math.max(1, Math.round(rec.stake)); render(); }
+   } else if(S.ticket.legs.length > 1){
+    const totalOdds = S.ticket.legs.reduce((s,l) => s * l.odds, 1);
+    const pJoint = S.ticket.legs.reduce((s,l) => s * (l.pModel || 0.5), 1);
+    const k = kellyStake(pJoint, totalOdds, {confidence: Math.min(...S.ticket.legs.map(l=>l.confidence||60))});
+    S.ticket.stake = Math.max(1, Math.round(k.eur));
+    render();
+   }
+   return;
+  }
+  if(tgt.id === 'confirmTicket'){ confirmTicket(); return; }
+  if(tgt.id === 'clearTicket'){ clearTicket(); return; }
+  if(tgt.id === 'exportTicketPDF'){ exportTicketPDF(); return; }
+  if(tgt.id === 'exportFullPDF'){ exportFullPDF(); return; }
+  if(tgt.id === 'exportJSON'){ exportJSON(); return; }
+  if(tgt.id === 'recomputeBtn'){ runDecisionEngine(); render(); showToast('Ricalcolato', 'ok'); return; }
+  if(tgt.id === 'bkSave'){
+   const tot = parseFloat(document.getElementById('bkTotal').value) || 1000;
+   const seg = parseFloat(document.getElementById('bkSeg').value) || tot;
+   S.bankroll.total = tot;
+   S.bankroll.segregated = seg;
+   schedulePersist();
+   runDecisionEngine();
+   render();
+   showToast('Configurazione salvata', 'ok');
+   return;
+  }
+  if(tgt.id === 'bkResetWeek'){
+   if(!confirm('Reset P/L settimanale?')) return;
+   S.bankroll.startWeek = startOfWeekISO();
+   S.bankroll.pl_week = 0;
+   schedulePersist(); render(); return;
+  }
+  if(tgt.id === 'bkResetAll'){
+   if(!confirm('ATTENZIONE: reset completo bankroll e P/L. Procedere?')) return;
+   S.bankroll.pl_day = 0; S.bankroll.pl_week = 0;
+   S.bankroll.afterLossActive = false;
+   schedulePersist(); render(); return;
+  }
+ });
+
+ // Input range / number live
+ document.body.addEventListener('input', e => {
+  if(e.target.id === 'kellyFrac'){
+   const v = parseFloat(e.target.value);
+   document.getElementById('kellyFracOut').textContent = v.toFixed(2);
+   S.bankroll.kellyFraction = v;
+   schedulePersist();
+   runDecisionEngine();
+  }
+  if(e.target.id === 'capPct'){
+   const v = parseFloat(e.target.value);
+   document.getElementById('capPctOut').textContent = (v*100).toFixed(1)+'%';
+   S.bankroll.capPct = v;
+   schedulePersist();
+   runDecisionEngine();
+  }
+  if(e.target.id === 'stakeInp'){
+   S.ticket.stake = parseFloat(e.target.value) || 0;
+   schedulePersist();
+   const totalOdds = S.ticket.legs.reduce((s,l) => s * (l.odds||1), 1);
+   const win = S.ticket.stake * totalOdds;
+   const profit = win - S.ticket.stake;
+   const wEls = document.querySelectorAll('.ticket-total .v');
+   if(wEls[0]) wEls[0].textContent = fmtEur(win);
+   if(wEls[1]) wEls[1].textContent = fmtEur(profit);
+  }
+  if(e.target.id === 'histSearch'){
+   S.ui.q = e.target.value;
+   const rows = document.querySelectorAll('.hist-row');
+   const q = normMatchKey(e.target.value);
+   rows.forEach(r => {
+    const txt = normMatchKey(r.textContent);
+    r.style.display = (!q || txt.includes(q)) ? '' : 'none';
+   });
+  }
+ });
+
+ // Select change
+ document.body.addEventListener('change', e => {
+  if(e.target.id === 'histStat'){
+   S.ui.histFilter = e.target.value;
+   schedulePersist();
+   render();
+  }
+ });
+
+ // Bus subscriptions
+ bus.on('csv:loaded', () => render());
+ bus.on('data:recomputed', () => {
+  if(S.ui.tab === 'oggi') renderOggi();
+ });
+}
+
+/* ==================== INIT ==================== */
+function init(){
+ loadState();
+ bindEvents();
+ render();
+ // Apri pannello upload all'inizio se nessun dato
+ const hasData = DATASETS.some(d => (S.datasets[d.key]||[]).length > 0);
+ if(!hasData && !S.ui.uploadOpen){
+  setTimeout(() => {
+   document.getElementById('uploadTg').click();
+  }, 200);
+ }
+ console.log('Match Analyzer Pro · Fase 5 Smart Advisor · pronto');
+}
+
+global.MAP = {init, S, bus, runDecisionEngine, render};
+
+// Avvio quando DOM è pronto
+if(document.readyState === 'loading'){
+ document.addEventListener('DOMContentLoaded', init);
+} else {
+ init();
+}
+
+})(window);
+</script>
+
+</body>
+</html>
