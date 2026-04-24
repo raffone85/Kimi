@@ -1037,7 +1037,6 @@ function parseAndStore(key, text){
  S.datasets[key] = rows;
  bus.emit('csv:loaded', {key, count: rows.length});
 }
-/* === INIZIO PARTE 2/3 · continua da: fine parser CSV === */
 
 /* ==================== UNIFICAZIONE MATCH (FEATURE LAYER) ==================== */
 function unifyMatches(){
