@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="it">
 <head>
 <meta charset="UTF-8">
@@ -22,336 +21,336 @@ html{color-scheme: only light; forced-color-adjust: none}
 /* ==================== DESIGN TOKENS - TEMA LIGHT CON CARD SCURE ==================== */
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
-/* SFONDI: pagina chiara, card scure per contrasto massimo */
-–bg-page:#F1F4FB;          /* sfondo pagina grigio chiaro */
-–bg-page-2:#E5EAF5;         /* variante hover sfondo */
-/* CARD: tema scuro navy come Image 2 */
-–card-1:#1D2438;            /* card primaria navy scuro */
-–card-2:#283152;            /* card secondaria (sotto-card) */
-–card-3:#323D63;            /* hover/attivo */
-–card-4:#3E4B78;            /* hover intenso */
-/* BORDI CHIARI su sfondo navy */
-–brd-card:#3E4B78;          /* bordo card su sfondo chiaro */
-–brd-inner:#4F5D8C;         /* bordo interno fra card */
-–brd-hi:#6B7BA6;            /* bordo enfasi */
-/* TESTO */
-–fg-on-light:#1D2438;        /* testo scuro su bg chiaro */
-–fg-on-light-2:#4C5775;      /* testo secondario su bg chiaro */
-–fg-on-dark-1:#FFFFFF;       /* testo su card scure */
-–fg-on-dark-2:#C8D0E4;       /* testo secondario su card scure */
-–fg-on-dark-3:#8B95B4;       /* testo terziario su card scure */
-/* COLORI SEMANTICI */
-–ok:#4CE087;–ok2:#22C55E;–ok-bg:rgba(76,224,135,.18);–ok-brd:rgba(76,224,135,.5);
-–warn:#FFC452;–warn2:#D97706;–warn-bg:rgba(255,196,82,.18);–warn-brd:rgba(255,196,82,.5);
-–err:#FF7B7B;–err2:#DC2626;–err-bg:rgba(255,123,123,.18);–err-brd:rgba(255,123,123,.5);
-–info:#7DB8FF;–info-bg:rgba(125,184,255,.18);–info-brd:rgba(125,184,255,.5);
-–cta:#3B7BFF;–cta-h:#2563EB;
-–gold:#FFD866;–gold-bg:rgba(255,216,102,.2);–gold-brd:rgba(255,216,102,.6);
-–mag:#D8A0FF;–mag-bg:rgba(216,160,255,.18);–mag-brd:rgba(216,160,255,.5);
-–S:‘DM Sans’,system-ui,sans-serif;
-–M:‘IBM Plex Mono’,ui-monospace,monospace;
-–rs:10px;–rm:14px;–rl:18px;–rxl:22px;
-/* OMBRE per separare card da sfondo chiaro */
-–sh-card:0 1px 3px rgba(29,36,56,.12), 0 4px 12px rgba(29,36,56,.08), 0 12px 30px rgba(29,36,56,.06);
-–sh-card-hi:0 2px 6px rgba(29,36,56,.15), 0 8px 20px rgba(29,36,56,.12), 0 20px 48px rgba(29,36,56,.08);
-–sh-hero:0 4px 12px rgba(29,36,56,.18), 0 16px 40px rgba(29,36,56,.14), 0 0 0 1px rgba(76,224,135,.15);
+ /* SFONDI: pagina chiara, card scure per contrasto massimo */
+ --bg-page:#F1F4FB;          /* sfondo pagina grigio chiaro */
+ --bg-page-2:#E5EAF5;         /* variante hover sfondo */
+ /* CARD: tema scuro navy come Image 2 */
+ --card-1:#1D2438;            /* card primaria navy scuro */
+ --card-2:#283152;            /* card secondaria (sotto-card) */
+ --card-3:#323D63;            /* hover/attivo */
+ --card-4:#3E4B78;            /* hover intenso */
+ /* BORDI CHIARI su sfondo navy */
+ --brd-card:#3E4B78;          /* bordo card su sfondo chiaro */
+ --brd-inner:#4F5D8C;         /* bordo interno fra card */
+ --brd-hi:#6B7BA6;            /* bordo enfasi */
+ /* TESTO */
+ --fg-on-light:#1D2438;        /* testo scuro su bg chiaro */
+ --fg-on-light-2:#4C5775;      /* testo secondario su bg chiaro */
+ --fg-on-dark-1:#FFFFFF;       /* testo su card scure */
+ --fg-on-dark-2:#C8D0E4;       /* testo secondario su card scure */
+ --fg-on-dark-3:#8B95B4;       /* testo terziario su card scure */
+ /* COLORI SEMANTICI */
+ --ok:#4CE087;--ok2:#22C55E;--ok-bg:rgba(76,224,135,.18);--ok-brd:rgba(76,224,135,.5);
+ --warn:#FFC452;--warn2:#D97706;--warn-bg:rgba(255,196,82,.18);--warn-brd:rgba(255,196,82,.5);
+ --err:#FF7B7B;--err2:#DC2626;--err-bg:rgba(255,123,123,.18);--err-brd:rgba(255,123,123,.5);
+ --info:#7DB8FF;--info-bg:rgba(125,184,255,.18);--info-brd:rgba(125,184,255,.5);
+ --cta:#3B7BFF;--cta-h:#2563EB;
+ --gold:#FFD866;--gold-bg:rgba(255,216,102,.2);--gold-brd:rgba(255,216,102,.6);
+ --mag:#D8A0FF;--mag-bg:rgba(216,160,255,.18);--mag-brd:rgba(216,160,255,.5);
+ --S:'DM Sans',system-ui,sans-serif;
+ --M:'IBM Plex Mono',ui-monospace,monospace;
+ --rs:10px;--rm:14px;--rl:18px;--rxl:22px;
+ /* OMBRE per separare card da sfondo chiaro */
+ --sh-card:0 1px 3px rgba(29,36,56,.12), 0 4px 12px rgba(29,36,56,.08), 0 12px 30px rgba(29,36,56,.06);
+ --sh-card-hi:0 2px 6px rgba(29,36,56,.15), 0 8px 20px rgba(29,36,56,.12), 0 20px 48px rgba(29,36,56,.08);
+ --sh-hero:0 4px 12px rgba(29,36,56,.18), 0 16px 40px rgba(29,36,56,.14), 0 0 0 1px rgba(76,224,135,.15);
 }
-html{font-size:15px;background:var(–bg-page) !important}
-body{background:var(–bg-page) !important;color:var(–fg-on-light);font-family:var(–S);min-height:100vh;min-height:100dvh;-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%;padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom);line-height:1.5;-webkit-text-fill-color:initial}
+html{font-size:15px;background:var(--bg-page) !important}
+body{background:var(--bg-page) !important;color:var(--fg-on-light);font-family:var(--S);min-height:100vh;min-height:100dvh;-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%;padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom);line-height:1.5;-webkit-text-fill-color:initial}
 button,input,select,textarea{font:inherit;color:inherit}
 button{border:none;background:none;cursor:pointer}
 
 /* ==================== LAYOUT ==================== */
-.app{max-width:920px;margin:0 auto;padding:14px 12px 120px;min-height:100vh;min-height:100dvh;background:var(–bg-page)}
+.app{max-width:920px;margin:0 auto;padding:14px 12px 120px;min-height:100vh;min-height:100dvh;background:var(--bg-page)}
 
 /* HEADER - su sfondo chiaro */
 .hdr{padding:14px 4px 12px;margin-bottom:14px;display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap}
-.hdr-l h1{font-size:1.5rem;font-weight:800;color:var(–fg-on-light);letter-spacing:-.5px;line-height:1.15}
-.hdr-l h1 span{color:var(–ok2)}
-.hdr-l .sub{font:500 .82rem var(–S);color:var(–fg-on-light-2);margin-top:3px}
+.hdr-l h1{font-size:1.5rem;font-weight:800;color:var(--fg-on-light);letter-spacing:-.5px;line-height:1.15}
+.hdr-l h1 span{color:var(--ok2)}
+.hdr-l .sub{font:500 .82rem var(--S);color:var(--fg-on-light-2);margin-top:3px}
 .hdr-r{display:flex;gap:10px;flex-wrap:wrap}
-.bk-mini{padding:10px 14px;background:var(–card-1);border:1.5px solid var(–brd-card);border-radius:11px;font:700 .95rem var(–M);color:var(–fg-on-dark-1);min-width:110px;box-shadow:var(–sh-card)}
-.bk-mini .lbl{font:700 .65rem var(–S);color:var(–fg-on-dark-3);text-transform:uppercase;letter-spacing:.6px;display:block;margin-bottom:3px}
-.bk-mini.pos{color:var(–ok);border-color:var(–ok-brd)}
-.bk-mini.neg{color:var(–err);border-color:var(–err-brd)}
+.bk-mini{padding:10px 14px;background:var(--card-1);border:1.5px solid var(--brd-card);border-radius:11px;font:700 .95rem var(--M);color:var(--fg-on-dark-1);min-width:110px;box-shadow:var(--sh-card)}
+.bk-mini .lbl{font:700 .65rem var(--S);color:var(--fg-on-dark-3);text-transform:uppercase;letter-spacing:.6px;display:block;margin-bottom:3px}
+.bk-mini.pos{color:var(--ok);border-color:var(--ok-brd)}
+.bk-mini.neg{color:var(--err);border-color:var(--err-brd)}
 
 /* ==================== TAB NAV - card scura su sfondo chiaro ==================== */
-.nav{display:flex;gap:6px;margin-bottom:14px;overflow-x:auto;padding:7px;-webkit-overflow-scrolling:touch;scrollbar-width:none;background:var(–card-1);border-radius:13px;border:1.5px solid var(–brd-card);box-shadow:var(–sh-card)}
+.nav{display:flex;gap:6px;margin-bottom:14px;overflow-x:auto;padding:7px;-webkit-overflow-scrolling:touch;scrollbar-width:none;background:var(--card-1);border-radius:13px;border:1.5px solid var(--brd-card);box-shadow:var(--sh-card)}
 .nav::-webkit-scrollbar{display:none}
-.nav-btn{padding:10px 16px;border-radius:9px;font:600 .88rem var(–S);color:var(–fg-on-dark-2);white-space:nowrap;transition:all .15s;flex-shrink:0;display:flex;align-items:center;gap:6px;border:1px solid transparent;background:transparent}
-.nav-btn:hover{color:var(–fg-on-dark-1);background:var(–card-2);border-color:var(–brd-inner)}
-.nav-btn.active{background:var(–card-3);color:#fff;border-color:var(–brd-hi);box-shadow:0 2px 8px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.1)}
+.nav-btn{padding:10px 16px;border-radius:9px;font:600 .88rem var(--S);color:var(--fg-on-dark-2);white-space:nowrap;transition:all .15s;flex-shrink:0;display:flex;align-items:center;gap:6px;border:1px solid transparent;background:transparent}
+.nav-btn:hover{color:var(--fg-on-dark-1);background:var(--card-2);border-color:var(--brd-inner)}
+.nav-btn.active{background:var(--card-3);color:#fff;border-color:var(--brd-hi);box-shadow:0 2px 8px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.1)}
 .nav-btn .ico{font-size:1rem}
 
 /* ==================== PANNELLO UPLOAD - card scura ==================== */
-.panel{background:var(–card-1);border:1.5px solid var(–brd-card);border-radius:var(–rm);padding:16px;margin-bottom:14px;box-shadow:var(–sh-card);color:var(–fg-on-dark-1)}
+.panel{background:var(--card-1);border:1.5px solid var(--brd-card);border-radius:var(--rm);padding:16px;margin-bottom:14px;box-shadow:var(--sh-card);color:var(--fg-on-dark-1)}
 .panel-tg{display:flex;align-items:center;justify-content:space-between;padding:2px 0;cursor:pointer;user-select:none}
 .panel-tg h3{font-size:1.08rem;font-weight:700;color:#fff;display:flex;align-items:center;gap:8px}
-.panel-tg h3 .n{font:700 .78rem var(–M);color:var(–fg-on-dark-1);padding:3px 10px;background:var(–card-3);border:1px solid var(–brd-inner);border-radius:6px}
-.panel-tg .arrow{color:var(–fg-on-dark-2);font-size:1rem;transition:transform .2s;padding:6px 10px;background:var(–card-2);border-radius:7px;border:1px solid var(–brd-inner);line-height:1}
-.panel-tg.open .arrow{transform:rotate(180deg);background:var(–card-3);color:var(–ok)}
+.panel-tg h3 .n{font:700 .78rem var(--M);color:var(--fg-on-dark-1);padding:3px 10px;background:var(--card-3);border:1px solid var(--brd-inner);border-radius:6px}
+.panel-tg .arrow{color:var(--fg-on-dark-2);font-size:1rem;transition:transform .2s;padding:6px 10px;background:var(--card-2);border-radius:7px;border:1px solid var(--brd-inner);line-height:1}
+.panel-tg.open .arrow{transform:rotate(180deg);background:var(--card-3);color:var(--ok)}
 .panel-body{max-height:0;overflow:hidden;transition:max-height .35s ease}
 .panel-body.open{max-height:3000px;padding-top:16px}
 
 /* CARD UPLOAD DATASET - sotto-card dentro panel scuro */
 .up-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}
-.up-card{position:relative;padding:13px;border:1.5px solid var(–brd-inner);border-radius:var(–rm);background:var(–card-2);display:flex;flex-direction:column;gap:8px;min-height:120px;transition:all .15s;color:var(–fg-on-dark-1)}
-.up-card:hover{border-color:var(–brd-hi);background:var(–card-3);transform:translateY(-1px)}
-.up-card.loaded{border:1.5px solid var(–ok-brd);background:linear-gradient(180deg,rgba(76,224,135,.1) 0%,var(–card-2) 55%)}
-.up-lbl{font:700 .95rem var(–S);color:#fff;display:flex;align-items:center;gap:8px;line-height:1.25}
-.up-lbl .tag-num{font:700 .72rem var(–M);color:var(–fg-on-dark-1);padding:2px 9px;background:var(–card-3);border:1px solid var(–brd-inner);border-radius:5px;margin-left:auto}
-.up-meta{font:500 .83rem var(–S);color:var(–fg-on-dark-2);line-height:1.45;flex:1;display:flex;flex-direction:column;gap:3px}
-.up-meta small{color:var(–fg-on-dark-3);font-size:.74rem;letter-spacing:.2px}
-.up-count{color:var(–ok);font-weight:800}
-.up-nofile{color:var(–fg-on-dark-3);font-weight:500;font-style:italic}
+.up-card{position:relative;padding:13px;border:1.5px solid var(--brd-inner);border-radius:var(--rm);background:var(--card-2);display:flex;flex-direction:column;gap:8px;min-height:120px;transition:all .15s;color:var(--fg-on-dark-1)}
+.up-card:hover{border-color:var(--brd-hi);background:var(--card-3);transform:translateY(-1px)}
+.up-card.loaded{border:1.5px solid var(--ok-brd);background:linear-gradient(180deg,rgba(76,224,135,.1) 0%,var(--card-2) 55%)}
+.up-lbl{font:700 .95rem var(--S);color:#fff;display:flex;align-items:center;gap:8px;line-height:1.25}
+.up-lbl .tag-num{font:700 .72rem var(--M);color:var(--fg-on-dark-1);padding:2px 9px;background:var(--card-3);border:1px solid var(--brd-inner);border-radius:5px;margin-left:auto}
+.up-meta{font:500 .83rem var(--S);color:var(--fg-on-dark-2);line-height:1.45;flex:1;display:flex;flex-direction:column;gap:3px}
+.up-meta small{color:var(--fg-on-dark-3);font-size:.74rem;letter-spacing:.2px}
+.up-count{color:var(--ok);font-weight:800}
+.up-nofile{color:var(--fg-on-dark-3);font-weight:500;font-style:italic}
 .up-actions{display:flex;gap:8px;align-items:center;margin-top:auto;padding-top:4px}
-.up-btn{padding:8px 16px;background:var(–cta);border:1px solid var(–cta);border-radius:8px;color:#fff;font:700 .8rem var(–S);cursor:pointer;transition:all .15s;display:inline-flex;align-items:center;gap:5px;box-shadow:0 2px 4px rgba(59,123,255,.3)}
-.up-btn:hover{background:var(–cta-h);transform:translateY(-1px);box-shadow:0 4px 8px rgba(59,123,255,.4)}
-.up-btn.clear{background:transparent;color:var(–err);border:1px solid var(–err-brd);box-shadow:none}
-.up-btn.clear:hover{background:var(–err-bg);transform:translateY(-1px)}
+.up-btn{padding:8px 16px;background:var(--cta);border:1px solid var(--cta);border-radius:8px;color:#fff;font:700 .8rem var(--S);cursor:pointer;transition:all .15s;display:inline-flex;align-items:center;gap:5px;box-shadow:0 2px 4px rgba(59,123,255,.3)}
+.up-btn:hover{background:var(--cta-h);transform:translateY(-1px);box-shadow:0 4px 8px rgba(59,123,255,.4)}
+.up-btn.clear{background:transparent;color:var(--err);border:1px solid var(--err-brd);box-shadow:none}
+.up-btn.clear:hover{background:var(--err-bg);transform:translateY(-1px)}
 .up-card input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;z-index:1}
 .up-card .up-actions{position:relative;z-index:2}
 
 /* Note e status */
-.up-note{margin-top:14px;padding:12px 14px;background:var(–card-2);border:1px solid var(–brd-inner);border-radius:var(–rs);color:var(–fg-on-dark-2);font:500 .82rem var(–S);line-height:1.6}
-.up-note code{font-family:var(–M);background:var(–card-3);padding:2px 6px;border-radius:4px;color:var(–fg-on-dark-1);font-size:.88em}
-.up-status{margin-top:12px;padding:11px 14px;border-radius:var(–rs);font:600 .86rem var(–S);border:1px solid transparent}
-.up-status.ok{background:var(–ok-bg);color:var(–ok);border-color:var(–ok-brd)}
-.up-status.err{background:var(–err-bg);color:var(–err);border-color:var(–err-brd)}
+.up-note{margin-top:14px;padding:12px 14px;background:var(--card-2);border:1px solid var(--brd-inner);border-radius:var(--rs);color:var(--fg-on-dark-2);font:500 .82rem var(--S);line-height:1.6}
+.up-note code{font-family:var(--M);background:var(--card-3);padding:2px 6px;border-radius:4px;color:var(--fg-on-dark-1);font-size:.88em}
+.up-status{margin-top:12px;padding:11px 14px;border-radius:var(--rs);font:600 .86rem var(--S);border:1px solid transparent}
+.up-status.ok{background:var(--ok-bg);color:var(--ok);border-color:var(--ok-brd)}
+.up-status.err{background:var(--err-bg);color:var(--err);border-color:var(--err-brd)}
 
 /* ==================== HERO BET OF THE DAY ==================== */
-.hero{background:linear-gradient(160deg,var(–card-2) 0%,var(–card-1) 100%);border:2px solid var(–brd-hi);border-left:5px solid var(–ok);border-radius:var(–rxl);padding:24px 22px;margin-bottom:18px;position:relative;overflow:hidden;box-shadow:var(–sh-hero);color:var(–fg-on-dark-1)}
-.hero::before{content:””;position:absolute;top:-80px;right:-60px;width:220px;height:220px;background:radial-gradient(circle,rgba(76,224,135,.2) 0%,transparent 70%);pointer-events:none}
+.hero{background:linear-gradient(160deg,var(--card-2) 0%,var(--card-1) 100%);border:2px solid var(--brd-hi);border-left:5px solid var(--ok);border-radius:var(--rxl);padding:24px 22px;margin-bottom:18px;position:relative;overflow:hidden;box-shadow:var(--sh-hero);color:var(--fg-on-dark-1)}
+.hero::before{content:"";position:absolute;top:-80px;right:-60px;width:220px;height:220px;background:radial-gradient(circle,rgba(76,224,135,.2) 0%,transparent 70%);pointer-events:none}
 .hero-hdr{display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap}
-.hero-tag{padding:6px 13px;background:var(–gold-bg);color:var(–gold);border:1.5px solid var(–gold-brd);border-radius:8px;font:800 .78rem var(–M);letter-spacing:1.2px;text-transform:uppercase}
-.hero-league{font:600 .82rem var(–S);color:var(–fg-on-dark-2);margin-left:auto;padding:5px 11px;background:var(–card-3);border:1px solid var(–brd-inner);border-radius:7px}
-.hero-title{font:700 1.35rem var(–S);color:#fff;line-height:1.3;margin-bottom:6px}
-.hero-sub{font:500 .82rem var(–S);color:var(–fg-on-dark-2);margin-bottom:16px;display:flex;gap:6px;flex-wrap:wrap}
+.hero-tag{padding:6px 13px;background:var(--gold-bg);color:var(--gold);border:1.5px solid var(--gold-brd);border-radius:8px;font:800 .78rem var(--M);letter-spacing:1.2px;text-transform:uppercase}
+.hero-league{font:600 .82rem var(--S);color:var(--fg-on-dark-2);margin-left:auto;padding:5px 11px;background:var(--card-3);border:1px solid var(--brd-inner);border-radius:7px}
+.hero-title{font:700 1.35rem var(--S);color:#fff;line-height:1.3;margin-bottom:6px}
+.hero-sub{font:500 .82rem var(--S);color:var(--fg-on-dark-2);margin-bottom:16px;display:flex;gap:6px;flex-wrap:wrap}
 .hero-grid{display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:center;margin-bottom:16px}
 .hero-pick{display:flex;flex-direction:column;gap:10px}
-.hero-market{font:800 1.2rem var(–S);color:#fff;padding:8px 0;border-bottom:1px solid var(–brd-inner)}
+.hero-market{font:800 1.2rem var(--S);color:#fff;padding:8px 0;border-bottom:1px solid var(--brd-inner)}
 .hero-odds{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-.hero-odds .it{display:flex;flex-direction:column;padding:10px 13px;background:var(–card-3);border:1px solid var(–brd-inner);border-radius:9px}
-.hero-odds .lb{font:700 .7rem var(–S);color:var(–fg-on-dark-3);text-transform:uppercase;letter-spacing:.6px;margin-bottom:4px}
-.hero-odds .vl{font:800 1.12rem var(–M);color:#fff}
-.hero-odds .vl.ok{color:var(–ok)}
-.hero-odds .vl.info{color:var(–info)}
-.hero-narr{padding:14px 16px;background:rgba(0,0,0,.25);border:1px solid var(–brd-inner);border-left:3px solid var(–ok);border-radius:var(–rs);color:var(–fg-on-dark-1);font:400 .92rem var(–S);line-height:1.65;margin-bottom:14px}
+.hero-odds .it{display:flex;flex-direction:column;padding:10px 13px;background:var(--card-3);border:1px solid var(--brd-inner);border-radius:9px}
+.hero-odds .lb{font:700 .7rem var(--S);color:var(--fg-on-dark-3);text-transform:uppercase;letter-spacing:.6px;margin-bottom:4px}
+.hero-odds .vl{font:800 1.12rem var(--M);color:#fff}
+.hero-odds .vl.ok{color:var(--ok)}
+.hero-odds .vl.info{color:var(--info)}
+.hero-narr{padding:14px 16px;background:rgba(0,0,0,.25);border:1px solid var(--brd-inner);border-left:3px solid var(--ok);border-radius:var(--rs);color:var(--fg-on-dark-1);font:400 .92rem var(--S);line-height:1.65;margin-bottom:14px}
 .hero-cta{display:flex;gap:10px;flex-wrap:wrap}
 
 /* BUTTONS globali */
-.btn{padding:12px 18px;border-radius:10px;font:700 .9rem var(–S);transition:all .15s;display:inline-flex;align-items:center;gap:6px;cursor:pointer;border:1.5px solid transparent}
-.btn-primary{background:var(–cta);color:#fff;border-color:var(–cta);box-shadow:0 3px 8px rgba(59,123,255,.35)}
-.btn-primary:hover{background:var(–cta-h);transform:translateY(-1px);box-shadow:0 5px 14px rgba(59,123,255,.45)}
-.btn-ghost{background:var(–card-2);color:var(–fg-on-dark-1);border-color:var(–brd-inner)}
-.btn-ghost:hover{border-color:var(–brd-hi);background:var(–card-3);transform:translateY(-1px)}
-.btn-ok{background:var(–ok-bg);color:var(–ok);border-color:var(–ok-brd)}
+.btn{padding:12px 18px;border-radius:10px;font:700 .9rem var(--S);transition:all .15s;display:inline-flex;align-items:center;gap:6px;cursor:pointer;border:1.5px solid transparent}
+.btn-primary{background:var(--cta);color:#fff;border-color:var(--cta);box-shadow:0 3px 8px rgba(59,123,255,.35)}
+.btn-primary:hover{background:var(--cta-h);transform:translateY(-1px);box-shadow:0 5px 14px rgba(59,123,255,.45)}
+.btn-ghost{background:var(--card-2);color:var(--fg-on-dark-1);border-color:var(--brd-inner)}
+.btn-ghost:hover{border-color:var(--brd-hi);background:var(--card-3);transform:translateY(-1px)}
+.btn-ok{background:var(--ok-bg);color:var(--ok);border-color:var(--ok-brd)}
 .btn-ok:hover{background:rgba(76,224,135,.28);transform:translateY(-1px)}
 
 /* ==================== GAUGE SVG ==================== */
 .gauge{position:relative;width:124px;height:124px}
 .gauge.sm{width:74px;height:74px}
 .gauge svg{transform:rotate(-90deg)}
-.gauge .bg-ring{fill:none;stroke:var(–card-3);stroke-width:10}
-.gauge .fg-ring{fill:none;stroke:var(–ok);stroke-width:10;stroke-linecap:round;transition:stroke-dashoffset .6s ease,stroke .3s}
+.gauge .bg-ring{fill:none;stroke:var(--card-3);stroke-width:10}
+.gauge .fg-ring{fill:none;stroke:var(--ok);stroke-width:10;stroke-linecap:round;transition:stroke-dashoffset .6s ease,stroke .3s}
 .gauge.sm .bg-ring,.gauge.sm .fg-ring{stroke-width:7}
 .gauge .lbl{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
-.gauge .lbl .v{font:800 1.5rem var(–M);color:#fff;line-height:1}
+.gauge .lbl .v{font:800 1.5rem var(--M);color:#fff;line-height:1}
 .gauge.sm .lbl .v{font-size:1.1rem}
-.gauge .lbl .t{font:700 .6rem var(–S);color:var(–fg-on-dark-3);text-transform:uppercase;letter-spacing:.7px;margin-top:3px}
+.gauge .lbl .t{font:700 .6rem var(--S);color:var(--fg-on-dark-3);text-transform:uppercase;letter-spacing:.7px;margin-top:3px}
 .gauge.sm .lbl .t{font-size:.5rem}
-.gauge.g-ok .fg-ring{stroke:var(–ok)}
-.gauge.g-wa .fg-ring{stroke:var(–warn)}
-.gauge.g-er .fg-ring{stroke:var(–err)}
+.gauge.g-ok .fg-ring{stroke:var(--ok)}
+.gauge.g-wa .fg-ring{stroke:var(--warn)}
+.gauge.g-er .fg-ring{stroke:var(--err)}
 
 /* Card contiene gauge? testo chiaro */
 .card .gauge .lbl .v, .hero .gauge .lbl .v{color:#fff}
-.card .gauge .lbl .t{color:var(–fg-on-dark-3)}
+.card .gauge .lbl .t{color:var(--fg-on-dark-3)}
 
 /* ==================== SEZIONI ==================== */
-.sec{display:flex;align-items:center;gap:10px;margin:24px 4px 14px;padding-bottom:10px;border-bottom:2px solid var(–card-1)}
-.sec h2{font:700 1.15rem var(–S);color:var(–fg-on-light);display:flex;align-items:center;gap:8px}
-.sec .ct{font:700 .8rem var(–S);color:var(–fg-on-dark-1);margin-left:auto;padding:5px 11px;background:var(–card-1);border:1px solid var(–brd-card);border-radius:7px}
+.sec{display:flex;align-items:center;gap:10px;margin:24px 4px 14px;padding-bottom:10px;border-bottom:2px solid var(--card-1)}
+.sec h2{font:700 1.15rem var(--S);color:var(--fg-on-light);display:flex;align-items:center;gap:8px}
+.sec .ct{font:700 .8rem var(--S);color:var(--fg-on-dark-1);margin-left:auto;padding:5px 11px;background:var(--card-1);border:1px solid var(--brd-card);border-radius:7px}
 .sec .ico{font-size:1.15rem}
 
 /* ==================== CARD MATCH - card scura su sfondo chiaro ==================== */
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
-.card{background:var(–card-1);border:1.5px solid var(–brd-card);border-radius:var(–rm);padding:15px;transition:all .15s;position:relative;cursor:pointer;box-shadow:var(–sh-card);color:var(–fg-on-dark-1)}
-.card:hover{border-color:var(–brd-hi);background:var(–card-2);transform:translateY(-2px);box-shadow:var(–sh-card-hi)}
-.card-top{display:flex;align-items:flex-start;gap:12px;margin-bottom:11px;padding-bottom:11px;border-bottom:1px solid var(–brd-inner)}
+.card{background:var(--card-1);border:1.5px solid var(--brd-card);border-radius:var(--rm);padding:15px;transition:all .15s;position:relative;cursor:pointer;box-shadow:var(--sh-card);color:var(--fg-on-dark-1)}
+.card:hover{border-color:var(--brd-hi);background:var(--card-2);transform:translateY(-2px);box-shadow:var(--sh-card-hi)}
+.card-top{display:flex;align-items:flex-start;gap:12px;margin-bottom:11px;padding-bottom:11px;border-bottom:1px solid var(--brd-inner)}
 .card-info{flex:1;min-width:0}
-.card-league{font:700 .72rem var(–S);color:var(–ok);margin-bottom:4px;text-transform:uppercase;letter-spacing:.55px;display:flex;align-items:center;gap:7px}
-.card-league .time{color:var(–fg-on-dark-3);font-weight:500;letter-spacing:0}
-.card-match{font:700 1.02rem var(–S);color:#fff;line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-bottom:2px}
+.card-league{font:700 .72rem var(--S);color:var(--ok);margin-bottom:4px;text-transform:uppercase;letter-spacing:.55px;display:flex;align-items:center;gap:7px}
+.card-league .time{color:var(--fg-on-dark-3);font-weight:500;letter-spacing:0}
+.card-match{font:700 1.02rem var(--S);color:#fff;line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-bottom:2px}
 .card-body{display:flex;flex-direction:column;gap:9px}
-.card-market{font:700 1.02rem var(–S);color:#fff;display:flex;align-items:center;gap:7px}
-.card-market::before{content:“▸”;color:var(–ok);font-size:.95rem}
-.card-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:11px;background:var(–card-2);border:1px solid var(–brd-inner);border-radius:var(–rs)}
+.card-market{font:700 1.02rem var(--S);color:#fff;display:flex;align-items:center;gap:7px}
+.card-market::before{content:"▸";color:var(--ok);font-size:.95rem}
+.card-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:11px;background:var(--card-2);border:1px solid var(--brd-inner);border-radius:var(--rs)}
 .card-stats .s{display:flex;flex-direction:column;gap:3px}
-.card-stats .lb{font:700 .62rem var(–S);color:var(–fg-on-dark-3);text-transform:uppercase;letter-spacing:.55px}
-.card-stats .vl{font:700 .98rem var(–M);color:#fff}
-.card-stats .vl.ok{color:var(–ok)}
-.card-stats .vl.warn{color:var(–warn)}
-.card-stats .vl.err{color:var(–err)}
+.card-stats .lb{font:700 .62rem var(--S);color:var(--fg-on-dark-3);text-transform:uppercase;letter-spacing:.55px}
+.card-stats .vl{font:700 .98rem var(--M);color:#fff}
+.card-stats .vl.ok{color:var(--ok)}
+.card-stats .vl.warn{color:var(--warn)}
+.card-stats .vl.err{color:var(--err)}
 .card-badges{display:flex;gap:7px;flex-wrap:wrap;padding:4px 0}
-.card-foot{display:flex;align-items:center;justify-content:space-between;gap:8px;padding-top:10px;border-top:1px solid var(–brd-inner);margin-top:4px}
-.card-foot-l{display:flex;align-items:center;gap:8px;font:500 .74rem var(–S);color:var(–fg-on-dark-3)}
+.card-foot{display:flex;align-items:center;justify-content:space-between;gap:8px;padding-top:10px;border-top:1px solid var(--brd-inner);margin-top:4px}
+.card-foot-l{display:flex;align-items:center;gap:8px;font:500 .74rem var(--S);color:var(--fg-on-dark-3)}
 
 /* ==================== BADGE ==================== */
-.bdg{padding:4px 10px;border-radius:6px;font:700 .74rem var(–M);display:inline-flex;align-items:center;gap:4px;white-space:nowrap;border:1px solid transparent}
-.bdg-m1{background:var(–gold-bg);color:var(–gold);border-color:var(–gold-brd)}
-.bdg-dm-ok{background:var(–ok-bg);color:var(–ok);border-color:var(–ok-brd)}
-.bdg-dm-wa{background:var(–warn-bg);color:var(–warn);border-color:var(–warn-brd)}
-.bdg-dm-er{background:var(–err-bg);color:var(–err);border-color:var(–err-brd)}
-.bdg-val{background:var(–mag-bg);color:var(–mag);border-color:var(–mag-brd)}
-.bdg-gz{background:var(–info-bg);color:var(–info);border-color:var(–info-brd)}
-.bdg-neu{background:var(–card-3);color:var(–fg-on-dark-2);border-color:var(–brd-inner)}
-.bdg-ok{background:var(–ok-bg);color:var(–ok);border-color:var(–ok-brd)}
-.bdg-skip{background:var(–err-bg);color:var(–err);border-color:var(–err-brd)}
+.bdg{padding:4px 10px;border-radius:6px;font:700 .74rem var(--M);display:inline-flex;align-items:center;gap:4px;white-space:nowrap;border:1px solid transparent}
+.bdg-m1{background:var(--gold-bg);color:var(--gold);border-color:var(--gold-brd)}
+.bdg-dm-ok{background:var(--ok-bg);color:var(--ok);border-color:var(--ok-brd)}
+.bdg-dm-wa{background:var(--warn-bg);color:var(--warn);border-color:var(--warn-brd)}
+.bdg-dm-er{background:var(--err-bg);color:var(--err);border-color:var(--err-brd)}
+.bdg-val{background:var(--mag-bg);color:var(--mag);border-color:var(--mag-brd)}
+.bdg-gz{background:var(--info-bg);color:var(--info);border-color:var(--info-brd)}
+.bdg-neu{background:var(--card-3);color:var(--fg-on-dark-2);border-color:var(--brd-inner)}
+.bdg-ok{background:var(--ok-bg);color:var(--ok);border-color:var(--ok-brd)}
+.bdg-skip{background:var(--err-bg);color:var(--err);border-color:var(--err-brd)}
 
 /* Mini buttons */
-.mini-btn{padding:8px 13px;background:var(–card-2);border:1px solid var(–brd-inner);border-radius:7px;color:var(–fg-on-dark-1);font:700 .76rem var(–S);cursor:pointer;display:inline-flex;align-items:center;gap:5px;transition:all .15s}
-.mini-btn:hover{border-color:var(–brd-hi);background:var(–card-3);transform:translateY(-1px)}
-.mini-btn.primary{background:var(–cta);border-color:var(–cta);color:#fff}
-.mini-btn.primary:hover{background:var(–cta-h)}
-.mini-btn.ok{background:var(–ok-bg);color:var(–ok);border-color:var(–ok-brd)}
+.mini-btn{padding:8px 13px;background:var(--card-2);border:1px solid var(--brd-inner);border-radius:7px;color:var(--fg-on-dark-1);font:700 .76rem var(--S);cursor:pointer;display:inline-flex;align-items:center;gap:5px;transition:all .15s}
+.mini-btn:hover{border-color:var(--brd-hi);background:var(--card-3);transform:translateY(-1px)}
+.mini-btn.primary{background:var(--cta);border-color:var(--cta);color:#fff}
+.mini-btn.primary:hover{background:var(--cta-h)}
+.mini-btn.ok{background:var(--ok-bg);color:var(--ok);border-color:var(--ok-brd)}
 
 .card-conf{display:flex;align-items:center;gap:10px}
 
 /* ==================== DETAILS EXPANDABLE ==================== */
-details.narr{background:rgba(0,0,0,.25);border:1px solid var(–brd-inner);border-radius:var(–rs);padding:0;margin-top:8px}
-details.narr summary{padding:11px 13px;cursor:pointer;font:700 .82rem var(–S);color:var(–fg-on-dark-1);list-style:none;display:flex;align-items:center;gap:7px;user-select:none;background:var(–card-2);border-radius:var(–rs);transition:all .15s}
+details.narr{background:rgba(0,0,0,.25);border:1px solid var(--brd-inner);border-radius:var(--rs);padding:0;margin-top:8px}
+details.narr summary{padding:11px 13px;cursor:pointer;font:700 .82rem var(--S);color:var(--fg-on-dark-1);list-style:none;display:flex;align-items:center;gap:7px;user-select:none;background:var(--card-2);border-radius:var(--rs);transition:all .15s}
 details.narr summary::-webkit-details-marker{display:none}
-details.narr summary:hover{color:var(–ok);background:var(–card-3)}
-details.narr summary::before{content:“▸”;transition:transform .2s;color:var(–ok);font-size:.9rem}
+details.narr summary:hover{color:var(--ok);background:var(--card-3)}
+details.narr summary::before{content:"▸";transition:transform .2s;color:var(--ok);font-size:.9rem}
 details.narr[open] summary::before{transform:rotate(90deg)}
-details.narr[open] summary{border-bottom-left-radius:0;border-bottom-right-radius:0;border-bottom:1px solid var(–brd-inner)}
-details.narr .narr-body{padding:13px 15px;font:400 .88rem var(–S);color:var(–fg-on-dark-1);line-height:1.65}
-details.narr .breakdown{margin-top:11px;border-top:1px dashed var(–brd-inner);padding-top:11px}
-details.narr .bk-row{display:flex;justify-content:space-between;gap:10px;padding:5px 0;font:500 .82rem var(–S)}
-details.narr .bk-row .n{color:var(–fg-on-dark-2)}
-details.narr .bk-row .p{font:700 .82rem var(–M);padding:2px 8px;border-radius:5px}
-details.narr .bk-row .p.pos{color:var(–ok);background:var(–ok-bg)}
-details.narr .bk-row .p.neg{color:var(–err);background:var(–err-bg)}
-details.narr .bk-row .p.zero{color:var(–fg-on-dark-3);background:var(–card-3)}
+details.narr[open] summary{border-bottom-left-radius:0;border-bottom-right-radius:0;border-bottom:1px solid var(--brd-inner)}
+details.narr .narr-body{padding:13px 15px;font:400 .88rem var(--S);color:var(--fg-on-dark-1);line-height:1.65}
+details.narr .breakdown{margin-top:11px;border-top:1px dashed var(--brd-inner);padding-top:11px}
+details.narr .bk-row{display:flex;justify-content:space-between;gap:10px;padding:5px 0;font:500 .82rem var(--S)}
+details.narr .bk-row .n{color:var(--fg-on-dark-2)}
+details.narr .bk-row .p{font:700 .82rem var(--M);padding:2px 8px;border-radius:5px}
+details.narr .bk-row .p.pos{color:var(--ok);background:var(--ok-bg)}
+details.narr .bk-row .p.neg{color:var(--err);background:var(--err-bg)}
+details.narr .bk-row .p.zero{color:var(--fg-on-dark-3);background:var(--card-3)}
 
 /* ==================== EMPTY / STATUS ==================== */
-.empty{text-align:center;padding:48px 24px;color:var(–fg-on-dark-2);background:var(–card-1);border:2px dashed var(–brd-hi);border-radius:var(–rm);box-shadow:var(–sh-card)}
+.empty{text-align:center;padding:48px 24px;color:var(--fg-on-dark-2);background:var(--card-1);border:2px dashed var(--brd-hi);border-radius:var(--rm);box-shadow:var(--sh-card)}
 .empty .ico{font-size:2.8rem;margin-bottom:12px;opacity:.85}
-.empty p{font:500 .96rem var(–S);line-height:1.65;margin:0 auto;max-width:46ch;color:var(–fg-on-dark-2)}
+.empty p{font:500 .96rem var(--S);line-height:1.65;margin:0 auto;max-width:46ch;color:var(--fg-on-dark-2)}
 .empty p.title{font-weight:800;color:#fff;margin-bottom:10px;font-size:1.12rem}
 
-.info-box{padding:13px 15px;background:var(–info-bg);color:var(–info);border:1.5px solid var(–info-brd);border-radius:var(–rm);font:600 .9rem var(–S);line-height:1.55;margin-bottom:12px}
-.warn-box{padding:13px 15px;background:var(–warn-bg);color:var(–warn);border:1.5px solid var(–warn-brd);border-radius:var(–rm);font:600 .9rem var(–S);line-height:1.55;margin-bottom:12px}
-.err-box{padding:13px 15px;background:var(–err-bg);color:var(–err);border:1.5px solid var(–err-brd);border-radius:var(–rm);font:600 .9rem var(–S);line-height:1.55;margin-bottom:12px}
+.info-box{padding:13px 15px;background:var(--info-bg);color:var(--info);border:1.5px solid var(--info-brd);border-radius:var(--rm);font:600 .9rem var(--S);line-height:1.55;margin-bottom:12px}
+.warn-box{padding:13px 15px;background:var(--warn-bg);color:var(--warn);border:1.5px solid var(--warn-brd);border-radius:var(--rm);font:600 .9rem var(--S);line-height:1.55;margin-bottom:12px}
+.err-box{padding:13px 15px;background:var(--err-bg);color:var(--err);border:1.5px solid var(--err-brd);border-radius:var(--rm);font:600 .9rem var(--S);line-height:1.55;margin-bottom:12px}
 
 /* ==================== SCHEDINA ==================== */
-.ticket{background:var(–card-1);border:1.5px solid var(–brd-card);border-radius:var(–rm);padding:18px;margin-bottom:12px;box-shadow:var(–sh-card);color:var(–fg-on-dark-1)}
-.ticket-hdr{display:flex;align-items:center;justify-content:space-between;padding-bottom:12px;border-bottom:2px solid var(–brd-inner);margin-bottom:14px;gap:10px;flex-wrap:wrap}
-.ticket-hdr h3{font:700 1.12rem var(–S);color:#fff}
-.ticket-hdr .meta{font:600 .8rem var(–S);color:var(–fg-on-dark-2);padding:5px 11px;background:var(–card-3);border:1px solid var(–brd-inner);border-radius:7px}
-.ticket-leg{display:flex;align-items:center;gap:10px;padding:12px;background:var(–card-2);border:1px solid var(–brd-inner);border-radius:var(–rs);margin-bottom:8px}
+.ticket{background:var(--card-1);border:1.5px solid var(--brd-card);border-radius:var(--rm);padding:18px;margin-bottom:12px;box-shadow:var(--sh-card);color:var(--fg-on-dark-1)}
+.ticket-hdr{display:flex;align-items:center;justify-content:space-between;padding-bottom:12px;border-bottom:2px solid var(--brd-inner);margin-bottom:14px;gap:10px;flex-wrap:wrap}
+.ticket-hdr h3{font:700 1.12rem var(--S);color:#fff}
+.ticket-hdr .meta{font:600 .8rem var(--S);color:var(--fg-on-dark-2);padding:5px 11px;background:var(--card-3);border:1px solid var(--brd-inner);border-radius:7px}
+.ticket-leg{display:flex;align-items:center;gap:10px;padding:12px;background:var(--card-2);border:1px solid var(--brd-inner);border-radius:var(--rs);margin-bottom:8px}
 .ticket-leg .info{flex:1;min-width:0}
-.ticket-leg .info .m{font:700 .95rem var(–S);color:#fff;margin-bottom:3px}
-.ticket-leg .info .s{font:500 .8rem var(–S);color:var(–fg-on-dark-2)}
-.ticket-leg .odds{font:800 1.02rem var(–M);color:var(–ok);min-width:56px;text-align:right;padding:7px 11px;background:var(–card-3);border:1px solid var(–ok-brd);border-radius:7px}
-.ticket-leg .del{width:36px;height:36px;border-radius:8px;background:var(–card-3);color:var(–err);display:flex;align-items:center;justify-content:center;cursor:pointer;border:1px solid var(–brd-inner);flex-shrink:0;transition:all .15s}
-.ticket-leg .del:hover{border-color:var(–err-brd);background:var(–err-bg)}
-.ticket-total{display:flex;justify-content:space-between;align-items:center;padding:13px;background:var(–card-2);border:1px solid var(–brd-inner);border-radius:var(–rs);margin-top:8px;gap:10px;flex-wrap:wrap}
-.ticket-total .t{font:600 .9rem var(–S);color:var(–fg-on-dark-2)}
-.ticket-total .v{font:800 1.22rem var(–M);color:var(–ok)}
-.stake-ctrl{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:13px;background:var(–card-2);border:1px solid var(–brd-inner);border-radius:var(–rs);margin:10px 0}
-.stake-ctrl input[type=number]{width:108px;padding:11px 13px;background:rgba(0,0,0,.35);border:1.5px solid var(–brd-inner);border-radius:8px;color:#fff;font:700 .98rem var(–M);outline:none}
-.stake-ctrl input:focus{border-color:var(–ok);box-shadow:0 0 0 3px rgba(76,224,135,.2)}
-.stake-ctrl .lb{font:700 .88rem var(–S);color:var(–fg-on-dark-2)}
+.ticket-leg .info .m{font:700 .95rem var(--S);color:#fff;margin-bottom:3px}
+.ticket-leg .info .s{font:500 .8rem var(--S);color:var(--fg-on-dark-2)}
+.ticket-leg .odds{font:800 1.02rem var(--M);color:var(--ok);min-width:56px;text-align:right;padding:7px 11px;background:var(--card-3);border:1px solid var(--ok-brd);border-radius:7px}
+.ticket-leg .del{width:36px;height:36px;border-radius:8px;background:var(--card-3);color:var(--err);display:flex;align-items:center;justify-content:center;cursor:pointer;border:1px solid var(--brd-inner);flex-shrink:0;transition:all .15s}
+.ticket-leg .del:hover{border-color:var(--err-brd);background:var(--err-bg)}
+.ticket-total{display:flex;justify-content:space-between;align-items:center;padding:13px;background:var(--card-2);border:1px solid var(--brd-inner);border-radius:var(--rs);margin-top:8px;gap:10px;flex-wrap:wrap}
+.ticket-total .t{font:600 .9rem var(--S);color:var(--fg-on-dark-2)}
+.ticket-total .v{font:800 1.22rem var(--M);color:var(--ok)}
+.stake-ctrl{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:13px;background:var(--card-2);border:1px solid var(--brd-inner);border-radius:var(--rs);margin:10px 0}
+.stake-ctrl input[type=number]{width:108px;padding:11px 13px;background:rgba(0,0,0,.35);border:1.5px solid var(--brd-inner);border-radius:8px;color:#fff;font:700 .98rem var(--M);outline:none}
+.stake-ctrl input:focus{border-color:var(--ok);box-shadow:0 0 0 3px rgba(76,224,135,.2)}
+.stake-ctrl .lb{font:700 .88rem var(--S);color:var(--fg-on-dark-2)}
 
 /* ==================== BANKROLL ==================== */
 .bk-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-bottom:14px}
-.bk-card{background:var(–card-1);border:1.5px solid var(–brd-card);border-radius:var(–rm);padding:15px;box-shadow:var(–sh-card);color:var(–fg-on-dark-1)}
-.bk-card .lbl{font:700 .72rem var(–S);color:var(–fg-on-dark-3);text-transform:uppercase;letter-spacing:.55px;margin-bottom:7px}
-.bk-card .vl{font:800 1.42rem var(–M);color:#fff;line-height:1.1}
-.bk-card .vl.pos{color:var(–ok)}
-.bk-card .vl.neg{color:var(–err)}
-.bk-card .sub{font:500 .74rem var(–S);color:var(–fg-on-dark-3);margin-top:5px}
-.bk-ctrl{background:var(–card-1);border:1.5px solid var(–brd-card);border-radius:var(–rm);padding:18px;margin-bottom:14px;box-shadow:var(–sh-card);color:var(–fg-on-dark-1)}
-.bk-ctrl h3{font:700 1.05rem var(–S);color:#fff;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(–brd-inner)}
-.bk-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:12px;padding:11px;background:var(–card-2);border:1px solid var(–brd-inner);border-radius:var(–rs)}
-.bk-row label{font:600 .88rem var(–S);color:var(–fg-on-dark-2);min-width:140px}
-.bk-row input,.bk-row select{padding:10px 13px;background:rgba(0,0,0,.35);border:1.5px solid var(–brd-inner);border-radius:8px;color:#fff;font:700 .9rem var(–M);outline:none}
-.bk-row input:focus,.bk-row select:focus{border-color:var(–ok);box-shadow:0 0 0 3px rgba(76,224,135,.2)}
+.bk-card{background:var(--card-1);border:1.5px solid var(--brd-card);border-radius:var(--rm);padding:15px;box-shadow:var(--sh-card);color:var(--fg-on-dark-1)}
+.bk-card .lbl{font:700 .72rem var(--S);color:var(--fg-on-dark-3);text-transform:uppercase;letter-spacing:.55px;margin-bottom:7px}
+.bk-card .vl{font:800 1.42rem var(--M);color:#fff;line-height:1.1}
+.bk-card .vl.pos{color:var(--ok)}
+.bk-card .vl.neg{color:var(--err)}
+.bk-card .sub{font:500 .74rem var(--S);color:var(--fg-on-dark-3);margin-top:5px}
+.bk-ctrl{background:var(--card-1);border:1.5px solid var(--brd-card);border-radius:var(--rm);padding:18px;margin-bottom:14px;box-shadow:var(--sh-card);color:var(--fg-on-dark-1)}
+.bk-ctrl h3{font:700 1.05rem var(--S);color:#fff;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--brd-inner)}
+.bk-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:12px;padding:11px;background:var(--card-2);border:1px solid var(--brd-inner);border-radius:var(--rs)}
+.bk-row label{font:600 .88rem var(--S);color:var(--fg-on-dark-2);min-width:140px}
+.bk-row input,.bk-row select{padding:10px 13px;background:rgba(0,0,0,.35);border:1.5px solid var(--brd-inner);border-radius:8px;color:#fff;font:700 .9rem var(--M);outline:none}
+.bk-row input:focus,.bk-row select:focus{border-color:var(--ok);box-shadow:0 0 0 3px rgba(76,224,135,.2)}
 .bk-row input[type=range]{flex:1;min-width:140px;padding:0;background:transparent;border:none;box-shadow:none}
-.bk-row .out{font:800 .95rem var(–M);color:var(–ok);min-width:66px;text-align:right;padding:5px 11px;background:var(–card-3);border-radius:7px;border:1px solid var(–ok-brd)}
-.lookup{width:100%;border-collapse:collapse;margin-top:13px;font-size:.84rem;background:var(–card-2);border-radius:var(–rs);overflow:hidden;color:var(–fg-on-dark-1)}
-.lookup th,.lookup td{padding:11px 9px;text-align:center;border:1px solid var(–brd-inner)}
-.lookup th{background:var(–card-3);color:var(–fg-on-dark-1);font-weight:700;font-family:var(–M);font-size:.8rem}
-.lookup td{color:var(–fg-on-dark-1);font-family:var(–M);font-weight:600}
-.lookup td.hl{background:var(–ok-bg);color:var(–ok);font-weight:800}
+.bk-row .out{font:800 .95rem var(--M);color:var(--ok);min-width:66px;text-align:right;padding:5px 11px;background:var(--card-3);border-radius:7px;border:1px solid var(--ok-brd)}
+.lookup{width:100%;border-collapse:collapse;margin-top:13px;font-size:.84rem;background:var(--card-2);border-radius:var(--rs);overflow:hidden;color:var(--fg-on-dark-1)}
+.lookup th,.lookup td{padding:11px 9px;text-align:center;border:1px solid var(--brd-inner)}
+.lookup th{background:var(--card-3);color:var(--fg-on-dark-1);font-weight:700;font-family:var(--M);font-size:.8rem}
+.lookup td{color:var(--fg-on-dark-1);font-family:var(--M);font-weight:600}
+.lookup td.hl{background:var(--ok-bg);color:var(--ok);font-weight:800}
 
 /* ==================== STORICO ==================== */
-.hist-row{background:var(–card-1);border:1.5px solid var(–brd-card);border-radius:var(–rm);padding:15px;margin-bottom:10px;box-shadow:var(–sh-card);color:var(–fg-on-dark-1)}
+.hist-row{background:var(--card-1);border:1.5px solid var(--brd-card);border-radius:var(--rm);padding:15px;margin-bottom:10px;box-shadow:var(--sh-card);color:var(--fg-on-dark-1)}
 .hist-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;flex-wrap:wrap}
-.hist-info .n{font:700 .98rem var(–S);color:#fff;margin-bottom:5px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.hist-info .s{font:500 .82rem var(–S);color:var(–fg-on-dark-2);margin-top:3px;line-height:1.5}
-.hist-actions{display:flex;gap:7px;margin-top:13px;flex-wrap:wrap;padding-top:11px;border-top:1px solid var(–brd-inner)}
+.hist-info .n{font:700 .98rem var(--S);color:#fff;margin-bottom:5px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.hist-info .s{font:500 .82rem var(--S);color:var(--fg-on-dark-2);margin-top:3px;line-height:1.5}
+.hist-actions{display:flex;gap:7px;margin-top:13px;flex-wrap:wrap;padding-top:11px;border-top:1px solid var(--brd-inner)}
 
 /* ==================== STRUMENTI ==================== */
-.str-sec{background:var(–card-1);border:1.5px solid var(–brd-card);border-radius:var(–rm);padding:18px;margin-bottom:14px;box-shadow:var(–sh-card);color:var(–fg-on-dark-1)}
-.str-sec h3{font:700 1.05rem var(–S);color:#fff;margin-bottom:11px;display:flex;align-items:center;gap:8px;padding-bottom:10px;border-bottom:1px solid var(–brd-inner)}
-.str-sec p{font:500 .9rem var(–S);color:var(–fg-on-dark-2);line-height:1.65;margin-bottom:11px}
-.str-sec ul{padding-left:22px;color:var(–fg-on-dark-2);font:500 .9rem var(–S);line-height:1.85}
+.str-sec{background:var(--card-1);border:1.5px solid var(--brd-card);border-radius:var(--rm);padding:18px;margin-bottom:14px;box-shadow:var(--sh-card);color:var(--fg-on-dark-1)}
+.str-sec h3{font:700 1.05rem var(--S);color:#fff;margin-bottom:11px;display:flex;align-items:center;gap:8px;padding-bottom:10px;border-bottom:1px solid var(--brd-inner)}
+.str-sec p{font:500 .9rem var(--S);color:var(--fg-on-dark-2);line-height:1.65;margin-bottom:11px}
+.str-sec ul{padding-left:22px;color:var(--fg-on-dark-2);font:500 .9rem var(--S);line-height:1.85}
 .str-sec ul li strong{color:#fff}
 .filters-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;margin-top:11px}
-.filter-item{padding:13px;background:var(–card-2);border:1px solid var(–brd-inner);border-radius:var(–rs);font:500 .86rem var(–S);color:var(–fg-on-dark-1);line-height:1.6}
-.filter-item .n{color:var(–ok);font-weight:800;display:block;margin-bottom:5px;font-size:.9rem}
-.filter-item code{font-family:var(–M);background:var(–card-3);padding:2px 7px;border-radius:4px;color:#fff;font-size:.84em}
+.filter-item{padding:13px;background:var(--card-2);border:1px solid var(--brd-inner);border-radius:var(--rs);font:500 .86rem var(--S);color:var(--fg-on-dark-1);line-height:1.6}
+.filter-item .n{color:var(--ok);font-weight:800;display:block;margin-bottom:5px;font-size:.9rem}
+.filter-item code{font-family:var(--M);background:var(--card-3);padding:2px 7px;border-radius:4px;color:#fff;font-size:.84em}
 
 /* ==================== TOOLBAR SEARCH ==================== */
 .toolbar{display:flex;gap:10px;margin-bottom:13px;flex-wrap:wrap;align-items:center}
-.search{flex:1;min-width:200px;padding:12px 15px;background:var(–card-1);border:1.5px solid var(–brd-card);border-radius:10px;color:#fff;outline:none;font-size:.92rem;box-shadow:var(–sh-card)}
-.search:focus{border-color:var(–ok);box-shadow:0 0 0 3px rgba(76,224,135,.2)}
-.search::placeholder{color:var(–fg-on-dark-3)}
-.select{appearance:none;background:var(–card-1) url(“data:image/svg+xml,%3Csvg xmlns=‘http://www.w3.org/2000/svg’ width=‘12’ height=‘12’ viewBox=‘0 0 24 24’ fill=‘none’ stroke=’%23C8D0E4’ stroke-width=‘2’%3E%3Cpolyline points=‘6 9 12 15 18 9’/%3E%3C/svg%3E”) no-repeat right 13px center;padding:12px 38px 12px 15px;border:1.5px solid var(–brd-card);border-radius:10px;color:#fff;outline:none;font-size:.92rem;cursor:pointer;box-shadow:var(–sh-card)}
-.select:focus{border-color:var(–ok)}
+.search{flex:1;min-width:200px;padding:12px 15px;background:var(--card-1);border:1.5px solid var(--brd-card);border-radius:10px;color:#fff;outline:none;font-size:.92rem;box-shadow:var(--sh-card)}
+.search:focus{border-color:var(--ok);box-shadow:0 0 0 3px rgba(76,224,135,.2)}
+.search::placeholder{color:var(--fg-on-dark-3)}
+.select{appearance:none;background:var(--card-1) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23C8D0E4' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E") no-repeat right 13px center;padding:12px 38px 12px 15px;border:1.5px solid var(--brd-card);border-radius:10px;color:#fff;outline:none;font-size:.92rem;cursor:pointer;box-shadow:var(--sh-card)}
+.select:focus{border-color:var(--ok)}
 
 /* ==================== COMBO CARD (Doppie/Tris) ==================== */
-.combo{background:var(–card-1);border:1.5px solid var(–brd-card);border-radius:var(–rm);padding:17px;margin-bottom:12px;box-shadow:var(–sh-card);color:var(–fg-on-dark-1)}
-.combo-hdr{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:13px;padding-bottom:11px;border-bottom:1px solid var(–brd-inner);flex-wrap:wrap}
-.combo-hdr .t{font:700 1.05rem var(–S);color:#fff;display:flex;align-items:center;gap:8px}
-.combo-hdr .q{font:800 1.22rem var(–M);color:var(–ok);padding:7px 13px;background:var(–ok-bg);border:1.5px solid var(–ok-brd);border-radius:8px}
+.combo{background:var(--card-1);border:1.5px solid var(--brd-card);border-radius:var(--rm);padding:17px;margin-bottom:12px;box-shadow:var(--sh-card);color:var(--fg-on-dark-1)}
+.combo-hdr{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:13px;padding-bottom:11px;border-bottom:1px solid var(--brd-inner);flex-wrap:wrap}
+.combo-hdr .t{font:700 1.05rem var(--S);color:#fff;display:flex;align-items:center;gap:8px}
+.combo-hdr .q{font:800 1.22rem var(--M);color:var(--ok);padding:7px 13px;background:var(--ok-bg);border:1.5px solid var(--ok-brd);border-radius:8px}
 .combo-legs{display:flex;flex-direction:column;gap:8px;margin-bottom:11px}
-.combo-leg{display:flex;gap:10px;align-items:center;padding:11px;background:var(–card-2);border:1px solid var(–brd-inner);border-radius:var(–rs)}
-.combo-leg .n{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:700 .88rem var(–S);color:#fff}
-.combo-leg .m{font:500 .77rem var(–S);color:var(–fg-on-dark-2);margin-top:2px}
-.combo-leg .o{font:800 .9rem var(–M);color:var(–ok);min-width:54px;text-align:right;padding:5px 9px;background:var(–card-3);border:1px solid var(–ok-brd);border-radius:6px}
-.combo-info{display:grid;grid-template-columns:repeat(auto-fit,minmax(112px,1fr));gap:11px;padding:13px;background:var(–card-2);border:1px solid var(–brd-inner);border-radius:var(–rs)}
+.combo-leg{display:flex;gap:10px;align-items:center;padding:11px;background:var(--card-2);border:1px solid var(--brd-inner);border-radius:var(--rs)}
+.combo-leg .n{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:700 .88rem var(--S);color:#fff}
+.combo-leg .m{font:500 .77rem var(--S);color:var(--fg-on-dark-2);margin-top:2px}
+.combo-leg .o{font:800 .9rem var(--M);color:var(--ok);min-width:54px;text-align:right;padding:5px 9px;background:var(--card-3);border:1px solid var(--ok-brd);border-radius:6px}
+.combo-info{display:grid;grid-template-columns:repeat(auto-fit,minmax(112px,1fr));gap:11px;padding:13px;background:var(--card-2);border:1px solid var(--brd-inner);border-radius:var(--rs)}
 .combo-info .k{display:flex;flex-direction:column;gap:4px}
-.combo-info .k .lb{font:700 .68rem var(–S);color:var(–fg-on-dark-3);text-transform:uppercase;letter-spacing:.55px}
-.combo-info .k .vl{font:800 .96rem var(–M);color:#fff}
+.combo-info .k .lb{font:700 .68rem var(--S);color:var(--fg-on-dark-3);text-transform:uppercase;letter-spacing:.55px}
+.combo-info .k .vl{font:800 .96rem var(--M);color:#fff}
 
 /* ==================== RESPONSIVE MOBILE ==================== */
 @media(max-width:680px){
-.app{padding:12px 10px 100px}
-.hero{padding:20px 16px}
-.hero-grid{grid-template-columns:1fr;text-align:center;gap:14px}
-.hero .gauge{margin:0 auto}
-.hero-odds{grid-template-columns:repeat(2,1fr)}
-.card-match{font-size:.95rem;white-space:normal}
-.hdr{flex-direction:column;align-items:stretch}
-.hdr-r{flex-direction:row;justify-content:space-between;gap:8px}
-.bk-mini{flex:1;min-width:0;padding:9px 11px}
-.up-grid{grid-template-columns:1fr}
-.cards{grid-template-columns:1fr}
-.card-stats{grid-template-columns:repeat(3,1fr);gap:7px;padding:9px}
-.card-stats .vl{font-size:.9rem}
-.nav-btn{padding:9px 13px;font-size:.82rem}
-.nav-btn .ico{font-size:.95rem}
-.hdr-l h1{font-size:1.35rem}
+ .app{padding:12px 10px 100px}
+ .hero{padding:20px 16px}
+ .hero-grid{grid-template-columns:1fr;text-align:center;gap:14px}
+ .hero .gauge{margin:0 auto}
+ .hero-odds{grid-template-columns:repeat(2,1fr)}
+ .card-match{font-size:.95rem;white-space:normal}
+ .hdr{flex-direction:column;align-items:stretch}
+ .hdr-r{flex-direction:row;justify-content:space-between;gap:8px}
+ .bk-mini{flex:1;min-width:0;padding:9px 11px}
+ .up-grid{grid-template-columns:1fr}
+ .cards{grid-template-columns:1fr}
+ .card-stats{grid-template-columns:repeat(3,1fr);gap:7px;padding:9px}
+ .card-stats .vl{font-size:.9rem}
+ .nav-btn{padding:9px 13px;font-size:.82rem}
+ .nav-btn .ico{font-size:.95rem}
+ .hdr-l h1{font-size:1.35rem}
 }
 
 /* ==================== TOAST ==================== */
-.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);padding:13px 18px;background:var(–card-1);color:#fff;border-radius:11px;font:600 .9rem var(–S);box-shadow:var(–sh-card-hi);z-index:999;animation:toastIn .25s ease-out;border:1.5px solid var(–brd-hi);max-width:calc(100% - 40px)}
-.toast.ok{border-color:var(–ok-brd);color:var(–ok)}
-.toast.err{border-color:var(–err-brd);color:var(–err)}
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);padding:13px 18px;background:var(--card-1);color:#fff;border-radius:11px;font:600 .9rem var(--S);box-shadow:var(--sh-card-hi);z-index:999;animation:toastIn .25s ease-out;border:1.5px solid var(--brd-hi);max-width:calc(100% - 40px)}
+.toast.ok{border-color:var(--ok-brd);color:var(--ok)}
+.toast.err{border-color:var(--err-brd);color:var(--err)}
 @keyframes toastIn{from{opacity:0;transform:translate(-50%,14px)}to{opacity:1;transform:translate(-50%,0)}}
 
 /* ==================== HELPERS ==================== */
@@ -361,10 +360,9 @@ details.narr .bk-row .p.zero{color:var(–fg-on-dark-3);background:var(–card-3
 
 /* ==================== FORZA COLORI anche su iOS dark mode ==================== */
 @media (prefers-color-scheme: dark){
-html,body,.app{background:var(–bg-page) !important;color:var(–fg-on-light)}
+ html,body,.app{background:var(--bg-page) !important;color:var(--fg-on-light)}
 }
 </style>
-
 </head>
 <body>
 <div class="app">
@@ -1068,18 +1066,9 @@ function parseAndStore(key, text){
 }
 
 /* === FINE PARTE 1/3 · prosegue con: Signal Layer, Confidence, Portfolio, Templates === */
-/* === INIZIO PARTE 2/3 · continua da: fine parser CSV === */
+/* === INIZIO PARTE 2/3 v4 · Signal Layer + Decision Engine + Generatori on-demand === */
 
-/* ==================================================================
-   SIGNAL LAYER - 10 SEGNALI NORMALIZZATI
-   Ogni segnale ritorna: { active, direction, strength, coverage, details }
-   - direction: 'over', 'under', 'gg', 'ng', 'casaSegna', 'ospiteSegna',
-                'ov05pt', 'mg13', '1', 'X', '2', 'mg24', 'casaWin', 'ospiteWin'
-   - strength: [0,1] forza del segnale a favore della direction
-   - coverage: 0/1 dato disponibile
-   ================================================================== */
-
-// ----- Lookup helpers per accesso veloce ai dataset -----
+/* ==================== LOOKUP DATASET ==================== */
 function buildLookups(){
  const L = {
   ov05pt: new Map(), ggov25: new Map(), mg13: new Map(), ia: new Map(),
@@ -1105,7 +1094,6 @@ function buildLookups(){
  return L;
 }
 
-// ----- Universe di match: union di tutte le chiavi -----
 function buildUniverse(L){
  const map = new Map();
  const upsert = (key, info) => {
@@ -1138,7 +1126,6 @@ function isM1_u25(r){ return r && r.diff>M1_THR.u25.diffMin && r.mge>M1_THR.u25.
 function isM1_mg13c(r){ return r && r.ich>=M1_THR.mg13c.ichLo && r.ich<=M1_THR.mg13c.ichHi && r.varc>=M1_THR.mg13c.varc; }
 function isM1_mg13o(r){ return r && r.ica>=M1_THR.mg13o.icaLo && r.ica<=M1_THR.mg13o.icaHi && r.varo>=M1_THR.mg13o.varo; }
 
-/* ==================== GZ PROBABILITY MAPPING ==================== */
 function gzMap(gz){
  if(gz===null||gz===undefined) return null;
  if(gz < -1800) return {dir:'under', mkt:'U2.5', p:0.64, lbl:'U2.5 64%'};
@@ -1149,9 +1136,8 @@ function gzMap(gz){
  return {dir:'neutral', mkt:'-', p:0.5, lbl:'Neutrale'};
 }
 
-/* ==================== SIGNAL FUNCTIONS ==================== */
+/* ==================== SIGNAL FUNCTIONS S1-S10 ==================== */
 
-// S1 Ov 0.5 PT
 function signalS1(L, key){
  const r = L.ov05pt.get(key);
  if(!r) return {active:false, coverage:0};
@@ -1160,23 +1146,14 @@ function signalS1(L, key){
  if(m1) strength = 0.9;
  else {
   let s = 0;
-  if(r.ind < 320) s += 0.35;
-  else if(r.ind < 340) s += 0.2;
-  if(r.delta <= -20) s += 0.35;
-  else if(r.delta <= -5) s += 0.2;
+  if(r.ind < 320) s += 0.35; else if(r.ind < 340) s += 0.2;
+  if(r.delta <= -20) s += 0.35; else if(r.delta <= -5) s += 0.2;
   if(r.diff < 0) s += 0.2;
   strength = s;
  }
- return {
-  active:true, coverage:1,
-  direction:'ov05pt',
-  strength: clamp(strength, 0, 1),
-  m1,
-  details: {ind:r.ind, delta:r.delta, diff:r.diff, mge:r.mge}
- };
+ return {active:true, coverage:1, direction:'ov05pt', strength: clamp(strength,0,1), m1, details:{ind:r.ind, delta:r.delta, diff:r.diff, mge:r.mge}};
 }
 
-// S2 GG
 function signalS2(L, key){
  const r = L.ggov25.get(key);
  if(!r) return {active:false, coverage:0};
@@ -1191,16 +1168,9 @@ function signalS2(L, key){
   if(r.pgg >= 55) s += 0.2; else if(r.pgg >= 45) s += 0.1;
   strength = s;
  }
- return {
-  active:true, coverage:1,
-  direction:'gg',
-  strength: clamp(strength, 0, 1),
-  m1,
-  details: {igbc:r.igbc, igbo:r.igbo, s12:r.s12, pgg:r.pgg}
- };
+ return {active:true, coverage:1, direction:'gg', strength: clamp(strength,0,1), m1, details:{igbc:r.igbc, igbo:r.igbo, s12:r.s12, pgg:r.pgg}};
 }
 
-// S3 Ov 2.5 / U 2.5
 function signalS3(L, key){
  const r = L.ggov25.get(key);
  if(!r) return {active:false, coverage:0};
@@ -1221,19 +1191,9 @@ function signalS3(L, key){
  }
  sO = clamp(sO,0,1); sU = clamp(sU,0,1);
  const dir = sO >= sU ? 'over' : 'under';
- const strength = Math.max(sO, sU);
- return {
-  active: true, coverage: 1,
-  direction: dir,
-  strength,
-  sO, sU,
-  m1: dir==='over' ? m1o : m1u,
-  m1o, m1u,
-  details: {igbt:r.igbt, mge:r.mge, diff:r.diff, pgg:r.pgg, qov25:r.qov25}
- };
+ return {active:true, coverage:1, direction:dir, strength:Math.max(sO,sU), sO, sU, m1: dir==='over'?m1o:m1u, m1o, m1u, details:{igbt:r.igbt, mge:r.mge, diff:r.diff, pgg:r.pgg, qov25:r.qov25}};
 }
 
-// S4 MG 1-3
 function signalS4(L, key){
  const r = L.mg13.get(key);
  if(!r) return {active:false, coverage:0};
@@ -1250,19 +1210,9 @@ function signalS4(L, key){
   if(r.varo >= 30) sO += 0.3; else if(r.varo >= 20) sO += 0.15;
  }
  const side = sC >= sO ? 'casa' : 'ospite';
- const strength = Math.max(sC, sO);
- return {
-  active: true, coverage: 1,
-  direction: 'mg13',
-  side, strength,
-  sC, sO,
-  m1: side==='casa' ? m1c : m1o,
-  m1c, m1o,
-  details: {ich:r.ich, ica:r.ica, varc:r.varc, varo:r.varo}
- };
+ return {active:true, coverage:1, direction:'mg13', side, strength:Math.max(sC,sO), sC, sO, m1: side==='casa'?m1c:m1o, m1c, m1o, details:{ich:r.ich, ica:r.ica, varc:r.varc, varo:r.varo}};
 }
 
-// S5 Stats IA convergenza
 function signalS5(L, key){
  const r = L.ia.get(key);
  if(!r || !r.stats || !r.stats.length) return {active:false, coverage:0};
@@ -1276,66 +1226,33 @@ function signalS5(L, key){
  const concentration = total > 0 ? counts[winner]/total : 0;
  const strength = clamp((r.avgAff/5) * concentration * 1.4, 0, 1);
  const dirMap = {'1':'casaWin', 'X':'pareggio', '2':'ospiteWin'};
- return {
-  active: true, coverage: 1,
-  direction: dirMap[winner] || 'neutral',
-  strength,
-  details: {avgAff:r.avgAff, maxAff:r.maxAff, winner, concentration, statsCount:r.stats.length}
- };
+ return {active:true, coverage:1, direction:dirMap[winner]||'neutral', strength, details:{avgAff:r.avgAff, maxAff:r.maxAff, winner, concentration, statsCount:r.stats.length}};
 }
 
-// S6 GZ probability
 function signalS6(L, key){
  const r = L.gz.get(key);
  if(!r || r.gz===null) return {active:false, coverage:0};
  const map = gzMap(r.gz);
  if(!map || map.dir==='neutral') return {active:true, coverage:1, direction:'neutral', strength:0, details:{gz:r.gz, lbl:'Neutrale'}};
- const strength = map.p;
- return {
-  active: true, coverage: 1,
-  direction: map.dir,
-  strength,
-  mkt: map.mkt,
-  lbl: map.lbl,
-  details: {gz:r.gz, lbl:map.lbl, mkt:map.mkt, p:map.p}
- };
+ return {active:true, coverage:1, direction:map.dir, strength:map.p, mkt:map.mkt, lbl:map.lbl, details:{gz:r.gz, lbl:map.lbl, mkt:map.mkt, p:map.p}};
 }
 
-// S7 DataMining esteso
 function signalS7(L, key){
  const r = L.dm.get(key);
  if(!r) return {active:false, coverage:0};
  const np = r.np || 0;
  const npWeight = clamp(np/30, 0, 1);
  const buckets = {
-  'over': r.pOV25,
-  'under': r.pUN35,
-  'gg': r.pGG,
-  'ov15': r.pOV15,
-  'ov05pt': r.pOV05pt,
-  'casaSegna': r.pSC,
-  'ospiteSegna': r.pSO,
+  'over': r.pOV25, 'under': r.pUN35, 'gg': r.pGG, 'ov15': r.pOV15,
+  'ov05pt': r.pOV05pt, 'casaSegna': r.pSC, 'ospiteSegna': r.pSO,
   '1': r.p1, 'X': r.pX, '2': r.p2
  };
  let bestDir = 'over', bestVal = 0;
- for(const [d,p] of Object.entries(buckets)){
-  if(p > bestVal){ bestVal = p; bestDir = d; }
- }
+ for(const [d,p] of Object.entries(buckets)){ if(p > bestVal){ bestVal = p; bestDir = d; } }
  const strength = clamp((bestVal/100) * (0.4 + 0.6*npWeight), 0, 1);
- return {
-  active: true, coverage: 1,
-  direction: bestDir,
-  strength,
-  np, npWeight,
-  buckets,
-  re: parseREField(r.re),
-  ic: r.ic, rc: r.rc, ro: r.ro,
-  raw: r,
-  details: {np, mge:r.mge, diff:r.diff, ic:r.ic, rc:r.rc, ro:r.ro}
- };
+ return {active:true, coverage:1, direction:bestDir, strength, np, npWeight, buckets, re: parseREField(r.re), ic:r.ic, rc:r.rc, ro:r.ro, raw:r, details:{np, mge:r.mge, diff:r.diff, ic:r.ic, rc:r.rc, ro:r.ro}};
 }
 
-// S8 Value 1X2
 function signalS8(L, key){
  const r = L.qVal.get(key);
  if(!r) return {active:false, coverage:0};
@@ -1347,22 +1264,9 @@ function signalS8(L, key){
  if(v1 && r.spread1 >= Math.max(v2?r.spread2:0, vX?r.spreadX:0)){ dir='1'; strength = clamp(r.spread1, 0, 1); }
  else if(v2 && r.spread2 >= (vX?r.spreadX:0)){ dir='2'; strength = clamp(r.spread2, 0, 1); }
  else if(vX){ dir='X'; strength = clamp(r.spreadX, 0, 1); }
- let golSide = null;
- if(v1 && v2) golSide = 'entrambe';
- else if(v1) golSide = 'casa';
- else if(v2) golSide = 'ospite';
- else if(vX) golSide = 'pareggio';
- return {
-  active: true, coverage: 1,
-  direction: dir,
-  strength,
-  v1, vX, v2, golSide,
-  np: r.np,
-  details: {r1:r.r1, rx:r.rx, r2:r.r2, dm1:r.dm1, dmx:r.dmx, dm2:r.dm2, spread1:r.spread1, spreadX:r.spreadX, spread2:r.spread2}
- };
+ return {active:true, coverage:1, direction:dir, strength, v1, vX, v2, np:r.np, details:{r1:r.r1, rx:r.rx, r2:r.r2, dm1:r.dm1, dmx:r.dmx, dm2:r.dm2, spread1:r.spread1, spreadX:r.spreadX, spread2:r.spread2}};
 }
 
-// S9 Profilo giocatori
 function signalS9(L, key){
  const cardArr = L.plCardByMatch.get(key) || [];
  const shotArr = L.plShotByMatch.get(key) || [];
@@ -1378,27 +1282,14 @@ function signalS9(L, key){
  });
  let strength = 0, direction = 'neutral';
  if(bestCard && bestCard.score > 1.5){ strength = Math.max(strength, clamp(bestCard.score/3, 0, 1)); direction = 'cartellini'; }
- if(bestShot && bestShot.score > 1.5){
-  const s = clamp(bestShot.score/3, 0, 1);
-  if(s > strength){ strength = s; direction = 'tiri'; }
- }
- return {
-  active: bestCard !== null || bestShot !== null,
-  coverage: 1,
-  direction,
-  strength,
-  bestCard, bestShot,
-  details: {nCard: cardArr.length, nShot: shotArr.length}
- };
+ if(bestShot && bestShot.score > 1.5){ const s = clamp(bestShot.score/3, 0, 1); if(s > strength){ strength = s; direction = 'tiri'; } }
+ return {active: bestCard !== null || bestShot !== null, coverage:1, direction, strength, bestCard, bestShot, details:{nCard: cardArr.length, nShot: shotArr.length}};
 }
 
-// S10 Differenziali Gol (mean-reversion)
 function signalS10(L, key){
  const r = L.diffg.get(key);
  if(!r) return {active:false, coverage:0};
- const dgt = r.dgt;
- const diffC = r.diffC;
- const diffO = r.diffO;
+ const dgt = r.dgt, diffC = r.diffC, diffO = r.diffO;
  const significant = dgt !== null && Math.abs(dgt) > DIFF_THR.dgt;
  let direction = 'neutral', strength = 0;
  if(significant){
@@ -1419,47 +1310,24 @@ function signalS10(L, key){
   if(drop > DIFF_THR.dropOk) dropDir = 'pro';
   else if(drop < -DIFF_THR.dropOk) dropDir = 'contra';
  }
- return {
-  active: true, coverage: 1,
-  direction,
-  strength,
-  significant,
-  dgt, diffC, diffO,
-  teamSignals,
-  drop, dropDir,
-  details: {dgt, dg:r.dg, diffC, diffO, mge:r.mge, mgu5:r.mgu5, qr:r.qr, qrL:r.qrL, qt:r.qt}
- };
+ return {active:true, coverage:1, direction, strength, significant, dgt, diffC, diffO, teamSignals, drop, dropDir, details:{dgt, dg:r.dg, diffC, diffO, mge:r.mge, mgu5:r.mgu5, qr:r.qr, qrL:r.qrL, qt:r.qt}};
 }
 
-/* ==================== ESTRAZIONE SEGNALI PER UN MATCH ==================== */
 function extractSignals(L, key){
  return {
-  s1:  signalS1(L, key),
-  s2:  signalS2(L, key),
-  s3:  signalS3(L, key),
-  s4:  signalS4(L, key),
-  s5:  signalS5(L, key),
-  s6:  signalS6(L, key),
-  s7:  signalS7(L, key),
-  s8:  signalS8(L, key),
-  s9:  signalS9(L, key),
-  s10: signalS10(L, key)
+  s1:signalS1(L,key), s2:signalS2(L,key), s3:signalS3(L,key), s4:signalS4(L,key),
+  s5:signalS5(L,key), s6:signalS6(L,key), s7:signalS7(L,key), s8:signalS8(L,key),
+  s9:signalS9(L,key), s10:signalS10(L,key)
  };
 }
 
-/* ==================== MERCATI CANDIDATI ==================== */
+/* ==================== ENUMERATE MARKETS ==================== */
 function enumerateMarkets(sig, L, key){
  const list = [];
- if(sig.s1.active && sig.s1.strength > 0.3){
-  list.push({mkt:'Ov 0.5 PT', dir:'ov05pt'});
- } else if(sig.s7.active && sig.s7.buckets.ov05pt > 50 && sig.s7.np >= 15){
-  list.push({mkt:'Ov 0.5 PT', dir:'ov05pt'});
- }
- if(sig.s2.active && sig.s2.strength > 0.3){
-  list.push({mkt:'GG', dir:'gg'});
- } else if(sig.s7.active && sig.s7.buckets.gg > 55){
-  list.push({mkt:'GG', dir:'gg'});
- }
+ if(sig.s1.active && sig.s1.strength > 0.3) list.push({mkt:'Ov 0.5 PT', dir:'ov05pt'});
+ else if(sig.s7.active && sig.s7.buckets.ov05pt > 50 && sig.s7.np >= 15) list.push({mkt:'Ov 0.5 PT', dir:'ov05pt'});
+ if(sig.s2.active && sig.s2.strength > 0.3) list.push({mkt:'GG', dir:'gg'});
+ else if(sig.s7.active && sig.s7.buckets.gg > 55) list.push({mkt:'GG', dir:'gg'});
  if(sig.s3.active){
   if(sig.s3.sO > 0.4) list.push({mkt:'Ov 2.5', dir:'over'});
   if(sig.s3.sU > 0.4) list.push({mkt:'U 2.5', dir:'under'});
@@ -1478,19 +1346,13 @@ function enumerateMarkets(sig, L, key){
  const dm = L.dm.get(key);
  if(dm && dm.pSC >= 60 && dm.igbc >= 150){
   const teamConfirm = sig.s10.active && sig.s10.teamSignals.casaSegna;
-  if(teamConfirm || dm.pSC >= 70){
-   list.push({mkt:'Casa Segna', dir:'casaSegna'});
-  }
+  if(teamConfirm || dm.pSC >= 70) list.push({mkt:'Casa Segna', dir:'casaSegna'});
  }
  if(dm && dm.pSO >= 60 && dm.igbo >= 150){
   const teamConfirm = sig.s10.active && sig.s10.teamSignals.ospiteSegna;
-  if(teamConfirm || dm.pSO >= 70){
-   list.push({mkt:'Ospite Segna', dir:'ospiteSegna'});
-  }
+  if(teamConfirm || dm.pSO >= 70) list.push({mkt:'Ospite Segna', dir:'ospiteSegna'});
  }
- if(dm && dm.pOV15 > 60 && dm.pUN35 > 60){
-  list.push({mkt:'MG 2-4', dir:'mg24'});
- }
+ if(dm && dm.pOV15 > 60 && dm.pUN35 > 60) list.push({mkt:'MG 2-4', dir:'mg24'});
  if(sig.s8.active && sig.s8.strength > 0.15){
   if(sig.s8.v1) list.push({mkt:'1', dir:'1'});
   if(sig.s8.vX) list.push({mkt:'X', dir:'X'});
@@ -1498,38 +1360,57 @@ function enumerateMarkets(sig, L, key){
  }
  if(sig.s7.active && sig.s7.re && sig.s7.re.length >= 2){
   const top = sig.s7.re.filter(x => x.perc >= 12);
-  if(top.length >= 2){
-   list.push({mkt:'CS Cluster', dir:'cs', cluster: top.slice(0,3)});
-  }
+  if(top.length >= 2) list.push({mkt:'CS Cluster', dir:'cs', cluster: top.slice(0,3)});
  }
  return list;
 }
 
-/* ==================== QUOTA OPERATIVA PER MERCATO ==================== */
+/* ==================== QUOTA OPERATIVA - REGOLE FERREE ====================
+   - MG 1-3 Casa  → SEMPRE 1.30 (richiesta utente, non leggere CSV)
+   - MG 1-3 Ospite → SEMPRE 1.30
+   - MG 2-4       → SEMPRE 1.50
+   - Tutti gli altri mercati: SOLO da CSV. Se mancano → null = mercato escluso
+   ============================================================== */
+const FIXED_ODDS = {
+ 'MG 1-3 Casa': 1.30,
+ 'MG 1-3 Ospite': 1.30,
+ 'MG 2-4': 1.50
+};
+
 function operationalOdds(market, sig, L, key){
+ // Quote fisse non negoziabili
+ if(FIXED_ODDS[market] !== undefined) return FIXED_ODDS[market];
+
  const dm = L.dm.get(key);
  const dg = L.diffg.get(key);
  const ggov = L.ggov25.get(key);
- const mg = L.mg13.get(key);
  const ov = L.ov05pt.get(key);
  const qv = L.qVal.get(key);
- if(market === 'Ov 0.5 PT') return ov ? (ov.qrOv05 || null) : (dm ? dm.qOV05pt : null);
- if(market === 'GG') return dm ? dm.qGG : null;
- if(market === 'Ov 2.5') return (dg && dg.qrL) || (ggov ? ggov.qov25 : null) || (dm ? dm.qOV25 : null);
- if(market === 'U 2.5') return dm ? dm.qUN35 : null;
- if(market === 'MG 1-3 Casa') return mg ? mg.q1 : null;
- if(market === 'MG 1-3 Ospite') return mg ? mg.q2 : null;
- if(market === 'Casa Segna') return dm ? dm.qSC : null;
- if(market === 'Ospite Segna') return dm ? dm.qSO : null;
- if(market === 'MG 2-4') return 1.50;
- if(market === '1') return qv ? qv.r1 : (dm ? dm.q1 : null);
- if(market === 'X') return qv ? qv.rx : (dm ? dm.qX : null);
- if(market === '2') return qv ? qv.r2 : (dm ? dm.q2 : null);
+
+ // Helper: ritorna primo valore > 1.01, altrimenti null
+ const firstValid = (...vals) => {
+  for(const v of vals){ if(v && v > 1.01) return v; }
+  return null;
+ };
+
+ if(market === 'Ov 0.5 PT'){
+  return firstValid(ov ? ov.qrOv05 : null, dm ? dm.qOV05pt : null);
+ }
+ if(market === 'GG') return firstValid(dm ? dm.qGG : null);
+ if(market === 'Ov 2.5'){
+  return firstValid(dg ? dg.qrL : null, ggov ? ggov.qov25 : null, dm ? dm.qOV25 : null);
+ }
+ if(market === 'U 2.5') return firstValid(dm ? dm.qUN35 : null);
+ if(market === 'Casa Segna') return firstValid(dm ? dm.qSC : null);
+ if(market === 'Ospite Segna') return firstValid(dm ? dm.qSO : null);
+ if(market === '1') return firstValid(qv ? qv.r1 : null, dm ? dm.q1 : null);
+ if(market === 'X') return firstValid(qv ? qv.rx : null, dm ? dm.qX : null);
+ if(market === '2') return firstValid(qv ? qv.r2 : null, dm ? dm.q2 : null);
  if(market === 'CS Cluster') return null;
  return null;
 }
 
-/* ==================== CONFIDENCE SCORE 0-100 ==================== */
+/* ==================== CONFIDENCE SCORE ==================== */
 const DIR_COMPAT = {
  'ov05pt':      new Set(['ov05pt','over']),
  'gg':          new Set(['gg','over','casaSegna','ospiteSegna']),
@@ -1551,8 +1432,7 @@ function dirAgreesWith(targetDir, sigDir){
  if(!set) return null;
  if(set.has(sigDir)) return +1;
  const opposite = {
-  'over':'under', 'under':'over',
-  'gg':'ng', 'ng':'gg',
+  'over':'under', 'under':'over', 'gg':'ng', 'ng':'gg',
   'casaSegna':'noCasaSegna', 'noCasaSegna':'casaSegna',
   'ospiteSegna':'noOspiteSegna', 'noOspiteSegna':'ospiteSegna'
  };
@@ -1563,7 +1443,6 @@ function dirAgreesWith(targetDir, sigDir){
 function computeConfidence(target, sig, L, key){
  const targetDir = target.dir;
  const comp = [];
-
  // M1
  let m1Active = false, m1Score = 0;
  if(targetDir === 'ov05pt' && sig.s1.active){ if(sig.s1.m1) m1Active = true; m1Score = sig.s1.strength; }
@@ -1575,13 +1454,10 @@ function computeConfidence(target, sig, L, key){
   else if(target.side === 'ospite' && sig.s4.m1o){ m1Active = true; m1Score = sig.s4.sO; }
   else m1Score = target.side==='casa' ? sig.s4.sC : sig.s4.sO;
  }
- if(m1Score > 0){
-  comp.push({key:'M1', weight:W.M1, contrib: m1Score*2-1, coverage:1, label: m1Active?'M1 attiva':'M1 borderline'});
- } else {
-  comp.push({key:'M1', weight:W.M1, contrib: 0, coverage:0});
- }
+ if(m1Score > 0) comp.push({key:'M1', weight:W.M1, contrib: m1Score*2-1, coverage:1, label: m1Active?'M1 attiva':'M1 borderline'});
+ else comp.push({key:'M1', weight:W.M1, contrib: 0, coverage:0});
 
- // DataMining
+ // DM
  if(sig.s7.active){
   let perc = 0;
   if(targetDir === 'over') perc = sig.s7.buckets.over;
@@ -1597,22 +1473,17 @@ function computeConfidence(target, sig, L, key){
   if(perc > 0){
    const c = clamp((perc - 50) / 50, -1, 1) * sig.s7.npWeight;
    comp.push({key:'DM', weight:W.DM, contrib:c, coverage:1, label:`DM ${perc.toFixed(0)}% NP=${sig.s7.np}`});
-  } else {
-   comp.push({key:'DM', weight:W.DM, contrib:0, coverage:0});
-  }
+  } else comp.push({key:'DM', weight:W.DM, contrib:0, coverage:0});
  } else comp.push({key:'DM', weight:W.DM, contrib:0, coverage:0});
 
  // GZ
  if(sig.s6.active && sig.s6.direction !== 'neutral'){
   const ag = dirAgreesWith(targetDir, sig.s6.direction);
-  if(ag !== null){
-   comp.push({key:'GZ', weight:W.GZ, contrib: ag * sig.s6.strength, coverage:1, label: sig.s6.lbl});
-  } else {
-   comp.push({key:'GZ', weight:W.GZ, contrib: 0, coverage:0.5});
-  }
+  if(ag !== null) comp.push({key:'GZ', weight:W.GZ, contrib: ag * sig.s6.strength, coverage:1, label: sig.s6.lbl});
+  else comp.push({key:'GZ', weight:W.GZ, contrib: 0, coverage:0.5});
  } else comp.push({key:'GZ', weight:W.GZ, contrib:0, coverage:0});
 
- // S10 Differenziali Gol
+ // S10
  let dgPenalty = 0;
  if(sig.s10.active){
   if(sig.s10.significant){
@@ -1630,32 +1501,26 @@ function computeConfidence(target, sig, L, key){
   }
  } else comp.push({key:'DGT', weight:W.DIFFG, contrib:0, coverage:0});
 
- // S8 Value
+ // VAL
  if(sig.s8.active){
   const ag = dirAgreesWith(targetDir, sig.s8.direction);
-  if(ag !== null){
-   comp.push({key:'VAL', weight:W.VAL, contrib: ag * sig.s8.strength, coverage:1, label:`Spread ${sig.s8.strength.toFixed(2)}`});
-  } else comp.push({key:'VAL', weight:W.VAL, contrib:0, coverage:0.3});
+  if(ag !== null) comp.push({key:'VAL', weight:W.VAL, contrib: ag * sig.s8.strength, coverage:1, label:`Spread ${sig.s8.strength.toFixed(2)}`});
+  else comp.push({key:'VAL', weight:W.VAL, contrib:0, coverage:0.3});
  } else comp.push({key:'VAL', weight:W.VAL, contrib:0, coverage:0});
 
- // S5 Stats IA
+ // IA
  if(sig.s5.active && sig.s5.strength > 0){
   const ag = dirAgreesWith(targetDir, sig.s5.direction);
-  if(ag !== null){
-   comp.push({key:'IA', weight:W.IA, contrib: ag * sig.s5.strength, coverage:1, label:`IA ${sig.s5.details.winner}`});
-  } else comp.push({key:'IA', weight:W.IA, contrib:0, coverage:0.3});
+  if(ag !== null) comp.push({key:'IA', weight:W.IA, contrib: ag * sig.s5.strength, coverage:1, label:`IA ${sig.s5.details.winner}`});
+  else comp.push({key:'IA', weight:W.IA, contrib:0, coverage:0.3});
  } else comp.push({key:'IA', weight:W.IA, contrib:0, coverage:0});
 
- // S9
- if(sig.s9.active){
-  comp.push({key:'PL', weight:W.PL, contrib: 0, coverage:0.5});
- } else comp.push({key:'PL', weight:W.PL, contrib:0, coverage:0});
+ // PL
+ if(sig.s9.active) comp.push({key:'PL', weight:W.PL, contrib: 0, coverage:0.5});
+ else comp.push({key:'PL', weight:W.PL, contrib:0, coverage:0});
 
- // Calcolo
  const W_eff = comp.reduce((s,c) => s + c.weight*c.coverage, 0);
- if(W_eff <= 0){
-  return {confidence:0, components:comp, coverage:0, conflictPenalty:0, capped:false, capReason:''};
- }
+ if(W_eff <= 0) return {confidence:0, components:comp, coverage:0, conflictPenalty:0, capped:false, capReason:''};
  const score_raw = comp.reduce((s,c) => s + c.weight*c.coverage*c.contrib, 0) / W_eff;
  const score_base = 50 + 50 * score_raw;
  const activeContribs = comp.filter(c => c.coverage > 0).map(c => c.contrib);
@@ -1672,93 +1537,65 @@ function computeConfidence(target, sig, L, key){
   const ag = dirAgreesWith(targetDir, sig.s10.direction);
   if(ag === -1 && score > 70){ score = 70; capped = true; capReason = 'DGT contraria'; }
  }
- if(sig.s10.active && sig.s10.dropDir === 'contra' && score > 60){
-  score = 60; capped = true; capReason = 'Drop quota contrario';
- }
- if(cov_ratio < 0.5 && score > 70){
-  score = 70; capped = true; capReason = 'Coverage <50%';
- }
+ if(sig.s10.active && sig.s10.dropDir === 'contra' && score > 60){ score = 60; capped = true; capReason = 'Drop quota contrario'; }
+ if(cov_ratio < 0.5 && score > 70){ score = 70; capped = true; capReason = 'Coverage <50%'; }
  if(sig.s10.active && sig.s10.dropDir === 'pro') score += 4;
  score = clamp(score, 0, 100);
- return {
-  confidence: Math.round(score),
-  components: comp,
-  coverage: cov_ratio,
-  conflictPenalty: penalty,
-  capped, capReason,
-  score_raw, score_base, cov_factor
- };
+ return {confidence: Math.round(score), components: comp, coverage: cov_ratio, conflictPenalty: penalty, capped, capReason, score_raw, score_base, cov_factor};
 }
 
-/* ==================== TEMPLATE NARRATIVI A-G ==================== */
+/* ==================== TEMPLATE NARRATIVO ==================== */
 function topContributors(components, n=3){
- return components
-  .filter(c => c.coverage > 0 && c.contrib > 0.05)
-  .sort((a,b) => (Math.abs(b.contrib)*b.weight) - (Math.abs(a.contrib)*a.weight))
-  .slice(0, n);
+ return components.filter(c => c.coverage > 0 && c.contrib > 0.05)
+  .sort((a,b) => (Math.abs(b.contrib)*b.weight) - (Math.abs(a.contrib)*a.weight)).slice(0, n);
 }
 function topConflicts(components, n=1){
- return components
-  .filter(c => c.coverage > 0 && c.contrib < -0.05)
-  .sort((a,b) => (Math.abs(b.contrib)*b.weight) - (Math.abs(a.contrib)*a.weight))
-  .slice(0, n);
+ return components.filter(c => c.coverage > 0 && c.contrib < -0.05)
+  .sort((a,b) => (Math.abs(b.contrib)*b.weight) - (Math.abs(a.contrib)*a.weight)).slice(0, n);
 }
 
 function buildNarrative(rec){
- const c = rec.confidence;
- const m = rec.market;
- const match = rec.match;
- const odds = rec.odds;
- const stake = rec.stake;
- const stakePct = rec.stakePct;
+ const c = rec.confidence, m = rec.market, match = rec.match, odds = rec.odds;
+ const stake = rec.stake, stakePct = rec.stakePct;
  const tops = topContributors(rec.components, 3);
  const conflicts = topConflicts(rec.components, 1);
  const sig = rec.sig;
  const dgt = sig.s10 && sig.s10.dgt;
  const drop = sig.s10 && sig.s10.drop;
-
- let template = 'D';
- if(c >= 82 && rec.hasM1) template = 'A';
- else if(rec.dir === 'under' && sig.s10.active && sig.s10.significant && sig.s10.dgt > 0.8) template = 'B';
- else if(rec.dir === 'casaSegna' || rec.dir === 'ospiteSegna') template = 'C';
- else if(rec.cluster) template = 'E';
- else if(c < 60) template = 'F';
- else if(rec.dir === 'over' && sig.s10.active && sig.s10.significant && sig.s10.dgt < -0.8) template = 'B2';
-
- const reasonStr = tops.map(t => t.label || t.key).join('; ');
+ const reasonStr = tops.map(t => t.label || t.key).join('; ') || 'segnali deboli';
  const conflictStr = conflicts.length ? `Attenzione: ${conflicts[0].label || conflicts[0].key} contro` : '';
+ const oddsStr = odds ? odds.toFixed(2) : 'N/D';
+ const stakeStr = stake !== undefined ? fmtEur(stake) : 'N/D';
+ const stakePctStr = stakePct !== undefined ? stakePct.toFixed(1) : '0';
 
- if(template === 'A'){
-  return `🏆 BET OF THE DAY · ${match} · ${m} a quota ${odds?.toFixed(2)}. ${reasonStr}. ${conflictStr || 'Nessun segnale contrario significativo.'} Confidence ${c}/100, stake consigliato ${stakePct?.toFixed(1)}% (${fmtEur(stake)}).`;
+ if(c >= 82 && rec.hasM1){
+  return `🏆 Pick TOP · ${match} · ${m} a quota ${oddsStr}. ${reasonStr}. ${conflictStr || 'Nessun segnale contrario significativo.'} Confidence ${c}/100, stake consigliato ${stakePctStr}% (${stakeStr}).`;
  }
- if(template === 'B'){
-  return `${match}. ${m} a quota ${odds?.toFixed(2)}. Le squadre stanno segnando sopra la media consolidata (DGT ${dgt?.toFixed(2)}, sovrafrequenza): la regressione alla media suggerisce meno gol del trend recente. ${reasonStr}. Confidence ${c}/100, stake ${stakePct?.toFixed(1)}% (${fmtEur(stake)}).`;
+ if(rec.dir === 'under' && sig.s10.active && sig.s10.significant && sig.s10.dgt > 0.8){
+  return `${match}. ${m} a quota ${oddsStr}. Le squadre stanno segnando sopra la media (DGT ${dgt?.toFixed(2)}, sovrafrequenza): regressione alla media verso meno gol. ${reasonStr}. Confidence ${c}/100, stake ${stakePctStr}% (${stakeStr}).`;
  }
- if(template === 'B2'){
-  return `${match}. ${m} a quota ${odds?.toFixed(2)}. Le squadre stanno segnando sotto la media consolidata (DGT ${dgt?.toFixed(2)}, sottofrequenza): la regressione alla media suggerisce più gol del trend recente. ${reasonStr}. Confidence ${c}/100, stake ${stakePct?.toFixed(1)}% (${fmtEur(stake)}).`;
+ if(rec.dir === 'over' && sig.s10.active && sig.s10.significant && sig.s10.dgt < -0.8){
+  return `${match}. ${m} a quota ${oddsStr}. Le squadre stanno segnando sotto la media (DGT ${dgt?.toFixed(2)}, sottofrequenza): regressione verso più gol. ${reasonStr}. Confidence ${c}/100, stake ${stakePctStr}% (${stakeStr}).`;
  }
- if(template === 'C'){
+ if(rec.dir === 'casaSegna' || rec.dir === 'ospiteSegna'){
   const team = rec.dir === 'casaSegna' ? 'casa' : 'ospite';
   const diffVal = rec.dir === 'casaSegna' ? sig.s10?.diffC : sig.s10?.diffO;
   const diffPart = diffVal !== null && diffVal !== undefined ? ` (Diff ${diffVal.toFixed(2)})` : '';
-  return `${match}. ${m} a quota ${odds?.toFixed(2)}. La squadra ${team} sta segnando sotto la media${diffPart}: profilo offensivo da rimbalzo. ${reasonStr}. Confidence ${c}/100, stake ${stakePct?.toFixed(1)}% (${fmtEur(stake)}).`;
+  return `${match}. ${m} a quota ${oddsStr}. La squadra ${team} sta segnando sotto la media${diffPart}: profilo da rimbalzo offensivo. ${reasonStr}. Confidence ${c}/100, stake ${stakePctStr}% (${stakeStr}).`;
  }
- if(template === 'D'){
-  const dropPart = drop !== null && drop !== undefined && Math.abs(drop) > 0.03 ? ` Quota scesa ${(drop*100).toFixed(1)}% da Qr a QrL (money flow ${drop>0?'pro':'contra'}).` : '';
-  return `${match}. ${m} a quota ${odds?.toFixed(2)}. ${reasonStr}.${dropPart} Confidence ${c}/100, stake ${stakePct?.toFixed(1)}% (${fmtEur(stake)}).`;
- }
- if(template === 'E'){
+ if(rec.cluster){
   const cl = rec.cluster.map(x => `${x.score} (${x.perc.toFixed(0)}%)`).join(' + ');
   const pCum = rec.cluster.reduce((s,x)=>s+x.perc, 0);
-  return `${match}. Cluster Correct Score: ${cl}. Probabilità cumulata ${pCum.toFixed(0)}%. Stake ${stakePct?.toFixed(1)}% diviso fra i risultati. Confidence ${c}/100.`;
+  return `${match}. Cluster CS: ${cl}. Probabilità cumulata ${pCum.toFixed(0)}%. Confidence ${c}/100.`;
  }
- if(template === 'F'){
+ if(c < 60){
   return `${match}. ${m}: segnali deboli (Confidence ${c}/100, copertura ${(rec.coverage*100).toFixed(0)}%). Skip consigliato.`;
  }
- return `${match}. ${m} a quota ${odds?.toFixed(2)}. Confidence ${c}/100.`;
+ const dropPart = drop !== null && drop !== undefined && Math.abs(drop) > 0.03 ? ` Quota ${drop>0?'scesa':'salita'} ${Math.abs(drop*100).toFixed(1)}% (money flow ${drop>0?'pro':'contra'}).` : '';
+ return `${match}. ${m} a quota ${oddsStr}. ${reasonStr}.${dropPart} Confidence ${c}/100, stake ${stakePctStr}% (${stakeStr}).`;
 }
 
-/* ==================== KELLY FRAZIONARIO + SHRINKAGE ==================== */
+/* ==================== KELLY ==================== */
 function kellyStake(p, odds, opts={}){
  const fraction = opts.fraction !== undefined ? opts.fraction : S.bankroll.kellyFraction;
  const cap = opts.cap !== undefined ? opts.cap : S.bankroll.capPct;
@@ -1778,39 +1615,11 @@ function kellyStake(p, odds, opts={}){
  return {pct, eur, edge, fStar, pShrunk};
 }
 
-/* ==================== 10 CRITERI ANTI-SCOMMESSA ==================== */
-function applyTenFilters(rec){
- const reasons = [];
- if(rec.coverage < 0.5) reasons.push('coverage <50%');
- if(rec.confidence < 60) reasons.push('confidence <60');
- if(!rec.odds || rec.odds < 1.20 || rec.odds > 15) reasons.push('quota fuori range');
- if(rec.kelly.fStar <= 0) reasons.push('edge negativo');
- if(rec.kelly.pct === 0) reasons.push('stake zero');
- if(rec.sig.s10.active && rec.sig.s10.dropDir === 'contra') reasons.push('drop quota contrario');
- if(rec.dir === 'over' && rec.sig.s7 && rec.sig.s7.np < 8) reasons.push('NP DataMining <8');
- const today = new Date().toDateString();
- if(S.bankroll.startDay !== today){ S.bankroll.startDay = today; S.bankroll.pl_day = 0; }
- if(S.bankroll.startWeek !== startOfWeekISO()){ S.bankroll.startWeek = startOfWeekISO(); S.bankroll.pl_week = 0; }
- const stopDay = -0.10 * S.bankroll.total;
- const stopWeek = -0.20 * S.bankroll.total;
- if(S.bankroll.pl_day < stopDay) reasons.push('stop-loss giornaliero attivo');
- if(S.bankroll.pl_week < stopWeek) reasons.push('stop-loss settimanale attivo');
- const conflicts = topConflicts(rec.components, 3);
- if(conflicts.length >= 2) reasons.push('2+ segnali contrari');
- return { skip: reasons.length > 0, reasons };
-}
-
-/* ==================== CORRELATION SCORE ==================== */
+/* ==================== CORRELATION ==================== */
 const CONFLICT_PAIRS = new Set([
  'Ov 2.5|U 2.5', 'U 2.5|Ov 2.5',
  'GG|U 2.5', 'U 2.5|GG',
  'MG 2-4|Ov 2.5', 'Ov 2.5|MG 2-4'
-]);
-const COMPAT_PAIRS = new Set([
- 'GG|Ov 2.5', 'Ov 2.5|GG',
- 'Ov 0.5 PT|Ov 2.5', 'Ov 2.5|Ov 0.5 PT',
- 'Casa Segna|GG', 'GG|Casa Segna',
- 'Ospite Segna|GG', 'GG|Ospite Segna'
 ]);
 function pairKey(a,b){ return a + '|' + b; }
 function sharesTeam(matchA, matchB){
@@ -1822,8 +1631,7 @@ function sharesTeam(matchA, matchB){
 function correlationScore(recA, recB){
  if(recA._key === recB._key){
   if(CONFLICT_PAIRS.has(pairKey(recA.market, recB.market))) return 1.0;
-  if(COMPAT_PAIRS.has(pairKey(recA.market, recB.market))) return 0.6;
-  return 0.5;
+  return 0.6;
  }
  let s = 0;
  if(recA.lega && recB.lega && recA.lega === recB.lega) s += 0.30;
@@ -1834,7 +1642,7 @@ function correlationScore(recA, recB){
  return Math.min(s, 0.99);
 }
 
-/* ==================== PORTFOLIO ENGINE ==================== */
+/* ==================== ALL RECS ==================== */
 function buildAllRecs(){
  const L = buildLookups();
  const universe = buildUniverse(L);
@@ -1848,40 +1656,25 @@ function buildAllRecs(){
   const recs = [];
   for(const cand of candidates){
    const odds = operationalOdds(cand.mkt, sig, L, m._key);
-   if(cand.mkt !== 'CS Cluster' && (!odds || odds < 1.20)) continue;
-   const conf = computeConfidence(cand, sig, L, m._key);
-   let oddsUsed = odds;
-   if(cand.mkt === 'CS Cluster' && cand.cluster){
-    const pAvg = cand.cluster.reduce((s,x)=>s+x.perc,0)/cand.cluster.length/100;
-    oddsUsed = pAvg > 0 ? 1/pAvg : null;
+   if(cand.mkt === 'CS Cluster'){
+    // saltiamo CS dal portfolio standard
+    continue;
    }
+   if(!odds || odds < 1.20) continue;
+   const conf = computeConfidence(cand, sig, L, m._key);
    const pModel = clamp(conf.confidence/100 * 0.85 + 0.05, 0.05, 0.95);
-   const kelly = oddsUsed ? kellyStake(pModel, oddsUsed, {confidence: conf.confidence}) : {pct:0, eur:0, edge:0, fStar:0};
+   const kelly = kellyStake(pModel, odds, {confidence: conf.confidence});
    const rec = {
-    _key: m._key,
-    match: m.evento,
+    _key: m._key, match: m.evento,
     ora: m.ora || (L.ggov25.get(m._key)?.ora || ''),
     lega: m.lega || (L.ggov25.get(m._key)?.lega || L.ia.get(m._key)?.lega || ''),
-    market: cand.mkt,
-    dir: cand.dir,
-    side: cand.side,
-    cluster: cand.cluster,
-    odds: oddsUsed,
-    confidence: conf.confidence,
-    coverage: conf.coverage,
-    components: conf.components,
-    capped: conf.capped, capReason: conf.capReason,
-    pModel,
-    kelly,
-    stake: kelly.eur,
-    stakePct: kelly.pct * 100,
-    edge: kelly.edge * 100,
+    market: cand.mkt, dir: cand.dir, side: cand.side, cluster: cand.cluster,
+    odds, confidence: conf.confidence, coverage: conf.coverage,
+    components: conf.components, capped: conf.capped, capReason: conf.capReason,
+    pModel, kelly, stake: kelly.eur, stakePct: kelly.pct * 100, edge: kelly.edge * 100,
     sig,
     hasM1: !!(sig.s1.m1 || sig.s2.m1 || (sig.s3.m1o && cand.dir==='over') || (sig.s3.m1u && cand.dir==='under') || (sig.s4.m1c && cand.side==='casa') || (sig.s4.m1o && cand.side==='ospite'))
    };
-   const filt = applyTenFilters(rec);
-   rec.skip = filt.skip;
-   rec.skipReasons = filt.reasons;
    rec.narrative = buildNarrative(rec);
    recs.push(rec);
   }
@@ -1894,39 +1687,55 @@ function buildAllRecs(){
  return matches;
 }
 
-function buildTopSingles(allMatches){
+/* ==================== GENERATORI ON-DEMAND ====================
+   Cliccando un pulsante l'utente attiva uno di questi
+   ============================================================== */
+
+// 1) GENERA SINGOLE: quota 1.65-1.80, ordinate per Confidence
+function genSingoleBilanciate(allMatches, n=8){
  const pool = [];
+ const seen = new Set();
  for(const m of allMatches){
   for(const r of m.recs){
-   if(r.skip) continue;
-   if(r.confidence < 65) continue;
-   if(!r.odds || r.odds < 1.70 || r.odds > 1.99) continue;
-   if(r.odds < 1.75 && r.edge < 2) continue;
+   if(!r.odds || r.odds < 1.65 || r.odds > 1.80) continue;
+   if(r.confidence < 55) continue;
+   if(seen.has(r._key)) continue;
+   seen.add(r._key);
    pool.push(r);
   }
  }
- pool.sort((a,b) => (b.confidence + b.edge*1.5) - (a.confidence + a.edge*1.5));
- const seen = new Set();
- const out = [];
- for(const r of pool){
-  if(seen.has(r._key)) continue;
-  seen.add(r._key);
-  out.push(r);
-  if(out.length >= 8) break;
- }
- return out;
+ pool.sort((a,b) => (b.confidence + b.edge*1.2) - (a.confidence + a.edge*1.2));
+ return pool.slice(0, n);
 }
 
-function buildSmartDouble(allMatches){
+// 1b) Singole per range generico
+function genSingoleRange(allMatches, qMin, qMax, n=8){
  const pool = [];
+ const seen = new Set();
  for(const m of allMatches){
   for(const r of m.recs){
-   if(r.skip) continue;
-   if(r.confidence < 60) continue;
-   if(!r.odds || r.odds < 1.30 || r.odds > 1.85) continue;
+   if(!r.odds || r.odds < qMin || r.odds > qMax) continue;
+   if(r.confidence < 55) continue;
+   if(seen.has(r._key)) continue;
+   seen.add(r._key);
    pool.push(r);
   }
  }
+ pool.sort((a,b) => (b.confidence + b.edge*1.2) - (a.confidence + a.edge*1.2));
+ return pool.slice(0, n);
+}
+
+// 2) GENERA DOPPIE: quota totale 1.90-2.50
+function genDoppie(allMatches, qTotMin=1.90, qTotMax=2.50, n=5){
+ const pool = [];
+ for(const m of allMatches){
+  for(const r of m.recs){
+   if(!r.odds || r.odds < 1.30 || r.odds > 2.00) continue;
+   if(r.confidence < 55) continue;
+   pool.push(r);
+  }
+ }
+ // Per ogni match tieni solo il mercato con miglior confidence
  const dedup = {};
  pool.forEach(r => { if(!dedup[r._key] || dedup[r._key].confidence < r.confidence) dedup[r._key] = r; });
  const cands = Object.values(dedup);
@@ -1937,25 +1746,24 @@ function buildSmartDouble(allMatches){
    const corr = correlationScore(a, b);
    if(corr > 0.35) continue;
    const total = a.odds * b.odds;
-   if(total < 2.00 || total > 2.50) continue;
+   if(total < qTotMin || total > qTotMax) continue;
    const pJoint = a.pModel * b.pModel;
    const ev = pJoint * total - 1;
-   if(ev <= 0) continue;
-   const score = ev * Math.min(a.confidence, b.confidence) / 100;
-   out.push({legs:[a,b], totalOdds:total, pJoint, ev, corr, score, ev_pct: ev*100});
+   const score = (a.confidence + b.confidence)/2 + ev*30;
+   out.push({legs:[a,b], totalOdds:total, pJoint, ev, ev_pct: ev*100, corr, score});
   }
  }
  out.sort((x,y) => y.score - x.score);
- return out.slice(0, 3);
+ return out.slice(0, n);
 }
 
-function buildSmartTriple(allMatches){
+// 3) GENERA TRIS: quota totale 3-5
+function genTris(allMatches, qTotMin=3.00, qTotMax=5.00, n=3){
  const pool = [];
  for(const m of allMatches){
   for(const r of m.recs){
-   if(r.skip) continue;
-   if(r.confidence < 60) continue;
-   if(!r.odds || r.odds < 1.30 || r.odds > 1.90) continue;
+   if(!r.odds || r.odds < 1.30 || r.odds > 1.95) continue;
+   if(r.confidence < 55) continue;
    pool.push(r);
   }
  }
@@ -1968,71 +1776,120 @@ function buildSmartTriple(allMatches){
   for(let j=i+1; j<cands.length; j++){
    for(let k=j+1; k<cands.length; k++){
     const a = cands[i], b = cands[j], c = cands[k];
-    const corrAB = correlationScore(a,b);
-    const corrAC = correlationScore(a,c);
-    const corrBC = correlationScore(b,c);
-    if(Math.max(corrAB, corrAC, corrBC) > 0.35) continue;
+    if(Math.max(correlationScore(a,b), correlationScore(a,c), correlationScore(b,c)) > 0.35) continue;
     const total = a.odds * b.odds * c.odds;
-    if(total < 3.00 || total > 5.00) continue;
+    if(total < qTotMin || total > qTotMax) continue;
     const pJoint = a.pModel * b.pModel * c.pModel;
     const ev = pJoint * total - 1;
-    if(ev <= 0) continue;
-    if(pJoint < 0.20 || pJoint > 0.40) continue;
-    const score = ev * Math.min(a.confidence, b.confidence, c.confidence) / 100;
-    out.push({legs:[a,b,c], totalOdds:total, pJoint, ev, score, ev_pct: ev*100});
-    if(out.length > 50) break outer;
+    const score = (a.confidence + b.confidence + c.confidence)/3 + ev*20;
+    out.push({legs:[a,b,c], totalOdds:total, pJoint, ev, ev_pct: ev*100, score});
+    if(out.length > 80) break outer;
    }
   }
  }
  out.sort((x,y) => y.score - x.score);
- return out.slice(0, 1);
+ return out.slice(0, n);
 }
 
-function buildValueBets(allMatches){
- const out = [];
+// 4) GENERA MULTIPLA 4-5 leg
+function genMultipla(allMatches, nLegs=4, qTotMin=5, qTotMax=15, n=2){
+ const pool = [];
  for(const m of allMatches){
   for(const r of m.recs){
-   if(r.skip && !r.skipReasons.includes('confidence <60')) continue;
+   if(!r.odds || r.odds < 1.30 || r.odds > 2.00) continue;
+   if(r.confidence < 60) continue;
+   pool.push(r);
+  }
+ }
+ const dedup = {};
+ pool.forEach(r => { if(!dedup[r._key] || dedup[r._key].confidence < r.confidence) dedup[r._key] = r; });
+ const cands = Object.values(dedup).sort((a,b) => b.confidence - a.confidence).slice(0, 12);
+ const out = [];
+ // Combinatoria semplice
+ function combine(start, current){
+  if(current.length === nLegs){
+   for(let i=0; i<current.length; i++){
+    for(let j=i+1; j<current.length; j++){
+     if(correlationScore(current[i], current[j]) > 0.35) return;
+    }
+   }
+   const total = current.reduce((s,r) => s * r.odds, 1);
+   if(total < qTotMin || total > qTotMax) return;
+   const pJoint = current.reduce((s,r) => s * r.pModel, 1);
+   const ev = pJoint * total - 1;
+   const avgConf = current.reduce((s,r) => s + r.confidence, 0) / current.length;
+   const score = avgConf + ev*15;
+   out.push({legs: current.slice(), totalOdds: total, pJoint, ev, ev_pct: ev*100, score});
+   return;
+  }
+  if(out.length > 200) return;
+  for(let i=start; i<cands.length; i++){
+   current.push(cands[i]);
+   combine(i+1, current);
+   current.pop();
+  }
+ }
+ combine(0, []);
+ out.sort((x,y) => y.score - x.score);
+ return out.slice(0, n);
+}
+
+// 5) GENERA VALUE BETS: edge >= 5%, NP >= 15
+function genValueBets(allMatches, n=8){
+ const out = [];
+ const seen = new Set();
+ for(const m of allMatches){
+  for(const r of m.recs){
    if(r.confidence < 55) continue;
    if(!r.odds || r.odds < 1.40 || r.odds > 8) continue;
    if(r.edge < 5) continue;
    const np = r.sig?.s7?.np || 0;
    if(np < 15) continue;
+   if(seen.has(r._key)) continue;
+   seen.add(r._key);
    out.push(r);
   }
  }
  out.sort((a,b) => b.edge - a.edge);
- const seen = new Set();
- const fin = [];
- for(const r of out){
-  if(seen.has(r._key)) continue;
-  seen.add(r._key);
-  fin.push(r);
-  if(fin.length >= 6) break;
- }
- return fin;
+ return out.slice(0, n);
 }
 
-/* ==================== ORCHESTRATORE DECISION ENGINE ==================== */
+// 6) FILTRA per mercato specifico
+function filterByMarket(allMatches, marketName, n=20){
+ const out = [];
+ const seen = new Set();
+ for(const m of allMatches){
+  for(const r of m.recs){
+   if(r.market !== marketName) continue;
+   if(seen.has(r._key)) continue;
+   seen.add(r._key);
+   out.push(r);
+  }
+ }
+ out.sort((a,b) => b.confidence - a.confidence);
+ return out.slice(0, n);
+}
+
+// 7) TUTTE le partite, ordinate per Confidence
+function getAllMatches(allMatches){
+ const out = [];
+ const seen = new Set();
+ for(const m of allMatches){
+  if(seen.has(m.match._key)) continue;
+  seen.add(m.match._key);
+  out.push(m.top);
+ }
+ return out;
+}
+
+/* ==================== ORCHESTRATORE ==================== */
 function runDecisionEngine(){
  try {
   const allMatches = buildAllRecs();
-  const topSingles = buildTopSingles(allMatches);
-  const smartDoubles = buildSmartDouble(allMatches);
-  const smartTriples = buildSmartTriple(allMatches);
-  const valueBets = buildValueBets(allMatches);
-  const hero = topSingles[0] || null;
-  const shortlist = topSingles.slice(1, 4);
   S.output = {
    computedAt: new Date().toISOString(),
    matchesCount: allMatches.length,
-   allMatches,
-   topSingles,
-   smartDoubles,
-   smartTriples,
-   valueBets,
-   hero,
-   shortlist
+   allMatches
   };
   bus.emit('data:recomputed');
  } catch(e){
@@ -2041,10 +1898,158 @@ function runDecisionEngine(){
  }
 }
 
-/* === FINE PARTE 2/3 · prosegue con: Render UI, Schedina, Bankroll, PDF, Init === */
-/* === INIZIO PARTE 3/3 · continua da: fine Decision Engine === */
+/* === FINE PARTE 2/3 v4 · prosegue con Render UI + Tooltip + Generatori === */
+/* === INIZIO PARTE 3/3 v4 · UI Generatore + Tooltip + Lista completa === */
 
-/* ==================== UI HELPERS - GAUGE SVG ==================== */
+/* ==================== STATO UI VIEW ==================== */
+// S.ui.view = 'generator' | 'singole' | 'doppie' | 'tris' | 'multipla' | 'value' | 'mercato:XXX' | 'tutte'
+if(!S.ui.view) S.ui.view = 'generator';
+if(!S.ui.market) S.ui.market = null;
+
+/* ==================== TOOLTIP / MODAL ==================== */
+const BADGE_INFO = {
+ 'M1': {
+  title: '🏅 M1 — Regola Sigillata',
+  body: `Indica che una regola storica di BioFootballBet è attiva su questo mercato.<br><br>
+  <strong>Regole M1:</strong><br>
+  • <strong>Ov 0.5 PT</strong>: IND&lt;320 AND Delta&lt;-20 AND Diff&lt;0<br>
+  • <strong>GG</strong>: IGBc≥150 AND IGBo≥150 AND S1-S2&lt;150 AND PGG≥55<br>
+  • <strong>Ov 2.5</strong>: IGBt≥300 AND MGE≥3 AND Diff≤0<br>
+  • <strong>U 2.5</strong>: Diff&gt;1.5 AND 0&lt;MGE&lt;3<br>
+  • <strong>MG 1-3 Casa</strong>: ICH∈[300,350] AND VarC≥30<br>
+  • <strong>MG 1-3 Ospite</strong>: ICA∈[300,350] AND VarO≥30<br><br>
+  Quando attiva, la medaglia dorata 🏅 significa che il match rispetta i criteri sigillati. Peso del segnale M1 nel Confidence Score: <strong>28%</strong>.`
+ },
+ 'DM': {
+  title: '📊 DM — DataMining',
+  body: `NP (Numero Partite) = quante partite storiche simili sono state trovate nel database. Più è alto, più affidabile è la percentuale associata.<br><br>
+  <strong>Soglie di affidabilità:</strong><br>
+  🟢 <strong>DM ≥ 30</strong>: campione solido, dato affidabile<br>
+  🟡 <strong>DM 15-29</strong>: campione medio, dato indicativo<br>
+  🔴 <strong>DM &lt; 15</strong>: campione piccolo, dato poco affidabile<br><br>
+  Il DataMining è la seconda voce più pesata nel Confidence Score: <strong>22%</strong>.<br>
+  Con NP basso il peso effettivo si riduce proporzionalmente (es. NP=9 → peso ridotto del 70%).`
+ },
+ 'VALUE': {
+  title: '💎 VALUE — Edge stimato',
+  body: `Percentuale di vantaggio statistico del nostro modello rispetto al mercato.<br><br>
+  <strong>Formula:</strong><br>
+  edge = p(modello) − p(mercato)<br>
+  dove p(mercato) = 1 / quota<br><br>
+  <strong>Interpretazione:</strong><br>
+  • VALUE ≥ 5% = opportunità significativa<br>
+  • VALUE ≥ 10% = opportunità forte<br>
+  • VALUE negativo = modello sotto il mercato (skip)<br><br>
+  Il value è sostenibile solo con NP DataMining ≥ 15.`
+ },
+ 'Drop pro': {
+  title: '📉 Drop Pro — Money Flow Favorevole',
+  body: `La quota è <strong>scesa di almeno il 5%</strong> dall'apertura (Qr) alla quota attuale (QrL).<br><br>
+  Significa che il mercato (lo smart money) sta convergendo sulla stessa selezione che il nostro modello suggerisce: è una <strong>conferma indipendente</strong>.<br><br>
+  <strong>Formula:</strong> drop = (Qr − QrL) / Qr<br><br>
+  Bonus di <strong>+4 punti</strong> al Confidence Score quando attivo.`
+ },
+ 'Drop contra': {
+  title: '📈 Drop Contra — Money Flow Sfavorevole',
+  body: `La quota è <strong>salita di almeno il 5%</strong> dall'apertura: il mercato si sta allontanando dalla selezione.<br><br>
+  Spesso è un segnale che il modello ha sbagliato qualcosa o che informazioni non visibili (infortuni, formazioni) stanno penalizzando la selezione.<br><br>
+  <strong>Effetto:</strong> Confidence limitato a max 60/100 (hard cap).`
+ },
+ 'CAP': {
+  title: '🚨 CAP — Confidence Limitato',
+  body: `Il Confidence è stato <strong>limitato da una regola di sicurezza</strong>.<br><br>
+  <strong>Motivi possibili:</strong><br>
+  • <strong>DGT contraria</strong>: i differenziali gol puntano nella direzione opposta → cap a 70<br>
+  • <strong>Drop quota contrario</strong>: il mercato si sta allontanando → cap a 60<br>
+  • <strong>Coverage &lt; 50%</strong>: troppi segnali mancanti → cap a 70<br><br>
+  Non è un errore: è una protezione per evitare pick troppo sicure quando i dati non lo giustificano.`
+ },
+ 'GZ': {
+  title: '📡 GZ — Indice BioFootballBet',
+  body: `L'indice GZ mappa il profilo offensivo/difensivo complessivo.<br><br>
+  <strong>Bande:</strong><br>
+  • GZ &lt; -1800 → <strong>U 2.5 al 64%</strong><br>
+  • GZ &lt; -1200 → <strong>U 3.5 all'81%</strong><br>
+  • GZ ∈ [-200, +200] → <strong>Ov 0.5 al 95%</strong><br>
+  • GZ &gt; +1000 → <strong>Ov 1.5 all'80%</strong><br>
+  • GZ &gt; +5000 → <strong>Ov 2.5 al 64%</strong><br><br>
+  Peso nel Confidence Score: <strong>13%</strong>.`
+ },
+ 'DGT': {
+  title: '📉 DGT — Differenziale Gol Totale',
+  body: `Misura lo scostamento tra i gol segnati di recente (MGU5) e la media storica (MGE).<br><br>
+  <strong>Logica MEAN-REVERSION:</strong><br>
+  • <strong>DGT &gt; +0.8</strong>: sovrafrequenza (si segna più del solito) → pronostica <strong>UNDER</strong><br>
+  • <strong>DGT &lt; -0.8</strong>: sottofrequenza (si segna meno del solito) → pronostica <strong>OVER</strong><br><br>
+  <strong>DiffC / DiffO:</strong> stessa logica ma per squadra casa/ospite (soglia ±0.3).<br><br>
+  Peso nel Confidence Score: <strong>12%</strong>.`
+ },
+ 'COV': {
+  title: '🎯 Cov — Coverage',
+  body: `Percentuale dei 10 segnali disponibili per questo match.<br><br>
+  <strong>Soglie:</strong><br>
+  • Cov ≥ 80% = analisi completa<br>
+  • Cov 50-79% = analisi parziale<br>
+  • Cov &lt; 50% = analisi incompleta → Confidence capped a 70<br><br>
+  Più CSV carichi, più Coverage sale e più il Confidence diventa stabile.`
+ },
+ 'Confidence': {
+  title: '📊 Confidence Score 0-100',
+  body: `Punteggio finale della pick, calcolato come media pesata di tutti i segnali disponibili.<br><br>
+  <strong>Formula:</strong><br>
+  Score = (Σ pesi × segnali) × coverage_factor − conflict_penalty<br><br>
+  <strong>Pesi:</strong><br>
+  • M1 (regole sigillate): 28%<br>
+  • DataMining: 22%<br>
+  • GZ Index: 13%<br>
+  • Differenziali Gol: 12%<br>
+  • Value 1X2: 9%<br>
+  • Stats IA: 8%<br>
+  • Giocatori: 8%<br><br>
+  <strong>Soglie operative:</strong><br>
+  🟢 ≥75 Pick forte · 🟡 60-74 Da valutare · 🔴 &lt;60 Skip`
+ }
+};
+
+function showBadgeInfo(badgeKey){
+ const info = BADGE_INFO[badgeKey];
+ if(!info){ showToast('Info non disponibile', 'err'); return; }
+ const overlay = document.createElement('div');
+ overlay.className = 'modal-overlay';
+ overlay.innerHTML = `
+  <div class="modal">
+   <div class="modal-hdr">
+    <h3>${info.title}</h3>
+    <button class="modal-close">✕</button>
+   </div>
+   <div class="modal-body">${info.body}</div>
+  </div>`;
+ document.body.appendChild(overlay);
+ overlay.addEventListener('click', e => {
+  if(e.target === overlay || e.target.closest('.modal-close')) overlay.remove();
+ });
+}
+
+// Aggiungo CSS modale inline nella head
+(function injectModalCSS(){
+ if(document.getElementById('modalCSS')) return;
+ const s = document.createElement('style');
+ s.id = 'modalCSS';
+ s.textContent = `
+  .modal-overlay{position:fixed;inset:0;background:rgba(15,20,32,.8);z-index:1000;display:flex;align-items:center;justify-content:center;padding:20px;animation:fadeIn .2s ease}
+  @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+  .modal{background:#1D2438;border:2px solid #6B7BA6;border-radius:16px;max-width:440px;width:100%;max-height:85vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.5);color:#fff}
+  .modal-hdr{display:flex;justify-content:space-between;align-items:center;padding:16px 18px;border-bottom:1px solid #3E4B78;position:sticky;top:0;background:#1D2438;z-index:1}
+  .modal-hdr h3{font:700 1.1rem 'DM Sans',sans-serif;color:#fff;margin:0}
+  .modal-close{width:32px;height:32px;border-radius:8px;background:#283152;color:#C8D0E4;border:1px solid #3E4B78;cursor:pointer;font-size:.9rem;display:flex;align-items:center;justify-content:center}
+  .modal-close:hover{background:#323D63;color:#fff}
+  .modal-body{padding:18px;font:400 .92rem 'DM Sans',sans-serif;color:#C8D0E4;line-height:1.7}
+  .modal-body strong{color:#fff}
+ `;
+ document.head.appendChild(s);
+})();
+
+/* ==================== UI HELPERS ==================== */
 function gaugeHTML(value, size='lg', label='SCORE'){
  const v = clamp(value || 0, 0, 100);
  const r = size === 'sm' ? 28 : 50;
@@ -2053,7 +2058,7 @@ function gaugeHTML(value, size='lg', label='SCORE'){
  const cx = size === 'sm' ? 36 : 60;
  const cls = v >= 75 ? 'g-ok' : v >= 60 ? 'g-wa' : 'g-er';
  const W = size === 'sm' ? 72 : 120;
- return `<div class="gauge ${size==='sm'?'sm':''} ${cls}">
+ return `<div class="gauge ${size==='sm'?'sm':''} ${cls}" data-badge="Confidence">
   <svg width="${W}" height="${W}" viewBox="0 0 ${W} ${W}">
    <circle class="bg-ring" cx="${cx}" cy="${cx}" r="${r}"/>
    <circle class="fg-ring" cx="${cx}" cy="${cx}" r="${r}" stroke-dasharray="${c.toFixed(2)}" stroke-dashoffset="${off.toFixed(2)}"/>
@@ -2064,21 +2069,24 @@ function gaugeHTML(value, size='lg', label='SCORE'){
 
 function dmBadgeFor(rec){
  const np = rec.sig?.s7?.np || 0;
- if(np >= 30) return `<span class="bdg bdg-dm-ok" title="DataMining solido">DM ${np}</span>`;
- if(np >= 15) return `<span class="bdg bdg-dm-wa" title="DataMining medio">DM ${np}</span>`;
- if(np > 0) return `<span class="bdg bdg-dm-er" title="DataMining scarso">DM ${np}</span>`;
+ if(np >= 30) return `<span class="bdg bdg-dm-ok" data-badge="DM" title="DataMining solido - tocca per info">DM ${np}</span>`;
+ if(np >= 15) return `<span class="bdg bdg-dm-wa" data-badge="DM" title="DataMining medio - tocca per info">DM ${np}</span>`;
+ if(np > 0) return `<span class="bdg bdg-dm-er" data-badge="DM" title="DataMining scarso - tocca per info">DM ${np}</span>`;
  return '';
 }
 
 function badgesFor(rec){
  const out = [];
- if(rec.hasM1) out.push(`<span class="bdg bdg-m1" title="Regola M1 sigillata attiva">🏅 M1</span>`);
+ if(rec.hasM1) out.push(`<span class="bdg bdg-m1" data-badge="M1" title="Regola M1 attiva - tocca per info">🏅 M1</span>`);
  const dm = dmBadgeFor(rec);
  if(dm) out.push(dm);
- if(rec.edge >= 5) out.push(`<span class="bdg bdg-val" title="Edge significativo">VALUE ${rec.edge.toFixed(1)}%</span>`);
- if(rec.sig?.s10?.dropDir === 'pro') out.push(`<span class="bdg bdg-gz" title="Drop quota a favore">📉 Drop pro</span>`);
- if(rec.capped) out.push(`<span class="bdg bdg-skip" title="${escHtml(rec.capReason)}">CAP</span>`);
- return out.slice(0,3).join('');
+ if(rec.edge >= 5) out.push(`<span class="bdg bdg-val" data-badge="VALUE" title="Edge positivo - tocca per info">VALUE ${rec.edge.toFixed(1)}%</span>`);
+ if(rec.sig?.s10?.dropDir === 'pro') out.push(`<span class="bdg bdg-gz" data-badge="Drop pro" title="Drop quota favorevole - tocca per info">📉 Drop pro</span>`);
+ if(rec.sig?.s10?.dropDir === 'contra') out.push(`<span class="bdg bdg-dm-er" data-badge="Drop contra" title="Drop quota contrario - tocca per info">📈 Drop contra</span>`);
+ if(rec.sig?.s6?.active && rec.sig.s6.direction !== 'neutral') out.push(`<span class="bdg bdg-gz" data-badge="GZ" title="GZ Index - tocca per info">📡 GZ</span>`);
+ if(rec.sig?.s10?.significant) out.push(`<span class="bdg bdg-dm-wa" data-badge="DGT" title="DGT significativo - tocca per info">📉 DGT ${rec.sig.s10.dgt.toFixed(1)}</span>`);
+ if(rec.capped) out.push(`<span class="bdg bdg-skip" data-badge="CAP" title="${escHtml(rec.capReason)} - tocca per info">🚨 CAP</span>`);
+ return out.join('');
 }
 
 function breakdownHTML(rec){
@@ -2089,12 +2097,69 @@ function breakdownHTML(rec){
  const rows = all.map(c => {
   const sign = c.contrib > 0 ? '+' : '';
   const cls = c.contrib > 0 ? 'pos' : (c.contrib < 0 ? 'neg' : 'zero');
-  return `<div class="bk-row"><span class="n">${escHtml(c.label || c.key)} <small style="color:var(--fg3)">(peso ${(c.weight*100).toFixed(0)}%)</small></span><span class="p ${cls}">${sign}${(c.contrib*100).toFixed(0)}</span></div>`;
+  return `<div class="bk-row"><span class="n">${escHtml(c.label || c.key)} <small style="color:#8B95B4">(peso ${(c.weight*100).toFixed(0)}%)</small></span><span class="p ${cls}">${sign}${(c.contrib*100).toFixed(0)}</span></div>`;
  }).join('');
  return `<div class="breakdown">${rows}</div>`;
 }
 
-/* ==================== RENDER: TAB OGGI ==================== */
+function renderCardCompact(rec){
+ return `<div class="card">
+  <div class="card-top">
+   <div class="card-info">
+    <div class="card-league">${escHtml(rec.lega || 'LEGA')} <span class="time">${escHtml(cleanTime(rec.ora) || '--:--')}</span></div>
+    <div class="card-match" title="${escHtml(rec.match)}">${escHtml(rec.match)}</div>
+   </div>
+   <div class="card-conf">${gaugeHTML(rec.confidence, 'sm', '')}</div>
+  </div>
+  <div class="card-body">
+   <div class="card-market">${escHtml(rec.market)}</div>
+   <div class="card-stats">
+    <div class="s"><span class="lb">Quota</span><span class="vl ok">${rec.odds ? rec.odds.toFixed(2) : 'N/D'}</span></div>
+    <div class="s"><span class="lb">Edge</span><span class="vl ${rec.edge>=3?'ok':rec.edge>=0?'warn':'err'}">${rec.edge>=0?'+':''}${rec.edge.toFixed(1)}%</span></div>
+    <div class="s"><span class="lb">Stake</span><span class="vl">${fmtEur(rec.stake)}</span></div>
+   </div>
+   <div class="card-badges">${badgesFor(rec)}</div>
+  </div>
+  <details class="narr">
+   <summary>Vedi perché</summary>
+   <div class="narr-body">
+    ${escHtml(rec.narrative)}
+    ${breakdownHTML(rec)}
+   </div>
+  </details>
+  <div class="card-foot">
+   <div class="card-foot-l" data-badge="COV" style="cursor:pointer">Cov: ${(rec.coverage*100).toFixed(0)}%</div>
+   <button class="mini-btn primary" data-add="${escHtml(rec._key)}|${escHtml(rec.market)}">+ Schedina</button>
+  </div>
+ </div>`;
+}
+
+function renderCombo(combo, type, idx){
+ const tipo = type === 'tris' ? 'Tris' : type === 'multipla' ? `Multipla ${combo.legs.length} leg` : 'Doppia';
+ const ico = type === 'tris' ? '🎲' : type === 'multipla' ? '🎰' : '🎯';
+ const legs = combo.legs.map(l => `<div class="combo-leg">
+  <div class="n">${escHtml(l.match)}<div class="m">${escHtml(l.market)} · ${escHtml(cleanTime(l.ora))} · Conf ${l.confidence}</div></div>
+  <div class="o">${l.odds?.toFixed(2) || '-'}</div>
+ </div>`).join('');
+ const stakeJoint = round(S.bankroll.segregated * 0.02, 2);
+ const winJoint = round(stakeJoint * combo.totalOdds, 2);
+ return `<div class="combo">
+  <div class="combo-hdr">
+   <div class="t">${ico} ${tipo} #${idx+1}</div>
+   <div class="q">${combo.totalOdds.toFixed(2)}</div>
+  </div>
+  <div class="combo-legs">${legs}</div>
+  <div class="combo-info">
+   <div class="k"><span class="lb">P. Joint</span><span class="vl">${(combo.pJoint*100).toFixed(1)}%</span></div>
+   <div class="k"><span class="lb">EV</span><span class="vl ${combo.ev>0?'ok':'err'}" style="color:${combo.ev>0?'var(--ok)':'var(--err)'}">${combo.ev>0?'+':''}${combo.ev_pct.toFixed(1)}%</span></div>
+   <div class="k"><span class="lb">Stake sug.</span><span class="vl">${fmtEur(stakeJoint)}</span></div>
+   <div class="k"><span class="lb">Vincita</span><span class="vl" style="color:var(--ok)">${fmtEur(winJoint)}</span></div>
+  </div>
+  <div style="margin-top:12px"><button class="mini-btn primary" data-add-combo="${type}|${idx}">+ Aggiungi alla schedina</button></div>
+ </div>`;
+}
+
+/* ==================== RENDER: TAB OGGI CON GENERATORI ==================== */
 function renderOggi(){
  const main = document.getElementById('mainTab');
  const datasetCount = DATASETS.filter(d => (S.datasets[d.key]||[]).length > 0).length;
@@ -2111,140 +2176,174 @@ function renderOggi(){
   return;
  }
  const o = S.output;
- const heroHTML = o.hero ? renderHero(o.hero) : `<div class="empty">
-  <div class="ico">🎯</div>
-  <p class="title">Nessun BET OF THE DAY oggi</p>
-  <p>Il sistema non trova singole con Confidence ≥ 65 e quota nel range 1.70–1.99. Disciplina prima di tutto: meglio passare un giorno che giocare male.</p>
+ // Barra pulsanti generatori
+ const buttons = `<div class="gen-bar">
+  <button class="gen-btn ${S.ui.view==='generator'?'active':''}" data-view="generator"><span class="ico">🏠</span>Home</button>
+  <button class="gen-btn ${S.ui.view==='singole'?'active':''}" data-view="singole"><span class="ico">🎯</span>Singole</button>
+  <button class="gen-btn ${S.ui.view==='doppie'?'active':''}" data-view="doppie"><span class="ico">🎯</span>Doppie</button>
+  <button class="gen-btn ${S.ui.view==='tris'?'active':''}" data-view="tris"><span class="ico">🎲</span>Tris</button>
+  <button class="gen-btn ${S.ui.view==='multipla'?'active':''}" data-view="multipla"><span class="ico">🎰</span>Multipla</button>
+  <button class="gen-btn ${S.ui.view==='value'?'active':''}" data-view="value"><span class="ico">💎</span>Value</button>
+  <button class="gen-btn ${S.ui.view==='tutte'?'active':''}" data-view="tutte"><span class="ico">📋</span>Tutte (${o.matchesCount})</button>
  </div>`;
 
- let shortlistHTML = '';
- if(o.shortlist && o.shortlist.length){
-  const cards = o.shortlist.map(r => renderCardSmall(r)).join('');
-  shortlistHTML = `<div class="sec"><h2><span class="ico">⭐</span>Le altre singole</h2><span class="ct">${o.shortlist.length} match</span></div><div class="cards">${cards}</div>`;
- }
+ // Filtri mercato
+ const marketFilters = `<div class="mkt-filters">
+  <span class="mkt-lbl">Filtra per mercato:</span>
+  ${['Ov 0.5 PT','GG','Ov 2.5','U 2.5','MG 1-3 Casa','MG 1-3 Ospite','Casa Segna','Ospite Segna','MG 2-4','1','X','2'].map(mkt => `
+   <button class="mkt-btn ${S.ui.view==='mercato' && S.ui.market===mkt ?'active':''}" data-market="${escHtml(mkt)}">${escHtml(mkt)}</button>
+  `).join('')}
+ </div>`;
 
- let valueHTML = '';
- if(o.valueBets && o.valueBets.length){
-  const cards = o.valueBets.map(r => renderCardSmall(r, true)).join('');
-  valueHTML = `<div class="sec"><h2><span class="ico">💎</span>Value Bets</h2><span class="ct">edge ≥ 5%</span></div><div class="cards">${cards}</div>`;
- }
-
- let doubleHTML = '';
- if(o.smartDoubles && o.smartDoubles.length){
-  doubleHTML = `<div class="sec"><h2><span class="ico">🎯</span>Doppia del giorno</h2><span class="ct">quota 2.00–2.50</span></div>` +
-   o.smartDoubles.map((d,i) => renderCombo(d, 'doppia', i)).join('');
- }
-
- let tripleHTML = '';
- if(o.smartTriples && o.smartTriples.length){
-  tripleHTML = `<div class="sec"><h2><span class="ico">🎲</span>Tris smart</h2><span class="ct">quota 3.00–5.00 · max 1 / giorno</span></div>` +
-   o.smartTriples.map((d,i) => renderCombo(d, 'tris', i)).join('');
- }
-
- let allHTML = '';
- if(o.allMatches && o.allMatches.length){
-  const sample = o.allMatches.slice(0, 12);
-  allHTML = `<div class="sec"><h2><span class="ico">📋</span>Tutti i match analizzati</h2><span class="ct">${o.allMatches.length} totali</span></div>
-   <div class="cards">${sample.map(m => renderCardSmall(m.top)).join('')}</div>`;
-  if(o.allMatches.length > 12){
-   allHTML += `<div style="text-align:center;margin-top:10px;color:var(--fg3);font-size:.8rem">… altri ${o.allMatches.length - 12} match con Confidence inferiore disponibili tramite ricerca</div>`;
-  }
- }
-
- main.innerHTML = heroHTML + shortlistHTML + valueHTML + doubleHTML + tripleHTML + allHTML;
-}
-
-function renderHero(rec){
- const stake = rec.stake;
- const m = rec;
- return `<div class="hero">
-  <div class="hero-hdr">
-   <div class="hero-tag">🏆 BET OF THE DAY</div>
-   <div class="hero-league">${escHtml(m.lega || 'Lega N/D')} · ${escHtml(cleanTime(m.ora) || '--:--')}</div>
-  </div>
-  <div class="hero-title">${escHtml(m.match)}</div>
-  <div class="hero-sub">${badgesFor(m) || 'Pronostico calibrato dalla convergenza dei segnali principali'}</div>
-  <div class="hero-grid">
-   ${gaugeHTML(m.confidence, 'lg', 'SCORE')}
-   <div class="hero-pick">
-    <div class="hero-market">${escHtml(m.market)}</div>
-    <div class="hero-odds">
-     <div class="it"><span class="lb">Quota</span><span class="vl ok">${m.odds?.toFixed(2) || '-'}</span></div>
-     <div class="it"><span class="lb">Edge</span><span class="vl info">${m.edge.toFixed(1)}%</span></div>
-     <div class="it"><span class="lb">Stake</span><span class="vl">${fmtEur(stake)}</span></div>
-     <div class="it"><span class="lb">Kelly%</span><span class="vl">${m.stakePct.toFixed(1)}%</span></div>
+ // View Home (dashboard con riepilogo)
+ if(S.ui.view === 'generator'){
+  const singoleCount = genSingoleBilanciate(o.allMatches, 999).length;
+  const doppieCount = genDoppie(o.allMatches).length;
+  const trisCount = genTris(o.allMatches).length;
+  const valueCount = genValueBets(o.allMatches, 999).length;
+  main.innerHTML = buttons + marketFilters + `
+   <div class="home-intro">
+    <div class="home-title">👋 Benvenuto</div>
+    <div class="home-sub">Hai ${o.matchesCount} match analizzati. Scegli che tipo di pronostico vuoi generare:</div>
+   </div>
+   <div class="home-stats">
+    <div class="home-stat" data-view-click="singole">
+     <div class="home-stat-ico">🎯</div>
+     <div class="home-stat-n">${singoleCount}</div>
+     <div class="home-stat-lbl">Singole bilanciate<br><small>quota 1.65-1.80</small></div>
+    </div>
+    <div class="home-stat" data-view-click="doppie">
+     <div class="home-stat-ico">🎯</div>
+     <div class="home-stat-n">${doppieCount}</div>
+     <div class="home-stat-lbl">Doppie<br><small>quota 1.90-2.50</small></div>
+    </div>
+    <div class="home-stat" data-view-click="tris">
+     <div class="home-stat-ico">🎲</div>
+     <div class="home-stat-n">${trisCount}</div>
+     <div class="home-stat-lbl">Tris smart<br><small>quota 3.00-5.00</small></div>
+    </div>
+    <div class="home-stat" data-view-click="value">
+     <div class="home-stat-ico">💎</div>
+     <div class="home-stat-n">${valueCount}</div>
+     <div class="home-stat-lbl">Value bets<br><small>edge ≥ 5%</small></div>
     </div>
    </div>
-  </div>
-  <div class="hero-narr">${escHtml(m.narrative)}</div>
-  <div class="hero-cta">
-   <button class="btn btn-primary" data-add="${escHtml(m._key)}|${escHtml(m.market)}">➕ Aggiungi alla schedina</button>
-   <button class="btn btn-ghost" data-detail="${escHtml(m._key)}|${escHtml(m.market)}">🔍 Vedi perché</button>
-  </div>
-  <details class="narr" id="hero-detail" style="margin-top:10px">
-   <summary>Breakdown contribuzioni e segnali</summary>
-   <div class="narr-body">${breakdownHTML(m)}</div>
-  </details>
- </div>`;
+   <div class="info-box" style="margin-top:14px">💡 <strong>Come usare:</strong> clicca uno dei pulsanti sopra per vedere le partite filtrate per tipologia. Oppure usa i filtri "mercato" per vedere solo Ov 2.5, GG, ecc.</div>`;
+  return;
+ }
+
+ // View Singole
+ if(S.ui.view === 'singole'){
+  const list = genSingoleBilanciate(o.allMatches, 12);
+  const body = list.length ? `<div class="cards">${list.map(r => renderCardCompact(r)).join('')}</div>` : `
+   <div class="empty"><div class="ico">🎯</div><p class="title">Nessuna singola disponibile</p><p>Nessun match rientra nel range quota 1.65-1.80 con Confidence ≥ 55. Prova con altri range o carica più CSV per aumentare coverage.</p></div>`;
+  main.innerHTML = buttons + marketFilters + `
+   <div class="sec"><h2><span class="ico">🎯</span>Singole bilanciate</h2><span class="ct">${list.length} match · quota 1.65-1.80</span></div>
+   ${body}`;
+  return;
+ }
+
+ // View Doppie
+ if(S.ui.view === 'doppie'){
+  const list = genDoppie(o.allMatches, 1.90, 2.50, 8);
+  const body = list.length ? list.map((c,i) => renderCombo(c, 'doppia', i)).join('') : `
+   <div class="empty"><div class="ico">🎯</div><p class="title">Nessuna doppia disponibile</p><p>Non ci sono 2 partite indipendenti con quota totale 1.90-2.50 e Confidence sufficiente. Carica più CSV per aumentare le opzioni.</p></div>`;
+  main.innerHTML = buttons + marketFilters + `
+   <div class="sec"><h2><span class="ico">🎯</span>Doppie suggerite</h2><span class="ct">${list.length} combinazioni · quota tot 1.90-2.50</span></div>
+   ${body}`;
+  return;
+ }
+
+ // View Tris
+ if(S.ui.view === 'tris'){
+  const list = genTris(o.allMatches, 3.00, 5.00, 5);
+  const body = list.length ? list.map((c,i) => renderCombo(c, 'tris', i)).join('') : `
+   <div class="empty"><div class="ico">🎲</div><p class="title">Nessun tris disponibile</p><p>Non ci sono 3 partite indipendenti con quota totale 3.00-5.00 e Confidence sufficiente. Servono più dati (DataMining, Differenziali) per costruire tris affidabili.</p></div>`;
+  main.innerHTML = buttons + marketFilters + `
+   <div class="sec"><h2><span class="ico">🎲</span>Tris smart</h2><span class="ct">${list.length} combinazioni · quota tot 3.00-5.00</span></div>
+   ${body}`;
+  return;
+ }
+
+ // View Multipla 4-5
+ if(S.ui.view === 'multipla'){
+  const m4 = genMultipla(o.allMatches, 4, 5, 15, 2);
+  const m5 = genMultipla(o.allMatches, 5, 8, 30, 1);
+  const body = (m4.length + m5.length) ? `
+   ${m4.length?`<h3 style="color:var(--fg-on-light);margin:10px 4px 8px;font-size:1rem">Multipla 4 leg</h3>${m4.map((c,i) => renderCombo(c, 'multipla', i)).join('')}`:''}
+   ${m5.length?`<h3 style="color:var(--fg-on-light);margin:16px 4px 8px;font-size:1rem">Multipla 5 leg</h3>${m5.map((c,i) => renderCombo(c, 'multipla', i+m4.length)).join('')}`:''}
+  ` : `<div class="empty"><div class="ico">🎰</div><p class="title">Nessuna multipla disponibile</p><p>Non ci sono 4-5 partite indipendenti con Confidence ≥ 60 per costruire multiple affidabili.</p></div>`;
+  main.innerHTML = buttons + marketFilters + `
+   <div class="sec"><h2><span class="ico">🎰</span>Multipla 4-5 leg</h2><span class="ct">${m4.length+m5.length} combinazioni</span></div>
+   ${body}`;
+  return;
+ }
+
+ // View Value
+ if(S.ui.view === 'value'){
+  const list = genValueBets(o.allMatches, 12);
+  const body = list.length ? `<div class="cards">${list.map(r => renderCardCompact(r)).join('')}</div>` : `
+   <div class="empty"><div class="ico">💎</div><p class="title">Nessun value bet disponibile</p><p>Nessun match ha edge ≥ 5% con NP DataMining ≥ 15. Serve il CSV DataMining Plus + Quote Valore 1X2.</p></div>`;
+  main.innerHTML = buttons + marketFilters + `
+   <div class="sec"><h2><span class="ico">💎</span>Value bets</h2><span class="ct">${list.length} match · edge ≥ 5%</span></div>
+   ${body}`;
+  return;
+ }
+
+ // View TUTTE
+ if(S.ui.view === 'tutte'){
+  const all = getAllMatches(o.allMatches);
+  const q = (S.ui.q || '').toLowerCase();
+  const filtered = q ? all.filter(r => (r.match+' '+r.market+' '+(r.lega||'')).toLowerCase().includes(q)) : all;
+  main.innerHTML = buttons + marketFilters + `
+   <div class="sec"><h2><span class="ico">📋</span>Tutte le partite</h2><span class="ct">${filtered.length} / ${all.length}</span></div>
+   <div class="toolbar"><input class="search" id="allSearch" placeholder="🔍 Cerca match, mercato, lega..." value="${escHtml(S.ui.q||'')}"></div>
+   <div class="cards">${filtered.map(r => renderCardCompact(r)).join('') || '<div class="empty"><p>Nessun match corrisponde al filtro.</p></div>'}</div>`;
+  return;
+ }
+
+ // View Mercato specifico
+ if(S.ui.view === 'mercato' && S.ui.market){
+  const list = filterByMarket(o.allMatches, S.ui.market, 30);
+  const body = list.length ? `<div class="cards">${list.map(r => renderCardCompact(r)).join('')}</div>` : `
+   <div class="empty"><div class="ico">🎯</div><p class="title">Nessun match per "${escHtml(S.ui.market)}"</p><p>Nessun pronostico attivo su questo mercato. Prova un altro o carica più CSV.</p></div>`;
+  main.innerHTML = buttons + marketFilters + `
+   <div class="sec"><h2><span class="ico">🎯</span>${escHtml(S.ui.market)}</h2><span class="ct">${list.length} match</span></div>
+   ${body}`;
+  return;
+ }
 }
 
-function renderCardSmall(rec, isValue=false){
- const cls = isValue ? 'card' : 'card';
- return `<div class="${cls}" data-detail-card="${escHtml(rec._key)}|${escHtml(rec.market)}">
-  <div class="card-top">
-   <div class="card-info">
-    <div class="card-league">${escHtml(rec.lega || '')} · ${escHtml(cleanTime(rec.ora) || '--:--')}</div>
-    <div class="card-match" title="${escHtml(rec.match)}">${escHtml(rec.match)}</div>
-   </div>
-   <div class="card-conf">${gaugeHTML(rec.confidence, 'sm', '')}</div>
-  </div>
-  <div class="card-body">
-   <div class="card-market">${escHtml(rec.market)}</div>
-   <div class="card-stats">
-    <div class="s"><span class="lb">Quota</span><span class="vl ok">${rec.odds?.toFixed(2) || '-'}</span></div>
-    <div class="s"><span class="lb">Edge</span><span class="vl ${rec.edge>=3?'ok':'warn'}">${rec.edge.toFixed(1)}%</span></div>
-    <div class="s"><span class="lb">Stake</span><span class="vl">${fmtEur(rec.stake)}</span></div>
-   </div>
-   <div class="card-badges">${badgesFor(rec)}</div>
-  </div>
-  <details class="narr">
-   <summary>Vedi perché</summary>
-   <div class="narr-body">
-    ${escHtml(rec.narrative)}
-    ${breakdownHTML(rec)}
-   </div>
-  </details>
-  <div class="card-foot">
-   <div class="card-foot-l">
-    <span style="font:500 .72rem var(--S);color:var(--fg3)">Cov: ${(rec.coverage*100).toFixed(0)}%</span>
-   </div>
-   <button class="mini-btn primary" data-add="${escHtml(rec._key)}|${escHtml(rec.market)}">➕ Schedina</button>
-  </div>
- </div>`;
-}
-
-function renderCombo(combo, type, idx){
- const legs = combo.legs.map(l => `<div class="combo-leg">
-  <div class="n">${escHtml(l.match)}<div class="m">${escHtml(l.market)} · ${escHtml(cleanTime(l.ora))}</div></div>
-  <div class="o">${l.odds?.toFixed(2) || '-'}</div>
- </div>`).join('');
- const stakeJoint = round(S.bankroll.segregated * 0.02 * (combo.score+1), 2);
- const winJoint = round(stakeJoint * combo.totalOdds, 2);
- return `<div class="combo">
-  <div class="combo-hdr">
-   <div class="t">${type==='tris'?'🎲':'🎯'} ${type === 'tris' ? 'Tris' : 'Doppia'} #${idx+1}</div>
-   <div class="q">${combo.totalOdds.toFixed(2)}</div>
-  </div>
-  <div class="combo-legs">${legs}</div>
-  <div class="combo-info">
-   <div class="k"><span class="lb">P. Joint</span><span class="vl">${(combo.pJoint*100).toFixed(1)}%</span></div>
-   <div class="k"><span class="lb">EV</span><span class="vl ok">+${combo.ev_pct.toFixed(1)}%</span></div>
-   <div class="k"><span class="lb">Stake</span><span class="vl">${fmtEur(stakeJoint)}</span></div>
-   <div class="k"><span class="lb">Vincita</span><span class="vl ok">${fmtEur(winJoint)}</span></div>
-  </div>
-  <div style="margin-top:10px"><button class="mini-btn primary" data-add-combo="${type}|${idx}">➕ Aggiungi alla schedina</button></div>
- </div>`;
-}
+/* ==================== CSS GENERATORI (inject) ==================== */
+(function injectGenCSS(){
+ if(document.getElementById('genCSS')) return;
+ const s = document.createElement('style');
+ s.id = 'genCSS';
+ s.textContent = `
+  .gen-bar{display:flex;gap:6px;overflow-x:auto;padding:8px;background:#1D2438;border:1.5px solid #3E4B78;border-radius:13px;margin-bottom:12px;scrollbar-width:none;box-shadow:0 1px 3px rgba(29,36,56,.12),0 4px 12px rgba(29,36,56,.08)}
+  .gen-bar::-webkit-scrollbar{display:none}
+  .gen-btn{padding:10px 14px;border-radius:9px;font:700 .82rem 'DM Sans',sans-serif;color:#C8D0E4;background:transparent;border:1px solid transparent;white-space:nowrap;flex-shrink:0;cursor:pointer;display:flex;align-items:center;gap:5px;transition:all .15s}
+  .gen-btn:hover{background:#283152;color:#fff;border-color:#4F5D8C}
+  .gen-btn.active{background:#3B7BFF;color:#fff;border-color:#3B7BFF;box-shadow:0 2px 6px rgba(59,123,255,.4)}
+  .gen-btn .ico{font-size:1rem}
+  .mkt-filters{display:flex;flex-wrap:wrap;gap:6px;padding:10px;background:#FFFFFF;border:1.5px solid #D5DDEA;border-radius:12px;margin-bottom:12px;align-items:center;box-shadow:0 1px 3px rgba(29,36,56,.06)}
+  .mkt-lbl{font:700 .78rem 'DM Sans',sans-serif;color:#4C5775;text-transform:uppercase;letter-spacing:.5px;margin-right:6px}
+  .mkt-btn{padding:6px 11px;border-radius:7px;font:600 .78rem 'DM Sans',sans-serif;color:#4C5775;background:#F1F4FB;border:1px solid #D5DDEA;cursor:pointer;transition:all .15s}
+  .mkt-btn:hover{background:#E5EAF5;border-color:#B8C0D4;color:#1D2438}
+  .mkt-btn.active{background:#3B7BFF;color:#fff;border-color:#3B7BFF;box-shadow:0 1px 3px rgba(59,123,255,.3)}
+  .home-intro{background:#1D2438;border:1.5px solid #3E4B78;border-radius:14px;padding:20px;margin-bottom:14px;color:#fff;box-shadow:0 1px 3px rgba(29,36,56,.12),0 4px 12px rgba(29,36,56,.08)}
+  .home-title{font:800 1.3rem 'DM Sans',sans-serif;color:#fff;margin-bottom:6px}
+  .home-sub{font:500 .9rem 'DM Sans',sans-serif;color:#C8D0E4;line-height:1.5}
+  .home-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+  .home-stat{background:#1D2438;border:1.5px solid #3E4B78;border-radius:14px;padding:18px 14px;text-align:center;cursor:pointer;transition:all .15s;box-shadow:0 1px 3px rgba(29,36,56,.12),0 4px 12px rgba(29,36,56,.08);color:#fff}
+  .home-stat:hover{background:#283152;border-color:#6B7BA6;transform:translateY(-2px);box-shadow:0 4px 16px rgba(29,36,56,.18)}
+  .home-stat-ico{font-size:2rem;margin-bottom:6px}
+  .home-stat-n{font:800 2rem 'IBM Plex Mono',monospace;color:#4CE087;line-height:1;margin-bottom:6px}
+  .home-stat-lbl{font:700 .88rem 'DM Sans',sans-serif;color:#fff;line-height:1.4}
+  .home-stat-lbl small{font:500 .72rem 'DM Sans',sans-serif;color:#8B95B4;display:block;margin-top:3px}
+ `;
+ document.head.appendChild(s);
+})();
 
 /* ==================== RENDER: TAB SCHEDINA ==================== */
 function renderSchedina(){
@@ -2254,7 +2353,7 @@ function renderSchedina(){
   main.innerHTML = `<div class="empty">
    <div class="ico">📝</div>
    <p class="title">Schedina vuota</p>
-   <p>Vai nel tab "Oggi" e aggiungi le partite dalle card BET OF THE DAY o dalle altre singole. Puoi aggiungere fino a 5 leg per costruire singole, doppie o tris.</p>
+   <p>Vai nel tab "Oggi", genera le tue pick e clicca "+ Schedina" sulle partite che vuoi aggiungere. Puoi includere fino a 5 leg.</p>
   </div>`;
   return;
  }
@@ -2290,9 +2389,9 @@ function renderSchedina(){
    <span class="v">${fmtEur(profit)}</span>
   </div>
   <div style="display:flex;gap:8px;margin-top:14px;flex-wrap:wrap">
-   <button class="btn btn-primary" id="confirmTicket">✅ Conferma e salva nello storico</button>
+   <button class="btn btn-primary" id="confirmTicket">✅ Conferma e salva</button>
    <button class="btn btn-ghost" id="exportTicketPDF">📄 Esporta PDF</button>
-   <button class="btn btn-ghost" id="clearTicket" style="margin-left:auto;color:var(--err);border-color:rgba(248,113,113,.3)">🗑️ Svuota</button>
+   <button class="btn btn-ghost" id="clearTicket" style="margin-left:auto;color:var(--err);border-color:rgba(255,123,123,.5)">🗑️ Svuota</button>
   </div>
  </div>`;
 }
@@ -2313,145 +2412,75 @@ function renderBankroll(){
   <div class="bk-card"><div class="lbl">P/L oggi</div><div class="vl ${b.pl_day>0?'pos':b.pl_day<0?'neg':''}">${b.pl_day>=0?'+':''}${fmtEur(b.pl_day)}</div></div>
   <div class="bk-card"><div class="lbl">P/L settimana</div><div class="vl ${b.pl_week>0?'pos':b.pl_week<0?'neg':''}">${b.pl_week>=0?'+':''}${fmtEur(b.pl_week)}</div></div>
  </div>`;
- const warning = (dayPctErr || weekPctErr) ? `<div class="err-box">🛑 ${dayPctErr?'Stop-loss giornaliero −10% raggiunto. Scommesse bloccate fino a domani.':''}${weekPctErr?'Stop-loss settimanale −20% raggiunto. Rivedi il modello prima di riprendere.':''}</div>` :
-  dayPctWarn ? `<div class="warn-box">⚠️ Sei sopra il −5% giornaliero. Resta attento al cap del −10%.</div>` : '';
- const afterLossBox = b.afterLossActive ? `<div class="warn-box">📉 Modalità after-loss attiva: gli stake suggeriti dal Kelly sono ridotti del 25%.</div>` : '';
+ const warning = (dayPctErr || weekPctErr) ? `<div class="err-box">🛑 ${dayPctErr?'Stop-loss giornaliero −10% raggiunto.':''}${weekPctErr?'Stop-loss settimanale −20% raggiunto.':''}</div>` :
+  dayPctWarn ? `<div class="warn-box">⚠️ Sei sopra il −5% giornaliero. Attento al cap del −10%.</div>` : '';
  const ctrl = `<div class="bk-ctrl">
-  <h3>⚙️ Configurazione bankroll</h3>
+  <h3>⚙️ Configurazione</h3>
   <div class="bk-row"><label>Bankroll totale (€)</label><input type="number" id="bkTotal" value="${b.total}" min="10" max="100000" step="10"></div>
   <div class="bk-row"><label>Segregato (€)</label><input type="number" id="bkSeg" value="${b.segregated}" min="10" max="100000" step="10"></div>
-  <div class="bk-row">
-   <label>Frazione Kelly</label>
-   <input type="range" id="kellyFrac" min="0.10" max="0.50" step="0.05" value="${b.kellyFraction}">
-   <span class="out" id="kellyFracOut">${b.kellyFraction.toFixed(2)}</span>
-  </div>
-  <div class="bk-row">
-   <label>Cap stake max %</label>
-   <input type="range" id="capPct" min="0.01" max="0.10" step="0.005" value="${b.capPct}">
-   <span class="out" id="capPctOut">${(b.capPct*100).toFixed(1)}%</span>
-  </div>
-  <div class="bk-row">
-   <label>After-loss (riduce 25%)</label>
-   <select id="afterLossSel">
-    <option value="false" ${!b.afterLossActive?'selected':''}>Disattivo</option>
-    <option value="true" ${b.afterLossActive?'selected':''}>Attivo</option>
-   </select>
-  </div>
-  <div class="bk-row" style="border-top:1px solid var(--brd1);padding-top:10px;margin-top:10px">
-   <button class="btn btn-primary" id="bkSave">💾 Salva configurazione</button>
-   <button class="btn btn-ghost" id="bkResetWeek">🔄 Reset P/L settimana</button>
-   <button class="btn btn-ghost" style="color:var(--err);border-color:rgba(248,113,113,.3)" id="bkResetAll">⚠️ Reset bankroll</button>
+  <div class="bk-row"><label>Frazione Kelly</label><input type="range" id="kellyFrac" min="0.10" max="0.50" step="0.05" value="${b.kellyFraction}"><span class="out" id="kellyFracOut">${b.kellyFraction.toFixed(2)}</span></div>
+  <div class="bk-row"><label>Cap stake max %</label><input type="range" id="capPct" min="0.01" max="0.10" step="0.005" value="${b.capPct}"><span class="out" id="capPctOut">${(b.capPct*100).toFixed(1)}%</span></div>
+  <div class="bk-row"><label>After-loss (riduce 25%)</label><select id="afterLossSel"><option value="false" ${!b.afterLossActive?'selected':''}>Disattivo</option><option value="true" ${b.afterLossActive?'selected':''}>Attivo</option></select></div>
+  <div class="bk-row" style="border-top:1px solid #4F5D8C;padding-top:10px;margin-top:10px">
+   <button class="btn btn-primary" id="bkSave">💾 Salva</button>
+   <button class="btn btn-ghost" id="bkResetWeek">🔄 Reset P/L sett.</button>
+   <button class="btn btn-ghost" style="color:var(--err);border-color:rgba(255,123,123,.5)" id="bkResetAll">⚠️ Reset bankroll</button>
   </div>
  </div>`;
- // Lookup table edge × confidence
- const edges = [3, 5, 8, 12, 18];
- const confs = [60, 70, 80, 90];
- let table = `<table class="lookup"><thead><tr><th>Edge ↓ / Conf →</th>${confs.map(c=>`<th>${c}-${c+9}</th>`).join('')}</tr></thead><tbody>`;
- edges.forEach((e,ei) => {
-  const max = ei < edges.length-1 ? edges[ei+1] : 25;
-  table += `<tr><td>${e}-${max}%</td>`;
-  confs.forEach(c => {
-   const odds = 1.90;
-   const pImpl = 1/odds;
-   const p = pImpl + (e/100);
-   const r = kellyStake(p, odds, {confidence:c, fraction:b.kellyFraction, cap:b.capPct, bankroll:100});
-   const pct = r.pct * 100;
-   const cls = pct >= 3 ? 'hl' : '';
-   table += `<td class="${cls}">${pct.toFixed(1)}%</td>`;
-  });
-  table += '</tr>';
- });
- table += '</tbody></table>';
- main.innerHTML = warning + afterLossBox + cards + ctrl + `<div class="str-sec"><h3>📊 Tabella stake suggerito (% bankroll)</h3><p>Per ogni combinazione edge × confidence viene calcolato lo stake con la frazione Kelly attuale (${b.kellyFraction.toFixed(2)}, cap ${(b.capPct*100).toFixed(1)}%).</p>${table}</div>`;
+ main.innerHTML = warning + cards + ctrl;
 }
 
 /* ==================== RENDER: TAB STRUMENTI ==================== */
 function renderStrumenti(){
  const main = document.getElementById('mainTab');
  const cnt = DATASETS.map(d => `<li><strong>${d.label}</strong>: ${(S.datasets[d.key]||[]).length} righe</li>`).join('');
- const filters = [
-  ['coverage', 'Coverage < 50% di segnali disponibili'],
-  ['confidence', 'Confidence < 60'],
-  ['quotaRange', 'Quota fuori range mercato (1.20-15)'],
-  ['edge', 'Edge negativo dopo shrinkage'],
-  ['stakeZero', 'Kelly stake = 0'],
-  ['dropContra', 'Drop quota contrario alla direzione'],
-  ['npLow', 'NP DataMining troppo basso (<8 per Over)'],
-  ['stopDay', 'Stop-loss giornaliero −10% attivo'],
-  ['stopWeek', 'Stop-loss settimanale −20% attivo'],
-  ['conflicts', '2+ segnali contrari rilevati']
- ];
- const filtersHTML = filters.map(([n,d]) => `<div class="filter-item"><span class="n">${n}</span>${escHtml(d)}</div>`).join('');
- const m1Rules = [
-  ['Ov 0.5 PT M1', 'IND&lt;320 AND Delta&lt;-20 AND Diff&lt;0'],
-  ['GG M1', 'IGBc≥150 AND IGBo≥150 AND S12&lt;150 AND PGG≥55'],
-  ['Ov 2.5 M1', 'IGBt≥300 AND MGE≥3 AND Diff≤0'],
-  ['U 2.5 M1', 'Diff&gt;1.5 AND 0&lt;MGE&lt;3'],
-  ['MG 1-3 Casa M1', 'ICH∈[300,350] AND VarC≥30'],
-  ['MG 1-3 Ospite M1', 'ICA∈[300,350] AND VarO≥30']
- ];
- const m1HTML = m1Rules.map(([n,d]) => `<div class="filter-item"><span class="n">${n}</span><code style="font-family:var(--M);font-size:.8rem">${d}</code></div>`).join('');
- const gzRules = [
-  ['GZ &lt; -1800', 'U 2.5 al 64%'],
-  ['GZ &lt; -1200', 'U 3.5 all\'81%'],
-  ['GZ ∈ [-200, +200]', 'Ov 0.5 al 95%'],
-  ['GZ &gt; +1000', 'Ov 1.5 all\'80%'],
-  ['GZ &gt; +5000', 'Ov 2.5 al 64%']
- ];
- const gzHTML = gzRules.map(([n,d]) => `<div class="filter-item"><span class="n">${n}</span>${d}</div>`).join('');
- const diffRules = [
-  ['DGT &gt; +0.8', 'Sovrafrequenza gol → pro UNDER (regressione alla media)'],
-  ['DGT &lt; -0.8', 'Sottofrequenza gol → pro OVER (regressione alla media)'],
-  ['DiffC &gt; +0.3', 'Casa sopra media → pro NO Casa Segna'],
-  ['DiffC &lt; -0.3', 'Casa sotto media → pro Casa Segna'],
-  ['DiffO &gt; +0.3', 'Ospite sopra media → pro NO Ospite Segna'],
-  ['DiffO &lt; -0.3', 'Ospite sotto media → pro Ospite Segna'],
-  ['Drop QrL &gt; 5%', 'Bonus confidence (money flow conferma)'],
-  ['Drop QrL &lt; -5%', 'Penalità confidence + cap 60 (money flow contraria)']
- ];
- const diffHTML = diffRules.map(([n,d]) => `<div class="filter-item"><span class="n">${n}</span>${d}</div>`).join('');
  main.innerHTML = `
   <div class="str-sec">
    <h3>📊 Dataset caricati</h3>
    <ul>${cnt}</ul>
    <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
-    <button class="btn btn-ghost" id="recomputeBtn">🔄 Ricalcola Decision Engine</button>
-    <button class="btn btn-ghost" id="exportFullPDF">📄 Esporta report completo PDF</button>
-    <button class="btn btn-ghost" id="exportJSON">💾 Esporta storico JSON</button>
+    <button class="btn btn-ghost" id="recomputeBtn">🔄 Ricalcola</button>
+    <button class="btn btn-ghost" id="exportFullPDF">📄 Esporta PDF</button>
+    <button class="btn btn-ghost" id="exportJSON">💾 Esporta JSON</button>
    </div>
   </div>
   <div class="str-sec">
-   <h3>🛡️ 10 criteri anti-scommessa</h3>
-   <p>Lo Skip Engine valuta ogni pronostico con questi criteri. Se almeno uno è violato, la pick viene esclusa dalle Top Singole / Doppie / Tris (resta visibile nei Value Bets in alcuni casi).</p>
-   <div class="filters-list">${filtersHTML}</div>
-  </div>
-  <div class="str-sec">
-   <h3>🏅 Regole M1 sigillate (identiche alla Fase 4)</h3>
-   <p>Queste regole sono il <strong>nucleo deterministico</strong> del sistema BioFootballBet/FAPro. Il Confidence Score le pesa al 28% e mai le sovrascrive.</p>
-   <div class="filters-list">${m1HTML}</div>
-  </div>
-  <div class="str-sec">
-   <h3>📡 Soglie GZ Index</h3>
-   <p>Mappatura del segnale GZ (Indice Bio FAPro) sulle probabilità Over/Under storicamente validate.</p>
-   <div class="filters-list">${gzHTML}</div>
-  </div>
-  <div class="str-sec">
-   <h3>📉 Logica Differenziali Gol (mean-reversion)</h3>
-   <p>Il pacchetto DGT/DiffC/DiffO segue la <strong>regressione alla media</strong>: trend sopra la media consolidata → pronostica contro il trend recente.</p>
-   <div class="filters-list">${diffHTML}</div>
-  </div>
-  <div class="str-sec">
-   <h3>⚖️ Pesi del Confidence Score</h3>
-   <p>La formula è una <strong>weighted average coverage-aware</strong> con conflict penalty λσ e coverage factor 0.70 + 0.30·coverage.</p>
+   <h3>ℹ️ Info badge</h3>
+   <p>Tocca un badge qualsiasi nelle card per leggere cosa significa.</p>
    <div class="filters-list">
-    <div class="filter-item"><span class="n">Regole M1 sigillate (S1-S4)</span>Peso 28%</div>
-    <div class="filter-item"><span class="n">DataMining (S7)</span>Peso 22%</div>
-    <div class="filter-item"><span class="n">GZ Index (S6)</span>Peso 13%</div>
-    <div class="filter-item"><span class="n">Differenziali Gol (S10)</span>Peso 12%</div>
-    <div class="filter-item"><span class="n">Value 1X2 (S8)</span>Peso 9%</div>
-    <div class="filter-item"><span class="n">Stats IA (S5)</span>Peso 8%</div>
-    <div class="filter-item"><span class="n">Profilo giocatori (S9)</span>Peso 8%</div>
-    <div class="filter-item"><span class="n">Penalità conflitti</span>λ = 8 · σ direzionale</div>
+    <div class="filter-item" data-badge="M1"><span class="n">🏅 M1</span>Regola sigillata attiva · clicca per info</div>
+    <div class="filter-item" data-badge="DM"><span class="n">📊 DM (numero)</span>DataMining NP · clicca per info</div>
+    <div class="filter-item" data-badge="VALUE"><span class="n">💎 VALUE %</span>Edge positivo · clicca per info</div>
+    <div class="filter-item" data-badge="Drop pro"><span class="n">📉 Drop pro</span>Money flow favorevole · clicca per info</div>
+    <div class="filter-item" data-badge="CAP"><span class="n">🚨 CAP</span>Confidence limitato · clicca per info</div>
+    <div class="filter-item" data-badge="GZ"><span class="n">📡 GZ</span>Indice BioFootballBet · clicca per info</div>
+    <div class="filter-item" data-badge="DGT"><span class="n">📉 DGT</span>Differenziale gol · clicca per info</div>
+    <div class="filter-item" data-badge="Confidence"><span class="n">🎯 Score 0-100</span>Confidence totale · clicca per info</div>
+   </div>
+  </div>
+  <div class="str-sec">
+   <h3>🏅 Regole M1 sigillate</h3>
+   <div class="filters-list">
+    <div class="filter-item"><span class="n">Ov 0.5 PT</span>IND&lt;320 AND Delta&lt;-20 AND Diff&lt;0</div>
+    <div class="filter-item"><span class="n">GG</span>IGBc≥150 AND IGBo≥150 AND S12&lt;150 AND PGG≥55</div>
+    <div class="filter-item"><span class="n">Ov 2.5</span>IGBt≥300 AND MGE≥3 AND Diff≤0</div>
+    <div class="filter-item"><span class="n">U 2.5</span>Diff&gt;1.5 AND 0&lt;MGE&lt;3</div>
+    <div class="filter-item"><span class="n">MG 1-3 Casa</span>ICH∈[300,350] AND VarC≥30</div>
+    <div class="filter-item"><span class="n">MG 1-3 Ospite</span>ICA∈[300,350] AND VarO≥30</div>
+   </div>
+  </div>
+  <div class="str-sec">
+   <h3>💰 Quote utilizzate</h3>
+   <div class="filters-list">
+    <div class="filter-item"><span class="n">Ov 0.5 PT</span>da CSV Ov 0.5 PT o DM</div>
+    <div class="filter-item"><span class="n">GG</span>da DataMining (qGG)</div>
+    <div class="filter-item"><span class="n">Ov 2.5</span>da Differenziali (QrL) · GGov25 · DM</div>
+    <div class="filter-item"><span class="n">U 2.5</span>da DataMining (qUN35)</div>
+    <div class="filter-item"><span class="n">Casa Segna</span>da DataMining (qSC)</div>
+    <div class="filter-item"><span class="n">Ospite Segna</span>da DataMining (qSO)</div>
+    <div class="filter-item"><span class="n">1 / X / 2</span>da Quote Valore o DM</div>
+    <div class="filter-item" style="background:rgba(76,224,135,.1)"><span class="n">MG 1-3 Casa/Ospite</span><strong>quota fissa 1.30</strong></div>
+    <div class="filter-item" style="background:rgba(76,224,135,.1)"><span class="n">MG 2-4</span><strong>quota fissa 1.50</strong></div>
    </div>
   </div>`;
 }
@@ -2461,11 +2490,7 @@ function renderStorico(){
  const main = document.getElementById('mainTab');
  const h = S.history || [];
  if(!h.length){
-  main.innerHTML = `<div class="empty">
-   <div class="ico">📚</div>
-   <p class="title">Nessun pronostico in storico</p>
-   <p>Aggiungi una pick dalla schedina per iniziare a tracciare il tuo ROI. Lo storico include hit rate, P/L progressivo e CLV (closing line value).</p>
-  </div>`;
+  main.innerHTML = `<div class="empty"><div class="ico">📚</div><p class="title">Nessun pronostico in storico</p><p>Aggiungi una pick dalla schedina per iniziare a tracciare il tuo ROI.</p></div>`;
   return;
  }
  const won = h.filter(x => x.status==='won').length;
@@ -2477,7 +2502,7 @@ function renderStorico(){
  const totalStake = h.reduce((s,x) => s + (x.stake||0), 0);
  const yieldPct = totalStake > 0 ? (totalProfit/totalStake)*100 : 0;
  const stats = `<div class="bk-cards">
-  <div class="bk-card"><div class="lbl">Pick totali</div><div class="vl">${h.length}</div></div>
+  <div class="bk-card"><div class="lbl">Totali</div><div class="vl">${h.length}</div></div>
   <div class="bk-card"><div class="lbl">Vinte</div><div class="vl pos">${won}</div></div>
   <div class="bk-card"><div class="lbl">Perse</div><div class="vl neg">${lost}</div></div>
   <div class="bk-card"><div class="lbl">Aperte</div><div class="vl">${open}</div></div>
@@ -2485,47 +2510,37 @@ function renderStorico(){
   <div class="bk-card"><div class="lbl">P/L totale</div><div class="vl ${totalProfit>0?'pos':totalProfit<0?'neg':''}">${totalProfit>=0?'+':''}${fmtEur(totalProfit)}</div></div>
   <div class="bk-card"><div class="lbl">Yield</div><div class="vl ${yieldPct>0?'pos':yieldPct<0?'neg':''}">${yieldPct>=0?'+':''}${yieldPct.toFixed(2)}%</div></div>
  </div>`;
+ let rows = h.slice().reverse();
+ if(S.ui.histFilter && S.ui.histFilter !== 'all') rows = rows.filter(x => x.status === S.ui.histFilter);
  const filters = `<div class="toolbar">
-  <input class="search" id="histSearch" placeholder="Cerca match…" value="${escHtml(S.ui.q||'')}">
   <select class="select" id="histStat">
-   <option value="all" ${S.ui.histFilter==='all'?'selected':''}>Tutti gli stati</option>
+   <option value="all" ${S.ui.histFilter==='all'?'selected':''}>Tutti</option>
    <option value="open" ${S.ui.histFilter==='open'?'selected':''}>Aperte</option>
    <option value="won" ${S.ui.histFilter==='won'?'selected':''}>Vinte</option>
    <option value="lost" ${S.ui.histFilter==='lost'?'selected':''}>Perse</option>
   </select>
  </div>`;
- let rows = h.slice().reverse();
- if(S.ui.histFilter !== 'all') rows = rows.filter(x => x.status === S.ui.histFilter);
- if(S.ui.q) rows = rows.filter(x => normMatchKey(x.match || '').includes(normMatchKey(S.ui.q)) || normMatchKey(x.market || '').includes(normMatchKey(S.ui.q)));
  const items = rows.map(r => {
-  const dateStr = new Date(r.savedAt || Date.now()).toLocaleDateString('it-IT', {day:'2-digit', month:'2-digit', year:'2-digit', hour:'2-digit', minute:'2-digit'});
+  const dateStr = new Date(r.savedAt || Date.now()).toLocaleDateString('it-IT', {day:'2-digit', month:'2-digit', year:'2-digit'});
   const statBdg = r.status === 'won' ? '<span class="bdg bdg-ok">VINTA</span>' : r.status === 'lost' ? '<span class="bdg bdg-skip">PERSA</span>' : '<span class="bdg bdg-neu">APERTA</span>';
   const profitStr = r.status !== 'open' ? `${r.profit>=0?'+':''}${fmtEur(r.profit||0)}` : '—';
-  const profitCls = r.status === 'won' ? 'pos' : r.status === 'lost' ? 'neg' : '';
   const legsStr = (r.legs||[]).map(l => `${escHtml(l.match)} (${escHtml(l.market)} @ ${l.odds?.toFixed(2)})`).join(' · ');
   return `<div class="hist-row">
-   <div class="hist-top">
-    <div class="hist-info">
-     <div class="n">${escHtml(r.tipo || 'Pick')} · quota ${(r.totalOdds||0).toFixed(2)} · ${statBdg}</div>
-     <div class="s">${escHtml(legsStr)}</div>
-     <div class="s" style="margin-top:4px;color:var(--fg3)">${dateStr} · stake ${fmtEur(r.stake)} · profitto <span style="color:var(--${profitCls==='pos'?'ok':profitCls==='neg'?'err':'fg3'})">${profitStr}</span></div>
-    </div>
+   <div class="hist-info">
+    <div class="n">${escHtml(r.tipo || 'Pick')} · q ${(r.totalOdds||0).toFixed(2)} · ${statBdg}</div>
+    <div class="s">${escHtml(legsStr)}</div>
+    <div class="s" style="color:#8B95B4">${dateStr} · stake ${fmtEur(r.stake)} · profit ${profitStr}</div>
    </div>
    <div class="hist-actions">
-    ${r.status==='open' ? `
-    <button class="mini-btn ok" data-set-status="${r.id}|won">✅ Segna vinta</button>
-    <button class="mini-btn" data-set-status="${r.id}|lost" style="color:var(--err);border-color:rgba(248,113,113,.3)">❌ Segna persa</button>
-    ` : `
-    <button class="mini-btn" data-set-status="${r.id}|open">↩️ Riapri</button>
-    `}
-    <button class="mini-btn" data-rm-hist="${r.id}" style="color:var(--err);margin-left:auto">🗑️ Elimina</button>
+    ${r.status==='open' ? `<button class="mini-btn ok" data-set-status="${r.id}|won">✅ Vinta</button><button class="mini-btn" data-set-status="${r.id}|lost" style="color:var(--err);border-color:rgba(255,123,123,.5)">❌ Persa</button>` : `<button class="mini-btn" data-set-status="${r.id}|open">↩️ Riapri</button>`}
+    <button class="mini-btn" data-rm-hist="${r.id}" style="color:var(--err);margin-left:auto">🗑️</button>
    </div>
   </div>`;
  }).join('');
- main.innerHTML = stats + filters + (items || `<div class="empty"><p>Nessun pronostico corrisponde ai filtri.</p></div>`);
+ main.innerHTML = stats + filters + (items || `<div class="empty"><p>Nessuna pick.</p></div>`);
 }
 
-/* ==================== RENDER ROUTER + UPLOAD GRID ==================== */
+/* ==================== RENDER ROUTER ==================== */
 function renderUploadGrid(){
  const grid = document.getElementById('uploadGrid');
  grid.innerHTML = DATASETS.map(d => {
@@ -2534,7 +2549,7 @@ function renderUploadGrid(){
   return `<div class="${cls}">
    <input type="file" accept=".csv,text/csv" data-target="${d.key}">
    <div class="up-lbl">${escHtml(d.label)} <span class="tag-num">${DATASETS.indexOf(d)+1}</span></div>
-   <div class="up-meta">${n>0?`<span class="up-count">${n} righe</span>`:'<span style="color:var(--fg3)">Nessun file</span>'}<small>${escHtml(d.hint)}</small></div>
+   <div class="up-meta">${n>0?`<span class="up-count">${n} righe</span>`:'<span class="up-nofile">Nessun file</span>'}<small>${escHtml(d.hint)}</small></div>
    <div class="up-actions">
     <button type="button" class="up-btn" data-pick="${d.key}">Seleziona</button>
     ${n>0?`<button type="button" class="up-btn clear" data-clear="${d.key}">Reset</button>`:''}
@@ -2552,12 +2567,8 @@ function renderHeader(){
  const b = S.bankroll;
  const pl = b.pl_day;
  const cls = pl > 0 ? 'pos' : pl < 0 ? 'neg' : '';
- el.innerHTML = `<div class="bk-mini">
-  <span class="lbl">Bankroll</span>${fmtEur(b.segregated)}
- </div>
- <div class="bk-mini ${cls}">
-  <span class="lbl">P/L oggi</span>${pl>=0?'+':''}${fmtEur(pl)}
- </div>`;
+ el.innerHTML = `<div class="bk-mini"><span class="lbl">Bankroll</span>${fmtEur(b.segregated)}</div>
+ <div class="bk-mini ${cls}"><span class="lbl">P/L oggi</span>${pl>=0?'+':''}${fmtEur(pl)}</div>`;
 }
 
 function render(){
@@ -2577,9 +2588,7 @@ function findRecBy(key, market){
  if(!S.output) return null;
  for(const m of S.output.allMatches){
   if(m.match._key === key){
-   for(const r of m.recs){
-    if(r.market === market) return r;
-   }
+   for(const r of m.recs) if(r.market === market) return r;
   }
  }
  return null;
@@ -2588,13 +2597,12 @@ function findRecBy(key, market){
 function addToTicket(key, market){
  const rec = findRecBy(key, market);
  if(!rec){ showToast('Pick non trovata', 'err'); return; }
- if(S.ticket.legs.length >= 5){ showToast('Max 5 leg per schedina', 'err'); return; }
+ if(S.ticket.legs.length >= 5){ showToast('Max 5 leg', 'err'); return; }
  if(S.ticket.legs.find(l => l._key === key)){ showToast('Match già in schedina', 'err'); return; }
- // Check correlation con leg esistenti
  for(const ex of S.ticket.legs){
   const corr = correlationScore(ex, rec);
   if(corr > 0.35){
-   if(!confirm(`Attenzione: questa pick ha correlazione ${(corr*100).toFixed(0)}% con "${ex.match}". Vuoi aggiungerla comunque?`)) return;
+   if(!confirm(`Attenzione: correlazione ${(corr*100).toFixed(0)}% con "${ex.match}". Aggiungere comunque?`)) return;
   }
  }
  S.ticket.legs.push({
@@ -2602,10 +2610,7 @@ function addToTicket(key, market){
   ora: rec.ora, lega: rec.lega, dir: rec.dir, side: rec.side,
   pModel: rec.pModel, confidence: rec.confidence
  });
- if(S.ticket.legs.length === 1){
-  // Imposta stake suggerito Kelly per la prima leg
-  S.ticket.stake = Math.max(1, Math.round(rec.stake));
- }
+ if(S.ticket.legs.length === 1) S.ticket.stake = Math.max(1, Math.round(rec.stake || 10));
  schedulePersist();
  showToast('Aggiunto alla schedina', 'ok');
  render();
@@ -2614,35 +2619,29 @@ function addToTicket(key, market){
 function addComboToTicket(type, idx){
  const o = S.output;
  if(!o) return;
- const combo = type === 'tris' ? o.smartTriples[idx] : o.smartDoubles[idx];
+ let combo = null;
+ if(type === 'doppia') combo = genDoppie(o.allMatches)[idx];
+ else if(type === 'tris') combo = genTris(o.allMatches)[idx];
+ else if(type === 'multipla'){
+  const m4 = genMultipla(o.allMatches, 4, 5, 15, 2);
+  const m5 = genMultipla(o.allMatches, 5, 8, 30, 1);
+  combo = [...m4, ...m5][idx];
+ }
  if(!combo) return;
  S.ticket.legs = combo.legs.map(l => ({
   _key: l._key, match: l.match, market: l.market, odds: l.odds,
   ora: l.ora, lega: l.lega, dir: l.dir, side: l.side,
   pModel: l.pModel, confidence: l.confidence
  }));
- const stakeJoint = round(S.bankroll.segregated * 0.02 * (combo.score+1), 2);
- S.ticket.stake = Math.max(1, Math.round(stakeJoint));
+ S.ticket.stake = Math.max(1, Math.round(S.bankroll.segregated * 0.02));
  S.ui.tab = 'schedina';
  schedulePersist();
- showToast(`${type==='tris'?'Tris':'Doppia'} caricata in schedina`, 'ok');
+ showToast(`${type==='tris'?'Tris':type==='multipla'?'Multipla':'Doppia'} caricata`, 'ok');
  render();
 }
 
-function removeLeg(idx){
- S.ticket.legs.splice(idx,1);
- schedulePersist();
- render();
-}
-
-function clearTicket(){
- if(!S.ticket.legs.length) return;
- if(!confirm('Svuotare la schedina corrente?')) return;
- S.ticket.legs = [];
- S.ticket.stake = 10;
- schedulePersist();
- render();
-}
+function removeLeg(idx){ S.ticket.legs.splice(idx,1); schedulePersist(); render(); }
+function clearTicket(){ if(!S.ticket.legs.length) return; if(!confirm('Svuotare la schedina?')) return; S.ticket.legs = []; S.ticket.stake = 10; schedulePersist(); render(); }
 
 function confirmTicket(){
  if(!S.ticket.legs.length) return;
@@ -2651,18 +2650,12 @@ function confirmTicket(){
  const entry = {
   id: 'h_' + Date.now() + '_' + Math.random().toString(36).slice(2,7),
   savedAt: new Date().toISOString(),
-  tipo,
-  legs: S.ticket.legs.slice(),
-  totalOdds,
-  stake: S.ticket.stake,
-  status: 'open',
-  profit: 0
+  tipo, legs: S.ticket.legs.slice(), totalOdds, stake: S.ticket.stake, status:'open', profit: 0
  };
  S.history.unshift(entry);
- S.ticket.legs = [];
- S.ticket.stake = 10;
+ S.ticket.legs = []; S.ticket.stake = 10;
  schedulePersist();
- showToast('Pick salvata nello storico', 'ok');
+ showToast('Pick salvata', 'ok');
  S.ui.tab = 'storico';
  render();
 }
@@ -2674,14 +2667,13 @@ function setHistStatus(id, status){
  if(status === 'won') item.profit = item.stake * item.totalOdds - item.stake;
  else if(status === 'lost') item.profit = -item.stake;
  else item.profit = 0;
- // Aggiorna bankroll
  recomputeBankrollPL();
  schedulePersist();
  render();
 }
 
 function removeHist(id){
- if(!confirm('Eliminare definitivamente questa pick dallo storico?')) return;
+ if(!confirm('Eliminare?')) return;
  S.history = S.history.filter(x => x.id !== id);
  recomputeBankrollPL();
  schedulePersist();
@@ -2702,29 +2694,19 @@ function recomputeBankrollPL(){
  S.bankroll.pl_week = plw;
 }
 
-/* ==================== PERSISTENZA LOCALSTORAGE ==================== */
+/* ==================== PERSISTENZA ==================== */
 let saveTimer = null;
-function schedulePersist(){
- clearTimeout(saveTimer);
- saveTimer = setTimeout(persistState, 400);
-}
-
+function schedulePersist(){ clearTimeout(saveTimer); saveTimer = setTimeout(persistState, 400); }
 function persistState(){
  try {
   const toSave = {
-   version: VERSION,
-   savedAt: new Date().toISOString(),
-   bankroll: S.bankroll,
-   ticket: S.ticket,
-   history: S.history,
-   ui: { tab: S.ui.tab, uploadOpen: S.ui.uploadOpen }
+   version: VERSION, savedAt: new Date().toISOString(),
+   bankroll: S.bankroll, ticket: S.ticket, history: S.history,
+   ui: { tab: S.ui.tab, uploadOpen: S.ui.uploadOpen, view: S.ui.view, market: S.ui.market }
   };
   localStorage.setItem(STORAGE_KEY, JSON.stringify(toSave));
- } catch(e){
-  console.warn('Persist failed', e);
- }
+ } catch(e){ console.warn('Persist failed', e); }
 }
-
 function loadState(){
  try {
   const raw = localStorage.getItem(STORAGE_KEY);
@@ -2736,135 +2718,84 @@ function loadState(){
   if(Array.isArray(obj.history)) S.history = obj.history;
   if(obj.ui) Object.assign(S.ui, obj.ui);
   recomputeBankrollPL();
- } catch(e){
-  console.warn('Load state failed', e);
- }
+ } catch(e){ console.warn('Load failed', e); }
 }
 
 /* ==================== EXPORT PDF ==================== */
 function exportFullPDF(){
- if(!window.jspdf || !window.jspdf.jsPDF){ showToast('PDF library non pronta','err'); return; }
- if(!S.output){ showToast('Nessun calcolo disponibile','err'); return; }
+ if(!window.jspdf || !window.jspdf.jsPDF){ showToast('PDF non pronta','err'); return; }
+ if(!S.output){ showToast('Nessun calcolo','err'); return; }
  const { jsPDF } = window.jspdf;
  const doc = new jsPDF({unit:'mm', format:'a4'});
  const o = S.output;
- // Header
- doc.setFillColor(11,15,23); doc.rect(0,0,210,28,'F');
- doc.setTextColor(255,255,255); doc.setFont('helvetica','bold'); doc.setFontSize(16);
- doc.text('Match Analyzer Pro · Fase 5 Smart Advisor', 14, 14);
- doc.setFontSize(9); doc.setTextColor(160,168,190);
- const dt = new Date().toLocaleDateString('it-IT', {day:'2-digit', month:'long', year:'numeric'});
- doc.text(`Report del ${dt} · ${o.matchesCount} match analizzati`, 14, 22);
- let y = 36;
- // Hero
- if(o.hero){
-  doc.setTextColor(22,163,74); doc.setFontSize(11); doc.setFont('helvetica','bold');
-  doc.text(`BET OF THE DAY: ${o.hero.match}`, 14, y); y += 6;
-  doc.setTextColor(30,30,30); doc.setFont('helvetica','normal'); doc.setFontSize(9);
-  doc.text(`${o.hero.market} @ ${o.hero.odds?.toFixed(2)} · Confidence ${o.hero.confidence}/100 · Stake ${o.hero.stakePct.toFixed(1)}% (${fmtEur(o.hero.stake)})`, 14, y); y += 8;
- }
- // Top Singles
- if(o.topSingles && o.topSingles.length){
+ doc.setFillColor(29,36,56); doc.rect(0,0,210,24,'F');
+ doc.setTextColor(255,255,255); doc.setFont('helvetica','bold'); doc.setFontSize(15);
+ doc.text('Match Analyzer Pro - Fase 5', 14, 12);
+ doc.setFontSize(9); doc.setTextColor(200,208,228);
+ doc.text(`${new Date().toLocaleDateString('it-IT')} - ${o.matchesCount} match`, 14, 18);
+ let y = 30;
+ const singole = genSingoleBilanciate(o.allMatches, 15);
+ if(singole.length){
+  doc.setTextColor(30,30,30); doc.setFontSize(11); doc.setFont('helvetica','bold');
+  doc.text('Singole bilanciate (1.65-1.80)', 14, y); y += 5;
   doc.autoTable({
    startY: y,
-   head: [['#','Match','Mercato','Quota','Conf','Edge%','Stake€']],
-   body: o.topSingles.map((r,i) => [i+1, r.match, r.market, r.odds?.toFixed(2), r.confidence, r.edge.toFixed(1), r.stake.toFixed(2)]),
-   theme:'grid', styles:{fontSize:8, cellPadding:3}, headStyles:{fillColor:[37,99,235], textColor:[255,255,255]},
-   alternateRowStyles:{fillColor:[245,247,250]}, margin:{left:14,right:14}
+   head: [['#','Match','Mercato','Quota','Conf','Edge%','Stake']],
+   body: singole.map((r,i) => [i+1, r.match, r.market, r.odds?.toFixed(2), r.confidence, r.edge.toFixed(1), r.stake.toFixed(2)]),
+   theme:'grid', styles:{fontSize:8, cellPadding:2.5}, headStyles:{fillColor:[59,123,255]}, margin:{left:14,right:14}
   });
   y = doc.lastAutoTable.finalY + 8;
  }
- // Doubles
- if(o.smartDoubles && o.smartDoubles.length){
+ const doppie = genDoppie(o.allMatches);
+ if(doppie.length){
   if(y > 230){ doc.addPage(); y = 14; }
-  doc.setTextColor(30,30,30); doc.setFontSize(11); doc.setFont('helvetica','bold');
-  doc.text('Doppie suggerite', 14, y); y += 5;
-  o.smartDoubles.forEach((d,i) => {
+  doc.setFontSize(11); doc.setFont('helvetica','bold');
+  doc.text('Doppie (1.90-2.50)', 14, y); y += 5;
+  doppie.forEach((d,i) => {
    doc.autoTable({
     startY: y,
     head: [['Doppia #'+(i+1), 'Match', 'Mercato', 'Quota']],
-    body: [
-     ...d.legs.map(l => ['Leg', l.match, l.market, l.odds?.toFixed(2)]),
-     ['TOTALE', '', `EV +${d.ev_pct.toFixed(1)}% · p ${(d.pJoint*100).toFixed(1)}%`, d.totalOdds.toFixed(2)]
-    ],
-    theme:'grid', styles:{fontSize:8, cellPadding:3}, headStyles:{fillColor:[192,132,252], textColor:[255,255,255]},
-    margin:{left:14,right:14}
+    body: [...d.legs.map(l => ['Leg', l.match, l.market, l.odds?.toFixed(2)]), ['TOTALE', '', `EV ${d.ev_pct.toFixed(1)}%`, d.totalOdds.toFixed(2)]],
+    theme:'grid', styles:{fontSize:8, cellPadding:2.5}, headStyles:{fillColor:[192,132,252]}, margin:{left:14,right:14}
    });
-   y = doc.lastAutoTable.finalY + 6;
+   y = doc.lastAutoTable.finalY + 5;
+   if(y > 260){ doc.addPage(); y = 14; }
   });
  }
- // Triples
- if(o.smartTriples && o.smartTriples.length){
-  if(y > 220){ doc.addPage(); y = 14; }
-  doc.setTextColor(30,30,30); doc.setFontSize(11); doc.setFont('helvetica','bold');
-  doc.text('Tris smart', 14, y); y += 5;
-  o.smartTriples.forEach((d,i) => {
-   doc.autoTable({
-    startY: y,
-    head: [['Tris #'+(i+1), 'Match', 'Mercato', 'Quota']],
-    body: [
-     ...d.legs.map(l => ['Leg', l.match, l.market, l.odds?.toFixed(2)]),
-     ['TOTALE', '', `EV +${d.ev_pct.toFixed(1)}% · p ${(d.pJoint*100).toFixed(1)}%`, d.totalOdds.toFixed(2)]
-    ],
-    theme:'grid', styles:{fontSize:8, cellPadding:3}, headStyles:{fillColor:[251,146,60], textColor:[255,255,255]},
-    margin:{left:14,right:14}
-   });
-   y = doc.lastAutoTable.finalY + 6;
-  });
- }
- // Value
- if(o.valueBets && o.valueBets.length){
-  if(y > 230){ doc.addPage(); y = 14; }
-  doc.setTextColor(30,30,30); doc.setFontSize(11); doc.setFont('helvetica','bold');
-  doc.text('Value Bets', 14, y); y += 5;
-  doc.autoTable({
-   startY: y,
-   head: [['#','Match','Mercato','Quota','Conf','Edge%','Stake€','NP']],
-   body: o.valueBets.map((r,i) => [i+1, r.match, r.market, r.odds?.toFixed(2), r.confidence, r.edge.toFixed(1), r.stake.toFixed(2), r.sig?.s7?.np||'-']),
-   theme:'grid', styles:{fontSize:8, cellPadding:3}, headStyles:{fillColor:[192,132,252], textColor:[255,255,255]},
-   alternateRowStyles:{fillColor:[252,247,255]}, margin:{left:14,right:14}
-  });
- }
- // Footer pagine
- const pageCount = doc.internal.getNumberOfPages();
- for(let p = 1; p <= pageCount; p++){
+ for(let p=1; p<=doc.internal.getNumberOfPages(); p++){
   doc.setPage(p);
   doc.setFontSize(8); doc.setTextColor(120,120,120);
-  doc.text(`Pagina ${p}/${pageCount} · Match Analyzer Pro F5`, 14, 290);
+  doc.text(`Pagina ${p} - MAP F5`, 14, 290);
  }
  doc.save(`MAP_F5_${new Date().toISOString().slice(0,10)}.pdf`);
  showToast('PDF generato', 'ok');
 }
 
 function exportTicketPDF(){
- if(!window.jspdf || !window.jspdf.jsPDF){ showToast('PDF library non pronta','err'); return; }
+ if(!window.jspdf || !window.jspdf.jsPDF){ showToast('PDF non pronta','err'); return; }
  if(!S.ticket.legs.length){ showToast('Schedina vuota','err'); return; }
  const { jsPDF } = window.jspdf;
  const doc = new jsPDF({unit:'mm', format:'a5'});
  const t = S.ticket;
  const totalOdds = t.legs.reduce((s,l) => s * (l.odds||1), 1);
  const win = t.stake * totalOdds;
- doc.setFillColor(22,163,74); doc.rect(0,0,148,18,'F');
- doc.setTextColor(255,255,255); doc.setFont('helvetica','bold'); doc.setFontSize(14);
- doc.text('🎫 SCHEDINA · Match Analyzer Pro F5', 10, 11);
- let y = 26;
+ doc.setFillColor(76,224,135); doc.rect(0,0,148,16,'F');
+ doc.setTextColor(29,36,56); doc.setFont('helvetica','bold'); doc.setFontSize(13);
+ doc.text('SCHEDINA - MAP F5', 10, 10);
  doc.setTextColor(30,30,30); doc.setFontSize(9);
  doc.autoTable({
-  startY: y,
+  startY: 22,
   head: [['#','Match','Mercato','Quota']],
   body: t.legs.map((l,i) => [i+1, l.match, l.market, l.odds?.toFixed(2)]),
-  theme:'grid', styles:{fontSize:8,cellPadding:3}, headStyles:{fillColor:[37,99,235], textColor:[255,255,255]},
-  margin:{left:10,right:10}
+  theme:'grid', styles:{fontSize:8,cellPadding:3}, headStyles:{fillColor:[59,123,255]}, margin:{left:10,right:10}
  });
- y = doc.lastAutoTable.finalY + 8;
+ let y = doc.lastAutoTable.finalY + 6;
  doc.setFontSize(10); doc.setFont('helvetica','bold');
- doc.text(`Quota totale: ${totalOdds.toFixed(2)}`, 10, y); y += 6;
- doc.text(`Stake: ${fmtEur(t.stake)}`, 10, y); y += 6;
- doc.text(`Possibile vincita: ${fmtEur(win)}`, 10, y); y += 6;
- doc.setFont('helvetica','normal'); doc.setFontSize(8); doc.setTextColor(120,120,120);
- doc.text(`Generato il ${new Date().toLocaleString('it-IT')}`, 10, y+4);
+ doc.text(`Quota tot: ${totalOdds.toFixed(2)}`, 10, y); y += 5;
+ doc.text(`Stake: ${fmtEur(t.stake)}`, 10, y); y += 5;
+ doc.text(`Vincita: ${fmtEur(win)}`, 10, y);
  doc.save(`ticket_${Date.now()}.pdf`);
- showToast('Ticket PDF generato', 'ok');
+ showToast('Ticket PDF', 'ok');
 }
 
 function exportJSON(){
@@ -2873,20 +2804,18 @@ function exportJSON(){
   const blob = new Blob([JSON.stringify(data, null, 2)], {type:'application/json'});
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
-  a.download = `MAP_F5_storico_${new Date().toISOString().slice(0,10)}.json`;
+  a.download = `MAP_F5_${new Date().toISOString().slice(0,10)}.json`;
   document.body.appendChild(a); a.click();
   setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 300);
-  showToast('Export JSON completato', 'ok');
- } catch(e){
-  showToast('Export fallito: ' + e.message, 'err');
- }
+  showToast('Export JSON', 'ok');
+ } catch(e){ showToast('Export fallito', 'err'); }
 }
 
-/* ==================== UPLOAD HANDLERS ==================== */
+/* ==================== UPLOAD ==================== */
 async function handleFileUpload(input){
  const key = input.dataset.target;
  const file = input.files && input.files[0];
- if(!key || !file){ setUploadStatus('File o target mancante', 'err'); return; }
+ if(!key || !file){ setUploadStatus('File mancante', 'err'); return; }
  setUploadStatus(`Lettura ${file.name}…`);
  try {
   const text = typeof file.text === 'function' ? await file.text() : await new Promise((res,rej) => {
@@ -2898,37 +2827,30 @@ async function handleFileUpload(input){
   if(!text.trim()) throw new Error('File vuoto');
   parseAndStore(key, text);
   const n = (S.datasets[key]||[]).length;
-  setUploadStatus(`✅ ${file.name} caricato in ${key}: ${n} righe`, 'ok');
+  setUploadStatus(`✅ ${file.name}: ${n} righe`, 'ok');
   runDecisionEngine();
   render();
  } catch(e){
-  console.error(e);
-  setUploadStatus(`❌ Errore su ${file.name}: ${e.message}`, 'err');
- } finally {
-  input.value = '';
- }
+  setUploadStatus(`❌ ${e.message}`, 'err');
+ } finally { input.value = ''; }
 }
 
 function clearDataset(key){
- if(!confirm(`Reset del dataset ${key}?`)) return;
+ if(!confirm(`Reset ${key}?`)) return;
  S.datasets[key] = [];
- setUploadStatus(`Dataset ${key} resettato`);
  runDecisionEngine();
  render();
 }
 
 /* ==================== EVENT WIRING ==================== */
 function bindEvents(){
- // Tab nav
  document.getElementById('navTabs').addEventListener('click', e => {
   const btn = e.target.closest('.nav-btn');
   if(!btn) return;
   S.ui.tab = btn.dataset.tab;
-  schedulePersist();
-  render();
+  schedulePersist(); render();
  });
 
- // Upload toggle
  document.getElementById('uploadTg').addEventListener('click', () => {
   S.ui.uploadOpen = !S.ui.uploadOpen;
   const body = document.getElementById('uploadBody');
@@ -2938,66 +2860,44 @@ function bindEvents(){
   schedulePersist();
  });
 
- // File input change (delegato)
  document.body.addEventListener('change', e => {
   const t = e.target;
-  if(t.tagName === 'INPUT' && t.type === 'file' && t.dataset.target){
-   handleFileUpload(t);
-  }
-  if(t.id === 'afterLossSel'){
-   S.bankroll.afterLossActive = t.value === 'true';
-   schedulePersist();
-   runDecisionEngine();
-   render();
-  }
+  if(t.tagName === 'INPUT' && t.type === 'file' && t.dataset.target) handleFileUpload(t);
+  if(t.id === 'afterLossSel'){ S.bankroll.afterLossActive = t.value === 'true'; schedulePersist(); runDecisionEngine(); render(); }
+  if(t.id === 'histStat'){ S.ui.histFilter = t.value; schedulePersist(); render(); }
  });
 
- // Click delegato globale
  document.body.addEventListener('click', e => {
   const tgt = e.target;
-  // Pick file
+  // Badge info
+  const badge = tgt.closest('[data-badge]');
+  if(badge){ showBadgeInfo(badge.dataset.badge); return; }
+  // Generator view
+  const gv = tgt.closest('[data-view]');
+  if(gv){ S.ui.view = gv.dataset.view; S.ui.market = null; schedulePersist(); render(); return; }
+  const vc = tgt.closest('[data-view-click]');
+  if(vc){ S.ui.view = vc.dataset.viewClick; S.ui.market = null; schedulePersist(); render(); return; }
+  // Market filter
+  const mkt = tgt.closest('[data-market]');
+  if(mkt){ S.ui.view = 'mercato'; S.ui.market = mkt.dataset.market; schedulePersist(); render(); return; }
   const pick = tgt.closest('[data-pick]');
-  if(pick){
-   const inp = document.querySelector(`input[type=file][data-target="${pick.dataset.pick}"]`);
-   if(inp) inp.click();
-   return;
-  }
-  // Clear dataset
+  if(pick){ const inp = document.querySelector(`input[type=file][data-target="${pick.dataset.pick}"]`); if(inp) inp.click(); return; }
   const clr = tgt.closest('[data-clear]');
   if(clr){ clearDataset(clr.dataset.clear); return; }
-  // Add to ticket
   const add = tgt.closest('[data-add]');
-  if(add){
-   const [k,m] = add.dataset.add.split('|');
-   addToTicket(k, m);
-   return;
-  }
-  // Add combo
+  if(add){ const [k,m] = add.dataset.add.split('|'); addToTicket(k, m); return; }
   const addCombo = tgt.closest('[data-add-combo]');
-  if(addCombo){
-   const [type,idx] = addCombo.dataset.addCombo.split('|');
-   addComboToTicket(type, parseInt(idx));
-   return;
-  }
-  // Remove leg
+  if(addCombo){ const [type,idx] = addCombo.dataset.addCombo.split('|'); addComboToTicket(type, parseInt(idx)); return; }
   const rml = tgt.closest('[data-rm-leg]');
   if(rml){ removeLeg(parseInt(rml.dataset.rmLeg)); return; }
-  // History status
   const hs = tgt.closest('[data-set-status]');
   if(hs){ const [id,st] = hs.dataset.setStatus.split('|'); setHistStatus(id, st); return; }
   const hd = tgt.closest('[data-rm-hist]');
   if(hd){ removeHist(hd.dataset.rmHist); return; }
-  // Bottoni specifici
   if(tgt.id === 'kellyApply'){
    if(S.ticket.legs.length === 1){
     const rec = findRecBy(S.ticket.legs[0]._key, S.ticket.legs[0].market);
     if(rec){ S.ticket.stake = Math.max(1, Math.round(rec.stake)); render(); }
-   } else if(S.ticket.legs.length > 1){
-    const totalOdds = S.ticket.legs.reduce((s,l) => s * l.odds, 1);
-    const pJoint = S.ticket.legs.reduce((s,l) => s * (l.pModel || 0.5), 1);
-    const k = kellyStake(pJoint, totalOdds, {confidence: Math.min(...S.ticket.legs.map(l=>l.confidence||60))});
-    S.ticket.stake = Math.max(1, Math.round(k.eur));
-    render();
    }
    return;
   }
@@ -3010,79 +2910,23 @@ function bindEvents(){
   if(tgt.id === 'bkSave'){
    const tot = parseFloat(document.getElementById('bkTotal').value) || 1000;
    const seg = parseFloat(document.getElementById('bkSeg').value) || tot;
-   S.bankroll.total = tot;
-   S.bankroll.segregated = seg;
-   schedulePersist();
-   runDecisionEngine();
-   render();
-   showToast('Configurazione salvata', 'ok');
-   return;
+   S.bankroll.total = tot; S.bankroll.segregated = seg;
+   schedulePersist(); runDecisionEngine(); render();
+   showToast('Salvato', 'ok'); return;
   }
-  if(tgt.id === 'bkResetWeek'){
-   if(!confirm('Reset P/L settimanale?')) return;
-   S.bankroll.startWeek = startOfWeekISO();
-   S.bankroll.pl_week = 0;
-   schedulePersist(); render(); return;
-  }
-  if(tgt.id === 'bkResetAll'){
-   if(!confirm('ATTENZIONE: reset completo bankroll e P/L. Procedere?')) return;
-   S.bankroll.pl_day = 0; S.bankroll.pl_week = 0;
-   S.bankroll.afterLossActive = false;
-   schedulePersist(); render(); return;
-  }
+  if(tgt.id === 'bkResetWeek'){ if(!confirm('Reset P/L?')) return; S.bankroll.startWeek = startOfWeekISO(); S.bankroll.pl_week = 0; schedulePersist(); render(); return; }
+  if(tgt.id === 'bkResetAll'){ if(!confirm('Reset completo?')) return; S.bankroll.pl_day = 0; S.bankroll.pl_week = 0; S.bankroll.afterLossActive = false; schedulePersist(); render(); return; }
  });
 
- // Input range / number live
  document.body.addEventListener('input', e => {
-  if(e.target.id === 'kellyFrac'){
-   const v = parseFloat(e.target.value);
-   document.getElementById('kellyFracOut').textContent = v.toFixed(2);
-   S.bankroll.kellyFraction = v;
-   schedulePersist();
-   runDecisionEngine();
-  }
-  if(e.target.id === 'capPct'){
-   const v = parseFloat(e.target.value);
-   document.getElementById('capPctOut').textContent = (v*100).toFixed(1)+'%';
-   S.bankroll.capPct = v;
-   schedulePersist();
-   runDecisionEngine();
-  }
-  if(e.target.id === 'stakeInp'){
-   S.ticket.stake = parseFloat(e.target.value) || 0;
-   schedulePersist();
-   const totalOdds = S.ticket.legs.reduce((s,l) => s * (l.odds||1), 1);
-   const win = S.ticket.stake * totalOdds;
-   const profit = win - S.ticket.stake;
-   const wEls = document.querySelectorAll('.ticket-total .v');
-   if(wEls[0]) wEls[0].textContent = fmtEur(win);
-   if(wEls[1]) wEls[1].textContent = fmtEur(profit);
-  }
-  if(e.target.id === 'histSearch'){
-   S.ui.q = e.target.value;
-   const rows = document.querySelectorAll('.hist-row');
-   const q = normMatchKey(e.target.value);
-   rows.forEach(r => {
-    const txt = normMatchKey(r.textContent);
-    r.style.display = (!q || txt.includes(q)) ? '' : 'none';
-   });
-  }
+  if(e.target.id === 'kellyFrac'){ const v = parseFloat(e.target.value); document.getElementById('kellyFracOut').textContent = v.toFixed(2); S.bankroll.kellyFraction = v; schedulePersist(); runDecisionEngine(); }
+  if(e.target.id === 'capPct'){ const v = parseFloat(e.target.value); document.getElementById('capPctOut').textContent = (v*100).toFixed(1)+'%'; S.bankroll.capPct = v; schedulePersist(); runDecisionEngine(); }
+  if(e.target.id === 'stakeInp'){ S.ticket.stake = parseFloat(e.target.value) || 0; schedulePersist(); const totalOdds = S.ticket.legs.reduce((s,l) => s * (l.odds||1), 1); const win = S.ticket.stake * totalOdds; const profit = win - S.ticket.stake; const wEls = document.querySelectorAll('.ticket-total .v'); if(wEls[0]) wEls[0].textContent = fmtEur(win); if(wEls[1]) wEls[1].textContent = fmtEur(profit); }
+  if(e.target.id === 'allSearch'){ S.ui.q = e.target.value; render(); }
  });
 
- // Select change
- document.body.addEventListener('change', e => {
-  if(e.target.id === 'histStat'){
-   S.ui.histFilter = e.target.value;
-   schedulePersist();
-   render();
-  }
- });
-
- // Bus subscriptions
  bus.on('csv:loaded', () => render());
- bus.on('data:recomputed', () => {
-  if(S.ui.tab === 'oggi') renderOggi();
- });
+ bus.on('data:recomputed', () => { if(S.ui.tab === 'oggi') renderOggi(); });
 }
 
 /* ==================== INIT ==================== */
@@ -3090,19 +2934,15 @@ function init(){
  loadState();
  bindEvents();
  render();
- // Apri pannello upload all'inizio se nessun dato
  const hasData = DATASETS.some(d => (S.datasets[d.key]||[]).length > 0);
  if(!hasData && !S.ui.uploadOpen){
-  setTimeout(() => {
-   document.getElementById('uploadTg').click();
-  }, 200);
+  setTimeout(() => { document.getElementById('uploadTg').click(); }, 200);
  }
- console.log('Match Analyzer Pro · Fase 5 Smart Advisor · pronto');
+ console.log('Match Analyzer Pro F5 v4 pronto');
 }
 
 global.MAP = {init, S, bus, runDecisionEngine, render};
 
-// Avvio quando DOM è pronto
 if(document.readyState === 'loading'){
  document.addEventListener('DOMContentLoaded', init);
 } else {
@@ -3111,6 +2951,5 @@ if(document.readyState === 'loading'){
 
 })(window);
 </script>
-
 </body>
 </html>
