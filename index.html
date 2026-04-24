@@ -1037,3 +1037,1081 @@ function parseAndStore(key, text){
  S.datasets[key] = rows;
  bus.emit('csv:loaded', {key, count: rows.length});
 }
+/* === INIZIO PARTE 2/3 · continua da: fine parser CSV === */
+
+/* ==================== UNIFICAZIONE MATCH (FEATURE LAYER) ==================== */
+function unifyMatches(){
+const map = new Map();
+const ensure = (key, evento, ora, lega) => {
+if(!key) return null;
+if(!map.has(key)){
+map.set(key, {
+key, evento: evento||’’, ora: ora||’’, lega: lega||’’,
+ov05pt:null, ggov25:null, mg13:null, ia:null, qVal:null,
+gz:null, dm:null, diffg:null, plCard:[], plShot:[]
+});
+}
+const m = map.get(key);
+if(!m.lega && lega) m.lega = lega;
+if(!m.ora && ora) m.ora = ora;
+if(!m.evento && evento) m.evento = evento;
+return m;
+};
+const ds = S.datasets;
+(ds.ov05pt||[]).forEach(r => { const m=ensure(r._key,r.evento,r.ora,’’); if(m && !m.ov05pt) m.ov05pt=r; });
+(ds.ggov25||[]).forEach(r => { const m=ensure(r._key,r.evento,r.ora,r.lega); if(m && !m.ggov25) m.ggov25=r; });
+(ds.mg13||[]).forEach(r =>   { const m=ensure(r._key,r.evento,r.ora,’’); if(m && !m.mg13) m.mg13=r; });
+(ds.ia||[]).forEach(r =>     { const m=ensure(r._key,r.evento,r.ora,r.lega); if(m && !m.ia) m.ia=r; });
+(ds.qVal||[]).forEach(r =>   { const m=ensure(r._key,r.match,r.ora,’’); if(m && !m.qVal) m.qVal=r; });
+(ds.gz||[]).forEach(r =>     { const m=ensure(r._key,r.evento,r.ora,r.lega); if(m && !m.gz) m.gz=r; });
+(ds.dm||[]).forEach(r =>     { const m=ensure(r._key,r.match,r.ora,’’); if(m && !m.dm) m.dm=r; });
+(ds.diffg||[]).forEach(r =>  { const m=ensure(r._key,r.evento,r.ora,’’); if(m && !m.diffg) m.diffg=r; });
+(ds.plCard||[]).forEach(r => { const m=ensure(r._key,r.partita,r.ora,r.lega); if(m) m.plCard.push(r); });
+(ds.plShot||[]).forEach(r => { const m=ensure(r._key,r.partita,r.ora,r.lega); if(m) m.plShot.push(r); });
+return Array.from(map.values());
+}
+
+/* ==================== REGOLE M1 SIGILLATE ==================== */
+function rule_ov05pt_M1(r){
+if(!r) return false;
+return r.ind < M1_THR.ov05pt.ind && r.delta < M1_THR.ov05pt.delta && r.diff < M1_THR.ov05pt.diff;
+}
+function rule_gg_M1(r){
+if(!r) return false;
+return r.igbc >= M1_THR.gg.igbc && r.igbo >= M1_THR.gg.igbo &&
+r.s12 < M1_THR.gg.s12 && r.pgg >= M1_THR.gg.pgg;
+}
+function rule_o25_M1(r){
+if(!r) return false;
+return r.igbt >= M1_THR.o25.igbt && r.mge >= M1_THR.o25.mge && r.diff <= M1_THR.o25.diff;
+}
+function rule_u25_M1(r){
+if(!r) return false;
+return r.diff > M1_THR.u25.diffMin && r.mge > M1_THR.u25.mgeLow && r.mge < M1_THR.u25.mgeHi;
+}
+function rule_mg13c_M1(r){
+if(!r) return false;
+return r.ich >= M1_THR.mg13c.ichLo && r.ich <= M1_THR.mg13c.ichHi && r.varc >= M1_THR.mg13c.varc;
+}
+function rule_mg13o_M1(r){
+if(!r) return false;
+return r.ica >= M1_THR.mg13o.icaLo && r.ica <= M1_THR.mg13o.icaHi && r.varo >= M1_THR.mg13o.varo;
+}
+
+// GZ probability mapping (regola sigillata da Fase 4)
+function gzProbMap(gz){
+if(gz===null||gz===undefined) return {label:‘N/D’, desc:‘Dato GZ mancante’, type:‘nd’, strength:0, market:null};
+if(gz < -1800) return {label:‘U2.5 64%’,  desc:‘Under 2.5 al 64%’,  type:‘under’, strength:0.64, market:‘U25’};
+if(gz < -1200) return {label:‘U3.5 81%’,  desc:‘Under 3.5 all 81%’, type:‘under’, strength:0.81, market:‘U35’};
+if(gz > 5000)  return {label:‘Ov2.5 64%’, desc:‘Over 2.5 al 64%’,   type:‘over’,  strength:0.64, market:‘O25’};
+if(gz > 1000)  return {label:‘Ov1.5 80%’, desc:‘Over 1.5 all 80%’,  type:‘over’,  strength:0.80, market:‘O15’};
+if(gz > -200 && gz < 200) return {label:‘Ov0.5 95%’, desc:‘Over 0.5 al 95%’, type:‘over’, strength:0.95, market:‘OV05’};
+return {label:‘Neutro’, desc:‘Nessuna indicazione forte da GZ’, type:‘neutral’, strength:0, market:null};
+}
+
+/* ==================== SIGNAL LAYER (10 segnali) ==================== */
+/* Output: { active, value, direction, strength, coverage, details, market }
+value ∈ [0,1] - intensità del segnale per la direzione indicata
+direction ∈ {‘over’,‘under’,‘gg’,‘ng’,‘homeS’,‘awayS’,‘homeW’,‘awayW’,‘neutral’}
+strength ∈ [0,1] - forza del segnale (per UI)
+coverage ∈ {0,1} - se il dato esiste
+*/
+
+// S1 - M1 Ov 0.5 PT (regola sigillata)
+function signal_S1_ov05pt(m){
+const r = m.ov05pt;
+if(!r) return {active:false, coverage:0};
+const m1 = rule_ov05pt_M1(r);
+// distance-from-threshold per softening
+let val = m1 ? 1.0 : 0;
+if(!m1){
+let p = 0;
+if(r.ind < 320) p += 0.3;
+if(r.delta < -10) p += 0.25;
+if(r.diff < 0) p += 0.2;
+val = p;
+}
+return {
+active:true, coverage:1, value:val, strength:val,
+direction:‘over’, market:‘OV05’,
+m1, details:`IND ${r.ind}, Δ ${fmtN(r.delta,1)}%, Diff ${fmtN(r.diff,2)}, MGE ${fmtN(r.mge,2)}`
+};
+}
+
+// S2 - M1 GG
+function signal_S2_gg(m){
+const r = m.ggov25;
+if(!r) return {active:false, coverage:0};
+const m1 = rule_gg_M1(r);
+let val = m1 ? 1.0 : 0;
+if(!m1){
+let p = 0;
+if(r.igbc >= 100) p += 0.2;
+if(r.igbo >= 100) p += 0.2;
+if(r.s12 < 200) p += 0.15;
+if(r.pgg >= 50) p += 0.15;
+val = p;
+}
+return {
+active:true, coverage:1, value:val, strength:val,
+direction:‘gg’, market:‘GG’,
+m1, details:`IGBc ${r.igbc}, IGBo ${r.igbo}, S1-S2 ${r.s12}, PGG ${fmtN(r.pgg,1)}%`
+};
+}
+
+// S3 - M1 Ov/Un 2.5 - bidirezionale, sceglie il lato dominante
+function signal_S3_o25(m){
+const r = m.ggov25;
+if(!r) return {active:false, coverage:0};
+const m1 = rule_o25_M1(r);
+let val = m1 ? 1.0 : 0;
+if(!m1){
+let p = 0;
+if(r.igbt >= 250) p += 0.3;
+if(r.mge >= 2.5) p += 0.25;
+if(r.diff <= 0.3) p += 0.15;
+val = p;
+}
+return {
+active:true, coverage:1, value:val, strength:val,
+direction:‘over’, market:‘O25’,
+m1, details:`IGBt ${r.igbt}, MGE ${fmtN(r.mge,2)}, Diff ${fmtN(r.diff,2)}`
+};
+}
+function signal_S3_u25(m){
+const r = m.ggov25;
+if(!r) return {active:false, coverage:0};
+const m1 = rule_u25_M1(r);
+let val = m1 ? 1.0 : 0;
+if(!m1){
+let p = 0;
+if(r.diff > 1) p += 0.3;
+if(r.mge < 3) p += 0.2;
+if(r.igbt < 250) p += 0.2;
+val = p;
+}
+return {
+active:true, coverage:1, value:val, strength:val,
+direction:‘under’, market:‘U25’,
+m1, details:`Diff ${fmtN(r.diff,2)} (sovrastima), MGE ${fmtN(r.mge,2)}, IGBt ${r.igbt}`
+};
+}
+
+// S4 - M1 MG 1-3 (entrambi i lati)
+function signal_S4_mg13(m){
+const r = m.mg13;
+if(!r) return {active:false, coverage:0};
+const m1c = rule_mg13c_M1(r);
+const m1o = rule_mg13o_M1(r);
+const valC = m1c ? 1 : (r.ich>0 && r.ich<=400 && r.varc>=20 ? 0.5 : 0);
+const valO = m1o ? 1 : (r.ica>0 && r.ica<=400 && r.varo>=20 ? 0.5 : 0);
+const valBest = Math.max(valC, valO);
+const sideBest = valC >= valO ? ‘casa’ : ‘ospite’;
+return {
+active:true, coverage:1, value:valBest, strength:valBest,
+direction: sideBest===‘casa’ ? ‘mg13c’ : ‘mg13o’,
+market: sideBest===‘casa’ ? ‘MG13C’ : ‘MG13O’,
+m1c, m1o, side:sideBest,
+details:`ICH ${r.ich} (VarC ${fmtN(r.varc,0)}%) · ICA ${r.ica} (VarO ${fmtN(r.varo,0)}%)`
+};
+}
+
+// S5 - Stats IA convergenza
+function signal_S5_ia(m){
+const r = m.ia;
+if(!r || !r.stats || !r.stats.length) return {active:false, coverage:0};
+const affs = r.stats.map(s=>s.aff);
+const avg = r.avgAff;
+const max = r.maxAff;
+const sd = std(affs);
+// Convergenza: aff alta + bassa dev std → segnale solido
+const val = clamp((avg/5) * (1 - sd/3), 0, 1);
+const strongest = r.stats.slice().sort((a,b)=>b.aff-a.aff)[0];
+return {
+active:true, coverage:1, value:val, strength:val,
+direction:‘support’, market:null,
+details:`Max aff ${fmtN(max,1)} su ${strongest?strongest.label:'-'}, avg ${fmtN(avg,2)}`
+};
+}
+
+// S6 - GZ Probability
+function signal_S6_gz(m){
+const r = m.gz;
+if(!r || r.gz===null) return {active:false, coverage:0};
+const p = gzProbMap(r.gz);
+if(p.type === ‘nd’ || p.type === ‘neutral’) return {active:false, coverage:0, raw:r.gz};
+return {
+active:true, coverage:1, value:p.strength, strength:p.strength,
+direction:p.type, market:p.market,
+details:`GZ ${r.gz>0?'+':''}${r.gz} → ${p.label}`,
+prob:p
+};
+}
+
+// S7 - DataMining esteso (% mercato + NP + bonus RE + IC/RC/RO)
+function signal_S7_dm(m){
+const r = m.dm;
+if(!r) return {active:false, coverage:0};
+const npF = clamp(r.np / 30, 0, 1);     // NP=30 → peso pieno
+// Direzione dominante per Over/Under/GG: prendiamo il valore medio
+const ov25 = (r.pOV25||0)/100;
+const un35 = (r.pUN35||0)/100;
+const gg = (r.pGG||0)/100;
+const ov15 = (r.pOV15||0)/100;
+const ov05pt = (r.pOV05pt||0)/100;
+// Per il signal “S7 generico” usiamo la massima tra le percentuali alte
+const candidates = [
+{dir:‘over’, val:ov25, mkt:‘O25’},
+{dir:‘under’, val:un35, mkt:‘U25’},
+{dir:‘gg’, val:gg, mkt:‘GG’},
+{dir:‘over’, val:ov15, mkt:‘O15’},
+{dir:‘over’, val:ov05pt, mkt:‘OV05’}
+];
+candidates.sort((a,b)=>b.val-a.val);
+const top = candidates[0];
+// Bonus RE: se almeno un risultato esatto > 12%
+const reItems = parseREField(r.re);
+const reBonus = reItems.length && reItems[0].perc > 12 ? 0.05 : 0;
+const val = clamp(top.val * npF + reBonus, 0, 1);
+return {
+active:true, coverage:1, value:val, strength:top.val,
+direction:top.dir, market:top.mkt,
+details:`NP ${r.np} · ${top.mkt} ${fmtN(top.val*100,0)}% · MGE ${fmtN(r.mge,2)} · DIFF ${fmtN(r.diff,2)}`,
+raw:r, npFactor:npF, reItems
+};
+}
+
+// S8 - Value 1X2 con drop quota
+function signal_S8_val(m){
+const q = m.qVal;
+if(!q) return {active:false, coverage:0};
+// Valuta i 3 esiti, ritorna quello con spread max
+const candidates = [];
+const checkSign = (lbl, real, dm, spread, market) => {
+if(spread > 0.15 && real > 1.01 && real < 3 && dm > 0){
+const edge = (1/dm) - (1/real); // edge stimato
+candidates.push({lbl, real, dm, spread, edge, market});
+}
+};
+checkSign(‘1’, q.r1, q.dm1, q.spread1, ‘1’);
+checkSign(‘X’, q.rx, q.dmx, q.spreadX, ‘X’);
+checkSign(‘2’, q.r2, q.dm2, q.spread2, ‘2’);
+if(!candidates.length) return {active:false, coverage:0, raw:q};
+candidates.sort((a,b)=>b.spread-a.spread);
+const top = candidates[0];
+const val = clamp(top.spread / 0.6, 0, 1); // spread 0.6 = max
+const dirMap = {‘1’:‘homeW’,‘X’:‘draw’,‘2’:‘awayW’};
+return {
+active:true, coverage:1, value:val, strength:val,
+direction:dirMap[top.lbl], market:top.market,
+details:`${top.lbl} value: real ${fmtN(top.real,2)} vs DM ${fmtN(top.dm,2)} (spread ${fmtN(top.spread,2)})`,
+edge:top.edge, raw:q, candidate:top
+};
+}
+
+// S9 - Profilo giocatori (ritardi alti pro-mercato)
+function signal_S9_pl(m){
+const cards = m.plCard||[], shots = m.plShot||[];
+if(!cards.length && !shots.length) return {active:false, coverage:0};
+// Ritardo medio + max
+const allRit = […cards.map(p=>p.rit||0), …shots.map(p=>p.rit||0)];
+const maxRit = allRit.length ? Math.max(…allRit) : 0;
+const val = clamp(maxRit / 8, 0, 1); // rit=8 → val 1
+const det = [];
+if(cards.length){
+const top = cards.slice().sort((a,b)=>b.rit-a.rit)[0];
+if(top && top.rit>=3) det.push(`${top.nome} amm: rit ${top.rit}`);
+}
+if(shots.length){
+const top = shots.slice().sort((a,b)=>b.rit-a.rit)[0];
+if(top && top.rit>=3) det.push(`${top.nome} gol: rit ${top.rit}`);
+}
+return {
+active: maxRit>=3, coverage:1, value:val, strength:val,
+direction:‘players’, market:null,
+details: det.join(’ · ’) || `${cards.length} card / ${shots.length} shot`
+};
+}
+
+// S10 - DIFFERENZIALI GOL (mean-reversion CORRETTA)
+function signal_S10_diffg(m){
+const r = m.diffg;
+if(!r || r.dgt===null) return {active:false, coverage:0};
+const dgt = r.dgt;
+// LOGICA MEAN-REVERSION:
+// DGT positivo grande = sovrafrequenza (squadre stanno segnando SOPRA media) → pro-UNDER
+// DGT negativo grande = sottofrequenza (squadre stanno segnando SOTTO media) → pro-OVER
+let dir = ‘neutral’;
+let val = 0;
+if(Math.abs(dgt) >= DIFF_THR.dgt){
+dir = dgt > 0 ? ‘under’ : ‘over’;
+val = clamp(Math.abs(dgt) / 2.5, 0, 1); // |DGT|=2.5 → val pieno
+}
+// Drop quota market movement
+let drop = null, dropDir = null;
+if(r.qr && r.qrL && r.qr > 0){
+drop = (r.qr - r.qrL) / r.qr;
+if(drop > DIFF_THR.dropOk) dropDir = ‘down’;      // quota scesa = mercato conferma
+else if(drop < -DIFF_THR.dropOk) dropDir = ‘up’;  // quota salita = mercato sfiducia
+}
+return {
+active: val > 0 || dropDir !== null, coverage:1,
+value:val, strength:val,
+direction:dir,
+market: dir===‘over’ ? ‘O25’ : (dir===‘under’ ? ‘U25’ : null),
+details: `DGT ${fmtN(dgt,2)} (${dgt>0?'sovrafrequenza→Under':'sottofrequenza→Over'})` +
+(drop!==null ? ` · Drop ${fmtN(drop*100,1)}%` : ‘’),
+dgt, dg:r.dg, mge:r.mge, mgu5:r.mgu5,
+diffC:r.diffC, diffO:r.diffO,
+qt:r.qt, qr:r.qr, qrL:r.qrL,
+drop, dropDir
+};
+}
+
+// Differenziali team-specific (sub-segnali)
+function team_diffC_pro(m){
+// CASA SEGNA: DiffC < -0.3 (sotto media → pro-Casa-Segna mean-reversion)
+const r = m.diffg;
+if(!r || r.diffC===null) return null;
+if(r.diffC < -DIFF_THR.team) return {active:true, dir:‘homeS’, val:clamp(-r.diffC/1, 0, 1), val2:r.diffC};
+if(r.diffC > DIFF_THR.team)  return {active:true, dir:‘noHomeS’, val:clamp(r.diffC/1, 0, 1), val2:r.diffC};
+return null;
+}
+function team_diffO_pro(m){
+// OSPITE SEGNA
+const r = m.diffg;
+if(!r || r.diffO===null) return null;
+if(r.diffO < -DIFF_THR.team) return {active:true, dir:‘awayS’, val:clamp(-r.diffO/1, 0, 1), val2:r.diffO};
+if(r.diffO > DIFF_THR.team)  return {active:true, dir:‘noAwayS’, val:clamp(r.diffO/1, 0, 1), val2:r.diffO};
+return null;
+}
+
+/* ==================== ENUMERAZIONE MERCATI CANDIDATI ==================== */
+function enumerateCandidates(m){
+const cs = [];
+// Mercati gol
+if(m.ov05pt || (m.dm && m.dm.pOV05pt > 50)) cs.push({mkt:‘OV05’, label:‘Ov 0.5 PT’, dir:‘over’});
+if(m.ggov25){
+cs.push({mkt:‘O25’, label:‘Ov 2.5’, dir:‘over’});
+cs.push({mkt:‘U25’, label:‘U 2.5’, dir:‘under’});
+cs.push({mkt:‘GG’, label:‘GG (Goal-Goal)’, dir:‘gg’});
+}
+if(m.dm){
+if(!cs.find(x=>x.mkt===‘OV05’)) cs.push({mkt:‘OV05’, label:‘Ov 0.5 PT’, dir:‘over’});
+if(!cs.find(x=>x.mkt===‘O25’)) cs.push({mkt:‘O25’, label:‘Ov 2.5’, dir:‘over’});
+if(!cs.find(x=>x.mkt===‘U25’)) cs.push({mkt:‘U25’, label:‘U 2.5’, dir:‘under’});
+if(!cs.find(x=>x.mkt===‘GG’))  cs.push({mkt:‘GG’, label:‘GG’, dir:‘gg’});
+// OV 1.5
+if(m.dm.pOV15 > 60) cs.push({mkt:‘OV15’, label:‘Ov 1.5’, dir:‘over’});
+// MG 2-4 (OV15>60 AND UN35>60)
+if(m.dm.pOV15 > 60 && m.dm.pUN35 > 60) cs.push({mkt:‘MG24’, label:‘MG 2-4’, dir:‘mg24’});
+// Casa Segna / Ospite Segna (SC%>=60 AND IGBC>=150 AND DiffC<-0.3)
+if(m.dm.pSC >= 60 && m.dm.igbc >= 150){
+const dC = team_diffC_pro(m);
+if(dC && dC.dir===‘homeS’) cs.push({mkt:‘CASASEGNA’, label:‘Casa Segna’, dir:‘homeS’});
+}
+if(m.dm.pSO >= 60 && m.dm.igbo >= 150){
+const dO = team_diffO_pro(m);
+if(dO && dO.dir===‘awayS’) cs.push({mkt:‘OSPITESEGNA’, label:‘Ospite Segna’, dir:‘awayS’});
+}
+}
+// MG 1-3
+if(m.mg13){
+cs.push({mkt:‘MG13C’, label:‘MG 1-3 Casa’, dir:‘mg13c’});
+cs.push({mkt:‘MG13O’, label:‘MG 1-3 Ospite’, dir:‘mg13o’});
+}
+// 1X2 value
+if(m.qVal){
+const s8 = signal_S8_val(m);
+if(s8.active && s8.candidate){
+cs.push({mkt:s8.candidate.market, label:`Esito ${s8.candidate.lbl}`, dir:s8.direction});
+}
+}
+return cs;
+}
+
+/* ==================== SELECT RELEVANT SIGNALS PER MERCATO ==================== */
+function selectRelevantSignals(m, candidate){
+const sigs = {};
+const dir = candidate.dir;
+const mkt = candidate.mkt;
+// S1 - Ov 0.5 PT (rilevante solo per OV05)
+const s1 = signal_S1_ov05pt(m);
+if(s1.active && (mkt === ‘OV05’ || mkt === ‘O25’ || mkt === ‘GG’)){
+// boost OV05 pieno; altri mercati gol leggero
+sigs.S1 = {…s1, weight: mkt===‘OV05’ ? W.M1 : W.M1*0.4};
+}
+// S2 - GG
+const s2 = signal_S2_gg(m);
+if(s2.active && (mkt === ‘GG’ || mkt === ‘O25’)){
+sigs.S2 = {…s2, weight: mkt===‘GG’ ? W.M1 : W.M1*0.5};
+}
+// S3 - Ov/Un 2.5
+if(mkt === ‘O25’){
+const s3 = signal_S3_o25(m);
+if(s3.active) sigs.S3 = {…s3, weight: W.M1};
+} else if(mkt === ‘U25’ || mkt === ‘MG24’){
+const s3u = signal_S3_u25(m);
+if(s3u.active) sigs.S3 = {…s3u, weight: W.M1};
+}
+// S4 - MG 1-3
+if(mkt === ‘MG13C’ || mkt === ‘MG13O’){
+const s4 = signal_S4_mg13(m);
+if(s4.active){
+const ok = (mkt===‘MG13C’ && s4.m1c) || (mkt===‘MG13O’ && s4.m1o) || s4.value>0;
+if(ok) sigs.S4 = {…s4, weight: W.M1};
+}
+}
+// S5 - Stats IA (sempre se attivo, ma metà peso se direzione non match)
+const s5 = signal_S5_ia(m);
+if(s5.active){
+sigs.S5 = {…s5, weight: W.IA};
+}
+// S6 - GZ
+const s6 = signal_S6_gz(m);
+if(s6.active){
+// peso pieno se direzione GZ concorda col mercato; metà altrimenti
+let dirMatch = false;
+if(s6.direction === ‘over’ && (dir === ‘over’ || mkt === ‘OV05’ || mkt === ‘O25’ || mkt === ‘GG’ || mkt === ‘OV15’)) dirMatch = true;
+if(s6.direction === ‘under’ && (dir === ‘under’ || mkt === ‘U25’ || mkt === ‘MG24’)) dirMatch = true;
+sigs.S6 = {…s6, weight: dirMatch ? W.GZ : W.GZ*0.4, dirMatch};
+}
+// S7 - DataMining: peso pieno + adattamento al mercato specifico
+const s7 = signal_S7_dm(m);
+if(s7.active){
+// Calcola % specifica del mercato
+const dm = m.dm;
+let pSpec = 0, lblSpec = mkt;
+switch(mkt){
+case ‘OV05’: pSpec = (dm.pOV05pt||0)/100; break;
+case ‘OV15’: pSpec = (dm.pOV15||0)/100; break;
+case ‘O25’:  pSpec = (dm.pOV25||0)/100; break;
+case ‘U25’:  pSpec = (dm.pUN35||0)/100; break;
+case ‘GG’:   pSpec = (dm.pGG||0)/100; break;
+case ‘CASASEGNA’: pSpec = (dm.pSC||0)/100; break;
+case ‘OSPITESEGNA’: pSpec = (dm.pSO||0)/100; break;
+case ‘1’:    pSpec = (dm.p1||0)/100; break;
+case ‘X’:    pSpec = (dm.pX||0)/100; break;
+case ‘2’:    pSpec = (dm.p2||0)/100; break;
+case ‘MG24’: pSpec = ((dm.pOV15||0)/100) * ((dm.pUN35||0)/100); break;
+default: pSpec = s7.value;
+}
+const npF = s7.npFactor;
+const valSpec = clamp(pSpec * npF, 0, 1);
+sigs.S7 = {
+active:true, coverage:1, value:valSpec, strength:pSpec,
+direction: dir, market: mkt, weight: W.DM, npFactor:npF,
+details:`NP ${dm.np} · ${lblSpec} ${fmtN(pSpec*100,0)}%`,
+raw: dm, pSpec
+};
+}
+// S8 - Value 1X2 (solo per mercati 1X2)
+const s8 = signal_S8_val(m);
+if(s8.active){
+if(mkt === ‘1’ || mkt === ‘X’ || mkt === ‘2’){
+const matchSign = s8.candidate && s8.candidate.market === mkt;
+if(matchSign) sigs.S8 = {…s8, weight: W.VAL};
+} else {
+// Per mercati gol, value secondario (peso ridotto)
+sigs.S8 = {…s8, weight: W.VAL*0.3};
+}
+}
+// S9 - Players (solo se rilevante)
+const s9 = signal_S9_pl(m);
+if(s9.active && (mkt === ‘OV05’ || mkt === ‘O25’ || mkt === ‘GG’)){
+sigs.S9 = {…s9, weight: W.PL*0.5};
+} else if(s9.active){
+sigs.S9 = {…s9, weight: W.PL*0.2};
+}
+// S10 - Differenziali Gol (mean-reversion, peso pieno se direzione concorda)
+const s10 = signal_S10_diffg(m);
+if(s10.active){
+let dirMatch = false;
+if(s10.direction === ‘over’ && (dir === ‘over’ || mkt === ‘OV05’ || mkt === ‘O25’ || mkt === ‘GG’ || mkt === ‘OV15’)) dirMatch = true;
+if(s10.direction === ‘under’ && (dir === ‘under’ || mkt === ‘U25’ || mkt === ‘MG24’)) dirMatch = true;
+sigs.S10 = {…s10, weight: dirMatch ? W.DIFFG : W.DIFFG*0.3, dirMatch};
+}
+// Sub-segnali team specific per Casa/Ospite Segna
+if(mkt === ‘CASASEGNA’){
+const dC = team_diffC_pro(m);
+if(dC && dC.dir===‘homeS’){
+sigs.S10t = {active:true, coverage:1, value:dC.val, strength:dC.val,
+direction:‘homeS’, market:‘CASASEGNA’, weight:W.DIFFG*0.5,
+details:`DiffC ${fmtN(dC.val2,2)} (sottofreq → Casa Segna)`};
+}
+}
+if(mkt === ‘OSPITESEGNA’){
+const dO = team_diffO_pro(m);
+if(dO && dO.dir===‘awayS’){
+sigs.S10t = {active:true, coverage:1, value:dO.val, strength:dO.val,
+direction:‘awayS’, market:‘OSPITESEGNA’, weight:W.DIFFG*0.5,
+details:`DiffO ${fmtN(dO.val2,2)} (sottofreq → Ospite Segna)`};
+}
+}
+return sigs;
+}
+
+/* ==================== CONFIDENCE SCORE ==================== */
+/* Formula:
+
+1. weighted average direzionato (segnali pro=+1, contro=-1, neutri=0)
+1. conflict penalty = LAMBDA * std_pesata dei segnali
+1. coverage factor = COV_FLOOR + (1-COV_FLOOR) * coverage_ratio
+1. hard caps condizionali
+   */
+   function computeConfidence(m, candidate, sigs){
+   const dir = candidate.dir;
+   const mkt = candidate.mkt;
+   // Direzioni “pro” del mercato target
+   const proDirsByMkt = {
+   ‘OV05’: [‘over’],
+   ‘OV15’: [‘over’],
+   ‘O25’:  [‘over’],
+   ‘GG’:   [‘gg’,‘over’],
+   ‘U25’:  [‘under’],
+   ‘MG24’: [‘under’,‘mg24’],
+   ‘MG13C’:[‘mg13c’],
+   ‘MG13O’:[‘mg13o’],
+   ‘CASASEGNA’:[‘homeS’],
+   ‘OSPITESEGNA’:[‘awayS’],
+   ‘1’:    [‘homeW’],
+   ‘X’:    [‘draw’],
+   ‘2’:    [‘awayW’]
+   };
+   const proDirs = proDirsByMkt[mkt] || [dir];
+
+const items = [];
+Object.entries(sigs).forEach(([k,s]) => {
+if(!s || !s.active || !s.coverage) return;
+// direzione: +1 se s.direction è in proDirs, -1 se opposta, 0 altrimenti
+let d = 0;
+if(proDirs.includes(s.direction)) d = +1;
+else {
+// direzioni opposte note
+const opposites = {
+‘over’:[‘under’], ‘under’:[‘over’],
+‘gg’:[‘ng’], ‘ng’:[‘gg’],
+‘homeS’:[‘noHomeS’], ‘awayS’:[‘noAwayS’],
+‘mg13c’:[‘mg13o’], ‘mg13o’:[‘mg13c’]
+};
+if((opposites[proDirs[0]]||[]).includes(s.direction)) d = -1;
+else d = 0; // neutro / supporto
+}
+// Per “support” (S5) e “players” (S9), valore = +0.5 se attivo (non polarizzato)
+if(s.direction === ‘support’ || s.direction === ‘players’) d = 0.5;
+items.push({key:k, weight:s.weight, value:s.value, dir:d, signal:s});
+});
+
+if(!items.length) return {confidence:0, score:0, sigCount:0, items:[], penalty:0, covRatio:0};
+
+// Weighted score in [-1, +1]
+const totW = items.reduce((s,x)=>s+x.weight, 0);
+const wScore = items.reduce((s,x)=>s + x.weight * x.value * x.dir, 0) / totW;
+
+// Conflict penalty
+const dirs = items.map(x => x.value * x.dir);
+const sd = stdW(dirs, items.map(x => x.weight));
+
+// Coverage ratio
+const W_TOT = W.M1 + W.DM + W.GZ + W.DIFFG + W.VAL + W.IA + W.PL;
+const covRatio = clamp(totW / W_TOT, 0, 1);
+const covFactor = COV_FLOOR + (1 - COV_FLOOR) * covRatio;
+
+// Score base 0..100
+let scoreBase = 50 + 50 * wScore;          // -1→0, +1→100
+const penalty = CONFLICT_LAMBDA * sd;       // tipicamente 0..5
+let score = scoreBase * covFactor - penalty;
+
+// Hard caps
+// (a) Drop quota contrario: cap 60
+const s10 = sigs.S10;
+if(s10 && s10.dropDir === ‘up’){ score = Math.min(score, 60); }
+// (b) Coverage < 0.5: cap 70
+if(covRatio < 0.5){ score = Math.min(score, 70); }
+// (c) DGT contraria significativa: cap 70
+if(s10 && s10.active && Math.abs(s10.dgt||0) >= DIFF_THR.dgt){
+const dgtPro = s10.direction;
+const opp = (dgtPro === ‘over’ && (dir === ‘under’ || mkt === ‘U25’ || mkt === ‘MG24’))
+|| (dgtPro === ‘under’ && (dir === ‘over’ || mkt === ‘OV05’ || mkt === ‘O25’ || mkt === ‘GG’ || mkt === ‘OV15’));
+if(opp){ score = Math.min(score, 60); }
+}
+// (d) Pochi segnali (< 3 attivi) e score > 80: cap 75
+if(items.length < 3 && score > 75) score = 75;
+
+score = clamp(score, 0, 100);
+return {
+confidence: Math.round(score),
+score, sigCount: items.length, items, penalty: round(penalty,2),
+covRatio: round(covRatio,2), wScore: round(wScore,2), sd: round(sd,2)
+};
+}
+
+/* ==================== QUOTA OPERATIVA + EDGE + KELLY ==================== */
+function getOperativeOdds(m, candidate){
+const mkt = candidate.mkt;
+// Priorità: QrL (last) → Qr → quota DM specifica → null
+const dg = m.diffg;
+const dm = m.dm;
+// Per O25/U25: usiamo la quota più appropriata
+const lookup = {
+‘O25’:  () => (dg && dg.qrL) || (dm && dm.qOV25) || (m.ggov25 && m.ggov25.qov25),
+‘U25’:  () => (dm && dm.qUN35) || null,
+‘OV05’: () => (dm && dm.qOV05pt) || (m.ov05pt && m.ov05pt.qrOv05),
+‘OV15’: () => (dm && dm.qOV15) || null,
+‘GG’:   () => (dm && dm.qGG) || (m.ov05pt && m.ov05pt.qrGG) || null,
+‘1’:    () => (m.qVal && m.qVal.r1) || (dm && dm.q1),
+‘X’:    () => (m.qVal && m.qVal.rx) || (dm && dm.qX),
+‘2’:    () => (m.qVal && m.qVal.r2) || (dm && dm.q2),
+‘CASASEGNA’: () => (dm && dm.qSC) || null,
+‘OSPITESEGNA’:() => (dm && dm.qSO) || null,
+‘MG24’: () => 1.50,   // quota target per MG 2-4
+‘MG13C’:() => (m.mg13 && m.mg13.qo25) || null,  // proxy
+‘MG13O’:() => (m.mg13 && m.mg13.qo25) || null
+};
+const fn = lookup[mkt];
+const q = fn ? fn() : null;
+return (q && q > 1.01) ? q : null;
+}
+
+function probFromConfidence(confidence, oddsImplied){
+// Shrinkage: p = α * p_model + (1-α) * p_implied
+// p_model derivata dal Confidence (50→imp.implied, 100→max boost)
+const conf = confidence / 100;
+// probabilità “modello” interpolata: a 50 confidenza coincide con quota implicita
+// a 100 confidenza si discosta di +30% relativo
+const pImp = oddsImplied;
+const pModel = pImp + (conf - 0.5) * 0.4 * pImp;
+const alpha = 0.4 + 0.6 * conf;  // confidence alta = più peso al modello
+const p = alpha * pModel + (1 - alpha) * pImp;
+return clamp(p, 0.01, 0.99);
+}
+
+function computeEdge(p, odds){
+if(!odds || odds <= 1) return 0;
+const pImp = 1 / odds;
+return p - pImp;
+}
+
+function kellyStake(p, odds, bankroll, fraction, capPct){
+const b = odds - 1;
+if(b <= 0) return {stake:0, frac:0, fStar:0};
+const fStar = (b * p - (1 - p)) / b;
+if(fStar <= 0) return {stake:0, frac:0, fStar};
+const frac = clamp(fraction * fStar, 0, capPct);
+return {stake: round(frac * bankroll, 2), frac: round(frac,4), fStar: round(fStar,4)};
+}
+
+/* ==================== ANTI-SCOMMESSA: 10 FILTRI ==================== */
+function applyTenFilters(rec, ctx){
+const reasons = [];
+const c = rec.confidence;
+const cov = rec.covRatio;
+const dm = ctx.match.dm;
+const odds = rec.odds;
+// 1. Confidence < 60
+if(c < 60) reasons.push(‘confidence < 60’);
+// 2. NP DataMining < 15
+if(dm && dm.np < 15 && rec.sigKeys.includes(‘S7’)) reasons.push(‘NP DataMining < 15’);
+// 3. Coverage < 50%
+if(cov < 0.5) reasons.push(‘coverage < 50%’);
+// 4. Conflitto maggiore (sd > 0.4)
+if(rec.sd > 0.4) reasons.push(‘segnali divergenti (σ > 0.4)’);
+// 5. Drop quota contrario
+if(rec.dropDir === ‘up’) reasons.push(‘drop quota contrario’);
+// 6. Quota fuori range
+if(odds && (odds < 1.20 || odds > 15)) reasons.push(‘quota fuori range operativo’);
+// 7. DGT contraria sopra cap
+if(rec.dgtContrary) reasons.push(‘DGT contraria sopra soglia’);
+// 8. Stop-loss giornaliero
+if(S.bankroll.pl_day <= -S.bankroll.total * 0.10) reasons.push(‘stop-loss giornaliero raggiunto (-10%)’);
+// 9. Stop-loss settimanale
+if(S.bankroll.pl_week <= -S.bankroll.total * 0.20) reasons.push(‘stop-loss settimanale raggiunto (-20%)’);
+// 10. Edge ≤ 0
+if(rec.edge !== undefined && rec.edge <= 0) reasons.push(‘edge ≤ 0’);
+return {pass: reasons.length === 0, reasons};
+}
+
+/* ==================== TEMPLATE NARRATIVI A-G ==================== */
+function topContributions(items, n=3){
+// Ordina per |weight * value * dir| desc
+const sorted = items.slice().sort((a,b) => {
+const ax = Math.abs(a.weight * a.value * (a.dir||0));
+const bx = Math.abs(b.weight * b.value * (b.dir||0));
+return bx - ax;
+});
+return sorted.slice(0, n);
+}
+
+function topConflict(items){
+// Trova il segnale con dir negativo più impattante
+const negs = items.filter(x => x.dir < 0 && x.value > 0.3);
+if(!negs.length) return null;
+negs.sort((a,b) => (b.weight*b.value) - (a.weight*a.value));
+return negs[0];
+}
+
+function signalDescription(item){
+const s = item.signal;
+if(!s) return ‘’;
+const det = s.details || ‘’;
+const tag = ({
+‘S1’:‘M1 Ov 0.5 PT’, ‘S2’:‘M1 GG’, ‘S3’:‘M1 Ov/U 2.5’, ‘S4’:‘M1 MG 1-3’,
+‘S5’:‘Stats IA’, ‘S6’:‘GZ Index’, ‘S7’:‘DataMining’, ‘S8’:‘Value 1X2’,
+‘S9’:‘Giocatori’, ‘S10’:‘Differenziali Gol’, ‘S10t’:‘Differenziali team’
+})[item.key] || item.key;
+return `${tag}: ${det}`;
+}
+
+function buildExplanation(m, candidate, conf, kelly, edge){
+// Sceglie template in base a contesto
+const ctx = {
+match: m.evento, market: candidate.label, odds: kelly.odds,
+confidence: conf.confidence, edge,
+topSigs: topContributions(conf.items, 3),
+conflict: topConflict(conf.items),
+signals: conf.items
+};
+// Selezione template
+// After-loss → G (gestito in render layer)
+// Skip Day → F (gestito in advisor layer)
+// BET OF THE DAY → A (conf>=85)
+// Under con DGT → B
+// Casa/Ospite Segna → C
+// Value puro → D
+// Correct Score cluster → E
+if(conf.confidence >= 85){
+return tplA(ctx);
+}
+const s10 = conf.items.find(x => x.key === ‘S10’);
+if((candidate.mkt === ‘U25’ || candidate.dir === ‘under’) && s10 && s10.signal.dgt > 0.8){
+return tplB(ctx);
+}
+if(candidate.mkt === ‘CASASEGNA’ || candidate.mkt === ‘OSPITESEGNA’){
+return tplC(ctx);
+}
+const s8 = conf.items.find(x => x.key === ‘S8’);
+if(s8 && (candidate.mkt === ‘1’ || candidate.mkt === ‘X’ || candidate.mkt === ‘2’)){
+return tplD(ctx);
+}
+// Default: narrativa generica
+return tplDefault(ctx);
+}
+
+function tplA(ctx){
+const sigs = ctx.topSigs.map(signalDescription).filter(Boolean).slice(0,3).join(’ · ‘);
+const conflictTxt = ctx.conflict ? ` Attenzione: ${signalDescription(ctx.conflict)}.` : ’ Nessun conflitto rilevante.’;
+return `★ BET OF THE DAY ★ ${ctx.match}: ${ctx.topSigs.length} segnali concordi sul mercato ${ctx.market}. ${sigs}.${conflictTxt} Confidence ${ctx.confidence}/100, edge ${fmtN((ctx.edge||0)*100,1)}%.`;
+}
+function tplB(ctx){
+const s10 = ctx.signals.find(x=>x.key===‘S10’);
+const dgt = s10 && s10.signal ? s10.signal.dgt : 0;
+const sigs = ctx.topSigs.map(signalDescription).filter(Boolean).slice(0,2).join(’ · ‘);
+return `${ctx.match}: ${ctx.market} a quota ${fmtN(ctx.odds,2)}. Le squadre stanno segnando sopra la media consolidata (DGT ${fmtN(dgt,2)}): la regressione alla media suggerisce meno gol del trend recente. ${sigs}. Confidence ${ctx.confidence}/100.`;
+}
+function tplC(ctx){
+const sigs = ctx.topSigs.map(signalDescription).filter(Boolean).slice(0,2).join(’ · ‘);
+return `${ctx.match}: ${ctx.market} a quota ${fmtN(ctx.odds,2)}. Differenziale offensivo squadra in sottofrequenza, atteso ritorno alla media. ${sigs}. Confidence ${ctx.confidence}/100.`;
+}
+function tplD(ctx){
+const sigs = ctx.topSigs.map(signalDescription).filter(Boolean).slice(0,2).join(’ · ‘);
+return `${ctx.match}: ${ctx.market} a quota ${fmtN(ctx.odds,2)}. Edge stimato ${fmtN((ctx.edge||0)*100,1)}% rispetto al mercato. ${sigs}. Confidence ${ctx.confidence}/100.`;
+}
+function tplDefault(ctx){
+const sigs = ctx.topSigs.map(signalDescription).filter(Boolean).slice(0,3).join(’ · ’);
+const conflictTxt = ctx.conflict ? ` Caveat: ${signalDescription(ctx.conflict)}.` : ‘’;
+return `${ctx.match}: ${ctx.market} a quota ${fmtN(ctx.odds,2)}. ${sigs}.${conflictTxt} Confidence ${ctx.confidence}/100.`;
+}
+
+/* ==================== DECISION ENGINE ORCHESTRATOR ==================== */
+function buildRecommendations(matches){
+const all = [];
+matches.forEach(m => {
+const candidates = enumerateCandidates(m);
+candidates.forEach(cand => {
+const sigs = selectRelevantSignals(m, cand);
+const conf = computeConfidence(m, cand, sigs);
+const odds = getOperativeOdds(m, cand);
+if(!odds || conf.confidence < 30) return;
+const pImp = 1 / odds;
+const p = probFromConfidence(conf.confidence, pImp);
+const edge = computeEdge(p, odds);
+const kelly = kellyStake(p, odds, S.bankroll.segregated, S.bankroll.kellyFraction, S.bankroll.capPct);
+// Verifica DGT contrary
+const s10 = sigs.S10;
+let dgtContrary = false;
+if(s10 && s10.active && Math.abs(s10.dgt||0) >= DIFF_THR.dgt){
+const dgtPro = s10.direction;
+if((dgtPro === ‘over’ && (cand.dir === ‘under’ || cand.mkt === ‘U25’ || cand.mkt === ‘MG24’))
+|| (dgtPro === ‘under’ && (cand.dir === ‘over’ || cand.mkt === ‘OV05’ || cand.mkt === ‘O25’ || cand.mkt === ‘GG’ || cand.mkt === ‘OV15’))){
+dgtContrary = true;
+}
+}
+const rec = {
+matchKey: m.key,
+match: m.evento,
+ora: m.ora,
+lega: m.lega,
+candidate: cand,
+market: cand.mkt,
+marketLabel: cand.label,
+confidence: conf.confidence,
+score: conf.score,
+odds, pImp, p, edge,
+kelly,
+sigKeys: Object.keys(sigs),
+sigCount: conf.sigCount,
+items: conf.items,
+sigs,
+covRatio: conf.covRatio,
+sd: conf.sd,
+penalty: conf.penalty,
+dropDir: s10 ? s10.dropDir : null,
+dgtContrary,
+explanation: buildExplanation(m, cand, conf, {odds}, edge),
+matchObj: m
+};
+const filt = applyTenFilters(rec, {match:m});
+rec.filterPass = filt.pass;
+rec.filterReasons = filt.reasons;
+all.push(rec);
+});
+});
+return all;
+}
+
+function pickBestRecommendation(recs, matchKey){
+const matchRecs = recs.filter(r => r.matchKey === matchKey);
+if(!matchRecs.length) return null;
+const filtered = matchRecs.filter(r => r.filterPass);
+const pool = filtered.length ? filtered : matchRecs;
+pool.sort((a,b) => b.confidence - a.confidence);
+return pool[0];
+}
+
+/* ==================== PORTFOLIO ENGINE ==================== */
+
+// Singole 1.70-1.99
+function buildTopSingles(recs, n=5){
+const pool = recs.filter(r =>
+r.filterPass &&
+r.odds >= 1.70 && r.odds <= 1.99 &&
+r.confidence >= 65
+);
+// Filtro favorite trap: se quota implicata >> p_model e DGT contraria
+const filtered = pool.filter(r => {
+if(r.dgtContrary && r.dropDir === ‘up’) return false;
+return true;
+});
+// Una pick per match
+const seenMatch = new Set();
+const out = [];
+filtered.sort((a,b) => b.confidence - a.confidence);
+for(const r of filtered){
+if(seenMatch.has(r.matchKey)) continue;
+seenMatch.add(r.matchKey);
+out.push(r);
+if(out.length >= n) break;
+}
+return out;
+}
+
+// Value Bets: edge > 5%, NP >= 15
+function buildValueBets(recs, n=5){
+const pool = recs.filter(r =>
+r.filterPass &&
+r.edge > 0.05 &&
+r.confidence >= 60 &&
+r.matchObj.dm && r.matchObj.dm.np >= 15
+);
+const seenMatch = new Set();
+const out = [];
+pool.sort((a,b) => b.edge - a.edge);
+for(const r of pool){
+if(seenMatch.has(r.matchKey)) continue;
+seenMatch.add(r.matchKey);
+out.push(r);
+if(out.length >= n) break;
+}
+return out;
+}
+
+// Correlation Score
+function correlationScore(a, b){
+if(a.matchKey === b.matchKey){
+// Stesso match: mercati conflittuali = 1.00 (escluso)
+const conflictPairs = [
+[‘O25’,‘U25’], [‘OV15’,‘U25’], [‘GG’,‘MG13C’], [‘GG’,‘MG13O’]
+];
+for(const [x,y] of conflictPairs){
+if((a.market===x && b.market===y) || (a.market===y && b.market===x)) return 1.00;
+}
+return 0.60;  // stesso match compatibile
+}
+let s = 0;
+if(a.lega && b.lega && a.lega === b.lega) s += 0.30;
+const ta = timeVal(a.ora), tb = timeVal(b.ora);
+if(Math.abs(ta - tb) <= 30) s += 0.20;
+if(a.market === b.market) s += 0.15;
+// Stessa squadra (verifica grezza tramite sotto-stringhe)
+const partsA = String(a.match).split(/[-–]/).map(x=>x.trim().toLowerCase());
+const partsB = String(b.match).split(/[-–]/).map(x=>x.trim().toLowerCase());
+const shared = partsA.some(x => x && partsB.includes(x));
+if(shared) s += 0.50;
+return Math.min(s, 0.99);
+}
+
+// Smart Double: 2.00-2.50, anti-correlazione
+function buildSmartDouble(recs){
+const pool = recs.filter(r =>
+r.filterPass &&
+r.odds >= 1.45 && r.odds <= 1.85 &&
+r.confidence >= 65
+);
+if(pool.length < 2) return null;
+pool.sort((a,b) => b.confidence - a.confidence);
+// Top 12 candidati per coppie
+const top = pool.slice(0, 12);
+let best = null;
+for(let i=0;i<top.length;i++){
+for(let j=i+1;j<top.length;j++){
+const a = top[i], b = top[j];
+const corr = correlationScore(a,b);
+if(corr > 0.35) continue;
+const totOdds = a.odds * b.odds;
+if(totOdds < 2.00 || totOdds > 2.50) continue;
+const pJoint = a.p * b.p;
+const evJoint = pJoint * totOdds - 1;
+const score = evJoint * (a.confidence + b.confidence) / 2;
+if(!best || score > best.score){
+best = {legs:[a,b], totOdds, pJoint, evJoint, score, corr};
+}
+}
+}
+return best;
+}
+
+// Smart Triple: 3.00-5.00, anti-correlation
+function buildSmartTriple(recs){
+const pool = recs.filter(r =>
+r.filterPass &&
+r.odds >= 1.40 && r.odds <= 1.85 &&
+r.confidence >= 65
+);
+if(pool.length < 3) return null;
+pool.sort((a,b) => b.confidence - a.confidence);
+const top = pool.slice(0, 14);
+let best = null;
+for(let i=0;i<top.length;i++){
+for(let j=i+1;j<top.length;j++){
+for(let k=j+1;k<top.length;k++){
+const a = top[i], b = top[j], c = top[k];
+if(correlationScore(a,b) > 0.35) continue;
+if(correlationScore(a,c) > 0.35) continue;
+if(correlationScore(b,c) > 0.35) continue;
+const totOdds = a.odds * b.odds * c.odds;
+if(totOdds < 3.00 || totOdds > 5.00) continue;
+const pJoint = a.p * b.p * c.p;
+if(pJoint < 0.25 || pJoint > 0.40) continue;
+const evJoint = pJoint * totOdds - 1;
+const score = evJoint * (a.confidence + b.confidence + c.confidence) / 3;
+if(!best || score > best.score){
+best = {legs:[a,b,c], totOdds, pJoint, evJoint, score};
+}
+}
+}
+}
+return best;
+}
+
+// Pick BET OF THE DAY: Confidence più alta in fascia 1.70-1.99
+function buildHero(recs){
+const pool = recs.filter(r =>
+r.filterPass &&
+r.odds >= 1.70 && r.odds <= 1.99 &&
+r.confidence >= 65
+);
+if(!pool.length){
+// Fallback: la pick con confidence più alta in qualsiasi fascia
+const fallback = recs.filter(r => r.filterPass);
+if(!fallback.length) return null;
+fallback.sort((a,b) => b.confidence - a.confidence);
+return fallback[0];
+}
+pool.sort((a,b) => b.confidence - a.confidence);
+return pool[0];
+}
+
+// Mercati secondari (Casa/Ospite Segna, MG 2-4, Correct Score) - estrazione dedicata
+function buildSecondaryMarkets(recs){
+const cs = recs.filter(r => r.filterPass &&
+[‘CASASEGNA’,‘OSPITESEGNA’,‘MG24’].includes(r.market) &&
+r.confidence >= 60
+);
+cs.sort((a,b) => b.confidence - a.confidence);
+// Una per match
+const seen = new Set();
+return cs.filter(r => {
+const k = r.matchKey + ‘|’ + r.market;
+if(seen.has(k)) return false;
+seen.add(k); return true;
+}).slice(0, 6);
+}
+
+// Correct Score cluster da campo RE
+function buildCorrectScoreClusters(matches){
+const out = [];
+matches.forEach(m => {
+const dm = m.dm;
+if(!dm || !dm.re) return;
+const items = parseREField(dm.re);
+if(items.length < 2) return;
+// Almeno 2 risultati con prob > 12% = candidate cluster
+const top = items.filter(x => x.perc > 10).slice(0, 4);
+if(top.length < 2) return;
+const cumP = top.reduce((s,x)=>s+x.perc, 0) / 100;
+if(cumP < 0.25) return;  // soglia minima cluster
+out.push({
+matchKey: m.key,
+match: m.evento,
+ora: m.ora,
+lega: m.lega,
+scores: top,
+cumP: round(cumP, 3),
+// quota media stimata = 1 / (cumP * margine)
+estQ: round(1 / (cumP * 0.92), 2),
+np: dm.np
+});
+});
+out.sort((a,b) => b.cumP - a.cumP);
+return out.slice(0, 4);
+}
+
+/* ==================== RUN DECISION ENGINE ==================== */
+function runDecisionEngine(){
+const matches = unifyMatches();
+if(!matches.length){
+S.output = null;
+return;
+}
+const recs = buildRecommendations(matches);
+const hero = buildHero(recs);
+// Top singole esclude la hero
+const topSingles = buildTopSingles(recs, 4).filter(r => !hero || r !== hero).slice(0, 3);
+const valueBets = buildValueBets(recs, 5);
+const smartDouble = buildSmartDouble(recs);
+const smartTriple = buildSmartTriple(recs);
+const secondary = buildSecondaryMarkets(recs);
+const csClusters = buildCorrectScoreClusters(matches);
+// Skip-day check: pochi pick di qualità
+const qualityPicks = recs.filter(r => r.filterPass && r.confidence >= 70).length;
+const skipDay = qualityPicks < 2;
+S.output = {
+matches, recs, hero, topSingles, valueBets,
+smartDouble, smartTriple, secondary, csClusters,
+skipDay, qualityPicks,
+computedAt: new Date().toISOString()
+};
+bus.emit(‘data:recomputed’, S.output);
+}
+
+/* === FINE PARTE 2/3 · prosegue con: render UI, bind eventi, init === */
