@@ -1286,7 +1286,18 @@ const defaultState = () => ({
  },
  ticket: {legs: [], stake: 10},
  history: [],
- ui: {tab:'oggi', uploadOpen:false, histFilter:'all', histCategory:'all', q:''}
+ ui: {
+  tab:'oggi',
+  uploadOpen:false,
+  histFilter:'all',
+  histCategory:'all',
+  q:'',
+  view:'home',
+  market:null,
+  timePreset:'all',
+  timeFrom:'',
+  timeTo:''
+}
 });
 
 let S = defaultState();
@@ -1339,7 +1350,42 @@ function cleanTime(ora){
 }
 
 function sortTime(a,b){return timeVal(a.ora)-timeVal(b.ora);}
+function inTimeRange(mins, fromMins, toMins){
+  if(fromMins==null || toMins==null) return true;
+  // range normale
+  if(fromMins <= toMins) return mins >= fromMins && mins <= toMins;
+  // range che attraversa mezzanotte (es. 22:00 -> 02:00)
+  return mins >= fromMins || mins <= toMins;
+}
 
+function parseHHMMtoMins(v){
+  if(!v) return null;
+  const m = String(v).match(/^(\d{1,2}):(\d{2})$/);
+  if(!m) return null;
+  return parseInt(m[1],10)*60 + parseInt(m[2],10);
+}
+
+function byPreset(mins, preset){
+  if(preset==='all') return true;
+  if(preset==='morning') return mins >= 0 && mins < 12*60;
+  if(preset==='afternoon') return mins >= 12*60 && mins < 18*60;
+  if(preset==='evening') return mins >= 18*60 && mins <= 23*60+59;
+  return true;
+}
+
+function filterByTime(recs){
+  const preset = S.ui.timePreset || 'all';
+  const fromM = parseHHMMtoMins(S.ui.timeFrom || '');
+  const toM = parseHHMMtoMins(S.ui.timeTo || '');
+
+  return (recs||[]).filter(rec => {
+    const mins = timeVal(rec.ora);
+    if(mins===9999) return false; // senza ora, nascondi
+    if(!byPreset(mins, preset)) return false;
+    if(fromM!=null && toM!=null && !inTimeRange(mins, fromM, toM)) return false;
+    return true;
+  });
+}
 function parseItalianNumber(s){
  if(s==null) return null;
  let t = String(s).trim().replace(/^"|"$/g,'');
@@ -1389,426 +1435,627 @@ function setUploadStatus(msg, type){
  el.className = 'up-status ' + type;
  el.textContent = msg;
 }
-
-/* CSV PARSER */
+  
+/* CSV PARSER - versione robusta */
 function detectDelimiter(firstLine){
- const candidates = [';',',','\t','|'];
- let best = ',', bestCount = 0;
- for(const d of candidates){
-  let c = 0, inQ = false;
-  for(let i=0;i<firstLine.length;i++){
-   const ch = firstLine[i];
-   if(ch === '"') inQ = !inQ;
-   else if(ch === d && !inQ) c++;
+  const candidates = [';',',','\t','|'];
+  let best = ',', bestCount = -1;
+  for(const d of candidates){
+    let c = 0, inQ = false;
+    for(let i=0;i<firstLine.length;i++){
+      const ch = firstLine[i];
+      if(ch === '"') inQ = !inQ;
+      else if(ch === d && !inQ) c++;
+    }
+    if(c > bestCount){ bestCount = c; best = d; }
   }
-  if(c > bestCount){ bestCount = c; best = d; }
- }
- return best;
+  return best;
 }
 
 function splitCsvLine(line, sep){
- const out = [];
- let cur = '', inQ = false;
- for(let i=0;i<line.length;i++){
-  const ch = line[i];
-  if(ch === '"'){
-   if(inQ && line[i+1]==='"'){ cur += '"'; i++; }
-   else inQ = !inQ;
-  } else if(ch === sep && !inQ){
-   out.push(cur); cur='';
-  } else cur += ch;
- }
- out.push(cur);
- return out.map(x => x.replace(/^"|"$/g,'').trim());
+  const out = [];
+  let cur = '', inQ = false;
+  for(let i=0;i<line.length;i++){
+    const ch = line[i];
+    if(ch === '"'){
+      if(inQ && line[i+1]==='"'){ cur += '"'; i++; }
+      else inQ = !inQ;
+    } else if(ch === sep && !inQ){
+      out.push(cur); cur='';
+    } else cur += ch;
+  }
+  out.push(cur);
+  return out.map(x => x.replace(/^"|"$/g,'').trim());
 }
 
 function parseCsvLines(text){
- return text.replace(/^\uFEFF/,'').replace(/\r\n?/g,'\n').trim().split('\n').filter(l=>l.trim()!=='');
+  return text
+    .replace(/^\uFEFF/,'')
+    .replace(/\r\n?/g,'\n')
+    .split('\n')
+    .filter(l => l.trim()!=='');
+}
+
+/* --- normalizzazione header robusta --- */
+function normalizeHeaderName(s){
+  return String(s || '')
+    .trim()
+    .toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+    .replace(/[%°]/g, '')
+    .replace(/[._]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
 }
 
 function buildHeaderIndex(headerArr){
- const idx = {};
- headerArr.forEach((h,i) => { idx[h.trim()] = i; });
- return idx;
-}
-
-function gCell(row, idx, name){
- const i = idx[name];
- if(i === undefined) return '';
- return (row[i]==null) ? '' : String(row[i]).trim();
-}
-
-function parseOv05pt(text){
- const L = parseCsvLines(text); if(L.length<2) return [];
- const sep = detectDelimiter(L[0]);
- const hdr = splitCsvLine(L[0], sep);
- const ix = buildHeaderIndex(hdr);
- const rows = [];
- for(let i=1;i<L.length;i++){
-  const f = splitCsvLine(L[i], sep);
-  if(f.length < 3) continue;
-  const evento = gCell(f,ix,'EVENTO');
-  if(!evento) continue;
-  const u5raw = gCell(f,ix,'U5[C|O]');
-  const u5ctraw = gCell(f,ix,'U5CT[C|O]');
-  const splitBar = function(v){ if(!v) return [0,0]; const p = v.split('|').map(x=>parseInt(x)||0); return [p[0]||0, p[1]||0]; };
-  rows.push({
-   ora: cleanTime(gCell(f,ix,'ORA')), evento,
-   rpt: gCell(f,ix,'Rpt'),
-   ind: piOr0(gCell(f,ix,'IND')) || 999,
-   qrOv05: pfOr0(gCell(f,ix,'QROv0.5pt')) || pfOr0(gCell(f,ix,'QrOv0.5pt')),
-   delta: pfOr0(gCell(f,ix,'Delta')),
-   u5: splitBar(u5raw), u5ct: splitBar(u5ctraw),
-   diff: pfOr0(gCell(f,ix,'Diff')),
-   mge: pfOr0(gCell(f,ix,'MGE')),
-   cov05: pfOr0(gCell(f,ix,'COv0.5%')),
-   oov05: pfOr0(gCell(f,ix,'OOv0.5%')),
-   qrGG: pfOr0(gCell(f,ix,'QrGG')),
-   qrO25: pfOr0(gCell(f,ix,'QrO25')),
-   _key: normMatchKey(evento)
+  const raw = {};
+  const norm = {};
+  headerArr.forEach((h,i) => {
+    const hRaw = String(h || '').trim();
+    raw[hRaw] = i;
+    const hNorm = normalizeHeaderName(hRaw);
+    if(norm[hNorm]===undefined) norm[hNorm] = i;
   });
- }
- return rows;
+  return { raw, norm, headerArr };
+}
+
+function headerAliases(){
+  return {
+    ora: ['ora','data ev','data ev ','dataev','time'],
+    evento: ['evento','match','partita'],
+    np: ['np','n p'],
+    r: ['r'],
+    rpt: ['rpt','ris','ris ','ris.'],
+    mge: ['mge'],
+    diff: ['diff','di ff'],
+
+    p1: ['1','1 %','p1'],
+    q1: ['q1','1 quota','quota 1'],
+    pX: ['x','x %','px'],
+    qX: ['qx','q x','x quota','quota x'],
+    p2: ['2','2 %','p2'],
+    q2: ['q2','2 quota','quota 2'],
+
+    pGG: ['gg','pgg','gg %'],
+    qGG: ['qgg','gg quota','quota gg'],
+
+    pOV15: ['ov15','ov 15','ov1 5'],
+    qOV15: ['qov15','q ov15','quota ov15','quota over 1.5'],
+
+    pOV25: ['ov25','ov 25','over 2.5','over2.5'],
+    qOV25: ['qov25','quota ov25','quota over 2.5'],
+
+    pUN35: ['un35','un 35','under 3.5','under3.5'],
+    qUN35: ['qun35','quota un35','quota under 3.5'],
+
+    pOV05pt: ['ov0 5pt','ov05pt','ov 0 5 pt'],
+    qOV05pt: ['qov0 5pt','qov05pt','quota ov0.5pt'],
+
+    ic: ['ic'],
+    rc: ['rc'],
+    ro: ['ro'],
+
+    pSC: ['sc','psc'],
+    qSC: ['qsc','quota sc'],
+    igbc: ['igbc'],
+
+    pSO: ['so','pso'],
+    qSO: ['qso','quota so'],
+    igbo: ['igbo'],
+
+    re: ['re']
+  };
+}
+
+function findCol(ix, keyName){
+  const aliases = headerAliases()[keyName] || [];
+  for(const a of aliases){
+    const idx = ix.norm[normalizeHeaderName(a)];
+    if(idx!==undefined) return idx;
+  }
+  return -1;
+}
+
+function valAt(row, idx){
+  if(idx<0 || idx>=row.length) return '';
+  return row[idx]==null ? '' : String(row[idx]).trim();
+}
+
+function gCell(row, ix, name){
+  // compatibilità con parser esistenti: cerca prima raw, poi norm
+  const rawIdx = ix.raw[name];
+  if(rawIdx!==undefined) return valAt(row, rawIdx);
+  const normIdx = ix.norm[normalizeHeaderName(name)];
+  if(normIdx!==undefined) return valAt(row, normIdx);
+  return '';
+}
+
+/* --- PARSER ESISTENTI (uguali) --- */
+function parseOv05pt(text){
+  const L = parseCsvLines(text); if(L.length<2) return [];
+  const sep = detectDelimiter(L[0]);
+  const hdr = splitCsvLine(L[0], sep);
+  const ix = buildHeaderIndex(hdr);
+  const rows = [];
+  for(let i=1;i<L.length;i++){
+    const f = splitCsvLine(L[i], sep);
+    if(f.length < 3) continue;
+    const evento = gCell(f,ix,'EVENTO');
+    if(!evento) continue;
+    const u5raw = gCell(f,ix,'U5[C|O]');
+    const u5ctraw = gCell(f,ix,'U5CT[C|O]');
+    const splitBar = function(v){ if(!v) return [0,0]; const p = v.split('|').map(x=>parseInt(x)||0); return [p[0]||0, p[1]||0]; };
+    rows.push({
+      ora: cleanTime(gCell(f,ix,'ORA')), evento,
+      rpt: gCell(f,ix,'Rpt'),
+      ind: piOr0(gCell(f,ix,'IND')) || 999,
+      qrOv05: pfOr0(gCell(f,ix,'QROv0.5pt')) || pfOr0(gCell(f,ix,'QrOv0.5pt')),
+      delta: pfOr0(gCell(f,ix,'Delta')),
+      u5: splitBar(u5raw), u5ct: splitBar(u5ctraw),
+      diff: pfOr0(gCell(f,ix,'Diff')),
+      mge: pfOr0(gCell(f,ix,'MGE')),
+      cov05: pfOr0(gCell(f,ix,'COv0.5%')),
+      oov05: pfOr0(gCell(f,ix,'OOv0.5%')),
+      qrGG: pfOr0(gCell(f,ix,'QrGG')),
+      qrO25: pfOr0(gCell(f,ix,'QrO25')),
+      _key: normMatchKey(evento)
+    });
+  }
+  return rows;
 }
 
 function parseGGov25(text){
- const L = parseCsvLines(text); if(L.length<2) return [];
- const sep = detectDelimiter(L[0]);
- const hdr = splitCsvLine(L[0], sep);
- const ix = buildHeaderIndex(hdr);
- const rows = [];
- for(let i=1;i<L.length;i++){
-  const f = splitCsvLine(L[i], sep);
-  if(f.length < 3) continue;
-  let oraRaw = gCell(f,ix,'ORA') || gCell(f,ix,'DATA EV.');
-  const tm = String(oraRaw).match(/(\d{1,2}:\d{2})/);
-  const dt = String(oraRaw).match(/(\d{2}-\d{2})/);
-  const ora = (dt ? dt[1].replace('-','/')+' ' : '') + (tm ? tm[1] : '');
-  let evento = gCell(f,ix,'EVENTO');
-  if(evento) evento = evento.split(/\s{3,}/)[0] || evento;
-  if(!evento) continue;
-  rows.push({
-   ora: ora.trim(), evento,
-   nazione: gCell(f,ix,'NAZIONE'),
-   lega: gCell(f,ix,'LEGA') || gCell(f,ix,'NAZIONE'),
-   rpt: gCell(f,ix,'RIS.'),
-   igbc: piOr0(gCell(f,ix,'IGBc')),
-   igbo: piOr0(gCell(f,ix,'IGBo')),
-   igbt: piOr0(gCell(f,ix,'IGBt')),
-   mge:  pfOr0(gCell(f,ix,'MGE')),
-   diff: pfOr0(gCell(f,ix,'Diff')),
-   pgg:  pfOr0(gCell(f,ix,'PGG')),
-   s12:  piOr0(gCell(f,ix,'S1-S2')),
-   qov25: pfOr0(gCell(f,ix,'qOv2.5')),
-   _key: normMatchKey(evento)
-  });
- }
- return rows;
+  const L = parseCsvLines(text); if(L.length<2) return [];
+  const sep = detectDelimiter(L[0]);
+  const hdr = splitCsvLine(L[0], sep);
+  const ix = buildHeaderIndex(hdr);
+  const rows = [];
+  for(let i=1;i<L.length;i++){
+    const f = splitCsvLine(L[i], sep);
+    if(f.length < 3) continue;
+    let oraRaw = gCell(f,ix,'ORA') || gCell(f,ix,'DATA EV.');
+    const tm = String(oraRaw).match(/(\d{1,2}:\d{2})/);
+    const dt = String(oraRaw).match(/(\d{2}-\d{2})/);
+    const ora = (dt ? dt[1].replace('-','/')+' ' : '') + (tm ? tm[1] : '');
+    let evento = gCell(f,ix,'EVENTO');
+    if(evento) evento = evento.split(/\s{3,}/)[0] || evento;
+    if(!evento) continue;
+    rows.push({
+      ora: ora.trim(), evento,
+      nazione: gCell(f,ix,'NAZIONE'),
+      lega: gCell(f,ix,'LEGA') || gCell(f,ix,'NAZIONE'),
+      rpt: gCell(f,ix,'RIS.'),
+      igbc: piOr0(gCell(f,ix,'IGBc')),
+      igbo: piOr0(gCell(f,ix,'IGBo')),
+      igbt: piOr0(gCell(f,ix,'IGBt')),
+      mge:  pfOr0(gCell(f,ix,'MGE')),
+      diff: pfOr0(gCell(f,ix,'Diff')),
+      pgg:  pfOr0(gCell(f,ix,'PGG')),
+      s12:  piOr0(gCell(f,ix,'S1-S2')),
+      qov25: pfOr0(gCell(f,ix,'qOv2.5')),
+      _key: normMatchKey(evento)
+    });
+  }
+  return rows;
 }
 
 function parseMG13(text){
- const L = parseCsvLines(text); if(L.length<2) return [];
- const sep = detectDelimiter(L[0]);
- const hdr = splitCsvLine(L[0], sep);
- const ix = buildHeaderIndex(hdr);
- const rows = [];
- for(let i=1;i<L.length;i++){
-  const f = splitCsvLine(L[i], sep);
-  if(f.length < 3) continue;
-  const evento = gCell(f,ix,'EVENTO');
-  if(!evento) continue;
-  rows.push({
-   ora: cleanTime(gCell(f,ix,'ORA')), evento,
-   rpt: gCell(f,ix,'R'),
-   ich: piOr0(gCell(f,ix,'ICH')),
-   varc: pfOr0(gCell(f,ix,'VarC')),
-   vu5c: pfOr0(gCell(f,ix,'VU5C')),
-   ritc: piOr0(gCell(f,ix,'RitC')),
-   mgfc: pfOr0(gCell(f,ix,'MGFC')),
-   mgso: pfOr0(gCell(f,ix,'MGSO')),
-   q1: pfOr0(gCell(f,ix,'Q1')),
-   qo25: pfOr0(gCell(f,ix,'QO25')),
-   q2: pfOr0(gCell(f,ix,'Q2')),
-   ica: piOr0(gCell(f,ix,'ICA')),
-   varo: pfOr0(gCell(f,ix,'VarO')),
-   vu5o: pfOr0(gCell(f,ix,'VU5O')),
-   rito: piOr0(gCell(f,ix,'RitO')),
-   mgfo: pfOr0(gCell(f,ix,'MGFO')),
-   mgsc: pfOr0(gCell(f,ix,'MGSC')),
-   _key: normMatchKey(evento)
-  });
- }
- return rows;
+  const L = parseCsvLines(text); if(L.length<2) return [];
+  const sep = detectDelimiter(L[0]);
+  const hdr = splitCsvLine(L[0], sep);
+  const ix = buildHeaderIndex(hdr);
+  const rows = [];
+  for(let i=1;i<L.length;i++){
+    const f = splitCsvLine(L[i], sep);
+    if(f.length < 3) continue;
+    const evento = gCell(f,ix,'EVENTO');
+    if(!evento) continue;
+    rows.push({
+      ora: cleanTime(gCell(f,ix,'ORA')), evento,
+      rpt: gCell(f,ix,'R'),
+      ich: piOr0(gCell(f,ix,'ICH')),
+      varc: pfOr0(gCell(f,ix,'VarC')),
+      vu5c: pfOr0(gCell(f,ix,'VU5C')),
+      ritc: piOr0(gCell(f,ix,'RitC')),
+      mgfc: pfOr0(gCell(f,ix,'MGFC')),
+      mgso: pfOr0(gCell(f,ix,'MGSO')),
+      q1: pfOr0(gCell(f,ix,'Q1')),
+      qo25: pfOr0(gCell(f,ix,'QO25')),
+      q2: pfOr0(gCell(f,ix,'Q2')),
+      ica: piOr0(gCell(f,ix,'ICA')),
+      varo: pfOr0(gCell(f,ix,'VarO')),
+      vu5o: pfOr0(gCell(f,ix,'VU5O')),
+      rito: piOr0(gCell(f,ix,'RitO')),
+      mgfo: pfOr0(gCell(f,ix,'MGFO')),
+      mgsc: pfOr0(gCell(f,ix,'MGSC')),
+      _key: normMatchKey(evento)
+    });
+  }
+  return rows;
 }
 
 function parseIA(text){
- const L = parseCsvLines(text); if(L.length<2) return [];
- const sep = detectDelimiter(L[0]);
- const hdr = splitCsvLine(L[0], sep);
- const ix = buildHeaderIndex(hdr);
- const rows = [];
- for(let i=1;i<L.length;i++){
-  const f = splitCsvLine(L[i], sep);
-  if(f.length < 3) continue;
-  let oraRaw = gCell(f,ix,'DATA EV.') || gCell(f,ix,'ORA');
-  const tm = String(oraRaw).match(/(\d{1,2}:\d{2})/);
-  const dt = String(oraRaw).match(/(\d{2}-\d{2})/);
-  const ora = (dt ? dt[1].replace('-','/')+' ' : '') + (tm ? tm[1] : '');
-  const evento = gCell(f,ix,'EVENTO');
-  if(!evento) continue;
-  const stats = [];
-  const cats = [
-   ['TT','Tiri Totali','TT1X2','TTaff'],
-   ['TIP','Tiri in Porta','TIP1X2','TIPaff'],
-   ['COR','Corner','Cor1X2','CorAff'],
-   ['FAL','Falli','Fal1X2','FalAff'],
-   ['FG','Fuorigioco','FG1X2','FGaff']
-  ];
-  cats.forEach(function(c){
-   const k=c[0],lbl=c[1],kp=c[2],ka=c[3];
-   const pred = gCell(f,ix,kp);
-   const aff = pfOr0(gCell(f,ix,ka));
-   if(pred) stats.push({key:k, label:lbl, pred, aff});
-  });
-  const affArr = stats.map(function(s){return s.aff;});
-  const maxAff = affArr.length ? Math.max.apply(null, affArr) : 0;
-  const avgAff = affArr.length ? affArr.reduce(function(s,x){return s+x;},0)/affArr.length : 0;
-  rows.push({
-   ora: ora.trim(), evento,
-   nazione: gCell(f,ix,'NAZIONE'),
-   lega: gCell(f,ix,'LEGA'),
-   rpt: gCell(f,ix,'RIS.'),
-   stats, maxAff, avgAff,
-   highCount: stats.filter(function(s){return s.aff>=2.5;}).length,
-   _key: normMatchKey(evento)
-  });
- }
- return rows;
+  const L = parseCsvLines(text); if(L.length<2) return [];
+  const sep = detectDelimiter(L[0]);
+  const hdr = splitCsvLine(L[0], sep);
+  const ix = buildHeaderIndex(hdr);
+  const rows = [];
+  for(let i=1;i<L.length;i++){
+    const f = splitCsvLine(L[i], sep);
+    if(f.length < 3) continue;
+    let oraRaw = gCell(f,ix,'DATA EV.') || gCell(f,ix,'ORA');
+    const tm = String(oraRaw).match(/(\d{1,2}:\d{2})/);
+    const dt = String(oraRaw).match(/(\d{2}-\d{2})/);
+    const ora = (dt ? dt[1].replace('-','/')+' ' : '') + (tm ? tm[1] : '');
+    const evento = gCell(f,ix,'EVENTO');
+    if(!evento) continue;
+    const stats = [];
+    const cats = [
+      ['TT','Tiri Totali','TT1X2','TTaff'],
+      ['TIP','Tiri in Porta','TIP1X2','TIPaff'],
+      ['COR','Corner','Cor1X2','CorAff'],
+      ['FAL','Falli','Fal1X2','FalAff'],
+      ['FG','Fuorigioco','FG1X2','FGaff']
+    ];
+    cats.forEach(function(c){
+      const k=c[0],kp=c[2],ka=c[3];
+      const pred = gCell(f,ix,kp);
+      const aff = pfOr0(gCell(f,ix,ka));
+      if(pred) stats.push({key:k, pred, aff});
+    });
+    const affArr = stats.map(function(s){return s.aff;});
+    const maxAff = affArr.length ? Math.max.apply(null, affArr) : 0;
+    const avgAff = affArr.length ? affArr.reduce(function(s,x){return s+x;},0)/affArr.length : 0;
+    rows.push({
+      ora: ora.trim(), evento,
+      nazione: gCell(f,ix,'NAZIONE'),
+      lega: gCell(f,ix,'LEGA'),
+      rpt: gCell(f,ix,'RIS.'),
+      stats, maxAff, avgAff,
+      highCount: stats.filter(function(s){return s.aff>=2.5;}).length,
+      _key: normMatchKey(evento)
+    });
+  }
+  return rows;
 }
 
 function parsePlCard(text){
- const L = parseCsvLines(text); if(L.length<2) return [];
- const sep = detectDelimiter(L[0]);
- const hdr = splitCsvLine(L[0], sep);
- const ix = buildHeaderIndex(hdr);
- const rows = [];
- for(let i=1;i<L.length;i++){
-  const f = splitCsvLine(L[i], sep);
-  if(f.length < 3) continue;
-  const oraRaw = gCell(f,ix,'Ora');
-  const tm = String(oraRaw).match(/(\d{1,2}:\d{2})/);
-  const dt = String(oraRaw).match(/(\d{2}-\d{2})/);
-  const ora = (dt ? dt[1].replace('-','/')+' ' : '') + (tm ? tm[1] : '');
-  const nome = gCell(f,ix,'Nome');
-  const partita = gCell(f,ix,'Partita');
-  if(!nome) continue;
-  rows.push({
-   ora: ora.trim(), lega: gCell(f,ix,'Campionato'),
-   partita, nome, squadra: gCell(f,ix,'Squadra'),
-   pos: gCell(f,ix,'Pos.'),
-   pres: piOr0(gCell(f,ix,'Presenze')),
-   min: pfOr0(gCell(f,ix,'Minuti')),
-   tackle: pfOr0(gCell(f,ix,'Tackel')),
-   falli: pfOr0(gCell(f,ix,'Falli')),
-   amm: pfOr0(gCell(f,ix,'Ammonizioni')),
-   esp: pfOr0(gCell(f,ix,'Esplusioni')),
-   rit: piOr0(gCell(f,ix,'Rit.')),
-   _key: normMatchKey(partita)
-  });
- }
- return rows;
+  const L = parseCsvLines(text); if(L.length<2) return [];
+  const sep = detectDelimiter(L[0]);
+  const hdr = splitCsvLine(L[0], sep);
+  const ix = buildHeaderIndex(hdr);
+  const rows = [];
+  for(let i=1;i<L.length;i++){
+    const f = splitCsvLine(L[i], sep);
+    if(f.length < 3) continue;
+    const oraRaw = gCell(f,ix,'Ora');
+    const tm = String(oraRaw).match(/(\d{1,2}:\d{2})/);
+    const dt = String(oraRaw).match(/(\d{2}-\d{2})/);
+    const ora = (dt ? dt[1].replace('-','/')+' ' : '') + (tm ? tm[1] : '');
+    const nome = gCell(f,ix,'Nome');
+    const partita = gCell(f,ix,'Partita');
+    if(!nome) continue;
+    rows.push({
+      ora: ora.trim(), lega: gCell(f,ix,'Campionato'),
+      partita, nome, squadra: gCell(f,ix,'Squadra'),
+      pos: gCell(f,ix,'Pos.'),
+      pres: piOr0(gCell(f,ix,'Presenze')),
+      min: pfOr0(gCell(f,ix,'Minuti')),
+      tackle: pfOr0(gCell(f,ix,'Tackel')),
+      falli: pfOr0(gCell(f,ix,'Falli')),
+      amm: pfOr0(gCell(f,ix,'Ammonizioni')),
+      esp: pfOr0(gCell(f,ix,'Esplusioni')),
+      rit: piOr0(gCell(f,ix,'Rit.')),
+      _key: normMatchKey(partita)
+    });
+  }
+  return rows;
 }
 
 function parsePlShot(text){
- const L = parseCsvLines(text); if(L.length<2) return [];
- const sep = detectDelimiter(L[0]);
- const hdr = splitCsvLine(L[0], sep);
- const ix = buildHeaderIndex(hdr);
- const rows = [];
- for(let i=1;i<L.length;i++){
-  const f = splitCsvLine(L[i], sep);
-  if(f.length < 3) continue;
-  const oraRaw = gCell(f,ix,'Ora');
-  const tm = String(oraRaw).match(/(\d{1,2}:\d{2})/);
-  const dt = String(oraRaw).match(/(\d{2}-\d{2})/);
-  const ora = (dt ? dt[1].replace('-','/')+' ' : '') + (tm ? tm[1] : '');
-  const nome = gCell(f,ix,'Nome');
-  const partita = gCell(f,ix,'Partita');
-  if(!nome) continue;
-  rows.push({
-   ora: ora.trim(), lega: gCell(f,ix,'Campionato'),
-   partita, nome, squadra: gCell(f,ix,'Squadra'),
-   pos: gCell(f,ix,'Pos.'),
-   pres: piOr0(gCell(f,ix,'Presenze')),
-   min: pfOr0(gCell(f,ix,'Minuti')),
-   tiriTot: pfOr0(gCell(f,ix,'Tiri Totali')),
-   tiriPorta: pfOr0(gCell(f,ix,'Tiri in porta')),
-   gol: pfOr0(gCell(f,ix,'Gol')),
-   rit: piOr0(gCell(f,ix,'Rit.')),
-   _key: normMatchKey(partita)
-  });
- }
- return rows;
+  const L = parseCsvLines(text); if(L.length<2) return [];
+  const sep = detectDelimiter(L[0]);
+  const hdr = splitCsvLine(L[0], sep);
+  const ix = buildHeaderIndex(hdr);
+  const rows = [];
+  for(let i=1;i<L.length;i++){
+    const f = splitCsvLine(L[i], sep);
+    if(f.length < 3) continue;
+    const oraRaw = gCell(f,ix,'Ora');
+    const tm = String(oraRaw).match(/(\d{1,2}:\d{2})/);
+    const dt = String(oraRaw).match(/(\d{2}-\d{2})/);
+    const ora = (dt ? dt[1].replace('-','/')+' ' : '') + (tm ? tm[1] : '');
+    const nome = gCell(f,ix,'Nome');
+    const partita = gCell(f,ix,'Partita');
+    if(!nome) continue;
+    rows.push({
+      ora: ora.trim(), lega: gCell(f,ix,'Campionato'),
+      partita, nome, squadra: gCell(f,ix,'Squadra'),
+      pos: gCell(f,ix,'Pos.'),
+      pres: piOr0(gCell(f,ix,'Presenze')),
+      min: pfOr0(gCell(f,ix,'Minuti')),
+      tiriTot: pfOr0(gCell(f,ix,'Tiri Totali')),
+      tiriPorta: pfOr0(gCell(f,ix,'Tiri in porta')),
+      gol: pfOr0(gCell(f,ix,'Gol')),
+      rit: piOr0(gCell(f,ix,'Rit.')),
+      _key: normMatchKey(partita)
+    });
+  }
+  return rows;
 }
 
 function parseQVal(text){
- const L = parseCsvLines(text); if(L.length<2) return [];
- const sep = detectDelimiter(L[0]);
- const hdr = splitCsvLine(L[0], sep);
- const iOra = hdr.indexOf('Ora'), iMatch = hdr.indexOf('Match'), iR = hdr.indexOf('R'), iNP = hdr.indexOf('NP');
- const iT1 = hdr.indexOf('T1'), iR1 = hdr.indexOf('R1'), iDM1 = hdr.indexOf('DM1'), iSpr1 = iDM1 + 1;
- const iTX = hdr.indexOf('TX'), iRX = hdr.indexOf('RX'), iDMX = hdr.indexOf('DMX'), iSprX = iDMX + 1;
- const iT2 = hdr.indexOf('T2'), iR2 = hdr.indexOf('R2'), iDM2 = hdr.indexOf('DM2'), iSpr2 = iDM2 + 1;
- const rows = [];
- for(let i=1;i<L.length;i++){
-  const f = splitCsvLine(L[i], sep);
-  if(f.length < 5) continue;
-  const match = f[iMatch] ? f[iMatch].replace(/^"|"$/g,'').trim() : '';
-  if(!match) continue;
-  rows.push({
-   ora: cleanTime(f[iOra] || ''), match, r: f[iR] || '', np: piOr0(f[iNP]),
-   t1: pfOr0(f[iT1]), r1: pfOr0(f[iR1]), dm1: pfOr0(f[iDM1]), spread1: pfOr0(f[iSpr1]),
-   tx: pfOr0(f[iTX]), rx: pfOr0(f[iRX]), dmx: pfOr0(f[iDMX]), spreadX: pfOr0(f[iSprX]),
-   t2: pfOr0(f[iT2]), r2: pfOr0(f[iR2]), dm2: pfOr0(f[iDM2]), spread2: pfOr0(f[iSpr2]),
-   _key: normMatchKey(match)
-  });
- }
- return rows;
+  const L = parseCsvLines(text); if(L.length<2) return [];
+  const sep = detectDelimiter(L[0]);
+  const hdr = splitCsvLine(L[0], sep);
+  const ix = buildHeaderIndex(hdr);
+
+  const iOra = findCol(ix,'ora');
+  const iMatch = findCol(ix,'evento');
+  const iR = findCol(ix,'r');
+  const iNP = findCol(ix,'np');
+
+  const iT1 = findCol(ix,'p1');
+  const iR1 = findCol(ix,'q1');
+  const iDM1 = ix.raw['DM1'] ?? ix.norm[normalizeHeaderName('DM1')] ?? -1;
+  const iSpr1 = iDM1 >= 0 ? iDM1 + 1 : -1;
+
+  const iTX = findCol(ix,'pX');
+  const iRX = findCol(ix,'qX');
+  const iDMX = ix.raw['DMX'] ?? ix.norm[normalizeHeaderName('DMX')] ?? -1;
+  const iSprX = iDMX >= 0 ? iDMX + 1 : -1;
+
+  const iT2 = findCol(ix,'p2');
+  const iR2 = findCol(ix,'q2');
+  const iDM2 = ix.raw['DM2'] ?? ix.norm[normalizeHeaderName('DM2')] ?? -1;
+  const iSpr2 = iDM2 >= 0 ? iDM2 + 1 : -1;
+
+  const rows = [];
+  for(let i=1;i<L.length;i++){
+    const f = splitCsvLine(L[i], sep);
+    if(f.length < 5) continue;
+    const match = valAt(f, iMatch).replace(/^"|"$/g,'').trim();
+    if(!match) continue;
+    rows.push({
+      ora: cleanTime(valAt(f, iOra)),
+      match,
+      r: valAt(f, iR),
+      np: piOr0(valAt(f, iNP)),
+      t1: pfOr0(valAt(f, iT1)),
+      r1: pfOr0(valAt(f, iR1)),
+      dm1: pfOr0(valAt(f, iDM1)),
+      spread1: pfOr0(valAt(f, iSpr1)),
+      tx: pfOr0(valAt(f, iTX)),
+      rx: pfOr0(valAt(f, iRX)),
+      dmx: pfOr0(valAt(f, iDMX)),
+      spreadX: pfOr0(valAt(f, iSprX)),
+      t2: pfOr0(valAt(f, iT2)),
+      r2: pfOr0(valAt(f, iR2)),
+      dm2: pfOr0(valAt(f, iDM2)),
+      spread2: pfOr0(valAt(f, iSpr2)),
+      _key: normMatchKey(match)
+    });
+  }
+  return rows;
 }
 
 function parseGZ(text){
- const L = parseCsvLines(text); if(L.length<2) return [];
- const sep = detectDelimiter(L[0]);
- const hdr = splitCsvLine(L[0], sep);
- const ix = buildHeaderIndex(hdr);
- const rows = [];
- for(let i=1;i<L.length;i++){
-  const f = splitCsvLine(L[i], sep);
-  if(f.length < 3) continue;
-  let oraRaw = gCell(f,ix,'DATA EV.');
-  const tm = String(oraRaw).match(/(\d{1,2}:\d{2})/);
-  const dt = String(oraRaw).match(/(\d{2}-\d{2})/);
-  const ora = (dt ? dt[1].replace('-','/')+' ' : '') + (tm ? tm[1] : '');
-  const evento = gCell(f,ix,'EVENTO');
-  if(!evento) continue;
-  rows.push({
-   ora: ora.trim(),
-   nazione: gCell(f,ix,'NAZIONE'),
-   lega: gCell(f,ix,'LEGA'),
-   evento,
-   rpt: gCell(f,ix,'RIS.'),
-   gz:  parseItalianNumber(gCell(f,ix,'GZ')),
-   gzha: parseItalianNumber(gCell(f,ix,'GZha')),
-   igbc: parseItalianNumber(gCell(f,ix,'IGBc')),
-   igbo: parseItalianNumber(gCell(f,ix,'IGBo')),
-   igbt: parseItalianNumber(gCell(f,ix,'IGBt')),
-   mge: parseItalianNumber(gCell(f,ix,'MGE')),
-   diff: parseItalianNumber(gCell(f,ix,'Diff')),
-   _key: normMatchKey(evento)
-  });
- }
- return rows;
+  const L = parseCsvLines(text); if(L.length<2) return [];
+  const sep = detectDelimiter(L[0]);
+  const hdr = splitCsvLine(L[0], sep);
+  const ix = buildHeaderIndex(hdr);
+  const rows = [];
+  for(let i=1;i<L.length;i++){
+    const f = splitCsvLine(L[i], sep);
+    if(f.length < 3) continue;
+    let oraRaw = gCell(f,ix,'DATA EV.');
+    const tm = String(oraRaw).match(/(\d{1,2}:\d{2})/);
+    const dt = String(oraRaw).match(/(\d{2}-\d{2})/);
+    const ora = (dt ? dt[1].replace('-','/')+' ' : '') + (tm ? tm[1] : '');
+    const evento = gCell(f,ix,'EVENTO');
+    if(!evento) continue;
+    rows.push({
+      ora: ora.trim(),
+      nazione: gCell(f,ix,'NAZIONE'),
+      lega: gCell(f,ix,'LEGA'),
+      evento,
+      rpt: gCell(f,ix,'RIS.'),
+      gz:  parseItalianNumber(gCell(f,ix,'GZ')),
+      gzha: parseItalianNumber(gCell(f,ix,'GZha')),
+      igbc: parseItalianNumber(gCell(f,ix,'IGBc')),
+      igbo: parseItalianNumber(gCell(f,ix,'IGBo')),
+      igbt: parseItalianNumber(gCell(f,ix,'IGBt')),
+      mge: parseItalianNumber(gCell(f,ix,'MGE')),
+      diff: parseItalianNumber(gCell(f,ix,'Diff')),
+      _key: normMatchKey(evento)
+    });
+  }
+  return rows;
 }
 
+/* --- parseDM FIXATA (core bug) --- */
 function parseDM(text){
- const L = parseCsvLines(text); if(L.length<2) return [];
- const sep = detectDelimiter(L[0]);
- const hdr = splitCsvLine(L[0], sep);
- const findPair = function(name){
-  const first = hdr.indexOf(name);
-  if(first<0) return [-1,-1];
-  return [first, first+1];
- };
- const iOra = hdr.indexOf('Ora'), iMatch = hdr.indexOf('Match'), iR = hdr.indexOf('R'), iRpt = hdr.indexOf('Rpt'), iNP = hdr.indexOf('NP');
- const i1Perc = hdr.findIndex(function(h,i){return h === '1' && i > 5;});
- const i1Quota = i1Perc + 1, iXPerc = i1Quota + 1, iXQuota = iXPerc + 1, i2Perc = iXQuota + 1, i2Quota = i2Perc + 1;
- const iMGE = hdr.indexOf('MGE'), iDIFF = hdr.indexOf('DIFF');
- const iGGPerc = hdr.findIndex(function(h,i){return h === 'GG' && i > iDIFF;});
- const iGGQuota = iGGPerc + 1;
- const ovP = findPair('OV15'), ov25P = findPair('OV25'), un35P = findPair('UN35'), ov05ptP = findPair('OV0.5pt');
- const iIC = hdr.indexOf('IC'), iRC = hdr.indexOf('RC'), iRO = hdr.indexOf('RO');
- const iSCP = hdr.indexOf('SC'), iIGBC = hdr.indexOf('IGBC'), iSCQ = iIGBC + 1;
- const iSOP = hdr.indexOf('SO'), iIGBO = hdr.indexOf('IGBO'), iSOQ = iIGBO + 1;
- const iRE = hdr.indexOf('RE');
- const rows = [];
- for(let i=1;i<L.length;i++){
-  const f = splitCsvLine(L[i], sep);
-  if(f.length < 5) continue;
-  const match = f[iMatch] ? f[iMatch].replace(/^"|"$/g,'').trim() : '';
-  if(!match) continue;
-  rows.push({
-   ora: cleanTime(f[iOra]||''), match, r: f[iR]||'', rpt: f[iRpt]||'', np: piOr0(f[iNP]),
-   p1: pfOr0(f[i1Perc]), q1: pfOr0(f[i1Quota]),
-   pX: pfOr0(f[iXPerc]), qX: pfOr0(f[iXQuota]),
-   p2: pfOr0(f[i2Perc]), q2: pfOr0(f[i2Quota]),
-   mge: pfOr0(f[iMGE]), diff: pfOr0(f[iDIFF]),
-   pGG: pfOr0(f[iGGPerc]), qGG: pfOr0(f[iGGQuota]),
-   pOV15: pfOr0(f[ovP[0]]), qOV15: pfOr0(f[ovP[1]]),
-   pOV25: pfOr0(f[ov25P[0]]), qOV25: pfOr0(f[ov25P[1]]),
-   pUN35: pfOr0(f[un35P[0]]), qUN35: pfOr0(f[un35P[1]]),
-   pOV05pt: pfOr0(f[ov05ptP[0]]), qOV05pt: pfOr0(f[ov05ptP[1]]),
-   ic: piOr0(f[iIC]), rc: piOr0(f[iRC]), ro: piOr0(f[iRO]),
-   pSC: pfOr0(f[iSCP]), qSC: pfOr0(f[iSCQ]), igbc: piOr0(f[iIGBC]),
-   pSO: pfOr0(f[iSOP]), qSO: pfOr0(f[iSOQ]), igbo: piOr0(f[iIGBO]),
-   re: iRE>=0 ? (f[iRE]||'') : '',
-   _key: normMatchKey(match)
-  });
- }
- return rows;
+  const L = parseCsvLines(text); if(L.length<2) return [];
+  const sep = detectDelimiter(L[0]);
+  const hdr = splitCsvLine(L[0], sep);
+  const ix = buildHeaderIndex(hdr);
+
+  const iOra   = findCol(ix,'ora');
+  const iMatch = findCol(ix,'evento');
+  const iR     = findCol(ix,'r');
+  const iRpt   = findCol(ix,'rpt');
+  const iNP    = findCol(ix,'np');
+
+  const iP1 = findCol(ix,'p1');
+  const iQ1 = findCol(ix,'q1');
+  const iPX = findCol(ix,'pX');
+  const iQX = findCol(ix,'qX');
+  const iP2 = findCol(ix,'p2');
+  const iQ2 = findCol(ix,'q2');
+
+  const iMGE = findCol(ix,'mge');
+  const iDIFF = findCol(ix,'diff');
+
+  const iPGG = findCol(ix,'pGG');
+  const iQGG = findCol(ix,'qGG');
+
+  const iPOV15 = findCol(ix,'pOV15');
+  const iQOV15 = findCol(ix,'qOV15');
+
+  const iPOV25 = findCol(ix,'pOV25');
+  const iQOV25 = findCol(ix,'qOV25');
+
+  const iPUN35 = findCol(ix,'pUN35');
+  const iQUN35 = findCol(ix,'qUN35');
+
+  const iPOV05pt = findCol(ix,'pOV05pt');
+  const iQOV05pt = findCol(ix,'qOV05pt');
+
+  const iIC = findCol(ix,'ic');
+  const iRC = findCol(ix,'rc');
+  const iRO = findCol(ix,'ro');
+
+  const iPSC = findCol(ix,'pSC');
+  const iQSC = findCol(ix,'qSC');
+  const iIGBC = findCol(ix,'igbc');
+
+  const iPSO = findCol(ix,'pSO');
+  const iQSO = findCol(ix,'qSO');
+  const iIGBO = findCol(ix,'igbo');
+
+  const iRE = findCol(ix,'re');
+
+  // diagnostica utile in console
+  console.log('[parseDM] header:', hdr);
+  console.log('[parseDM] idx:', {iOra,iMatch,iR,iRpt,iNP,iP1,iQ1,iPX,iQX,iP2,iQ2,iMGE,iDIFF,iPGG,iQGG});
+
+  if(iMatch < 0){
+    throw new Error('CSV DataMining: colonna Match/EVENTO non trovata (header non riconosciuti).');
+  }
+
+  const rows = [];
+  for(let i=1;i<L.length;i++){
+    const f = splitCsvLine(L[i], sep);
+    if(f.length < 5) continue;
+
+    const match = valAt(f, iMatch).replace(/^"|"$/g,'').trim();
+    if(!match) continue;
+
+    rows.push({
+      ora: cleanTime(valAt(f, iOra)),
+      match,
+      r: valAt(f, iR),
+      rpt: valAt(f, iRpt),
+      np: piOr0(valAt(f, iNP)),
+
+      p1: pfOr0(valAt(f, iP1)),
+      q1: pfOr0(valAt(f, iQ1)),
+      pX: pfOr0(valAt(f, iPX)),
+      qX: pfOr0(valAt(f, iQX)),
+      p2: pfOr0(valAt(f, iP2)),
+      q2: pfOr0(valAt(f, iQ2)),
+
+      mge: pfOr0(valAt(f, iMGE)),
+      diff: pfOr0(valAt(f, iDIFF)),
+
+      pGG: pfOr0(valAt(f, iPGG)),
+      qGG: pfOr0(valAt(f, iQGG)),
+
+      pOV15: pfOr0(valAt(f, iPOV15)),
+      qOV15: pfOr0(valAt(f, iQOV15)),
+      pOV25: pfOr0(valAt(f, iPOV25)),
+      qOV25: pfOr0(valAt(f, iQOV25)),
+      pUN35: pfOr0(valAt(f, iPUN35)),
+      qUN35: pfOr0(valAt(f, iQUN35)),
+      pOV05pt: pfOr0(valAt(f, iPOV05pt)),
+      qOV05pt: pfOr0(valAt(f, iQOV05pt)),
+
+      ic: piOr0(valAt(f, iIC)),
+      rc: piOr0(valAt(f, iRC)),
+      ro: piOr0(valAt(f, iRO)),
+
+      pSC: pfOr0(valAt(f, iPSC)),
+      qSC: pfOr0(valAt(f, iQSC)),
+      igbc: piOr0(valAt(f, iIGBC)),
+
+      pSO: pfOr0(valAt(f, iPSO)),
+      qSO: pfOr0(valAt(f, iQSO)),
+      igbo: piOr0(valAt(f, iIGBO)),
+
+      re: valAt(f, iRE),
+      _key: normMatchKey(match)
+    });
+  }
+
+  console.log('[parseDM] rows parsed:', rows.length, rows[0] || null);
+  return rows;
 }
 
 function parseREField(reStr){
- if(!reStr) return [];
- const parts = reStr.split(/\s{2,}/).filter(function(s){return s.indexOf('%')>=0;});
- const items = parts.map(function(s){
-  const mm = s.match(/(\d+\s*-\s*\d+)\s*:\s*([\d.,]+)/);
-  if(!mm) return null;
-  return {score: mm[1].replace(/\s/g,''), perc: parseItalianNumber(mm[2])};
- }).filter(function(x){return x && x.perc!=null;});
- return items.sort(function(a,b){return b.perc - a.perc;});
+  if(!reStr) return [];
+  const parts = reStr.split(/\s{2,}/).filter(function(s){return s.indexOf('%')>=0;});
+  const items = parts.map(function(s){
+    const mm = s.match(/(\d+\s*-\s*\d+)\s*:\s*([\d.,]+)/);
+    if(!mm) return null;
+    return {score: mm[1].replace(/\s/g,''), perc: parseItalianNumber(mm[2])};
+  }).filter(function(x){return x && x.perc!=null;});
+  return items.sort(function(a,b){return b.perc - a.perc;});
 }
 
 function parseDiffG(text){
- const L = parseCsvLines(text); if(L.length<2) return [];
- const sep = detectDelimiter(L[0]);
- const hdr = splitCsvLine(L[0], sep);
- const ix = buildHeaderIndex(hdr);
- const rows = [];
- for(let i=1;i<L.length;i++){
-  const f = splitCsvLine(L[i], sep);
-  if(f.length < 3) continue;
-  const evento = gCell(f,ix,'EVENTO');
-  if(!evento) continue;
-  rows.push({
-   ora: cleanTime(gCell(f,ix,'ORA')), evento,
-   rpt: gCell(f,ix,'R'),
-   dgt: parseItalianNumber(gCell(f,ix,'DGT')),
-   dg:  parseItalianNumber(gCell(f,ix,'DG')),
-   mge: parseItalianNumber(gCell(f,ix,'MGE')),
-   mgu5: parseItalianNumber(gCell(f,ix,'MGU5')),
-   diffC: parseItalianNumber(gCell(f,ix,'DiffC')),
-   deC:   parseItalianNumber(gCell(f,ix,'DeC')),
-   diffO: parseItalianNumber(gCell(f,ix,'DiffO')),
-   deO:   parseItalianNumber(gCell(f,ix,'DeO')),
-   qt:  parseItalianNumber(gCell(f,ix,'Qt')),
-   qr:  parseItalianNumber(gCell(f,ix,'Qr')),
-   qrL: parseItalianNumber(gCell(f,ix,'QrL')),
-   _key: normMatchKey(evento)
-  });
- }
- return rows;
+  const L = parseCsvLines(text); if(L.length<2) return [];
+  const sep = detectDelimiter(L[0]);
+  const hdr = splitCsvLine(L[0], sep);
+  const ix = buildHeaderIndex(hdr);
+  const rows = [];
+  for(let i=1;i<L.length;i++){
+    const f = splitCsvLine(L[i], sep);
+    if(f.length < 3) continue;
+    const evento = gCell(f,ix,'EVENTO');
+    if(!evento) continue;
+    rows.push({
+      ora: cleanTime(gCell(f,ix,'ORA')), evento,
+      rpt: gCell(f,ix,'R'),
+      dgt: parseItalianNumber(gCell(f,ix,'DGT')),
+      dg:  parseItalianNumber(gCell(f,ix,'DG')),
+      mge: parseItalianNumber(gCell(f,ix,'MGE')),
+      mgu5: parseItalianNumber(gCell(f,ix,'MGU5')),
+      diffC: parseItalianNumber(gCell(f,ix,'DiffC')),
+      deC:   parseItalianNumber(gCell(f,ix,'DeC')),
+      diffO: parseItalianNumber(gCell(f,ix,'DiffO')),
+      deO:   parseItalianNumber(gCell(f,ix,'DeO')),
+      qt:  parseItalianNumber(gCell(f,ix,'Qt')),
+      qr:  parseItalianNumber(gCell(f,ix,'Qr')),
+      qrL: parseItalianNumber(gCell(f,ix,'QrL')),
+      _key: normMatchKey(evento)
+    });
+  }
+  return rows;
 }
 
-const PARSERS = {ov05pt:parseOv05pt, ggov25:parseGGov25, mg13:parseMG13, ia:parseIA, plCard:parsePlCard, plShot:parsePlShot, qVal:parseQVal, gz:parseGZ, dm:parseDM, diffg:parseDiffG};
+const PARSERS = {
+  ov05pt:parseOv05pt,
+  ggov25:parseGGov25,
+  mg13:parseMG13,
+  ia:parseIA,
+  plCard:parsePlCard,
+  plShot:parsePlShot,
+  qVal:parseQVal,
+  gz:parseGZ,
+  dm:parseDM,
+  diffg:parseDiffG
+};
 
 function parseAndStore(key, text){
- const fn = PARSERS[key];
- if(!fn) throw new Error('Dataset non gestito: ' + key);
- const rows = fn(text);
- if(!Array.isArray(rows)) throw new Error('Parsing invalido');
- S.datasets[key] = rows;
- bus.emit('csv:loaded', {key, count: rows.length});
+  const fn = PARSERS[key];
+  if(!fn) throw new Error('Dataset non gestito: ' + key);
+  const rows = fn(text);
+  if(!Array.isArray(rows)) throw new Error('Parsing invalido');
+  S.datasets[key] = rows;
+  bus.emit('csv:loaded', {key, count: rows.length});
 }
+
 
 /* === FINE PARTE 1/3 v6 === */
 /* === INIZIO PARTE 2/3 v5 · Generatori Bollamaker-style + Modalità tolerante === */
@@ -2671,7 +2918,9 @@ function runDecisionEngine(){
 
 if(!S.ui.view) S.ui.view = 'home';
 if(!S.ui.market) S.ui.market = null;
-
+if(!S.ui.timePreset) S.ui.timePreset = 'all';
+if(S.ui.timeFrom == null) S.ui.timeFrom = '';
+if(S.ui.timeTo == null) S.ui.timeTo = '';
 /* ==================== MODALI CON DATI REALI ==================== */
 // Mappa: badgeKey + recData → testo modale specifico per QUESTA partita
 
@@ -3088,7 +3337,10 @@ function renderCombo(combo, type, idx){
   <div style="margin-top:12px"><button class="mini-btn primary" data-add-combo="${type}|${idx}">+ Aggiungi alla schedina</button></div>
  </div>`;
 }
-
+function recIdFor(rec){
+  if(!rec) return '';
+  return `${rec._key || ''}|${rec.market || ''}`;
+}
 function renderSingolaPotenziata(item, idx){
  const a = item.leg1;
  const b = item.leg2;
@@ -3105,14 +3357,15 @@ function renderSingolaPotenziata(item, idx){
    <div class="combo-leg" data-recid="${escHtml(id1)}">
     <div style="flex:1;min-width:0">
      <div class="n">${escHtml(a.match)}</div>
-     <div class="m">🎯 LEG 1: <strong style="color:#fff">${escHtml(a.market)}</strong> · ${escHtml(a.lega||'')} · ${escHtml(cleanTime(a.ora))} · Conf ${a.confidence}${a.hasM1?' · 🏅':''}</div>
+     <div class="m">${escHtml(a.market)} · ${escHtml(cleanTime(a.ora))} · ${escHtml(a.lega||'')} · Conf ${a.confidence}${a.hasM1?' · 🏅':''}</div>
+
     </div>
     <div class="o">${a.odds.toFixed(2)}</div>
    </div>
    <div class="combo-leg" data-recid="${escHtml(id2)}">
     <div style="flex:1;min-width:0">
      <div class="n">${escHtml(b.match)}</div>
-     <div class="m">⚡ LEG 2: <strong style="color:#fff">${escHtml(b.market)}</strong> · ${escHtml(b.lega||'')} · ${escHtml(cleanTime(b.ora))} · Conf ${b.confidence}${b.hasM1?' · 🏅':''}</div>
+<div class="m">${escHtml(b.market)} · ${escHtml(cleanTime(b.ora))} · ${escHtml(b.lega||'')} · Conf ${b.confidence}${b.hasM1?' · 🏅':''}</div>
     </div>
     <div class="o">${b.odds.toFixed(2)}</div>
    </div>
@@ -3176,7 +3429,19 @@ function renderOggi(){
    <button class="mkt-btn ${S.ui.view==='mercato' && S.ui.market===mkt?'active':''}" data-market="${escHtml(mkt)}">${escHtml(mkt)}</button>
   `).join('')}
  </div>`;
-
+const timeFilters = `<div class="toolbar" style="margin-top:-2px">
+  <select class="select" id="timePresetSel">
+    <option value="all" ${S.ui.timePreset==='all'?'selected':''}>⏱️ Tutte le ore</option>
+    <option value="morning" ${S.ui.timePreset==='morning'?'selected':''}>Mattina (00-12)</option>
+    <option value="afternoon" ${S.ui.timePreset==='afternoon'?'selected':''}>Pomeriggio (12-18)</option>
+    <option value="evening" ${S.ui.timePreset==='evening'?'selected':''}>Sera (18-24)</option>
+  </select>
+  <label style="font-weight:700;font-size:.8rem;color:#64748B">Da</label>
+  <input type="time" id="timeFromInp" value="${escHtml(S.ui.timeFrom||'')}" class="search" style="max-width:140px;padding:10px 12px">
+  <label style="font-weight:700;font-size:.8rem;color:#64748B">A</label>
+  <input type="time" id="timeToInp" value="${escHtml(S.ui.timeTo||'')}" class="search" style="max-width:140px;padding:10px 12px">
+  <button class="mini-btn" id="timeResetBtn">Reset orario</button>
+</div>`;
  if(S.ui.view==='home'){
   const sing = genSingola(o.allMatches);
   const tripla = genTriplaRaddoppio(o.allMatches);
@@ -3184,7 +3449,7 @@ function renderOggi(){
   const dec = genDecina(o.allMatches);
   const pot = genSingolaPotenziata(o.allMatches);
   const val = genValueBets(o.allMatches);
-  main.innerHTML = buttons + marketFilters + `
+main.innerHTML = buttons + marketFilters + timeFilters + `
    <div class="home-intro">
     <div class="home-title">⚽ ${o.matchesCount} match analizzati</div>
     <div class="home-sub">Scegli il tipo di pronostico che vuoi generare. L'analisi è basata sulle regole BioFootballBet sigillate.</div>
@@ -3227,10 +3492,11 @@ function renderOggi(){
 
  if(S.ui.view==='singola'){
   const res = genSingola(o.allMatches);
-  const body = res.list.length ? `<div class="cards">${res.list.map(r => renderCardCompact(r)).join('')}</div>` : `
+const list = filterByTime(res.list);
+const body = list.length ? `<div class="cards">${list.map(r => renderCardCompact(r)).join('')}</div>` : `...`;
    <div class="empty"><div class="ico">🎯</div><p class="title">Nessuna singola disponibile</p><p>Nessun match nel range 1.50-1.80 con segnali sufficienti. Carica più CSV (DataMining + Differenziali) per aumentare le opzioni.</p></div>`;
   main.innerHTML = buttons + marketFilters + modeBanner(res.mode) + `
-   <div class="sec"><h2><span class="ico">🎯</span>Singola</h2><span class="ct">${res.list.length} match · 1.50-1.80</span></div>
+   <div class="sec"><h2><span class="ico">🎯</span>Singola</h2><span class="ct">${list.length} match · 1.50-1.80</span></div>
    ${body}`;
   return;
  }
@@ -3277,11 +3543,12 @@ function renderOggi(){
  }
 
  if(S.ui.view==='value'){
-  const res = genValueBets(o.allMatches);
-  const body = res.list.length ? `<div class="cards">${res.list.map(r => renderCardCompact(r)).join('')}</div>` : `
+ const res = genValueBets(o.allMatches);
+const list = filterByTime(res.list);
+const body = list.length ? `<div class="cards">${list.map(r => renderCardCompact(r)).join('')}</div>` : `...`;
    <div class="empty"><div class="ico">💎</div><p class="title">Nessun value bet</p><p>Nessun match con edge ≥ 5% e NP ≥ 15. Serve il CSV Quote Valore 1X2 + DataMining Plus.</p></div>`;
   main.innerHTML = buttons + marketFilters + modeBanner(res.mode) + `
-   <div class="sec"><h2><span class="ico">💎</span>Value bets</h2><span class="ct">${res.list.length} match · edge ≥ 5%</span></div>
+   <div class="sec"><h2><span class="ico">💎</span>Value bets</h2><span class="ct">${list.length} match · edge ≥ 5%</span></div>
    ${body}`;
   return;
  }
@@ -3290,7 +3557,7 @@ function renderOggi(){
   const all = getAllMatches(o.allMatches);
   const q = (S.ui.q||'').toLowerCase();
   const filtered = q ? all.filter(r => (r.match+' '+r.market+' '+(r.lega||'')).toLowerCase().includes(q)) : all;
-  main.innerHTML = buttons + marketFilters + `
+main.innerHTML = buttons + marketFilters + timeFilters + `
    <div class="sec"><h2><span class="ico">📋</span>Tutte le partite</h2><span class="ct">${filtered.length} / ${all.length}</span></div>
    <div class="toolbar"><input class="search" id="allSearch" placeholder="🔍 Cerca match, mercato, lega..." value="${escHtml(S.ui.q||'')}"></div>
    <div class="cards">${filtered.map(r => renderCardCompact(r)).join('') || '<div class="empty"><p>Nessun match corrisponde al filtro.</p></div>'}</div>`;
@@ -3301,8 +3568,8 @@ function renderOggi(){
   const list = filterByMarket(o.allMatches, S.ui.market, 30);
   const body = list.length ? `<div class="cards">${list.map(r => renderCardCompact(r)).join('')}</div>` : `
    <div class="empty"><div class="ico">🎯</div><p class="title">Nessun match per "${escHtml(S.ui.market)}"</p><p>Nessun pronostico attivo su questo mercato. Prova un altro o carica più CSV.</p></div>`;
-  main.innerHTML = buttons + marketFilters + `
-   <div class="sec"><h2><span class="ico">🎯</span>${escHtml(S.ui.market)}</h2><span class="ct">${list.length} match</span></div>
+main.innerHTML = buttons + marketFilters + timeFilters + `
+<div class="sec"><h2><span class="ico">🎯</span>${escHtml(S.ui.market)}</h2><span class="ct">${list.length} match</span></div>
    ${body}`;
   return;
  }
@@ -4017,10 +4284,31 @@ function bindEvents(){
   if(t.tagName==='INPUT' && t.type==='file' && t.dataset.target) handleFileUpload(t);
   if(t.id==='afterLossSel'){ S.bankroll.afterLossActive = t.value==='true'; schedulePersist(); runDecisionEngine(); render(); }
   if(t.id==='histStat'){ S.ui.histFilter = t.value; schedulePersist(); render(); }
- });
+ if(t.id==='timePresetSel'){
+  S.ui.timePreset = t.value || 'all';
+  schedulePersist();
+  if(S.ui.tab==='oggi') renderOggi(); else render();
+}
+if(t.id==='timeFromInp'){
+  S.ui.timeFrom = t.value || '';
+  schedulePersist();
+  if(S.ui.tab==='oggi') renderOggi(); else render();
+}
+if(t.id==='timeToInp'){
+  S.ui.timeTo = t.value || '';
+  schedulePersist();
+  if(S.ui.tab==='oggi') renderOggi(); else render();
+}});
 
  document.body.addEventListener('click', e => {
-  const tgt = e.target;
+  const tgt = e.target;if(tgt.id==='timeResetBtn'){
+  S.ui.timePreset = 'all';
+  S.ui.timeFrom = '';
+  S.ui.timeTo = '';
+  schedulePersist();
+  if(S.ui.tab==='oggi') renderOggi(); else render();
+  return;
+}
   // Badge info con dati reali della pick
   const badge = tgt.closest('[data-badge]');
   if(badge){
