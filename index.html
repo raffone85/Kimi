@@ -3490,16 +3490,18 @@ main.innerHTML = buttons + marketFilters + timeFilters + `
   return;
  }
 
- if(S.ui.view==='singola'){
+if(S.ui.view==='singola'){
   const res = genSingola(o.allMatches);
-const list = filterByTime(res.list);
-const body = list.length ? `<div class="cards">${list.map(r => renderCardCompact(r)).join('')}</div>` : `...`;
-   <div class="empty"><div class="ico">🎯</div><p class="title">Nessuna singola disponibile</p><p>Nessun match nel range 1.50-1.80 con segnali sufficienti. Carica più CSV (DataMining + Differenziali) per aumentare le opzioni.</p></div>`;
-  main.innerHTML = buttons + marketFilters + modeBanner(res.mode) + `
+  const list = filterByTime(res.list);
+  const body = list.length
+    ? `<div class="cards">${list.map(r => renderCardCompact(r)).join('')}</div>`
+    : `<div class="empty"><div class="ico">🎯</div><p class="title">Nessuna singola disponibile</p><p>Nessun match nel range 1.50-1.80 con segnali sufficienti. Carica più CSV (DataMining + Differenziali) per aumentare le opzioni.</p></div>`;
+
+  main.innerHTML = buttons + marketFilters + timeFilters + modeBanner(res.mode) + `
    <div class="sec"><h2><span class="ico">🎯</span>Singola</h2><span class="ct">${list.length} match · 1.50-1.80</span></div>
    ${body}`;
   return;
- }
+}
 
  if(S.ui.view==='tripla'){
   const res = genTriplaRaddoppio(o.allMatches);
@@ -3542,21 +3544,24 @@ const body = list.length ? `<div class="cards">${list.map(r => renderCardCompact
   return;
  }
 
- if(S.ui.view==='value'){
- const res = genValueBets(o.allMatches);
-const list = filterByTime(res.list);
-const body = list.length ? `<div class="cards">${list.map(r => renderCardCompact(r)).join('')}</div>` : `...`;
-   <div class="empty"><div class="ico">💎</div><p class="title">Nessun value bet</p><p>Nessun match con edge ≥ 5% e NP ≥ 15. Serve il CSV Quote Valore 1X2 + DataMining Plus.</p></div>`;
-  main.innerHTML = buttons + marketFilters + modeBanner(res.mode) + `
+if(S.ui.view==='value'){
+  const res = genValueBets(o.allMatches);
+  const list = filterByTime(res.list);
+  const body = list.length
+    ? `<div class="cards">${list.map(r => renderCardCompact(r)).join('')}</div>`
+    : `<div class="empty"><div class="ico">💎</div><p class="title">Nessun value bet</p><p>Nessun match con edge ≥ 5% e NP ≥ 15. Serve il CSV Quote Valore 1X2 + DataMining Plus.</p></div>`;
+
+  main.innerHTML = buttons + marketFilters + timeFilters + modeBanner(res.mode) + `
    <div class="sec"><h2><span class="ico">💎</span>Value bets</h2><span class="ct">${list.length} match · edge ≥ 5%</span></div>
    ${body}`;
   return;
- }
+}
 
  if(S.ui.view==='tutte'){
   const all = getAllMatches(o.allMatches);
   const q = (S.ui.q||'').toLowerCase();
-  const filtered = q ? all.filter(r => (r.match+' '+r.market+' '+(r.lega||'')).toLowerCase().includes(q)) : all;
+  const base = q ? all.filter(r => (r.match+' '+r.market+' '+(r.lega||'')).toLowerCase().includes(q)) : all;
+const filtered = filterByTime(base);
 main.innerHTML = buttons + marketFilters + timeFilters + `
    <div class="sec"><h2><span class="ico">📋</span>Tutte le partite</h2><span class="ct">${filtered.length} / ${all.length}</span></div>
    <div class="toolbar"><input class="search" id="allSearch" placeholder="🔍 Cerca match, mercato, lega..." value="${escHtml(S.ui.q||'')}"></div>
@@ -3565,8 +3570,8 @@ main.innerHTML = buttons + marketFilters + timeFilters + `
  }
 
  if(S.ui.view==='mercato' && S.ui.market){
-  const list = filterByMarket(o.allMatches, S.ui.market, 30);
-  const body = list.length ? `<div class="cards">${list.map(r => renderCardCompact(r)).join('')}</div>` : `
+const list = filterByTime(filterByMarket(o.allMatches, S.ui.market, 30));
+   const body = list.length ? `<div class="cards">${list.map(r => renderCardCompact(r)).join('')}</div>` : `
    <div class="empty"><div class="ico">🎯</div><p class="title">Nessun match per "${escHtml(S.ui.market)}"</p><p>Nessun pronostico attivo su questo mercato. Prova un altro o carica più CSV.</p></div>`;
 main.innerHTML = buttons + marketFilters + timeFilters + `
 <div class="sec"><h2><span class="ico">🎯</span>${escHtml(S.ui.market)}</h2><span class="ct">${list.length} match</span></div>
